@@ -1,0 +1,724 @@
+{
+  "formatId": "stgen-dxf-undo-v1",
+  "version": "1.0",
+  "fileHash": "-7d778cd4",
+  "lastModified": 1767797483842,
+  "undoStack": [
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796876945,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PLATE",
+            "data": {
+              "vertices": [
+                {
+                  "x": 0,
+                  "y": 300
+                },
+                {
+                  "x": 250,
+                  "y": 300
+                },
+                {
+                  "x": 250,
+                  "y": 500
+                },
+                {
+                  "x": 0,
+                  "y": 500
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          80
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796876967,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PLATE",
+            "data": {
+              "vertices": [
+                {
+                  "x": 0,
+                  "y": 510
+                },
+                {
+                  "x": 250,
+                  "y": 510
+                },
+                {
+                  "x": 250,
+                  "y": 710
+                },
+                {
+                  "x": 0,
+                  "y": 710
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          81
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796876991,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "BOLT",
+            "data": {
+              "center": {
+                "x": 50,
+                "y": 340
+              },
+              "radius": 5
+            }
+          }
+        ],
+        "indices": [
+          82
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796877039,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "BOLT",
+            "data": {
+              "center": {
+                "x": 200,
+                "y": 340
+              },
+              "radius": 5
+            }
+          }
+        ],
+        "indices": [
+          83
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796877145,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "BOLT",
+            "data": {
+              "center": {
+                "x": 50,
+                "y": 400
+              },
+              "radius": 5
+            }
+          }
+        ],
+        "indices": [
+          84
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796877210,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "BOLT",
+            "data": {
+              "center": {
+                "x": 200,
+                "y": 400
+              },
+              "radius": 5
+            }
+          }
+        ],
+        "indices": [
+          85
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796877286,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "BOLT",
+            "data": {
+              "center": {
+                "x": 50,
+                "y": 460
+              },
+              "radius": 5
+            }
+          }
+        ],
+        "indices": [
+          86
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796877338,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "BOLT",
+            "data": {
+              "center": {
+                "x": 200,
+                "y": 460
+              },
+              "radius": 5
+            }
+          }
+        ],
+        "indices": [
+          87
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796877439,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "BOLT",
+            "data": {
+              "center": {
+                "x": 50,
+                "y": 550
+              },
+              "radius": 5
+            }
+          }
+        ],
+        "indices": [
+          88
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796877549,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "BOLT",
+            "data": {
+              "center": {
+                "x": 200,
+                "y": 550
+              },
+              "radius": 5
+            }
+          }
+        ],
+        "indices": [
+          89
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796877602,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "BOLT",
+            "data": {
+              "center": {
+                "x": 50,
+                "y": 610
+              },
+              "radius": 5
+            }
+          }
+        ],
+        "indices": [
+          90
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796877690,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "BOLT",
+            "data": {
+              "center": {
+                "x": 200,
+                "y": 610
+              },
+              "radius": 5
+            }
+          }
+        ],
+        "indices": [
+          91
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767796877792,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "BOLT",
+            "data": {
+              "center": {
+                "x": 200,
+                "y": 670
+              },
+              "radius": 11
+            }
+          }
+        ],
+        "indices": [
+          92
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797467563,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "S-BEAM-CUT",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": 0
+              },
+              "end": {
+                "x": 0,
+                "y": 1000
+              }
+            }
+          }
+        ],
+        "indices": [
+          60
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797467916,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "S-BEAM-CUT",
+            "data": {
+              "start": {
+                "x": 250,
+                "y": 0
+              },
+              "end": {
+                "x": 250,
+                "y": 1000
+              }
+            }
+          }
+        ],
+        "indices": [
+          61
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797468494,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "S-MISC-HID",
+            "data": {
+              "start": {
+                "x": 120.5,
+                "y": 0
+              },
+              "end": {
+                "x": 120.5,
+                "y": 1000
+              }
+            }
+          }
+        ],
+        "indices": [
+          62
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797468932,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "S-MISC-HID",
+            "data": {
+              "start": {
+                "x": 129.5,
+                "y": 0
+              },
+              "end": {
+                "x": 129.5,
+                "y": 1000
+              }
+            }
+          }
+        ],
+        "indices": [
+          63
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797469017,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "S-GRID-CTR",
+            "data": {
+              "start": {
+                "x": 125,
+                "y": -50
+              },
+              "end": {
+                "x": 125,
+                "y": 1050
+              }
+            }
+          }
+        ],
+        "indices": [
+          64
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797477154,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "S-BOLT-STD",
+            "data": {
+              "center": {
+                "x": 95,
+                "y": 380
+              },
+              "radius": 11
+            }
+          }
+        ],
+        "indices": [
+          65
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797477579,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "S-BOLT-STD",
+            "data": {
+              "center": {
+                "x": 155,
+                "y": 380
+              },
+              "radius": 11
+            }
+          }
+        ],
+        "indices": [
+          66
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797478140,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "S-BOLT-STD",
+            "data": {
+              "center": {
+                "x": 95,
+                "y": 440
+              },
+              "radius": 11
+            }
+          }
+        ],
+        "indices": [
+          67
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797478547,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "S-BOLT-STD",
+            "data": {
+              "center": {
+                "x": 155,
+                "y": 440
+              },
+              "radius": 11
+            }
+          }
+        ],
+        "indices": [
+          68
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797478954,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "S-BOLT-STD",
+            "data": {
+              "center": {
+                "x": 95,
+                "y": 500
+              },
+              "radius": 11
+            }
+          }
+        ],
+        "indices": [
+          69
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797479384,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "S-BOLT-STD",
+            "data": {
+              "center": {
+                "x": 155,
+                "y": 500
+              },
+              "radius": 11
+            }
+          }
+        ],
+        "indices": [
+          70
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797479848,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "S-BOLT-STD",
+            "data": {
+              "center": {
+                "x": 95,
+                "y": 560
+              },
+              "radius": 11
+            }
+          }
+        ],
+        "indices": [
+          71
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797480295,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "S-BOLT-STD",
+            "data": {
+              "center": {
+                "x": 155,
+                "y": 560
+              },
+              "radius": 11
+            }
+          }
+        ],
+        "indices": [
+          72
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797480923,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "S-BOLT-STD",
+            "data": {
+              "center": {
+                "x": 95,
+                "y": 620
+              },
+              "radius": 11
+            }
+          }
+        ],
+        "indices": [
+          73
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1767797481835,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "S-BOLT-STD",
+            "data": {
+              "center": {
+                "x": 155,
+                "y": 620
+              },
+              "radius": 11
+            }
+          }
+        ],
+        "indices": [
+          74
+        ]
+      }
+    }
+  ],
+  "redoStack": []
+}
