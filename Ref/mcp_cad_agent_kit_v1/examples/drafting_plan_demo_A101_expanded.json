@@ -1,0 +1,560 @@
+{
+  "version": "1.0",
+  "project": {
+    "name": "Demo Project",
+    "units": "mm"
+  },
+  "assumptions": [
+    "이 예시는 macro 없이 기본 op만으로 작성한 '실행 예제'이다.",
+    "벽 중심선이 아닌 외벽 외곽선을 입력으로 가정하여 내측으로 thickness 만큼 offset하여 내벽선을 만든다."
+  ],
+  "globals": {
+    "variables": {
+      "TEXT_H": 2.5,
+      "DIM_TEXT_H": 2.5
+    },
+    "plot_style": "monochrome.ctb",
+    "linetype_scale": {
+      "LTSCALE": 1.0,
+      "MSLTSCALE": 1,
+      "PSLTSCALE": 1
+    }
+  },
+  "drawings": [
+    {
+      "id": "A101",
+      "title": "1F FLOOR PLAN (DEMO EXPANDED)",
+      "discipline": "A",
+      "model": {
+        "origin": [
+          0,
+          0
+        ],
+        "ucs": "WCS"
+      },
+      "layers": [
+        {
+          "name": "A-WALL",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.25,
+          "plot": true
+        },
+        {
+          "name": "A-DOOR",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.25,
+          "plot": true
+        },
+        {
+          "name": "A-ANNO",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "A-DIMS",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "G-GRID",
+          "color": 8,
+          "linetype": "Center",
+          "lineweight_mm": 0.18,
+          "plot": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "TB_A1",
+          "source": "lib/titleblocks/TB_A1.dwg",
+          "unit": "mm",
+          "attributes": [
+            "SHEET_ID",
+            "SHEET_TITLE",
+            "SCALE"
+          ]
+        }
+      ],
+      "layout": {
+        "name": "A101",
+        "paper": "A1",
+        "orientation": "landscape",
+        "scale_policy": "model_1to1_layout_viewport",
+        "plot_style": "monochrome.ctb",
+        "title_block": "TB_A1",
+        "viewports": [
+          {
+            "id": "VP_MAIN",
+            "center": [
+              420,
+              297
+            ],
+            "size": [
+              760,
+              520
+            ],
+            "model_window": {
+              "min": [
+                -1000,
+                -1000
+              ],
+              "max": [
+                13000,
+                13000
+              ]
+            },
+            "scale": "1:100",
+            "lock": true,
+            "vp_freeze_layers": []
+          }
+        ]
+      },
+      "sequence": [
+        {
+          "op": "set_linetype_scale",
+          "args": {
+            "LTSCALE": 1.0,
+            "MSLTSCALE": 1,
+            "PSLTSCALE": 1
+          }
+        },
+        {
+          "op": "set_layer",
+          "args": {
+            "layer": "G-GRID"
+          }
+        },
+        {
+          "op": "line",
+          "id": "GX1",
+          "args": {
+            "p1": [
+              0,
+              -1000
+            ],
+            "p2": [
+              0,
+              13000
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "GX2",
+          "args": {
+            "p1": [
+              6000,
+              -1000
+            ],
+            "p2": [
+              6000,
+              13000
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "GX3",
+          "args": {
+            "p1": [
+              12000,
+              -1000
+            ],
+            "p2": [
+              12000,
+              13000
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "GY_A",
+          "args": {
+            "p1": [
+              -1000,
+              0
+            ],
+            "p2": [
+              13000,
+              0
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "GY_B",
+          "args": {
+            "p1": [
+              -1000,
+              6000
+            ],
+            "p2": [
+              13000,
+              6000
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "GY_C",
+          "args": {
+            "p1": [
+              -1000,
+              12000
+            ],
+            "p2": [
+              13000,
+              12000
+            ]
+          }
+        },
+        {
+          "op": "set_layer",
+          "args": {
+            "layer": "A-ANNO"
+          }
+        },
+        {
+          "op": "text",
+          "args": {
+            "at": [
+              0,
+              -1200
+            ],
+            "height": 2.5,
+            "value": "1"
+          }
+        },
+        {
+          "op": "text",
+          "args": {
+            "at": [
+              6000,
+              -1200
+            ],
+            "height": 2.5,
+            "value": "2"
+          }
+        },
+        {
+          "op": "text",
+          "args": {
+            "at": [
+              12000,
+              -1200
+            ],
+            "height": 2.5,
+            "value": "3"
+          }
+        },
+        {
+          "op": "text",
+          "args": {
+            "at": [
+              -1200,
+              0
+            ],
+            "height": 2.5,
+            "value": "A"
+          }
+        },
+        {
+          "op": "text",
+          "args": {
+            "at": [
+              -1200,
+              6000
+            ],
+            "height": 2.5,
+            "value": "B"
+          }
+        },
+        {
+          "op": "text",
+          "args": {
+            "at": [
+              -1200,
+              12000
+            ],
+            "height": 2.5,
+            "value": "C"
+          }
+        },
+        {
+          "op": "set_layer",
+          "args": {
+            "layer": "A-WALL"
+          }
+        },
+        {
+          "op": "line",
+          "id": "W_OUT_B1",
+          "args": {
+            "p1": [
+              0,
+              0
+            ],
+            "p2": [
+              5500,
+              0
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "W_OUT_B2",
+          "args": {
+            "p1": [
+              6500,
+              0
+            ],
+            "p2": [
+              12000,
+              0
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "W_OUT_R",
+          "args": {
+            "p1": [
+              12000,
+              0
+            ],
+            "p2": [
+              12000,
+              12000
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "W_OUT_T",
+          "args": {
+            "p1": [
+              12000,
+              12000
+            ],
+            "p2": [
+              0,
+              12000
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "W_OUT_L",
+          "args": {
+            "p1": [
+              0,
+              12000
+            ],
+            "p2": [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "W_IN_B1",
+          "args": {
+            "p1": [
+              200,
+              200
+            ],
+            "p2": [
+              5500,
+              200
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "W_IN_B2",
+          "args": {
+            "p1": [
+              6500,
+              200
+            ],
+            "p2": [
+              11800,
+              200
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "W_IN_R",
+          "args": {
+            "p1": [
+              11800,
+              200
+            ],
+            "p2": [
+              11800,
+              11800
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "W_IN_T",
+          "args": {
+            "p1": [
+              11800,
+              11800
+            ],
+            "p2": [
+              200,
+              11800
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "id": "W_IN_L",
+          "args": {
+            "p1": [
+              200,
+              11800
+            ],
+            "p2": [
+              200,
+              200
+            ]
+          }
+        },
+        {
+          "op": "set_layer",
+          "args": {
+            "layer": "A-DOOR"
+          }
+        },
+        {
+          "op": "line",
+          "args": {
+            "p1": [
+              5500,
+              0
+            ],
+            "p2": [
+              5500,
+              200
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "args": {
+            "p1": [
+              6500,
+              0
+            ],
+            "p2": [
+              6500,
+              200
+            ]
+          }
+        },
+        {
+          "op": "line",
+          "args": {
+            "p1": [
+              5500,
+              200
+            ],
+            "p2": [
+              6500,
+              200
+            ]
+          }
+        },
+        {
+          "op": "set_layer",
+          "args": {
+            "layer": "A-ANNO"
+          }
+        },
+        {
+          "op": "text",
+          "args": {
+            "at": [
+              6000,
+              6000
+            ],
+            "height": 2.5,
+            "value": "101  OFFICE",
+            "rotation_deg": 0
+          }
+        },
+        {
+          "op": "set_layer",
+          "args": {
+            "layer": "A-DIMS"
+          }
+        },
+        {
+          "op": "dim_linear",
+          "args": {
+            "p1": [
+              0,
+              0
+            ],
+            "p2": [
+              12000,
+              0
+            ],
+            "dim_line_at": [
+              0,
+              -800
+            ],
+            "style": "DIM_STD"
+          }
+        },
+        {
+          "op": "dim_linear",
+          "args": {
+            "p1": [
+              0,
+              0
+            ],
+            "p2": [
+              0,
+              12000
+            ],
+            "dim_line_at": [
+              -800,
+              0
+            ],
+            "style": "DIM_STD"
+          }
+        },
+        {
+          "op": "qa_check",
+          "args": {
+            "checks": [
+              "no_byobject_props",
+              "no_zero_length",
+              "viewport_locked"
+            ],
+            "fail_policy": "warn"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "format": "pdf",
+          "filename": "A101_demo_expanded.pdf"
+        }
+      ]
+    }
+  ]
+}

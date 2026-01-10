@@ -1,0 +1,48 @@
+{
+  "version": "stgen-plan-v2",
+  "meta": {
+    "drawing_type": "PATCH",
+    "units": "mm",
+    "title": "patch demo",
+    "target_dxf_path": "demo_patched.dxf",
+    "created_by": "PatchPlannerLLM",
+    "created_at": "2026-01-07"
+  },
+  "assumptions": [
+    "기존 placeholder(TBD) 텍스트를 'ROOM NAME TBD'로 구체화"
+  ],
+  "policy": {
+    "avoid_scale": true,
+    "layer_policy": "SET_CURRENT_LAYER",
+    "forbid_tools": []
+  },
+  "vars": {},
+  "sequence": [
+    {
+      "id": "01.find_tbd",
+      "tool": "find_entities",
+      "args": {
+        "type": "TEXT",
+        "layer": "Z-TBD"
+      },
+      "assign": "$tbd_texts",
+      "comment": "서버가 TEXT 검색을 지원한다는 가정"
+    },
+    {
+      "id": "02.replace",
+      "tool": "find_replace_text",
+      "args": {
+        "find": "TBD",
+        "replace": "ROOM NAME TBD"
+      },
+      "comment": "대상 범위를 제한할 필요가 있으면 bounds 추가"
+    },
+    {
+      "id": "99.save",
+      "tool": "save_dxf",
+      "args": {
+        "path": "demo_patched.dxf"
+      }
+    }
+  ]
+}

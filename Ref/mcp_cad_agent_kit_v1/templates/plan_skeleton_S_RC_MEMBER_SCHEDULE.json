@@ -1,0 +1,147 @@
+{
+  "version": "1.0",
+  "project": {
+    "name": "${project.name}",
+    "units": "${project.units}"
+  },
+  "assumptions": [
+    "철근 마크 블록 속성에서 스케줄을 생성한다.",
+    "스케줄 시트는 레이아웃 1:1(뷰포트 없이)로 작성한다."
+  ],
+  "globals": {
+    "variables": {
+      "TEXT_H": 2.5
+    },
+    "plot_style": "monochrome.ctb"
+  },
+  "drawings": [
+    {
+      "id": "S901",
+      "title": "REBAR SCHEDULE",
+      "discipline": "S",
+      "model": {
+        "origin": [
+          0,
+          0
+        ],
+        "ucs": "WCS"
+      },
+      "layers": [
+        {
+          "name": "S-TABLE",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "S-ANNO",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "TB_A3",
+          "source": "lib/titleblocks/TB_A3.dwg",
+          "unit": "mm",
+          "attributes": [
+            "SHEET_ID",
+            "SHEET_TITLE",
+            "SCALE"
+          ]
+        },
+        {
+          "name": "RBAR_MARK",
+          "source": "lib/rc/RBAR_MARK.dwg",
+          "unit": "mm",
+          "attributes": [
+            "MARK",
+            "DIA",
+            "SHAPE",
+            "COUNT",
+            "SPACING",
+            "NOTE"
+          ]
+        }
+      ],
+      "layout": {
+        "name": "S901",
+        "paper": "A3",
+        "orientation": "landscape",
+        "scale_policy": "layout_1to1_no_viewport",
+        "plot_style": "monochrome.ctb",
+        "title_block": "TB_A3",
+        "viewports": []
+      },
+      "sequence": [
+        {
+          "op": "macro:create_sheet_title_only",
+          "args": {
+            "layout_ref": "S901",
+            "insert_title_block": true,
+            "fill_title_block_attrs": {
+              "SHEET_ID": "S901",
+              "SHEET_TITLE": "REBAR SCHEDULE",
+              "SCALE": "NTS"
+            }
+          }
+        },
+        {
+          "op": "macro:build_table_from_block_attributes",
+          "args": {
+            "source_block": "RBAR_MARK",
+            "fields": [
+              "MARK",
+              "DIA",
+              "SHAPE",
+              "COUNT",
+              "SPACING",
+              "NOTE"
+            ],
+            "group_by": [
+              "MARK",
+              "DIA",
+              "SHAPE"
+            ],
+            "sort_by": [
+              "MARK"
+            ],
+            "table_layer": "S-TABLE",
+            "at": [
+              30,
+              60
+            ],
+            "column_widths": [
+              20,
+              15,
+              20,
+              12,
+              15,
+              80
+            ],
+            "row_height": 6
+          }
+        },
+        {
+          "op": "qa_check",
+          "args": {
+            "checks": [
+              "table_not_empty",
+              "no_overflow_outside_paper"
+            ],
+            "fail_policy": "warn"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "format": "pdf",
+          "filename": "S901.pdf"
+        }
+      ]
+    }
+  ]
+}

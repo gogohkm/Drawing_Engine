@@ -1,0 +1,102 @@
+{
+  "version": "stgen-plan-v2",
+  "meta": {
+    "drawing_type": "S_STEEL_CONNECTION_DETAIL",
+    "sheet_id": "S501",
+    "title": "TBD",
+    "units": "mm",
+    "target_dxf_path": "TBD.dxf",
+    "created_by": "PlannerLLM",
+    "created_at": "2026-01-07"
+  },
+  "assumptions": [
+    "TODO: 필요한 누락값은 assumptions에 기록"
+  ],
+  "policy": {
+    "avoid_scale": true,
+    "layer_policy": "SET_CURRENT_LAYER",
+    "forbid_tools": []
+  },
+  "vars": {
+    "extents": {
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        12000,
+        8000
+      ]
+    }
+  },
+  "sequence": [
+    {
+      "id": "00.status",
+      "tool": "get_dxf_summary",
+      "args": {}
+    },
+    {
+      "id": "01.layers",
+      "macro": "macro:setup_layers",
+      "args": {
+        "layers": [
+          {
+            "name": "S-STEEL",
+            "aci": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "S-DIM",
+            "aci": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "S-NOTE",
+            "aci": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "Z-TBD",
+            "aci": 1,
+            "linetype": "DASHED",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "10.conn",
+      "macro": "macro:steel_connection_detail",
+      "args": {
+        "layer": "S-STEEL",
+        "note_layer": "S-NOTE",
+        "at_point": [
+          0,
+          0
+        ],
+        "plate_w": 200,
+        "plate_h": 300,
+        "bolt_pitch": 80,
+        "bolt_rows": 3,
+        "bolt_cols": 2,
+        "bolt_r": 10,
+        "note": "SHEAR TAB (TBD)"
+      }
+    },
+    {
+      "id": "90.qa",
+      "macro": "macro:qa_snapshot",
+      "args": {}
+    },
+    {
+      "id": "99.save",
+      "macro": "macro:fit_and_save",
+      "args": {
+        "path": "S501_conn_out.dxf"
+      }
+    }
+  ]
+}

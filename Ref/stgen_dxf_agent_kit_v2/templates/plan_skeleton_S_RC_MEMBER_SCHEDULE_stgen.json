@@ -1,0 +1,101 @@
+{
+  "version": "stgen_plan_v1",
+  "plan_id": "S701_RC_MEMBER_SCHEDULE_TEMPLATE",
+  "units": "mm",
+  "meta": {
+    "discipline": "S",
+    "drawing_type": "RC_MEMBER_SCHEDULE"
+  },
+  "variables": {
+    "table_insert": [
+      0,
+      0
+    ],
+    "columns": [
+      {
+        "title": "부재",
+        "width": 1200
+      },
+      {
+        "title": "규격",
+        "width": 1200
+      },
+      {
+        "title": "주근",
+        "width": 1600
+      },
+      {
+        "title": "스터럽/띠철근",
+        "width": 1800
+      },
+      {
+        "title": "비고",
+        "width": 1800
+      }
+    ],
+    "rows": [
+      {
+        "cells": [
+          "C1",
+          "400x400",
+          "8-D22",
+          "D10@100",
+          ""
+        ]
+      },
+      {
+        "cells": [
+          "B1",
+          "300x600",
+          "4-D22",
+          "D10@150",
+          "END HOOK"
+        ]
+      }
+    ],
+    "output_path": "S701_output.dxf"
+  },
+  "steps": [
+    {
+      "id": "setup_001",
+      "macro": "macro:setup_layers",
+      "args": {
+        "layers": [
+          {
+            "name": "S-TABLE",
+            "color": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "table_010",
+      "macro": "macro:member_schedule_table",
+      "args": {
+        "layer": "S-TABLE",
+        "insert": {
+          "$var": "table_insert"
+        },
+        "columns": {
+          "$var": "columns"
+        },
+        "rows": {
+          "$var": "rows"
+        },
+        "row_height": 250,
+        "text_height": 150
+      }
+    },
+    {
+      "id": "save_099",
+      "macro": "macro:fit_and_save",
+      "args": {
+        "save_as": {
+          "$var": "output_path"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,502 @@
+{
+  "version": "stgen-plan-v2",
+  "meta": {
+    "drawing_type": "A_FLOOR_PLAN",
+    "sheet_id": "A101",
+    "title": "DEMO A101",
+    "units": "mm",
+    "target_dxf_path": "demo_A101_out.dxf",
+    "created_by": "PlannerLLM",
+    "created_at": "2026-01-07"
+  },
+  "assumptions": [
+    "TODO: 필요한 누락값은 assumptions에 기록"
+  ],
+  "policy": {
+    "avoid_scale": true,
+    "layer_policy": "SET_CURRENT_LAYER",
+    "forbid_tools": []
+  },
+  "vars": {
+    "extents": {
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        12000,
+        8000
+      ]
+    }
+  },
+  "sequence": [
+    {
+      "id": "00.status",
+      "tool": "get_dxf_summary",
+      "args": {}
+    },
+    {
+      "id": "01.layers.L1",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-GRID",
+        "aci": 7,
+        "linetype": "CENTER",
+        "visible": true
+      },
+      "comment": "create_layer(name,color,linetype...)"
+    },
+    {
+      "id": "01.layers.L2",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-WALL",
+        "aci": 7,
+        "linetype": "CONTINUOUS",
+        "visible": true
+      },
+      "comment": "create_layer(name,color,linetype...)"
+    },
+    {
+      "id": "01.layers.L3",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-DOOR",
+        "aci": 7,
+        "linetype": "CONTINUOUS",
+        "visible": true
+      },
+      "comment": "create_layer(name,color,linetype...)"
+    },
+    {
+      "id": "01.layers.L4",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-WINDOW",
+        "aci": 7,
+        "linetype": "CONTINUOUS",
+        "visible": true
+      },
+      "comment": "create_layer(name,color,linetype...)"
+    },
+    {
+      "id": "01.layers.L5",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-TEXT",
+        "aci": 7,
+        "linetype": "CONTINUOUS",
+        "visible": true
+      },
+      "comment": "create_layer(name,color,linetype...)"
+    },
+    {
+      "id": "01.layers.L6",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-DIM",
+        "aci": 7,
+        "linetype": "CONTINUOUS",
+        "visible": true
+      },
+      "comment": "create_layer(name,color,linetype...)"
+    },
+    {
+      "id": "01.layers.L7",
+      "tool": "create_layer",
+      "args": {
+        "name": "Z-TBD",
+        "aci": 1,
+        "linetype": "DASHED",
+        "visible": true
+      },
+      "comment": "create_layer(name,color,linetype...)"
+    },
+    {
+      "id": "02.grid.SCL",
+      "tool": "set_current_layer",
+      "args": {
+        "name": "A-GRID"
+      }
+    },
+    {
+      "id": "02.grid.X1.L",
+      "tool": "create_line",
+      "args": {
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          0,
+          8000
+        ]
+      }
+    },
+    {
+      "id": "02.grid.X1.B",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          0,
+          8300
+        ],
+        "radius": 150
+      }
+    },
+    {
+      "id": "02.grid.X1.T",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          0,
+          8300
+        ],
+        "height": 250,
+        "text": "1",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "02.grid.X2.L",
+      "tool": "create_line",
+      "args": {
+        "start": [
+          6000,
+          0
+        ],
+        "end": [
+          6000,
+          8000
+        ]
+      }
+    },
+    {
+      "id": "02.grid.X2.B",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          6000,
+          8300
+        ],
+        "radius": 150
+      }
+    },
+    {
+      "id": "02.grid.X2.T",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          6000,
+          8300
+        ],
+        "height": 250,
+        "text": "2",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "02.grid.X3.L",
+      "tool": "create_line",
+      "args": {
+        "start": [
+          12000,
+          0
+        ],
+        "end": [
+          12000,
+          8000
+        ]
+      }
+    },
+    {
+      "id": "02.grid.X3.B",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          12000,
+          8300
+        ],
+        "radius": 150
+      }
+    },
+    {
+      "id": "02.grid.X3.T",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          12000,
+          8300
+        ],
+        "height": 250,
+        "text": "3",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "02.grid.Y1.L",
+      "tool": "create_line",
+      "args": {
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          12000,
+          0
+        ]
+      }
+    },
+    {
+      "id": "02.grid.Y1.B",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          -300,
+          0
+        ],
+        "radius": 150
+      }
+    },
+    {
+      "id": "02.grid.Y1.T",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          -300,
+          0
+        ],
+        "height": 250,
+        "text": "A",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "02.grid.Y2.L",
+      "tool": "create_line",
+      "args": {
+        "start": [
+          0,
+          4000
+        ],
+        "end": [
+          12000,
+          4000
+        ]
+      }
+    },
+    {
+      "id": "02.grid.Y2.B",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          -300,
+          4000
+        ],
+        "radius": 150
+      }
+    },
+    {
+      "id": "02.grid.Y2.T",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          -300,
+          4000
+        ],
+        "height": 250,
+        "text": "B",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "02.grid.Y3.L",
+      "tool": "create_line",
+      "args": {
+        "start": [
+          0,
+          8000
+        ],
+        "end": [
+          12000,
+          8000
+        ]
+      }
+    },
+    {
+      "id": "02.grid.Y3.B",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          -300,
+          8000
+        ],
+        "radius": 150
+      }
+    },
+    {
+      "id": "02.grid.Y3.T",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          -300,
+          8000
+        ],
+        "height": 250,
+        "text": "C",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "03.walls.SCL",
+      "tool": "set_current_layer",
+      "args": {
+        "name": "A-WALL"
+      }
+    },
+    {
+      "id": "03.walls.W1.BND",
+      "tool": "create_polyline",
+      "args": {
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            12000,
+            0
+          ],
+          [
+            12000,
+            8000
+          ],
+          [
+            0,
+            8000
+          ]
+        ],
+        "closed": true
+      },
+      "comment": "wall W1"
+    },
+    {
+      "id": "04.openings.OP1.SCL",
+      "tool": "set_current_layer",
+      "args": {
+        "name": "A-DOOR"
+      }
+    },
+    {
+      "id": "04.openings.OP1.DL",
+      "tool": "create_line",
+      "args": {
+        "start": [
+          -450.0,
+          2000.0
+        ],
+        "end": [
+          450.0,
+          2000.0
+        ]
+      }
+    },
+    {
+      "id": "04.openings.OP1.DA",
+      "tool": "create_arc",
+      "args": {
+        "center": [
+          -450.0,
+          2000.0
+        ],
+        "radius": 900.0,
+        "start_angle_deg": 0.0,
+        "end_angle_deg": 90.0
+      }
+    },
+    {
+      "id": "05.rooms.SCL",
+      "tool": "set_current_layer",
+      "args": {
+        "name": "A-TEXT"
+      }
+    },
+    {
+      "id": "05.rooms.R1",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          6000,
+          4000
+        ],
+        "height": 250.0,
+        "text": "ROOM\\nA=96.00",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "06.dims.SCL",
+      "tool": "set_current_layer",
+      "args": {
+        "name": "A-DIM"
+      }
+    },
+    {
+      "id": "06.dims.D1",
+      "tool": "create_dimension",
+      "args": {
+        "p1": [
+          0,
+          0
+        ],
+        "p2": [
+          12000,
+          0
+        ],
+        "type": "ALIGNED",
+        "offset": 600
+      }
+    },
+    {
+      "id": "06.dims.D2",
+      "tool": "create_dimension",
+      "args": {
+        "p1": [
+          0,
+          0
+        ],
+        "p2": [
+          0,
+          8000
+        ],
+        "type": "ALIGNED",
+        "offset": 600
+      }
+    },
+    {
+      "id": "90.qa.ZE",
+      "tool": "zoom_extents",
+      "args": {}
+    },
+    {
+      "id": "90.qa.CAP",
+      "tool": "capture_dxf_view",
+      "args": {
+        "format": "png_base64"
+      },
+      "assign": "$snapshot"
+    },
+    {
+      "id": "99.save.ZE",
+      "tool": "zoom_extents",
+      "args": {}
+    },
+    {
+      "id": "99.save.SAVE",
+      "tool": "save_dxf",
+      "args": {
+        "path": "demo_A101_out.dxf"
+      }
+    }
+  ]
+}

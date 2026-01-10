@@ -1,0 +1,123 @@
+{
+  "version": "stgen_plan_v1",
+  "plan_id": "S601_RC_REBAR_DETAIL_TEMPLATE",
+  "units": "mm",
+  "meta": {
+    "discipline": "S",
+    "drawing_type": "RC_REBAR_DETAIL"
+  },
+  "assumptions": [
+    "콘크리트 외곽/피복 등은 입력값이 없으면 일반값으로 가정한다."
+  ],
+  "variables": {
+    "conc_rect": {
+      "p1": [
+        0,
+        0
+      ],
+      "p2": [
+        3000,
+        500
+      ]
+    },
+    "bars": [
+      {
+        "path": [
+          [
+            200,
+            100
+          ],
+          [
+            2800,
+            100
+          ]
+        ],
+        "bar_dia": "D16",
+        "note": "@200"
+      },
+      {
+        "path": [
+          [
+            200,
+            400
+          ],
+          [
+            2800,
+            400
+          ]
+        ],
+        "bar_dia": "D16",
+        "note": "@200"
+      }
+    ],
+    "output_path": "S601_output.dxf"
+  },
+  "steps": [
+    {
+      "id": "setup_001",
+      "macro": "macro:setup_layers",
+      "args": {
+        "layers": [
+          {
+            "name": "S-CONC",
+            "color": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "S-REBAR",
+            "color": 1,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "S-TEXT",
+            "color": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "S-DIMS",
+            "color": 2,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "conc_010",
+      "tool": "set_current_layer",
+      "args": {
+        "layer": "S-CONC"
+      }
+    },
+    {
+      "id": "conc_011",
+      "tool": "create_rectangle",
+      "args": {
+        "$var": "conc_rect"
+      }
+    },
+    {
+      "id": "rebar_020",
+      "macro": "macro:rc_rebar_detail",
+      "args": {
+        "layer": "S-REBAR",
+        "bars": {
+          "$var": "bars"
+        },
+        "text_height": 120
+      }
+    },
+    {
+      "id": "save_099",
+      "macro": "macro:fit_and_save",
+      "args": {
+        "save_as": {
+          "$var": "output_path"
+        }
+      }
+    }
+  ]
+}

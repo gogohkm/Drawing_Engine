@@ -1,0 +1,27 @@
+{
+  "version": "args-map-v1",
+  "description": "예시: create_text의 insert 키를 position으로 변경",
+  "global": {
+    "rename": {},
+    "drop": [],
+    "add": {}
+  },
+  "tools": {
+    "create_text": {
+      "rename": {
+        "insert": "position"
+      }
+    },
+    "create_leader": {
+      "rename": {
+        "text": "label"
+      }
+    },
+    "create_dimension": {
+      "rename": {
+        "p1": "start",
+        "p2": "end"
+      }
+    }
+  }
+}

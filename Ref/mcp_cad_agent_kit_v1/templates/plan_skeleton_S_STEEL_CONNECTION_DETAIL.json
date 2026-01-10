@@ -1,0 +1,205 @@
+{
+  "version": "1.0",
+  "project": {
+    "name": "${project.name}",
+    "units": "${project.units}"
+  },
+  "assumptions": [
+    "접합부 상세는 확대 뷰포트에서 치수를 우선 배치한다(간섭 최소화).",
+    "볼트/용접 기호는 블록/기호 라이브러리를 사용한다."
+  ],
+  "globals": {
+    "variables": {
+      "TEXT_H": 2.5,
+      "DIM_TEXT_H": 2.5
+    },
+    "plot_style": "monochrome.ctb"
+  },
+  "drawings": [
+    {
+      "id": "S401",
+      "title": "STEEL CONNECTION DETAIL",
+      "discipline": "S",
+      "model": {
+        "origin": [
+          0,
+          0
+        ],
+        "ucs": "WCS"
+      },
+      "layers": [
+        {
+          "name": "S-STEEL",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.25,
+          "plot": true
+        },
+        {
+          "name": "S-BOLT",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "S-WELD",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "S-ANNO",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "S-DIMS",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "Z-TBD",
+          "color": 1,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "TB_A3",
+          "source": "lib/titleblocks/TB_A3.dwg",
+          "unit": "mm",
+          "attributes": [
+            "SHEET_ID",
+            "SHEET_TITLE",
+            "SCALE"
+          ]
+        },
+        {
+          "name": "BOLT_SYMBOL",
+          "source": "lib/steel/BOLT_SYMBOL.dwg",
+          "unit": "mm",
+          "attributes": [
+            "DIA",
+            "GRADE"
+          ]
+        },
+        {
+          "name": "WELD_SYMBOL",
+          "source": "lib/steel/WELD_SYMBOL.dwg",
+          "unit": "mm",
+          "attributes": [
+            "TYPE",
+            "SIZE",
+            "NOTE"
+          ]
+        }
+      ],
+      "layout": {
+        "name": "S401",
+        "paper": "A3",
+        "orientation": "landscape",
+        "scale_policy": "model_1to1_layout_viewport",
+        "plot_style": "monochrome.ctb",
+        "title_block": "TB_A3",
+        "viewports": [
+          {
+            "id": "VP_CONN",
+            "center": [
+              148,
+              105
+            ],
+            "size": [
+              250,
+              160
+            ],
+            "model_window": {
+              "min": [
+                5000,
+                -2000
+              ],
+              "max": [
+                7000,
+                2000
+              ]
+            },
+            "scale": "1:10",
+            "lock": true,
+            "vp_freeze_layers": []
+          }
+        ]
+      },
+      "sequence": [
+        {
+          "op": "macro:draw_steel_members",
+          "args": {
+            "member_ids": [
+              "S1",
+              "S2"
+            ],
+            "from_design_input": true,
+            "layer": "S-STEEL",
+            "tbd_layer": "Z-TBD"
+          }
+        },
+        {
+          "op": "macro:draw_connection_detail",
+          "args": {
+            "connection_id": "CN1",
+            "from_design_input": true,
+            "steel_layer": "S-STEEL",
+            "bolt_layer": "S-BOLT",
+            "weld_layer": "S-WELD",
+            "anno_layer": "S-ANNO",
+            "bolt_block": "BOLT_SYMBOL",
+            "weld_block": "WELD_SYMBOL",
+            "tbd_layer": "Z-TBD"
+          }
+        },
+        {
+          "op": "macro:add_connection_dimensions",
+          "args": {
+            "layer": "S-DIMS",
+            "dim_text_height_var": "DIM_TEXT_H"
+          }
+        },
+        {
+          "op": "macro:create_sheet_with_viewport",
+          "args": {
+            "layout_ref": "S401",
+            "insert_title_block": true,
+            "fill_title_block_attrs": {
+              "SHEET_ID": "S401",
+              "SHEET_TITLE": "STEEL CONNECTION DETAIL",
+              "SCALE": "1:10"
+            }
+          }
+        },
+        {
+          "op": "qa_check",
+          "args": {
+            "checks": [
+              "no_byobject_props",
+              "no_zero_length",
+              "viewport_locked"
+            ],
+            "fail_policy": "warn"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "format": "pdf",
+          "filename": "S401.pdf"
+        }
+      ]
+    }
+  ]
+}

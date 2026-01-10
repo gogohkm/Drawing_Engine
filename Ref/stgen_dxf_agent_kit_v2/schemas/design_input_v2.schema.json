@@ -1,0 +1,716 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/design_input_v2.schema.json",
+  "title": "DesignInputV2",
+  "type": "object",
+  "required": [
+    "project",
+    "drawing_request"
+  ],
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": [
+        "name",
+        "units"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "mm",
+            "cm",
+            "m",
+            "inch",
+            "ft"
+          ]
+        },
+        "author": {
+          "type": "string"
+        },
+        "origin": {
+          "$ref": "#/$defs/point2d"
+        },
+        "tolerance": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "drawing_request": {
+      "type": "object",
+      "required": [
+        "discipline",
+        "drawing_type"
+      ],
+      "properties": {
+        "discipline": {
+          "type": "string",
+          "enum": [
+            "A",
+            "S",
+            "M",
+            "E",
+            "P",
+            "C",
+            "GEN"
+          ]
+        },
+        "drawing_type": {
+          "type": "string"
+        },
+        "sheet_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "notes_language": {
+          "type": "string",
+          "enum": [
+            "ko",
+            "en"
+          ],
+          "default": "ko"
+        },
+        "target_paper": {
+          "type": "string",
+          "enum": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "B0",
+            "B1"
+          ],
+          "default": "A1"
+        },
+        "target_scale": {
+          "type": "string",
+          "description": "e.g. 1:100, 1:50"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "A_separate_dxf_per_sheet",
+            "B_modelspace_sheet_regions"
+          ],
+          "default": "A_separate_dxf_per_sheet"
+        }
+      },
+      "additionalProperties": true
+    },
+    "grids": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "coord",
+              "label"
+            ],
+            "properties": {
+              "coord": {
+                "type": "number"
+              },
+              "label": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "y": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "coord",
+              "label"
+            ],
+            "properties": {
+              "coord": {
+                "type": "number"
+              },
+              "label": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "bubble_radius": {
+          "type": "number",
+          "minimum": 0
+        },
+        "extend": {
+          "type": "number",
+          "minimum": 0,
+          "description": "gridline extension beyond building bounds"
+        }
+      },
+      "additionalProperties": true
+    },
+    "levels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "elevation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "elevation": {
+            "type": "number",
+            "description": "elevation in project units"
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "architecture": {
+      "type": "object",
+      "properties": {
+        "walls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "path",
+              "thickness"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "path": {
+                "$ref": "#/$defs/polyline2d"
+              },
+              "thickness": {
+                "type": "number",
+                "minimum": 0
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "exterior",
+                  "interior",
+                  "core",
+                  "partition"
+                ],
+                "default": "interior"
+              },
+              "layer": {
+                "type": "string"
+              },
+              "linetype": {
+                "type": "string"
+              },
+              "color": {
+                "type": "integer"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "openings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "kind",
+              "insert",
+              "width"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "door",
+                  "window",
+                  "opening"
+                ]
+              },
+              "insert": {
+                "$ref": "#/$defs/point2d"
+              },
+              "width": {
+                "type": "number",
+                "minimum": 0
+              },
+              "height": {
+                "type": "number",
+                "minimum": 0
+              },
+              "wall_id": {
+                "type": "string"
+              },
+              "rotation_deg": {
+                "type": "number"
+              },
+              "swing": {
+                "type": "string",
+                "enum": [
+                  "L",
+                  "R",
+                  "N"
+                ],
+                "default": "N"
+              },
+              "block_name": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "rooms": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "label_point"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "label_point": {
+                "$ref": "#/$defs/point2d"
+              },
+              "area": {
+                "type": "number"
+              },
+              "floor_finish": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "structure": {
+      "type": "object",
+      "properties": {
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "center"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "center": {
+                "$ref": "#/$defs/point2d"
+              },
+              "shape": {
+                "type": "string",
+                "enum": [
+                  "rect",
+                  "circle",
+                  "h",
+                  "tube",
+                  "other"
+                ],
+                "default": "rect"
+              },
+              "size": {
+                "type": "object",
+                "properties": {
+                  "b": {
+                    "type": "number"
+                  },
+                  "h": {
+                    "type": "number"
+                  },
+                  "d": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "material": {
+                "type": "string",
+                "enum": [
+                  "RC",
+                  "Steel",
+                  "Timber",
+                  "Masonry",
+                  "Other"
+                ],
+                "default": "RC"
+              },
+              "label": {
+                "type": "string"
+              },
+              "layer": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "beams": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "start",
+              "end"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "start": {
+                "$ref": "#/$defs/point2d"
+              },
+              "end": {
+                "$ref": "#/$defs/point2d"
+              },
+              "material": {
+                "type": "string",
+                "enum": [
+                  "RC",
+                  "Steel",
+                  "Other"
+                ],
+                "default": "RC"
+              },
+              "label": {
+                "type": "string"
+              },
+              "layer": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "steel": {
+      "type": "object",
+      "properties": {
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "start",
+              "end",
+              "section"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "start": {
+                "$ref": "#/$defs/point2d"
+              },
+              "end": {
+                "$ref": "#/$defs/point2d"
+              },
+              "section": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "layer": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "connections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "kind",
+              "at_point"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "beam_to_column",
+                  "brace_gusset",
+                  "splice",
+                  "baseplate",
+                  "other"
+                ]
+              },
+              "at_point": {
+                "$ref": "#/$defs/point2d"
+              },
+              "bolts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "pattern",
+                    "diameter"
+                  ],
+                  "properties": {
+                    "pattern": {
+                      "type": "object",
+                      "required": [
+                        "rows",
+                        "cols",
+                        "pitch_x",
+                        "pitch_y"
+                      ],
+                      "properties": {
+                        "rows": {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        "cols": {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        "pitch_x": {
+                          "type": "number"
+                        },
+                        "pitch_y": {
+                          "type": "number"
+                        },
+                        "origin": {
+                          "$ref": "#/$defs/point2d"
+                        }
+                      },
+                      "additionalProperties": true
+                    },
+                    "diameter": {
+                      "type": "number"
+                    },
+                    "hole_diameter": {
+                      "type": "number"
+                    },
+                    "grade": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              },
+              "welds": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "symbol": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "rc": {
+      "type": "object",
+      "properties": {
+        "rebar_sets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "member_id",
+              "bar_dia",
+              "spacing"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "member_id": {
+                "type": "string"
+              },
+              "bar_dia": {
+                "type": "string"
+              },
+              "spacing": {
+                "type": "number"
+              },
+              "layout": {
+                "type": "string",
+                "enum": [
+                  "top",
+                  "bottom",
+                  "both",
+                  "stirrups",
+                  "other"
+                ],
+                "default": "other"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "hook": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "member_schedule": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "member_id",
+              "type"
+            ],
+            "properties": {
+              "member_id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "column",
+                  "beam",
+                  "slab",
+                  "wall",
+                  "footing",
+                  "other"
+                ]
+              },
+              "size": {
+                "type": "string"
+              },
+              "main_rebar": {
+                "type": "string"
+              },
+              "stirrups": {
+                "type": "string"
+              },
+              "remarks": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "sheet": {
+      "type": "object",
+      "properties": {
+        "frame": {
+          "type": "string",
+          "enum": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "default": "A1"
+        },
+        "base_point": {
+          "$ref": "#/$defs/point2d"
+        },
+        "margin": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "save_as": {
+          "type": "string",
+          "default": "output.dxf"
+        },
+        "export_png": {
+          "type": "boolean",
+          "default": false
+        },
+        "png_bounds": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "point2d": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "polyline2d": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/point2d"
+      },
+      "minItems": 2
+    }
+  },
+  "additionalProperties": true
+}

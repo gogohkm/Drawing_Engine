@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "project": "DEMO_PROJECT",
+    "units": "mm",
+    "author": "user",
+    "discipline": "A",
+    "revision": "0",
+    "created_at": "2026-01-07"
+  },
+  "settings": {
+    "origin": [
+      0,
+      0
+    ],
+    "text_height": 250,
+    "dim_offset": 600,
+    "default_layers": {
+      "GRID": "A-GRID",
+      "WALL": "A-WALL",
+      "DOOR": "A-DOOR",
+      "TEXT": "A-TEXT",
+      "DIM": "A-DIM"
+    }
+  },
+  "grids": {
+    "x": [
+      {
+        "id": "GX1",
+        "coord": 0,
+        "label": "1"
+      },
+      {
+        "id": "GX2",
+        "coord": 6000,
+        "label": "2"
+      },
+      {
+        "id": "GX3",
+        "coord": 12000,
+        "label": "3"
+      }
+    ],
+    "y": [
+      {
+        "id": "GY1",
+        "coord": 0,
+        "label": "A"
+      },
+      {
+        "id": "GY2",
+        "coord": 4000,
+        "label": "B"
+      },
+      {
+        "id": "GY3",
+        "coord": 8000,
+        "label": "C"
+      }
+    ]
+  },
+  "architectural": {
+    "walls": [
+      {
+        "id": "W1",
+        "boundary": [
+          [
+            0,
+            0
+          ],
+          [
+            12000,
+            0
+          ],
+          [
+            12000,
+            8000
+          ],
+          [
+            0,
+            8000
+          ]
+        ],
+        "layer": "A-WALL"
+      }
+    ],
+    "openings": [
+      {
+        "id": "D1",
+        "type": "DOOR",
+        "center": [
+          0,
+          2000
+        ],
+        "width": 900,
+        "orientation_deg": 0,
+        "hinge": "L",
+        "layer": "A-DOOR"
+      }
+    ],
+    "rooms": [
+      {
+        "id": "R1",
+        "name": "ROOM",
+        "label_point": [
+          6000,
+          4000
+        ],
+        "area": 96.0,
+        "layer": "A-TEXT"
+      }
+    ]
+  },
+  "request": {
+    "drawing_type": "A_FLOOR_PLAN",
+    "sheet_id": "A101",
+    "title": "DEMO A101",
+    "target_dxf_path": "demo_A101_out.dxf",
+    "view_bounds": {
+      "min": [
+        -1000,
+        -1000
+      ],
+      "max": [
+        13000,
+        9000
+      ]
+    },
+    "tolerance": 1.0
+  }
+}

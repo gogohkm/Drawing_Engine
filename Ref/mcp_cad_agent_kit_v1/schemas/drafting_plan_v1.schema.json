@@ -1,0 +1,452 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/drafting_plan_v1.schema.json",
+  "title": "Drafting Plan v1 (execution DSL for CAD engine)",
+  "type": "object",
+  "required": [
+    "version",
+    "project",
+    "drawings"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^1\\.0(\\.\\d+)?$"
+    },
+    "project": {
+      "type": "object",
+      "required": [
+        "name",
+        "units"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "mm",
+            "cm",
+            "m",
+            "inch",
+            "ft"
+          ]
+        },
+        "meta": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "globals": {
+      "type": "object",
+      "properties": {
+        "variables": {
+          "type": "object"
+        },
+        "layer_preset": {
+          "type": "string",
+          "default": "NCS_like"
+        },
+        "plot_style": {
+          "type": "string"
+        },
+        "text_style": {
+          "type": "string",
+          "default": "STANDARD"
+        },
+        "dim_style": {
+          "type": "string",
+          "default": "DIM_STD"
+        },
+        "linetype_scale": {
+          "type": "object",
+          "properties": {
+            "LTSCALE": {
+              "type": "number"
+            },
+            "MSLTSCALE": {
+              "type": "integer"
+            },
+            "PSLTSCALE": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "drawings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/drawing"
+      }
+    }
+  },
+  "$defs": {
+    "point2": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "drawing": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "model",
+        "layout",
+        "sequence"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "discipline": {
+          "type": "string",
+          "default": "GEN"
+        },
+        "model": {
+          "type": "object",
+          "properties": {
+            "origin": {
+              "$ref": "#/$defs/point2"
+            },
+            "ucs": {
+              "type": "string",
+              "default": "WCS"
+            }
+          },
+          "additionalProperties": true
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 255
+              },
+              "linetype": {
+                "type": "string"
+              },
+              "lineweight_mm": {
+                "type": "number"
+              },
+              "plot": {
+                "type": "boolean",
+                "default": true
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "xrefs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "path"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "attach_type": {
+                "type": "string",
+                "enum": [
+                  "attach",
+                  "overlay"
+                ],
+                "default": "overlay"
+              },
+              "at": {
+                "$ref": "#/$defs/point2"
+              },
+              "scale": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "rotation_deg": {
+                "type": "number",
+                "default": 0
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "styles": {
+          "type": "object",
+          "properties": {
+            "text_styles": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "dim_styles": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "table_styles": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "layout": {
+          "type": "object",
+          "required": [
+            "name",
+            "paper",
+            "orientation",
+            "scale_policy"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "paper": {
+              "type": "string"
+            },
+            "orientation": {
+              "type": "string",
+              "enum": [
+                "landscape",
+                "portrait"
+              ]
+            },
+            "scale_policy": {
+              "type": "string",
+              "enum": [
+                "model_1to1_layout_viewport",
+                "layout_1to1_no_viewport"
+              ],
+              "default": "model_1to1_layout_viewport"
+            },
+            "plot_style": {
+              "type": "string"
+            },
+            "title_block": {
+              "type": "string"
+            },
+            "viewports": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "center",
+                  "size",
+                  "model_window",
+                  "scale"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "center": {
+                    "$ref": "#/$defs/point2"
+                  },
+                  "size": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "model_window": {
+                    "type": "object",
+                    "required": [
+                      "min",
+                      "max"
+                    ],
+                    "properties": {
+                      "min": {
+                        "$ref": "#/$defs/point2"
+                      },
+                      "max": {
+                        "$ref": "#/$defs/point2"
+                      }
+                    }
+                  },
+                  "scale": {
+                    "type": "string",
+                    "pattern": "^1:\\d+$"
+                  },
+                  "lock": {
+                    "type": "boolean",
+                    "default": true
+                  },
+                  "vp_freeze_layers": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalProperties": true
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "sequence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/operation"
+          }
+        },
+        "assertions": {
+          "type": "object",
+          "properties": {
+            "entity_counts_by_layer": {
+              "type": "object"
+            },
+            "extents": {
+              "type": "object",
+              "properties": {
+                "min": {
+                  "$ref": "#/$defs/point2"
+                },
+                "max": {
+                  "$ref": "#/$defs/point2"
+                }
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "exports": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "format",
+              "filename"
+            ],
+            "properties": {
+              "format": {
+                "type": "string",
+                "enum": [
+                  "pdf",
+                  "dwg",
+                  "dxf",
+                  "svg"
+                ]
+              },
+              "filename": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "operation": {
+      "type": "object",
+      "required": [
+        "op",
+        "args"
+      ],
+      "properties": {
+        "op": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "args": {
+          "type": "object"
+        },
+        "comment": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

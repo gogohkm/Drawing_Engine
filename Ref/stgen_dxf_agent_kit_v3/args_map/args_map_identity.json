@@ -1,0 +1,10 @@
+{
+  "version": "args-map-v1",
+  "description": "canonical args를 그대로 MCP args로 전달(변환 없음)",
+  "global": {
+    "rename": {},
+    "drop": [],
+    "add": {}
+  },
+  "tools": {}
+}

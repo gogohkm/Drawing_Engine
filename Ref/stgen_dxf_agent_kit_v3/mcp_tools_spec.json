@@ -1,0 +1,40 @@
+{
+  "recommended_wrappers": [
+    {
+      "name": "cad.validate_plan",
+      "description": "drafting_plan JSON을 스키마/규칙으로 검증한다",
+      "input": {
+        "plan": "DraftingPlanStgenV2"
+      },
+      "output": {
+        "ok": "bool",
+        "errors": "array",
+        "warnings": "array"
+      }
+    },
+    {
+      "name": "cad.execute_plan",
+      "description": "drafting_plan JSON을 macro 전개 후 stgen tool을 순서대로 실행한다",
+      "input": {
+        "plan": "DraftingPlanStgenV2",
+        "dry_run": "bool"
+      },
+      "output": {
+        "ok": "bool",
+        "vars": "object",
+        "log": "array"
+      }
+    },
+    {
+      "name": "cad.run_qa",
+      "description": "현재 도면을 분석하여 qa_report 생성",
+      "input": {
+        "required_layers": "array"
+      },
+      "output": {
+        "qa_report": "object"
+      }
+    }
+  ],
+  "notes": "실제 구현은 환경별 MCP orchestrator에 맞춰 작성"
+}

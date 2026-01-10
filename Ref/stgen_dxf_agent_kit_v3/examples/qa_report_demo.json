@@ -1,0 +1,33 @@
+{
+  "version": "qa-report-v1",
+  "meta": {
+    "generated_by": "qa_engine.py"
+  },
+  "checks": [
+    {
+      "severity": "WARN",
+      "rule": "placeholder_texts",
+      "message": "Placeholder 텍스트 발견(1개)",
+      "evidence": {
+        "items": [
+          {
+            "text": "TBD",
+            "insert": [
+              0,
+              0
+            ],
+            "layer": "Z-TBD"
+          }
+        ]
+      }
+    },
+    {
+      "severity": "WARN",
+      "rule": "min_dimension_count",
+      "message": "치수 개수가 너무 적음: 0 (<1)",
+      "evidence": {
+        "count": 0
+      }
+    }
+  ]
+}

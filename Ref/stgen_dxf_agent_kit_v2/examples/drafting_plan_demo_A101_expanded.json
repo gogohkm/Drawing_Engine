@@ -1,0 +1,654 @@
+{
+  "version": "stgen_plan_v1",
+  "plan_id": "A101_DEMO_EXPANDED",
+  "units": "mm",
+  "meta": {
+    "discipline": "A",
+    "drawing_type": "FLOOR_PLAN",
+    "mode": "A_separate_dxf_per_sheet"
+  },
+  "assumptions": [
+    "도면은 모델공간 1:1 기준으로 작성한다.",
+    "치수 스타일/글꼴 등은 stgen 기본 설정을 따른다."
+  ],
+  "variables": {
+    "grid_x": [
+      {
+        "coord": 0,
+        "label": "1"
+      },
+      {
+        "coord": 6000,
+        "label": "2"
+      }
+    ],
+    "grid_y": [
+      {
+        "coord": 0,
+        "label": "A"
+      },
+      {
+        "coord": 8000,
+        "label": "B"
+      }
+    ],
+    "building_bounds": [
+      0,
+      0,
+      6000,
+      8000
+    ],
+    "walls": [
+      {
+        "id": "W1",
+        "path": [
+          [
+            0,
+            0
+          ],
+          [
+            6000,
+            0
+          ],
+          [
+            6000,
+            8000
+          ],
+          [
+            0,
+            8000
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "thickness": 200
+      }
+    ],
+    "openings": [
+      {
+        "id": "D1",
+        "kind": "door",
+        "insert": [
+          1500,
+          0
+        ],
+        "width": 900,
+        "height": 2100,
+        "rotation_deg": 0
+      }
+    ],
+    "rooms": [
+      {
+        "id": "R1",
+        "name": "ROOM-01",
+        "label_point": [
+          3000,
+          4000
+        ]
+      }
+    ],
+    "dims": [
+      {
+        "p1": [
+          0,
+          -800
+        ],
+        "p2": [
+          6000,
+          -800
+        ],
+        "dim_line_point": [
+          3000,
+          -1200
+        ],
+        "kind": "horizontal"
+      }
+    ],
+    "output_path": "A101_output.dxf"
+  },
+  "steps": [
+    {
+      "id": "setup_001__layer_000__A-GRID",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-GRID",
+        "color": 8,
+        "linetype": "CENTER",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layerVis_000__A-GRID",
+      "tool": "set_layer_visibility",
+      "args": {
+        "layer": "A-GRID",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layer_001__A-WALL",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-WALL",
+        "color": 7,
+        "linetype": "CONTINUOUS",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layerVis_001__A-WALL",
+      "tool": "set_layer_visibility",
+      "args": {
+        "layer": "A-WALL",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layer_002__A-DOOR",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-DOOR",
+        "color": 7,
+        "linetype": "CONTINUOUS",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layerVis_002__A-DOOR",
+      "tool": "set_layer_visibility",
+      "args": {
+        "layer": "A-DOOR",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layer_003__A-WIND",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-WIND",
+        "color": 7,
+        "linetype": "CONTINUOUS",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layerVis_003__A-WIND",
+      "tool": "set_layer_visibility",
+      "args": {
+        "layer": "A-WIND",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layer_004__A-TEXT",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-TEXT",
+        "color": 7,
+        "linetype": "CONTINUOUS",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layerVis_004__A-TEXT",
+      "tool": "set_layer_visibility",
+      "args": {
+        "layer": "A-TEXT",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layer_005__A-DIMS",
+      "tool": "create_layer",
+      "args": {
+        "name": "A-DIMS",
+        "color": 2,
+        "linetype": "CONTINUOUS",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layerVis_005__A-DIMS",
+      "tool": "set_layer_visibility",
+      "args": {
+        "layer": "A-DIMS",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layer_006__Z-TBD",
+      "tool": "create_layer",
+      "args": {
+        "name": "Z-TBD",
+        "color": 1,
+        "linetype": "DASHED",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__layerVis_006__Z-TBD",
+      "tool": "set_layer_visibility",
+      "args": {
+        "layer": "Z-TBD",
+        "visible": true
+      }
+    },
+    {
+      "id": "setup_001__setCurrent__A-WALL",
+      "tool": "set_current_layer",
+      "args": {
+        "layer": "A-WALL"
+      }
+    },
+    {
+      "id": "grid_010__setLayer__A-GRID",
+      "tool": "set_current_layer",
+      "args": {
+        "layer": "A-GRID"
+      }
+    },
+    {
+      "id": "grid_010__xLine_000__1",
+      "tool": "create_line",
+      "args": {
+        "start": [
+          0,
+          -1000.0
+        ],
+        "end": [
+          0,
+          9000.0
+        ]
+      }
+    },
+    {
+      "id": "grid_010__xBubble_bot_000__1",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          0,
+          -1300.0
+        ],
+        "radius": 150.0
+      }
+    },
+    {
+      "id": "grid_010__xText_bot_000__1",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          0,
+          -1300.0
+        ],
+        "height": 150.0,
+        "text": "1",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "grid_010__xBubble_top_000__1",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          0,
+          9300.0
+        ],
+        "radius": 150.0
+      }
+    },
+    {
+      "id": "grid_010__xText_top_000__1",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          0,
+          9300.0
+        ],
+        "height": 150.0,
+        "text": "1",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "grid_010__xLine_001__2",
+      "tool": "create_line",
+      "args": {
+        "start": [
+          6000,
+          -1000.0
+        ],
+        "end": [
+          6000,
+          9000.0
+        ]
+      }
+    },
+    {
+      "id": "grid_010__xBubble_bot_001__2",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          6000,
+          -1300.0
+        ],
+        "radius": 150.0
+      }
+    },
+    {
+      "id": "grid_010__xText_bot_001__2",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          6000,
+          -1300.0
+        ],
+        "height": 150.0,
+        "text": "2",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "grid_010__xBubble_top_001__2",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          6000,
+          9300.0
+        ],
+        "radius": 150.0
+      }
+    },
+    {
+      "id": "grid_010__xText_top_001__2",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          6000,
+          9300.0
+        ],
+        "height": 150.0,
+        "text": "2",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "grid_010__yLine_000__A",
+      "tool": "create_line",
+      "args": {
+        "start": [
+          -1000.0,
+          0
+        ],
+        "end": [
+          7000.0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "grid_010__yBubble_left_000__A",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          -1300.0,
+          0
+        ],
+        "radius": 150.0
+      }
+    },
+    {
+      "id": "grid_010__yText_left_000__A",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          -1300.0,
+          0
+        ],
+        "height": 150.0,
+        "text": "A",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "grid_010__yBubble_right_000__A",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          7300.0,
+          0
+        ],
+        "radius": 150.0
+      }
+    },
+    {
+      "id": "grid_010__yText_right_000__A",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          7300.0,
+          0
+        ],
+        "height": 150.0,
+        "text": "A",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "grid_010__yLine_001__B",
+      "tool": "create_line",
+      "args": {
+        "start": [
+          -1000.0,
+          8000
+        ],
+        "end": [
+          7000.0,
+          8000
+        ]
+      }
+    },
+    {
+      "id": "grid_010__yBubble_left_001__B",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          -1300.0,
+          8000
+        ],
+        "radius": 150.0
+      }
+    },
+    {
+      "id": "grid_010__yText_left_001__B",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          -1300.0,
+          8000
+        ],
+        "height": 150.0,
+        "text": "B",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "grid_010__yBubble_right_001__B",
+      "tool": "create_circle",
+      "args": {
+        "center": [
+          7300.0,
+          8000
+        ],
+        "radius": 150.0
+      }
+    },
+    {
+      "id": "grid_010__yText_right_001__B",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          7300.0,
+          8000
+        ],
+        "height": 150.0,
+        "text": "B",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "wall_020__setLayer__A-WALL",
+      "tool": "set_current_layer",
+      "args": {
+        "layer": "A-WALL"
+      }
+    },
+    {
+      "id": "wall_020__wallPath_000__W1",
+      "tool": "create_polyline",
+      "args": {
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6000,
+            0
+          ],
+          [
+            6000,
+            8000
+          ],
+          [
+            0,
+            8000
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "closed": false
+      },
+      "save_as": "wall_020__wallPath_000__W1_out"
+    },
+    {
+      "id": "wall_020__wallOffP_000__W1",
+      "tool": "offset_entity",
+      "args": {
+        "entity": {
+          "$var": "wall_020__wallPath_000__W1_out"
+        },
+        "distance": 100.0,
+        "side": "left",
+        "reason": "wall_thickness"
+      },
+      "save_as": "wall_020__wallPath_000__W1_offL"
+    },
+    {
+      "id": "wall_020__wallOffN_000__W1",
+      "tool": "offset_entity",
+      "args": {
+        "entity": {
+          "$var": "wall_020__wallPath_000__W1_out"
+        },
+        "distance": 100.0,
+        "side": "right",
+        "reason": "wall_thickness"
+      },
+      "save_as": "wall_020__wallPath_000__W1_offR"
+    },
+    {
+      "id": "open_030__setLayer_000__A-DOOR",
+      "tool": "set_current_layer",
+      "args": {
+        "layer": "A-DOOR"
+      }
+    },
+    {
+      "id": "open_030__rect_000__D1",
+      "tool": "create_rectangle",
+      "args": {
+        "p1": [
+          1050.0,
+          -1050.0
+        ],
+        "p2": [
+          1950.0,
+          1050.0
+        ],
+        "rotation_deg": 0.0
+      }
+    },
+    {
+      "id": "room_040__setLayer__A-TEXT",
+      "tool": "set_current_layer",
+      "args": {
+        "layer": "A-TEXT"
+      }
+    },
+    {
+      "id": "room_040__roomTxt_000__R1",
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          3000,
+          4000
+        ],
+        "height": 200.0,
+        "text": "ROOM-01",
+        "align": "CENTER"
+      }
+    },
+    {
+      "id": "dim_050__setLayer__A-DIMS",
+      "tool": "set_current_layer",
+      "args": {
+        "layer": "A-DIMS"
+      }
+    },
+    {
+      "id": "dim_050__dim_000",
+      "tool": "create_dimension",
+      "args": {
+        "p1": [
+          0,
+          -800
+        ],
+        "p2": [
+          6000,
+          -800
+        ],
+        "dim_line_point": [
+          3000,
+          -1200
+        ],
+        "kind": "horizontal"
+      }
+    },
+    {
+      "id": "qa_090__zoomExtents",
+      "tool": "zoom_extents",
+      "args": {}
+    },
+    {
+      "id": "qa_090__capture",
+      "tool": "capture_dxf_view",
+      "args": {}
+    },
+    {
+      "id": "save_099__zoomExtents",
+      "tool": "zoom_extents",
+      "args": {}
+    },
+    {
+      "id": "save_099__save",
+      "tool": "save_dxf",
+      "args": {
+        "path": "A101_output.dxf"
+      }
+    }
+  ]
+}

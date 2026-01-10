@@ -1,0 +1,58 @@
+{
+  "cases": [
+    {
+      "tool": "create_line",
+      "args": {
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          1000,
+          0
+        ]
+      }
+    },
+    {
+      "tool": "create_text",
+      "args": {
+        "insert": [
+          0,
+          0
+        ],
+        "height": 250,
+        "text": "PROBE"
+      }
+    },
+    {
+      "tool": "create_dimension",
+      "args": {
+        "p1": [
+          0,
+          0
+        ],
+        "p2": [
+          1000,
+          0
+        ],
+        "type": "ALIGNED",
+        "offset": 300
+      }
+    },
+    {
+      "tool": "create_layer",
+      "args": {
+        "name": "PROBE",
+        "aci": 7,
+        "linetype": "CONTINUOUS",
+        "visible": true
+      }
+    },
+    {
+      "tool": "find_entities",
+      "args": {
+        "layer": "PROBE"
+      }
+    }
+  ]
+}

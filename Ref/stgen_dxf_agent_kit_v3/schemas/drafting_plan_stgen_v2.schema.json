@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/drafting_plan_stgen_v2.schema.json",
+  "title": "DraftingPlanStgenV2",
+  "type": "object",
+  "required": [
+    "version",
+    "meta",
+    "sequence"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": [
+        "stgen-plan-v2"
+      ]
+    },
+    "meta": {
+      "type": "object",
+      "required": [
+        "drawing_type",
+        "units"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "drawing_type": {
+          "type": "string"
+        },
+        "sheet_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "mm",
+            "cm",
+            "m",
+            "inch",
+            "ft"
+          ]
+        },
+        "target_dxf_path": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "avoid_scale": {
+          "type": "boolean",
+          "default": true
+        },
+        "layer_policy": {
+          "type": "string",
+          "enum": [
+            "SET_CURRENT_LAYER",
+            "ARGS_LAYER",
+            "MIXED"
+          ],
+          "default": "SET_CURRENT_LAYER"
+        },
+        "forbid_tools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      }
+    },
+    "vars": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "실행 중 사용되는 변수 저장소(초기값). 예: {\"origin\":[0,0]}"
+    },
+    "args_map": {
+      "type": "string",
+      "description": "canonical args를 실제 MCP args로 변환하는 규칙 파일 경로"
+    },
+    "sequence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/step"
+      }
+    }
+  },
+  "$defs": {
+    "step": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/toolStep"
+        },
+        {
+          "$ref": "#/$defs/macroStep"
+        }
+      ]
+    },
+    "toolStep": {
+      "type": "object",
+      "required": [
+        "id",
+        "tool",
+        "args"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "tool": {
+          "type": "string",
+          "enum": [
+            "get_dxf_status",
+            "get_dxf_summary",
+            "get_dxf_layers",
+            "identify_drawing_type",
+            "analyze_layer_structure",
+            "analyze_region",
+            "analyze_pattern",
+            "count_by_type",
+            "count_blocks",
+            "compare_layers",
+            "create_line",
+            "create_polyline",
+            "create_circle",
+            "create_arc",
+            "create_rectangle",
+            "create_text",
+            "create_dimension",
+            "create_hatch",
+            "create_leader",
+            "create_block",
+            "create_bolt_symbol",
+            "create_center_mark",
+            "move_entities",
+            "copy_entities",
+            "rotate_entities",
+            "scale_entities",
+            "delete_entities",
+            "erase_by_bounds",
+            "trim_extend",
+            "offset_entity",
+            "mirror_entities",
+            "array_copy",
+            "break_entity",
+            "divide_entity",
+            "join_entities",
+            "explode_block",
+            "stretch",
+            "lengthen",
+            "fillet_chamfer",
+            "edit_text",
+            "close_polyline",
+            "reverse_polyline",
+            "change_entity_color",
+            "change_entity_layer",
+            "change_entity_linetype",
+            "set_current_layer",
+            "create_layer",
+            "set_layer_visibility",
+            "merge_layers",
+            "find_entities",
+            "find_annotations",
+            "find_connected_entities",
+            "find_intersections",
+            "find_parallel_lines",
+            "find_replace_text",
+            "detect_symbols",
+            "get_entity_properties",
+            "get_entity_points",
+            "get_selected_entities",
+            "list_all_texts",
+            "list_blocks",
+            "measure_distance",
+            "measure_angle",
+            "measure_arc_length",
+            "calculate_area",
+            "calculate_perimeter",
+            "sum_lengths",
+            "sum_areas",
+            "get_region_bounds",
+            "verify_alignment",
+            "align_to_baseline",
+            "snap_to_grid",
+            "generate_bom",
+            "extract_region",
+            "extract_dimensions",
+            "extract_dxf_entities",
+            "clone_region",
+            "rotate_region",
+            "scale_region",
+            "capture_dxf_view",
+            "zoom_extents",
+            "zoom_to_bounds",
+            "save_dxf",
+            "export_entities",
+            "insert_block",
+            "undo_last_action"
+          ]
+        },
+        "args": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "assign": {
+          "type": "string",
+          "description": "tool 결과를 저장할 변수명. 예: \"$walls\""
+        },
+        "comment": {
+          "type": "string"
+        },
+        "on_error": {
+          "type": "string",
+          "enum": [
+            "abort",
+            "continue",
+            "undo_last_action"
+          ],
+          "default": "abort"
+        },
+        "expect": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "간단한 기대 조건(선택). Executor/Validator가 해석할 수 있다."
+        }
+      }
+    },
+    "macroStep": {
+      "type": "object",
+      "required": [
+        "id",
+        "macro",
+        "args"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "macro": {
+          "type": "string",
+          "pattern": "^macro:[a-z0-9_]+$"
+        },
+        "args": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "comment": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

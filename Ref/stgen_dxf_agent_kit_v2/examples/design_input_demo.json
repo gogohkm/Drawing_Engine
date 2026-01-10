@@ -1,0 +1,103 @@
+{
+  "project": {
+    "name": "DEMO_PROJECT",
+    "units": "mm",
+    "origin": [
+      0,
+      0
+    ],
+    "tolerance": 1.0
+  },
+  "drawing_request": {
+    "discipline": "A",
+    "drawing_type": "FLOOR_PLAN",
+    "sheet_id": "A101",
+    "title": "1F 평면도",
+    "target_paper": "A1",
+    "target_scale": "1:100",
+    "mode": "A_separate_dxf_per_sheet"
+  },
+  "grids": {
+    "x": [
+      {
+        "coord": 0,
+        "label": "1"
+      },
+      {
+        "coord": 6000,
+        "label": "2"
+      }
+    ],
+    "y": [
+      {
+        "coord": 0,
+        "label": "A"
+      },
+      {
+        "coord": 8000,
+        "label": "B"
+      }
+    ],
+    "bubble_radius": 150,
+    "extend": 1000
+  },
+  "architecture": {
+    "walls": [
+      {
+        "id": "W1",
+        "path": [
+          [
+            0,
+            0
+          ],
+          [
+            6000,
+            0
+          ],
+          [
+            6000,
+            8000
+          ],
+          [
+            0,
+            8000
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "thickness": 200,
+        "role": "exterior"
+      }
+    ],
+    "openings": [
+      {
+        "id": "D1",
+        "kind": "door",
+        "insert": [
+          1500,
+          0
+        ],
+        "width": 900,
+        "height": 2100,
+        "rotation_deg": 0,
+        "swing": "L"
+      }
+    ],
+    "rooms": [
+      {
+        "id": "R1",
+        "name": "ROOM-01",
+        "label_point": [
+          3000,
+          4000
+        ]
+      }
+    ]
+  },
+  "output": {
+    "save_as": "A101_output.dxf",
+    "export_png": true
+  }
+}

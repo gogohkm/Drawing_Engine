@@ -1,0 +1,964 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/design_input_v1.schema.json",
+  "title": "Design Input v1 (for AI CAD drafting)",
+  "type": "object",
+  "required": [
+    "version",
+    "project",
+    "grids",
+    "levels",
+    "drawing_requests"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^1\\.0(\\.\\d+)?$"
+    },
+    "project": {
+      "type": "object",
+      "required": [
+        "name",
+        "units",
+        "angle_unit"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "client": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "mm",
+            "cm",
+            "m",
+            "inch",
+            "ft"
+          ]
+        },
+        "angle_unit": {
+          "type": "string",
+          "enum": [
+            "deg",
+            "rad"
+          ]
+        },
+        "origin": {
+          "$ref": "#/$defs/point2"
+        },
+        "north_angle_deg": {
+          "type": "number"
+        },
+        "default_text_height_mm": {
+          "type": "number",
+          "default": 2.5
+        },
+        "default_dim_text_height_mm": {
+          "type": "number",
+          "default": 2.5
+        },
+        "tolerances": {
+          "type": "object",
+          "properties": {
+            "coord_eps": {
+              "type": "number",
+              "default": 0.01
+            },
+            "angle_eps_deg": {
+              "type": "number",
+              "default": 0.1
+            }
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "grids": {
+      "type": "object",
+      "required": [
+        "x",
+        "y"
+      ],
+      "properties": {
+        "x": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "x"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "x": {
+                "type": "number"
+              },
+              "style": {
+                "type": "string",
+                "default": "grid_major"
+              }
+            }
+          }
+        },
+        "y": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "y"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "y": {
+                "type": "number"
+              },
+              "style": {
+                "type": "string",
+                "default": "grid_major"
+              }
+            }
+          }
+        }
+      }
+    },
+    "levels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "elev"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "elev": {
+            "type": "number"
+          },
+          "units": {
+            "type": "string",
+            "enum": [
+              "mm",
+              "m"
+            ],
+            "default": "mm"
+          }
+        }
+      }
+    },
+    "architecture": {
+      "type": "object",
+      "properties": {
+        "walls": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/wall"
+          }
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/rect_column"
+          }
+        },
+        "doors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/door"
+          }
+        },
+        "windows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/window"
+          }
+        },
+        "rooms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/room"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "structure_rc": {
+      "type": "object",
+      "properties": {
+        "columns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/rc_column"
+          }
+        },
+        "beams": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/rc_beam"
+          }
+        },
+        "slabs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/rc_slab"
+          }
+        },
+        "foundations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/rc_foundation"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "structure_steel": {
+      "type": "object",
+      "properties": {
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/steel_member"
+          }
+        },
+        "connections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/steel_connection"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "rebar": {
+      "type": "object",
+      "properties": {
+        "bar_sets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/rebar_set"
+          }
+        },
+        "schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/rebar_schedule_request"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "drawing_requests": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "sheet_id",
+          "title",
+          "type",
+          "scale"
+        ],
+        "properties": {
+          "sheet_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "A_FLOOR_PLAN",
+              "A_SECTION",
+              "A_ELEVATION",
+              "A_DETAIL",
+              "S_GA",
+              "S_RC_REBAR_PLAN",
+              "S_RC_REBAR_DETAIL",
+              "S_RC_MEMBER_SCHEDULE",
+              "S_STEEL_GA",
+              "S_STEEL_CONNECTION_DETAIL",
+              "C_SITE_PLAN",
+              "M_MEP_PLAN",
+              "GEN_GENERAL_NOTES"
+            ]
+          },
+          "target_level": {
+            "type": "string"
+          },
+          "scale": {
+            "type": "string",
+            "pattern": "^1:\\d+$"
+          },
+          "paper": {
+            "type": "string",
+            "enum": [
+              "A0",
+              "A1",
+              "A2",
+              "A3",
+              "A4",
+              "ARCH_E1",
+              "ARCH_D",
+              "ARCH_C",
+              "ARCH_B",
+              "ARCH_A"
+            ]
+          },
+          "orientation": {
+            "type": "string",
+            "enum": [
+              "landscape",
+              "portrait"
+            ],
+            "default": "landscape"
+          },
+          "viewport_window": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "$ref": "#/$defs/point2"
+              },
+              "max": {
+                "$ref": "#/$defs/point2"
+              }
+            }
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "$defs": {
+    "point2": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "polyline2": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "$ref": "#/$defs/point2"
+      }
+    },
+    "wall": {
+      "type": "object",
+      "required": [
+        "id",
+        "centerline",
+        "thickness"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "centerline": {
+          "$ref": "#/$defs/polyline2"
+        },
+        "thickness": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "default": "generic"
+        },
+        "openings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "at",
+              "width"
+            ],
+            "properties": {
+              "at": {
+                "$ref": "#/$defs/point2"
+              },
+              "width": {
+                "type": "number"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "door",
+                  "window",
+                  "generic"
+                ],
+                "default": "generic"
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "rect_column": {
+      "type": "object",
+      "required": [
+        "id",
+        "center",
+        "size"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "center": {
+          "$ref": "#/$defs/point2"
+        },
+        "size": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "additionalProperties": true
+    },
+    "door": {
+      "type": "object",
+      "required": [
+        "id",
+        "at",
+        "width"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "at": {
+          "$ref": "#/$defs/point2"
+        },
+        "width": {
+          "type": "number"
+        },
+        "swing": {
+          "type": "string",
+          "enum": [
+            "L",
+            "R",
+            "double",
+            "sliding"
+          ],
+          "default": "L"
+        },
+        "rotation_deg": {
+          "type": "number",
+          "default": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "window": {
+      "type": "object",
+      "required": [
+        "id",
+        "at",
+        "width"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "at": {
+          "$ref": "#/$defs/point2"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "sill_height": {
+          "type": "number"
+        },
+        "rotation_deg": {
+          "type": "number",
+          "default": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "room": {
+      "type": "object",
+      "required": [
+        "id",
+        "boundary",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "boundary": {
+          "$ref": "#/$defs/polyline2"
+        }
+      },
+      "additionalProperties": true
+    },
+    "rc_column": {
+      "type": "object",
+      "required": [
+        "id",
+        "center",
+        "size",
+        "level_base",
+        "level_top"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "center": {
+          "$ref": "#/$defs/point2"
+        },
+        "size": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "level_base": {
+          "type": "string"
+        },
+        "level_top": {
+          "type": "string"
+        },
+        "rebar_ref": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "rc_beam": {
+      "type": "object",
+      "required": [
+        "id",
+        "start",
+        "end",
+        "size",
+        "level"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "start": {
+          "$ref": "#/$defs/point2"
+        },
+        "end": {
+          "$ref": "#/$defs/point2"
+        },
+        "size": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "level": {
+          "type": "string"
+        },
+        "rebar_ref": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "rc_slab": {
+      "type": "object",
+      "required": [
+        "id",
+        "boundary",
+        "thickness",
+        "level"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "boundary": {
+          "$ref": "#/$defs/polyline2"
+        },
+        "thickness": {
+          "type": "number"
+        },
+        "level": {
+          "type": "string"
+        },
+        "openings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/polyline2"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "rc_foundation": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "at"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "spread_footing",
+            "pilecap",
+            "mat"
+          ]
+        },
+        "at": {
+          "$ref": "#/$defs/point2"
+        },
+        "size": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "thickness": {
+          "type": "number"
+        },
+        "rebar_ref": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "steel_member": {
+      "type": "object",
+      "required": [
+        "id",
+        "profile",
+        "start",
+        "end",
+        "level"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "profile": {
+          "type": "string"
+        },
+        "start": {
+          "$ref": "#/$defs/point2"
+        },
+        "end": {
+          "$ref": "#/$defs/point2"
+        },
+        "level": {
+          "type": "string"
+        },
+        "rotation_deg": {
+          "type": "number",
+          "default": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "steel_connection": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "members"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "shear_tab",
+            "end_plate",
+            "moment_flange_plate",
+            "base_plate",
+            "splice",
+            "gusset",
+            "custom"
+          ]
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2
+        },
+        "at": {
+          "$ref": "#/$defs/point2"
+        },
+        "bolts": {
+          "type": "object",
+          "properties": {
+            "grade": {
+              "type": "string"
+            },
+            "diameter": {
+              "type": "number"
+            },
+            "pattern": {
+              "type": "object",
+              "properties": {
+                "rows": {
+                  "type": "integer"
+                },
+                "cols": {
+                  "type": "integer"
+                },
+                "pitch": {
+                  "type": "number"
+                },
+                "gage": {
+                  "type": "number"
+                },
+                "edge_dist": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "welds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "symbol": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "length": {
+                "type": "number"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "plates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "size",
+              "thickness"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "size": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "thickness": {
+                "type": "number"
+              },
+              "material": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "rebar_set": {
+      "type": "object",
+      "required": [
+        "id",
+        "bar_dia",
+        "shape",
+        "count"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "bar_dia": {
+          "type": "string"
+        },
+        "shape": {
+          "type": "string",
+          "enum": [
+            "straight",
+            "L",
+            "U",
+            "stirrup",
+            "spiral",
+            "custom"
+          ]
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "spacing": {
+          "type": "number"
+        },
+        "lengths": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "host_element": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "rebar_schedule_request": {
+      "type": "object",
+      "required": [
+        "id",
+        "scope"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "all",
+            "by_level",
+            "by_host",
+            "custom"
+          ]
+        },
+        "level": {
+          "type": "string"
+        },
+        "host_filter": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "mark",
+            "bar_dia",
+            "shape",
+            "count",
+            "length",
+            "weight"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,329 @@
+{
+  "version": "1.0",
+  "project": {
+    "name": "Demo Project",
+    "client": "Client",
+    "units": "mm",
+    "angle_unit": "deg",
+    "origin": [
+      0,
+      0
+    ],
+    "default_text_height_mm": 2.5,
+    "default_dim_text_height_mm": 2.5
+  },
+  "grids": {
+    "x": [
+      {
+        "name": "1",
+        "x": 0
+      },
+      {
+        "name": "2",
+        "x": 6000
+      },
+      {
+        "name": "3",
+        "x": 12000
+      }
+    ],
+    "y": [
+      {
+        "name": "A",
+        "y": 0
+      },
+      {
+        "name": "B",
+        "y": 6000
+      },
+      {
+        "name": "C",
+        "y": 12000
+      }
+    ]
+  },
+  "levels": [
+    {
+      "name": "L1",
+      "elev": 0,
+      "units": "mm"
+    }
+  ],
+  "architecture": {
+    "walls": [
+      {
+        "id": "W1",
+        "level": "L1",
+        "centerline": [
+          [
+            0,
+            0
+          ],
+          [
+            12000,
+            0
+          ],
+          [
+            12000,
+            12000
+          ],
+          [
+            0,
+            12000
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "thickness": 200,
+        "type": "ext"
+      }
+    ],
+    "doors": [
+      {
+        "id": "D1",
+        "level": "L1",
+        "at": [
+          6000,
+          0
+        ],
+        "width": 1000,
+        "swing": "L",
+        "rotation_deg": 0
+      }
+    ],
+    "rooms": [
+      {
+        "id": "R1",
+        "level": "L1",
+        "name": "OFFICE",
+        "number": "101",
+        "boundary": [
+          [
+            200,
+            200
+          ],
+          [
+            11800,
+            200
+          ],
+          [
+            11800,
+            11800
+          ],
+          [
+            200,
+            11800
+          ],
+          [
+            200,
+            200
+          ]
+        ]
+      }
+    ]
+  },
+  "structure_rc": {
+    "columns": [
+      {
+        "id": "C1",
+        "center": [
+          6000,
+          6000
+        ],
+        "size": [
+          400,
+          400
+        ],
+        "level_base": "L1",
+        "level_top": "L1",
+        "rebar_ref": "RB_C1"
+      }
+    ],
+    "beams": [
+      {
+        "id": "B1",
+        "start": [
+          0,
+          6000
+        ],
+        "end": [
+          12000,
+          6000
+        ],
+        "size": [
+          300,
+          600
+        ],
+        "level": "L1",
+        "rebar_ref": "RB_B1"
+      }
+    ],
+    "slabs": [
+      {
+        "id": "SL1",
+        "boundary": [
+          [
+            0,
+            0
+          ],
+          [
+            12000,
+            0
+          ],
+          [
+            12000,
+            12000
+          ],
+          [
+            0,
+            12000
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "thickness": 200,
+        "level": "L1"
+      }
+    ]
+  },
+  "structure_steel": {
+    "members": [
+      {
+        "id": "S1",
+        "profile": "H-300x150x6.5x9",
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          6000,
+          0
+        ],
+        "level": "L1",
+        "rotation_deg": 0
+      }
+    ],
+    "connections": [
+      {
+        "id": "CN1",
+        "type": "shear_tab",
+        "members": [
+          "S1",
+          "S2"
+        ],
+        "at": [
+          6000,
+          0
+        ],
+        "bolts": {
+          "grade": "F10T",
+          "diameter": 20,
+          "pattern": {
+            "rows": 2,
+            "cols": 2,
+            "pitch": 70,
+            "gage": 60,
+            "edge_dist": 40
+          }
+        },
+        "plates": [
+          {
+            "id": "PL1",
+            "size": [
+              150,
+              250
+            ],
+            "thickness": 10,
+            "material": "SS400"
+          }
+        ],
+        "welds": [
+          {
+            "symbol": "fillet",
+            "size": 6,
+            "length": 100,
+            "note": "both sides"
+          }
+        ]
+      }
+    ]
+  },
+  "rebar": {
+    "bar_sets": [
+      {
+        "id": "RB_B1_TOP",
+        "bar_dia": "D19",
+        "shape": "straight",
+        "count": 4,
+        "host_element": "B1",
+        "notes": [
+          "Top bars"
+        ]
+      },
+      {
+        "id": "RB_B1_ST",
+        "bar_dia": "D10",
+        "shape": "stirrup",
+        "count": 1,
+        "spacing": 150,
+        "host_element": "B1",
+        "notes": [
+          "Stirrups @150"
+        ]
+      }
+    ],
+    "schedules": [
+      {
+        "id": "SCH_ALL",
+        "scope": "all",
+        "fields": [
+          "mark",
+          "bar_dia",
+          "shape",
+          "count",
+          "spacing",
+          "length"
+        ]
+      }
+    ]
+  },
+  "drawing_requests": [
+    {
+      "sheet_id": "A101",
+      "title": "1F FLOOR PLAN",
+      "type": "A_FLOOR_PLAN",
+      "target_level": "L1",
+      "scale": "1:100",
+      "paper": "A1",
+      "orientation": "landscape"
+    },
+    {
+      "sheet_id": "S201",
+      "title": "RC BEAM REBAR DETAIL",
+      "type": "S_RC_REBAR_DETAIL",
+      "scale": "1:20",
+      "paper": "A2",
+      "orientation": "landscape"
+    },
+    {
+      "sheet_id": "S401",
+      "title": "STEEL CONNECTION DETAIL",
+      "type": "S_STEEL_CONNECTION_DETAIL",
+      "scale": "1:10",
+      "paper": "A3",
+      "orientation": "landscape"
+    },
+    {
+      "sheet_id": "S901",
+      "title": "REBAR SCHEDULE",
+      "type": "S_RC_MEMBER_SCHEDULE",
+      "scale": "1:1",
+      "paper": "A3",
+      "orientation": "landscape"
+    }
+  ]
+}

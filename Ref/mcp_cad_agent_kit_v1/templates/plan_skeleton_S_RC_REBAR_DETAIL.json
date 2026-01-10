@@ -1,0 +1,189 @@
+{
+  "version": "1.0",
+  "project": {
+    "name": "${project.name}",
+    "units": "${project.units}"
+  },
+  "assumptions": [
+    "철근 상세는 '배근 표기(마크/간격/지시선)'와 '형상선'을 분리해서 그린다.",
+    "미정 정보는 Z-TBD 레이어에 표시한다."
+  ],
+  "globals": {
+    "variables": {
+      "TEXT_H": 2.5,
+      "DIM_TEXT_H": 2.5,
+      "DETAIL_SCALE": "1:20"
+    },
+    "plot_style": "monochrome.ctb"
+  },
+  "drawings": [
+    {
+      "id": "S201",
+      "title": "RC BEAM REBAR DETAIL",
+      "discipline": "S",
+      "model": {
+        "origin": [
+          0,
+          0
+        ],
+        "ucs": "WCS"
+      },
+      "layers": [
+        {
+          "name": "S-CONC",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.25,
+          "plot": true
+        },
+        {
+          "name": "S-REBAR",
+          "color": 1,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "S-ANNO",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "S-DIMS",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "Z-TBD",
+          "color": 1,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "TB_A2",
+          "source": "lib/titleblocks/TB_A2.dwg",
+          "unit": "mm",
+          "attributes": [
+            "SHEET_ID",
+            "SHEET_TITLE",
+            "SCALE"
+          ]
+        },
+        {
+          "name": "RBAR_MARK",
+          "source": "lib/rc/RBAR_MARK.dwg",
+          "unit": "mm",
+          "attributes": [
+            "MARK",
+            "DIA",
+            "SHAPE",
+            "COUNT",
+            "SPACING",
+            "NOTE"
+          ]
+        }
+      ],
+      "layout": {
+        "name": "S201",
+        "paper": "A2",
+        "orientation": "landscape",
+        "scale_policy": "model_1to1_layout_viewport",
+        "plot_style": "monochrome.ctb",
+        "title_block": "TB_A2",
+        "viewports": [
+          {
+            "id": "VP_DETAIL",
+            "center": [
+              210,
+              148
+            ],
+            "size": [
+              380,
+              240
+            ],
+            "model_window": {
+              "min": [
+                -1000,
+                -1000
+              ],
+              "max": [
+                13000,
+                13000
+              ]
+            },
+            "scale": "1:20",
+            "lock": true,
+            "vp_freeze_layers": []
+          }
+        ]
+      },
+      "sequence": [
+        {
+          "op": "macro:draw_rc_member_outline",
+          "args": {
+            "member_id_ref": "B1",
+            "from_design_input": true,
+            "concrete_layer": "S-CONC",
+            "tbd_layer": "Z-TBD"
+          }
+        },
+        {
+          "op": "macro:place_rebar_marks_from_sets",
+          "args": {
+            "host_element_ref": "B1",
+            "from_design_input": true,
+            "mark_block": "RBAR_MARK",
+            "rebar_layer": "S-REBAR",
+            "anno_layer": "S-ANNO",
+            "text_height_var": "TEXT_H",
+            "tbd_layer": "Z-TBD"
+          }
+        },
+        {
+          "op": "macro:add_rc_detail_dimensions",
+          "args": {
+            "layer": "S-DIMS",
+            "dim_text_height_var": "DIM_TEXT_H"
+          }
+        },
+        {
+          "op": "macro:create_sheet_with_viewport",
+          "args": {
+            "layout_ref": "S201",
+            "insert_title_block": true,
+            "fill_title_block_attrs": {
+              "SHEET_ID": "S201",
+              "SHEET_TITLE": "RC BEAM REBAR DETAIL",
+              "SCALE": "1:20"
+            }
+          }
+        },
+        {
+          "op": "qa_check",
+          "args": {
+            "checks": [
+              "no_byobject_props",
+              "no_zero_length",
+              "text_height_ok",
+              "viewport_locked"
+            ],
+            "fail_policy": "warn"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "format": "pdf",
+          "filename": "S201.pdf"
+        }
+      ]
+    }
+  ]
+}

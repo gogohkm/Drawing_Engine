@@ -1,0 +1,235 @@
+{
+  "version": "1.0",
+  "project": {
+    "name": "${project.name}",
+    "units": "${project.units}"
+  },
+  "assumptions": [
+    "모델은 1:1(mm) 기준으로 작성한다.",
+    "레이아웃 축척은 뷰포트에서만 적용한다."
+  ],
+  "globals": {
+    "variables": {
+      "TEXT_H": 2.5,
+      "DIM_TEXT_H": 2.5,
+      "GRID_BUBBLE_R": 125
+    },
+    "plot_style": "monochrome.ctb",
+    "linetype_scale": {
+      "LTSCALE": 1.0,
+      "MSLTSCALE": 1,
+      "PSLTSCALE": 1
+    }
+  },
+  "drawings": [
+    {
+      "id": "A101",
+      "title": "1F FLOOR PLAN",
+      "discipline": "A",
+      "model": {
+        "origin": [
+          0,
+          0
+        ],
+        "ucs": "WCS"
+      },
+      "layers": [
+        {
+          "name": "A-WALL",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.25,
+          "plot": true
+        },
+        {
+          "name": "A-DOOR",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.25,
+          "plot": true
+        },
+        {
+          "name": "A-ROOM",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "A-ANNO",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "A-DIMS",
+          "color": 7,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "G-GRID",
+          "color": 8,
+          "linetype": "Center",
+          "lineweight_mm": 0.18,
+          "plot": true
+        },
+        {
+          "name": "Z-TBD",
+          "color": 1,
+          "linetype": "Continuous",
+          "lineweight_mm": 0.18,
+          "plot": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "TB_A1",
+          "source": "lib/titleblocks/TB_A1.dwg",
+          "unit": "mm",
+          "attributes": [
+            "SHEET_ID",
+            "SHEET_TITLE",
+            "SCALE"
+          ]
+        },
+        {
+          "name": "DOOR_SINGLE",
+          "source": "lib/arch/doors/DOOR_SINGLE.dwg",
+          "unit": "mm",
+          "attributes": [
+            "WIDTH"
+          ]
+        },
+        {
+          "name": "GRID_BUBBLE",
+          "source": "lib/common/GRID_BUBBLE.dwg",
+          "unit": "mm",
+          "attributes": [
+            "GRID_NAME"
+          ]
+        }
+      ],
+      "layout": {
+        "name": "A101",
+        "paper": "A1",
+        "orientation": "landscape",
+        "scale_policy": "model_1to1_layout_viewport",
+        "plot_style": "monochrome.ctb",
+        "title_block": "TB_A1",
+        "viewports": [
+          {
+            "id": "VP_MAIN",
+            "center": [
+              420,
+              297
+            ],
+            "size": [
+              760,
+              520
+            ],
+            "model_window": {
+              "min": [
+                -1000,
+                -1000
+              ],
+              "max": [
+                13000,
+                13000
+              ]
+            },
+            "scale": "1:100",
+            "lock": true,
+            "vp_freeze_layers": []
+          }
+        ]
+      },
+      "sequence": [
+        {
+          "op": "set_linetype_scale",
+          "args": {
+            "LTSCALE": 1.0,
+            "MSLTSCALE": 1,
+            "PSLTSCALE": 1
+          }
+        },
+        {
+          "op": "macro:draw_grids",
+          "args": {
+            "from_design_input": true,
+            "layer": "G-GRID",
+            "bubble_block": "GRID_BUBBLE",
+            "bubble_radius_var": "GRID_BUBBLE_R"
+          }
+        },
+        {
+          "op": "macro:draw_arch_walls",
+          "args": {
+            "from_design_input": true,
+            "wall_layer": "A-WALL",
+            "tbd_layer": "Z-TBD"
+          }
+        },
+        {
+          "op": "macro:insert_doors_windows",
+          "args": {
+            "from_design_input": true,
+            "door_block": "DOOR_SINGLE",
+            "door_layer": "A-DOOR",
+            "tbd_layer": "Z-TBD"
+          }
+        },
+        {
+          "op": "macro:annotate_rooms",
+          "args": {
+            "from_design_input": true,
+            "layer": "A-ANNO",
+            "text_height_var": "TEXT_H"
+          }
+        },
+        {
+          "op": "macro:add_floorplan_dimensions",
+          "args": {
+            "strategy": "overall_then_openings",
+            "layer": "A-DIMS",
+            "dim_text_height_var": "DIM_TEXT_H"
+          }
+        },
+        {
+          "op": "macro:create_sheet_with_viewport",
+          "args": {
+            "layout_ref": "A101",
+            "insert_title_block": true,
+            "fill_title_block_attrs": {
+              "SHEET_ID": "A101",
+              "SHEET_TITLE": "1F FLOOR PLAN",
+              "SCALE": "1:100"
+            }
+          }
+        },
+        {
+          "op": "qa_check",
+          "args": {
+            "checks": [
+              "no_byobject_props",
+              "no_zero_length",
+              "linetype_scale_ok",
+              "text_height_ok",
+              "dim_style_ok",
+              "viewport_locked"
+            ],
+            "fail_policy": "warn"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "format": "pdf",
+          "filename": "A101.pdf"
+        }
+      ]
+    }
+  ]
+}

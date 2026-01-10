@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/drafting_plan_stgen_v1.schema.json",
+  "title": "DraftingPlanStgenV1",
+  "type": "object",
+  "required": [
+    "version",
+    "plan_id",
+    "steps"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": [
+        "stgen_plan_v1"
+      ]
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "units": {
+      "type": "string",
+      "enum": [
+        "mm",
+        "cm",
+        "m",
+        "inch",
+        "ft"
+      ]
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "variables": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/step"
+      }
+    }
+  },
+  "$defs": {
+    "step": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "tool": {
+          "type": "string",
+          "enum": [
+            "get_dxf_status",
+            "get_dxf_summary",
+            "get_dxf_layers",
+            "identify_drawing_type",
+            "analyze_layer_structure",
+            "analyze_region",
+            "analyze_pattern",
+            "count_by_type",
+            "count_blocks",
+            "compare_layers",
+            "create_line",
+            "create_polyline",
+            "create_circle",
+            "create_arc",
+            "create_rectangle",
+            "create_text",
+            "create_dimension",
+            "create_hatch",
+            "create_leader",
+            "create_block",
+            "create_bolt_symbol",
+            "create_center_mark",
+            "move_entities",
+            "copy_entities",
+            "rotate_entities",
+            "scale_entities",
+            "delete_entities",
+            "erase_by_bounds",
+            "trim_extend",
+            "offset_entity",
+            "mirror_entities",
+            "array_copy",
+            "break_entity",
+            "divide_entity",
+            "join_entities",
+            "explode_block",
+            "stretch",
+            "lengthen",
+            "fillet_chamfer",
+            "edit_text",
+            "close_polyline",
+            "reverse_polyline",
+            "change_entity_color",
+            "change_entity_layer",
+            "change_entity_linetype",
+            "set_current_layer",
+            "create_layer",
+            "set_layer_visibility",
+            "merge_layers",
+            "find_entities",
+            "find_annotations",
+            "find_connected_entities",
+            "find_intersections",
+            "find_parallel_lines",
+            "find_replace_text",
+            "detect_symbols",
+            "get_entity_properties",
+            "get_entity_points",
+            "get_selected_entities",
+            "list_all_texts",
+            "list_blocks",
+            "measure_distance",
+            "measure_angle",
+            "measure_arc_length",
+            "calculate_area",
+            "calculate_perimeter",
+            "sum_lengths",
+            "sum_areas",
+            "get_region_bounds",
+            "verify_alignment",
+            "align_to_baseline",
+            "snap_to_grid",
+            "generate_bom",
+            "extract_region",
+            "extract_dimensions",
+            "extract_dxf_entities",
+            "clone_region",
+            "rotate_region",
+            "scale_region",
+            "capture_dxf_view",
+            "zoom_extents",
+            "zoom_to_bounds",
+            "save_dxf",
+            "export_entities",
+            "insert_block",
+            "undo_last_action"
+          ]
+        },
+        "macro": {
+          "type": "string",
+          "enum": [
+            "macro:setup_layers",
+            "macro:draw_grids",
+            "macro:draw_walls",
+            "macro:draw_openings",
+            "macro:draw_columns_beams",
+            "macro:add_room_labels",
+            "macro:add_dimensions_basic",
+            "macro:steel_connection_detail",
+            "macro:rc_rebar_detail",
+            "macro:member_schedule_table",
+            "macro:qa_snapshot",
+            "macro:export_png",
+            "macro:fit_and_save"
+          ]
+        },
+        "args": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "save_as": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "on_error": {
+          "type": "string",
+          "enum": [
+            "halt",
+            "continue",
+            "undo_last_action"
+          ],
+          "default": "halt"
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "tool",
+            "args"
+          ]
+        },
+        {
+          "required": [
+            "macro",
+            "args"
+          ]
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

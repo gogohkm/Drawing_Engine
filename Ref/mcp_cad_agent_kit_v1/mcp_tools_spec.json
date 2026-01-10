@@ -1,0 +1,107 @@
+{
+  "name": "cad",
+  "version": "1.0",
+  "tools": [
+    {
+      "name": "cad.validate_plan",
+      "description": "Drafting Plan JSON(DSL)이 schema에 맞는지 검사한다.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "plan": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "plan"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "name": "cad.execute_plan",
+      "description": "Drafting Plan JSON(DSL)을 순서대로 실행하여 도면을 생성한다.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "plan": {
+            "type": "object"
+          },
+          "dry_run": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required": [
+          "plan"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "log": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "name": "cad.query",
+      "description": "도면 상태를 질의한다(QA용). 예: 레이어 목록, 엔티티 카운트, 텍스트 높이 분포, extents 등",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "args": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "output_schema": {
+        "type": "object"
+      }
+    }
+  ]
+}

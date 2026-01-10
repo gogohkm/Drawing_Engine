@@ -1,0 +1,108 @@
+{
+  "server": "stgen-dxf-viewer",
+  "tool_count": 86,
+  "categories": {
+    "analysis_status": [
+      "get_dxf_status",
+      "get_dxf_summary",
+      "get_dxf_layers",
+      "identify_drawing_type",
+      "analyze_layer_structure",
+      "analyze_region",
+      "analyze_pattern",
+      "count_by_type",
+      "count_blocks",
+      "compare_layers"
+    ],
+    "creation": [
+      "create_line",
+      "create_polyline",
+      "create_circle",
+      "create_arc",
+      "create_rectangle",
+      "create_text",
+      "create_dimension",
+      "create_hatch",
+      "create_leader",
+      "create_block",
+      "create_bolt_symbol",
+      "create_center_mark"
+    ],
+    "modification": [
+      "move_entities",
+      "copy_entities",
+      "rotate_entities",
+      "scale_entities",
+      "delete_entities",
+      "erase_by_bounds",
+      "trim_extend",
+      "offset_entity",
+      "mirror_entities",
+      "array_copy",
+      "break_entity",
+      "divide_entity",
+      "join_entities",
+      "explode_block",
+      "stretch",
+      "lengthen",
+      "fillet_chamfer",
+      "edit_text",
+      "close_polyline",
+      "reverse_polyline"
+    ],
+    "properties": [
+      "change_entity_color",
+      "change_entity_layer",
+      "change_entity_linetype",
+      "set_current_layer",
+      "create_layer",
+      "set_layer_visibility",
+      "merge_layers"
+    ],
+    "query_search": [
+      "find_entities",
+      "find_annotations",
+      "find_connected_entities",
+      "find_intersections",
+      "find_parallel_lines",
+      "find_replace_text",
+      "detect_symbols",
+      "get_entity_properties",
+      "get_entity_points",
+      "get_selected_entities",
+      "list_all_texts",
+      "list_blocks"
+    ],
+    "measurement": [
+      "measure_distance",
+      "measure_angle",
+      "measure_arc_length",
+      "calculate_area",
+      "calculate_perimeter",
+      "sum_lengths",
+      "sum_areas",
+      "get_region_bounds",
+      "verify_alignment",
+      "align_to_baseline",
+      "snap_to_grid",
+      "generate_bom"
+    ],
+    "region_extraction": [
+      "extract_region",
+      "extract_dimensions",
+      "extract_dxf_entities",
+      "clone_region",
+      "rotate_region",
+      "scale_region"
+    ],
+    "file_view": [
+      "capture_dxf_view",
+      "zoom_extents",
+      "zoom_to_bounds",
+      "save_dxf",
+      "export_entities",
+      "insert_block",
+      "undo_last_action"
+    ]
+  }
+}

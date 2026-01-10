@@ -1,0 +1,115 @@
+{
+  "version": "stgen_plan_v1",
+  "plan_id": "S501_STEEL_CONNECTION_DETAIL_TEMPLATE",
+  "units": "mm",
+  "meta": {
+    "discipline": "S",
+    "drawing_type": "STEEL_CONNECTION_DETAIL",
+    "mode": "A_separate_dxf_per_sheet"
+  },
+  "assumptions": [
+    "치수/용접기호 스타일은 stgen 기본 설정을 따른다."
+  ],
+  "variables": {
+    "detail_origin": [
+      0,
+      0
+    ],
+    "bolt_pattern": {
+      "rows": 2,
+      "cols": 3,
+      "pitch_x": 80,
+      "pitch_y": 80,
+      "origin": [
+        0,
+        0
+      ]
+    },
+    "output_path": "S501_output.dxf"
+  },
+  "steps": [
+    {
+      "id": "setup_001",
+      "macro": "macro:setup_layers",
+      "args": {
+        "layers": [
+          {
+            "name": "S-CONN",
+            "color": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "S-TEXT",
+            "color": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "S-DIMS",
+            "color": 2,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "Z-TBD",
+            "color": 1,
+            "linetype": "DASHED",
+            "visible": true
+          }
+        ],
+        "set_current": "S-CONN"
+      }
+    },
+    {
+      "id": "plate_010",
+      "tool": "set_current_layer",
+      "args": {
+        "layer": "S-CONN"
+      }
+    },
+    {
+      "id": "plate_011",
+      "tool": "create_rectangle",
+      "args": {
+        "p1": [
+          -200,
+          -150
+        ],
+        "p2": [
+          200,
+          150
+        ]
+      }
+    },
+    {
+      "id": "conn_020",
+      "macro": "macro:steel_connection_detail",
+      "args": {
+        "layer": "S-CONN",
+        "at_point": {
+          "$var": "detail_origin"
+        },
+        "bolt_pattern": {
+          "$var": "bolt_pattern"
+        },
+        "bolt_radius": 10,
+        "note_text": "M20(8.8) 2x3, PL t=12"
+      }
+    },
+    {
+      "id": "qa_090",
+      "macro": "macro:qa_snapshot",
+      "args": {}
+    },
+    {
+      "id": "save_099",
+      "macro": "macro:fit_and_save",
+      "args": {
+        "save_as": {
+          "$var": "output_path"
+        }
+      }
+    }
+  ]
+}

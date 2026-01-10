@@ -1,0 +1,237 @@
+{
+  "version": "stgen_plan_v1",
+  "plan_id": "A101_FLOOR_PLAN_TEMPLATE",
+  "units": "mm",
+  "meta": {
+    "discipline": "A",
+    "drawing_type": "FLOOR_PLAN",
+    "mode": "A_separate_dxf_per_sheet"
+  },
+  "assumptions": [
+    "도면은 모델공간 1:1 기준으로 작성한다.",
+    "치수 스타일/글꼴 등은 stgen 기본 설정을 따른다."
+  ],
+  "variables": {
+    "grid_x": [
+      {
+        "coord": 0,
+        "label": "1"
+      },
+      {
+        "coord": 6000,
+        "label": "2"
+      }
+    ],
+    "grid_y": [
+      {
+        "coord": 0,
+        "label": "A"
+      },
+      {
+        "coord": 8000,
+        "label": "B"
+      }
+    ],
+    "building_bounds": [
+      0,
+      0,
+      6000,
+      8000
+    ],
+    "walls": [
+      {
+        "id": "W1",
+        "path": [
+          [
+            0,
+            0
+          ],
+          [
+            6000,
+            0
+          ],
+          [
+            6000,
+            8000
+          ],
+          [
+            0,
+            8000
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "thickness": 200
+      }
+    ],
+    "openings": [
+      {
+        "id": "D1",
+        "kind": "door",
+        "insert": [
+          1500,
+          0
+        ],
+        "width": 900,
+        "height": 2100,
+        "rotation_deg": 0
+      }
+    ],
+    "rooms": [
+      {
+        "id": "R1",
+        "name": "ROOM-01",
+        "label_point": [
+          3000,
+          4000
+        ]
+      }
+    ],
+    "dims": [
+      {
+        "p1": [
+          0,
+          -800
+        ],
+        "p2": [
+          6000,
+          -800
+        ],
+        "dim_line_point": [
+          3000,
+          -1200
+        ],
+        "kind": "horizontal"
+      }
+    ],
+    "output_path": "A101_output.dxf"
+  },
+  "steps": [
+    {
+      "id": "setup_001",
+      "macro": "macro:setup_layers",
+      "args": {
+        "layers": [
+          {
+            "name": "A-GRID",
+            "color": 8,
+            "linetype": "CENTER",
+            "visible": true
+          },
+          {
+            "name": "A-WALL",
+            "color": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "A-DOOR",
+            "color": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "A-WIND",
+            "color": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "A-TEXT",
+            "color": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "A-DIMS",
+            "color": 2,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "Z-TBD",
+            "color": 1,
+            "linetype": "DASHED",
+            "visible": true
+          }
+        ],
+        "set_current": "A-WALL"
+      }
+    },
+    {
+      "id": "grid_010",
+      "macro": "macro:draw_grids",
+      "args": {
+        "layer": "A-GRID",
+        "x": {
+          "$var": "grid_x"
+        },
+        "y": {
+          "$var": "grid_y"
+        },
+        "bounds": {
+          "$var": "building_bounds"
+        },
+        "extend": 1000,
+        "bubble_radius": 150,
+        "text_height": 150
+      }
+    },
+    {
+      "id": "wall_020",
+      "macro": "macro:draw_walls",
+      "args": {
+        "layer": "A-WALL",
+        "walls": {
+          "$var": "walls"
+        }
+      }
+    },
+    {
+      "id": "open_030",
+      "macro": "macro:draw_openings",
+      "args": {
+        "openings": {
+          "$var": "openings"
+        }
+      }
+    },
+    {
+      "id": "room_040",
+      "macro": "macro:add_room_labels",
+      "args": {
+        "layer": "A-TEXT",
+        "rooms": {
+          "$var": "rooms"
+        },
+        "text_height": 200
+      }
+    },
+    {
+      "id": "dim_050",
+      "macro": "macro:add_dimensions_basic",
+      "args": {
+        "layer": "A-DIMS",
+        "dims": {
+          "$var": "dims"
+        }
+      }
+    },
+    {
+      "id": "qa_090",
+      "macro": "macro:qa_snapshot",
+      "args": {}
+    },
+    {
+      "id": "save_099",
+      "macro": "macro:fit_and_save",
+      "args": {
+        "save_as": {
+          "$var": "output_path"
+        }
+      }
+    }
+  ]
+}

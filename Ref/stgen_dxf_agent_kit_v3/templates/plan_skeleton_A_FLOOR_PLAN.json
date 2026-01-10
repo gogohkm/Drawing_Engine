@@ -1,0 +1,242 @@
+{
+  "version": "stgen-plan-v2",
+  "meta": {
+    "drawing_type": "A_FLOOR_PLAN",
+    "sheet_id": "A101",
+    "title": "TBD",
+    "units": "mm",
+    "target_dxf_path": "TBD.dxf",
+    "created_by": "PlannerLLM",
+    "created_at": "2026-01-07"
+  },
+  "assumptions": [
+    "TODO: 필요한 누락값은 assumptions에 기록"
+  ],
+  "policy": {
+    "avoid_scale": true,
+    "layer_policy": "SET_CURRENT_LAYER",
+    "forbid_tools": []
+  },
+  "vars": {
+    "extents": {
+      "min": [
+        0,
+        0
+      ],
+      "max": [
+        12000,
+        8000
+      ]
+    }
+  },
+  "sequence": [
+    {
+      "id": "00.status",
+      "tool": "get_dxf_summary",
+      "args": {}
+    },
+    {
+      "id": "01.layers",
+      "macro": "macro:setup_layers",
+      "args": {
+        "layers": [
+          {
+            "name": "A-GRID",
+            "aci": 7,
+            "linetype": "CENTER",
+            "visible": true
+          },
+          {
+            "name": "A-WALL",
+            "aci": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "A-DOOR",
+            "aci": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "A-WINDOW",
+            "aci": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "A-TEXT",
+            "aci": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "A-DIM",
+            "aci": 7,
+            "linetype": "CONTINUOUS",
+            "visible": true
+          },
+          {
+            "name": "Z-TBD",
+            "aci": 1,
+            "linetype": "DASHED",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "02.grid",
+      "macro": "macro:draw_grids",
+      "args": {
+        "layer": "A-GRID",
+        "extents": "$extents",
+        "x": [
+          {
+            "coord": 0,
+            "label": "1"
+          },
+          {
+            "coord": 6000,
+            "label": "2"
+          },
+          {
+            "coord": 12000,
+            "label": "3"
+          }
+        ],
+        "y": [
+          {
+            "coord": 0,
+            "label": "A"
+          },
+          {
+            "coord": 4000,
+            "label": "B"
+          },
+          {
+            "coord": 8000,
+            "label": "C"
+          }
+        ],
+        "bubble_radius": 150,
+        "label_height": 250,
+        "label_offset": 300
+      }
+    },
+    {
+      "id": "03.walls",
+      "macro": "macro:draw_walls",
+      "args": {
+        "layer": "A-WALL",
+        "walls": [
+          {
+            "id": "W1",
+            "boundary": [
+              [
+                0,
+                0
+              ],
+              [
+                12000,
+                0
+              ],
+              [
+                12000,
+                8000
+              ],
+              [
+                0,
+                8000
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "04.openings",
+      "macro": "macro:draw_openings",
+      "args": {
+        "door_layer": "A-DOOR",
+        "window_layer": "A-WINDOW",
+        "openings": [
+          {
+            "type": "DOOR",
+            "center": [
+              0,
+              2000
+            ],
+            "width": 900,
+            "orientation_deg": 0,
+            "hinge": "L"
+          }
+        ]
+      }
+    },
+    {
+      "id": "05.rooms",
+      "macro": "macro:add_room_labels",
+      "args": {
+        "layer": "A-TEXT",
+        "text_height": 250,
+        "rooms": [
+          {
+            "id": "R1",
+            "name": "ROOM",
+            "label_point": [
+              6000,
+              4000
+            ],
+            "area": 96.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "06.dims",
+      "macro": "macro:add_dimensions_basic",
+      "args": {
+        "layer": "A-DIM",
+        "dims": [
+          {
+            "p1": [
+              0,
+              0
+            ],
+            "p2": [
+              12000,
+              0
+            ],
+            "type": "ALIGNED",
+            "offset": 600
+          },
+          {
+            "p1": [
+              0,
+              0
+            ],
+            "p2": [
+              0,
+              8000
+            ],
+            "type": "ALIGNED",
+            "offset": 600
+          }
+        ]
+      }
+    },
+    {
+      "id": "90.qa",
+      "macro": "macro:qa_snapshot",
+      "args": {}
+    },
+    {
+      "id": "99.save",
+      "macro": "macro:fit_and_save",
+      "args": {
+        "path": "A101_demo_out.dxf"
+      }
+    }
+  ]
+}
