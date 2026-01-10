@@ -1,0 +1,86 @@
+{
+  "version": "1.0",
+  "description": "도면 타입별 작도 절차 정의",
+
+  "floor_plan": {
+    "name": "건축 평면도",
+    "name_en": "Architectural Floor Plan",
+    "description": "건물의 수평 단면을 위에서 본 도면",
+    "steps": [
+      {"order": 1, "name": "레이어 설정", "element": "layers", "required": true},
+      {"order": 2, "name": "그리드 작성", "element": "grid", "required": true},
+      {"order": 3, "name": "벽체 작성", "element": "wall", "required": true},
+      {"order": 4, "name": "개구부 작성", "element": "opening", "required": false},
+      {"order": 5, "name": "가구/설비 배치", "element": "furniture", "required": false},
+      {"order": 6, "name": "실명 표기", "element": "room_label", "required": true},
+      {"order": 7, "name": "치수 배치", "element": "dimension", "required": true},
+      {"order": 8, "name": "주석/범례", "element": "annotation", "required": false}
+    ],
+    "checkpoints": ["after_grid", "after_walls", "final"],
+    "required_layers": ["A-GRID", "A-WALL", "A-DOOR", "A-WINDOW", "A-TEXT", "A-DIM"],
+    "optional_layers": ["A-FURN", "A-ANNO", "Z-TBD"]
+  },
+
+  "section": {
+    "name": "단면도",
+    "name_en": "Section Drawing",
+    "description": "건물의 수직 단면을 측면에서 본 도면",
+    "steps": [
+      {"order": 1, "name": "레이어 설정", "element": "layers", "required": true},
+      {"order": 2, "name": "레벨 라인 작성", "element": "level_line", "required": true},
+      {"order": 3, "name": "구조 요소 작성", "element": "structure", "required": true},
+      {"order": 4, "name": "마감선 작성", "element": "finish_line", "required": false},
+      {"order": 5, "name": "치수 배치", "element": "dimension", "required": true},
+      {"order": 6, "name": "주석", "element": "annotation", "required": true}
+    ],
+    "checkpoints": ["after_levels", "after_structure", "final"],
+    "required_layers": ["S-GRID", "S-STRU", "S-DIM", "S-TEXT"]
+  },
+
+  "rc_rebar": {
+    "name": "철근콘크리트 배근도",
+    "name_en": "RC Reinforcement Drawing",
+    "description": "철근콘크리트 구조물의 철근 배치 도면",
+    "steps": [
+      {"order": 1, "name": "레이어 설정", "element": "layers", "required": true},
+      {"order": 2, "name": "콘크리트 외곽선", "element": "concrete_outline", "required": true},
+      {"order": 3, "name": "주근 배치", "element": "main_rebar", "required": true},
+      {"order": 4, "name": "전단보강근 배치", "element": "stirrup", "required": true},
+      {"order": 5, "name": "철근 마크", "element": "rebar_mark", "required": true},
+      {"order": 6, "name": "치수/피복", "element": "dimension", "required": true}
+    ],
+    "checkpoints": ["after_outline", "after_rebar", "final"],
+    "required_layers": ["RC-CONC", "RC-REBAR", "RC-DIM", "RC-TEXT"]
+  },
+
+  "steel_connection": {
+    "name": "철골 접합부 상세도",
+    "name_en": "Steel Connection Detail",
+    "description": "철골 부재간 접합부 상세 도면",
+    "steps": [
+      {"order": 1, "name": "레이어 설정", "element": "layers", "required": true},
+      {"order": 2, "name": "부재 외곽선", "element": "member_outline", "required": true},
+      {"order": 3, "name": "접합판 배치", "element": "plate", "required": true},
+      {"order": 4, "name": "볼트 배치", "element": "bolt_pattern", "required": true},
+      {"order": 5, "name": "용접 기호", "element": "weld_symbol", "required": false},
+      {"order": 6, "name": "치수", "element": "dimension", "required": true}
+    ],
+    "checkpoints": ["after_members", "after_bolts", "final"],
+    "required_layers": ["ST-MEMB", "ST-PLATE", "ST-BOLT", "ST-DIM", "ST-TEXT"]
+  },
+
+  "electrical_schematic": {
+    "name": "전기 배선도",
+    "name_en": "Electrical Schematic",
+    "description": "전기 배선 및 기기 연결 도면",
+    "steps": [
+      {"order": 1, "name": "레이어 설정", "element": "layers", "required": true},
+      {"order": 2, "name": "기기 배치", "element": "device", "required": true},
+      {"order": 3, "name": "배선 연결", "element": "wiring", "required": true},
+      {"order": 4, "name": "기기 번호", "element": "device_tag", "required": true},
+      {"order": 5, "name": "범례/주석", "element": "legend", "required": true}
+    ],
+    "checkpoints": ["after_devices", "after_wiring", "final"],
+    "required_layers": ["E-DEVICE", "E-WIRE", "E-TEXT"]
+  }
+}

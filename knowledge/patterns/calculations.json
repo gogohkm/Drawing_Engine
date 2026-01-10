@@ -1,0 +1,204 @@
+{
+  "version": "1.0",
+  "description": "좌표 및 치수 계산 공식 - AI 배치 실행 최적화용",
+
+  "grid": {
+    "description": "그리드 좌표 계산",
+    "formulas": {
+      "uniform_spacing": {
+        "description": "균등 간격 그리드",
+        "formula": "position[i] = start + i * spacing",
+        "example": {
+          "input": {"start": 0, "spacing": 6000, "count": 3},
+          "output": [0, 6000, 12000]
+        }
+      },
+      "custom_spacing": {
+        "description": "불균등 간격 그리드",
+        "formula": "position[i] = start + sum(spacings[0:i])",
+        "example": {
+          "input": {"start": 0, "spacings": [6000, 4000, 5000]},
+          "output": [0, 6000, 10000, 15000]
+        }
+      },
+      "grid_line_endpoints": {
+        "description": "그리드 선 시작/끝점 계산",
+        "formula": {
+          "vertical": {"start_y": "min_y - extension", "end_y": "max_y + extension"},
+          "horizontal": {"start_x": "min_x - extension", "end_x": "max_x + extension"}
+        },
+        "example": {
+          "input": {"bounds": {"minX": 0, "minY": 0, "maxX": 12000, "maxY": 8000}, "extension": 500},
+          "vertical_line_at_x_0": {"start": {"x": 0, "y": -500}, "end": {"x": 0, "y": 8500}}
+        }
+      },
+      "bubble_position": {
+        "description": "그리드 버블 위치",
+        "formula": "bubble_center = grid_end + bubble_offset",
+        "example": {
+          "input": {"grid_end_y": -500, "bubble_offset": 300},
+          "output": {"bubble_center_y": -800}
+        }
+      }
+    }
+  },
+
+  "wall": {
+    "description": "벽체 좌표 계산",
+    "formulas": {
+      "rectangular_room": {
+        "description": "사각형 방 외벽 좌표",
+        "formula": "vertices = [origin, (origin.x+width, origin.y), (origin.x+width, origin.y+height), (origin.x, origin.y+height)]",
+        "example": {
+          "input": {"origin": {"x": 0, "y": 0}, "width": 12000, "height": 8000},
+          "output": [
+            {"x": 0, "y": 0},
+            {"x": 12000, "y": 0},
+            {"x": 12000, "y": 8000},
+            {"x": 0, "y": 8000}
+          ]
+        }
+      },
+      "wall_offset": {
+        "description": "중심선에서 벽 두께 오프셋",
+        "formula": "offset_distance = wall_thickness / 2",
+        "example": {
+          "input": {"centerline": [{"x": 0, "y": 0}, {"x": 1000, "y": 0}], "thickness": 200},
+          "output": {
+            "inner": [{"x": 0, "y": -100}, {"x": 1000, "y": -100}],
+            "outer": [{"x": 0, "y": 100}, {"x": 1000, "y": 100}]
+          }
+        }
+      },
+      "wall_intersection": {
+        "description": "두 벽의 교차점",
+        "formula": "standard line-line intersection",
+        "notes": "수직/수평 벽은 단순히 x, y 좌표 교환"
+      }
+    }
+  },
+
+  "opening": {
+    "description": "개구부 좌표 계산",
+    "formulas": {
+      "door_on_wall": {
+        "description": "벽면 위 문 위치",
+        "formula": {
+          "jamb_left": "door_center - door_width/2",
+          "jamb_right": "door_center + door_width/2"
+        },
+        "example": {
+          "input": {"wall_start": {"x": 0, "y": 0}, "door_offset": 2000, "door_width": 900},
+          "output": {
+            "jamb_left": {"x": 0, "y": 1550},
+            "jamb_right": {"x": 0, "y": 2450}
+          }
+        }
+      },
+      "door_swing_arc": {
+        "description": "문 스윙 호 계산",
+        "formula": {
+          "center": "hinge_point",
+          "radius": "door_width",
+          "angles": "depends on swing direction (L/R) and wall orientation"
+        },
+        "swing_angles": {
+          "left_hinge_inward": {"start": 0, "end": 90},
+          "right_hinge_inward": {"start": 90, "end": 180},
+          "left_hinge_outward": {"start": 270, "end": 360},
+          "right_hinge_outward": {"start": 180, "end": 270}
+        }
+      }
+    }
+  },
+
+  "dimension": {
+    "description": "치수선 위치 계산",
+    "formulas": {
+      "offset_from_object": {
+        "description": "객체에서 치수선까지 거리",
+        "formula": "dim_line_pos = object_edge + offset_distance",
+        "recommended_offsets": {
+          "first_dim": 600,
+          "subsequent_dims": 400,
+          "notes": "첫 치수선은 객체에서 600, 추가 치수선은 400 간격"
+        },
+        "example": {
+          "input": {"wall_bottom": 0, "offset": 600},
+          "output": {"dimLinePosition_y": -600}
+        }
+      },
+      "chain_dimension": {
+        "description": "연속 치수 배치",
+        "formula": "각 세그먼트의 point1, point2를 순차적으로 설정",
+        "example": {
+          "input": {"points": [0, 6000, 12000], "dim_y": -600},
+          "output": [
+            {"point1": {"x": 0, "y": 0}, "point2": {"x": 6000, "y": 0}, "dimLinePosition": {"x": 3000, "y": -600}},
+            {"point1": {"x": 6000, "y": 0}, "point2": {"x": 12000, "y": 0}, "dimLinePosition": {"x": 9000, "y": -600}}
+          ]
+        }
+      },
+      "overall_dimension": {
+        "description": "전체 치수 위치",
+        "formula": "dim_line_pos = chain_dim_pos - additional_offset",
+        "example": {
+          "input": {"chain_dim_y": -600, "additional_offset": 400},
+          "output": {"overall_dim_y": -1000}
+        }
+      }
+    }
+  },
+
+  "bolt_pattern": {
+    "description": "볼트 배열 좌표 계산",
+    "formulas": {
+      "rectangular_array": {
+        "description": "직사각형 배열",
+        "formula": "position[i][j] = base + (i * dx, j * dy)",
+        "example": {
+          "input": {"base": {"x": 100, "y": 100}, "rows": 2, "cols": 3, "dx": 80, "dy": 80},
+          "output": [
+            {"x": 100, "y": 100}, {"x": 180, "y": 100}, {"x": 260, "y": 100},
+            {"x": 100, "y": 180}, {"x": 180, "y": 180}, {"x": 260, "y": 180}
+          ]
+        }
+      },
+      "polar_array": {
+        "description": "원형 배열",
+        "formula": "position[i] = center + radius * (cos(angle_i), sin(angle_i))",
+        "example": {
+          "input": {"center": {"x": 0, "y": 0}, "radius": 100, "count": 4, "start_angle": 0},
+          "output": [
+            {"x": 100, "y": 0},
+            {"x": 0, "y": 100},
+            {"x": -100, "y": 0},
+            {"x": 0, "y": -100}
+          ]
+        }
+      }
+    }
+  },
+
+  "geometry": {
+    "description": "일반 기하 계산",
+    "formulas": {
+      "distance": {
+        "formula": "sqrt((x2-x1)^2 + (y2-y1)^2)"
+      },
+      "midpoint": {
+        "formula": "((x1+x2)/2, (y1+y2)/2)"
+      },
+      "angle_from_horizontal": {
+        "formula": "atan2(y2-y1, x2-x1) * 180 / PI"
+      },
+      "perpendicular_point": {
+        "description": "선에서 수직 거리만큼 떨어진 점",
+        "formula": {
+          "normal_angle": "line_angle + 90",
+          "offset_point": "base + distance * (cos(normal_angle), sin(normal_angle))"
+        }
+      }
+    }
+  }
+}

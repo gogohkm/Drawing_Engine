@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "description": "실패 기록 - 원인과 해결책 축적으로 동일 실수 방지",
+
+  "entries": [
+    {
+      "id": "F000",
+      "date": "2026-01-11",
+      "task": "초기화 템플릿",
+      "context": "knowledge 저장소 초기 생성",
+      "error": "N/A - 템플릿 예시",
+      "cause": "N/A",
+      "solution": "N/A",
+      "prevention": "실패 발생 시 이 형식으로 기록",
+      "tags": ["template"]
+    }
+  ],
+
+  "schema": {
+    "id": "고유 식별자 (F001, F002, ...)",
+    "date": "YYYY-MM-DD 형식",
+    "task": "수행하려던 작업",
+    "context": "작업 맥락/조건",
+    "error": "발생한 에러 또는 문제",
+    "cause": "근본 원인 분석",
+    "solution": "해결 방법",
+    "prevention": "향후 예방책",
+    "tags": ["카테고리 태그"]
+  },
+
+  "tag_categories": {
+    "tool_error": "MCP tool 호출 에러",
+    "args_mismatch": "잘못된 args 형식",
+    "reference_error": "entityRef 참조 실패",
+    "calculation_error": "좌표/치수 계산 오류",
+    "sequence_error": "작업 순서 문제",
+    "layer_error": "레이어 관련 문제",
+    "verification_fail": "검증 실패"
+  },
+
+  "statistics": {
+    "total_count": 0,
+    "by_tag": {},
+    "most_common_cause": null,
+    "last_updated": "2026-01-11"
+  }
+}

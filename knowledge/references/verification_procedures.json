@@ -1,0 +1,207 @@
+{
+  "version": "1.0",
+  "description": "검증 수행 절차 - Claude가 직접 실행하는 검증 로직",
+
+  "L1_verification": {
+    "name": "반환값 검증",
+    "description": "tool 호출 직후 반환 메시지 분석",
+    "procedure": {
+      "step1": {
+        "action": "tool 반환 메시지 확인",
+        "success_patterns": [
+          "Created",
+          "successfully",
+          "entity",
+          "handle"
+        ],
+        "failure_patterns": [
+          "error",
+          "failed",
+          "Error",
+          "not found",
+          "invalid"
+        ]
+      },
+      "step2": {
+        "action": "실패 시 원인 분석",
+        "common_causes": {
+          "invalid argument": "args 형식 오류 - tool_usage.json 참조하여 수정",
+          "layer not found": "레이어 미생성 - create_layer 먼저 실행",
+          "entity not found": "entityRef 참조 실패 - position 또는 bounds로 재시도"
+        }
+      },
+      "step3": {
+        "action": "재시도 또는 다음 단계",
+        "max_retries": 3,
+        "on_persistent_failure": "failures.json에 기록 후 사용자 알림"
+      }
+    },
+    "example": {
+      "tool_call": "create_line",
+      "response": "Created LINE entity on layer A-GRID",
+      "analysis": "success - 'Created' 패턴 매칭",
+      "result": "PASS"
+    }
+  },
+
+  "L2_verification": {
+    "name": "통계 검증",
+    "description": "도면 상태 통계로 작업 결과 확인",
+
+    "procedure_entity_count": {
+      "description": "엔티티 개수 검증",
+      "steps": [
+        {
+          "step": 1,
+          "action": "get_dxf_summary 호출",
+          "purpose": "전체 도면 상태 획득"
+        },
+        {
+          "step": 2,
+          "action": "레이어별 엔티티 수 추출",
+          "method": "summary.layers에서 target layer의 entity_count 확인"
+        },
+        {
+          "step": 3,
+          "action": "기대값과 비교",
+          "logic": "actual >= expected.min AND actual <= expected.max (max가 있는 경우)"
+        },
+        {
+          "step": 4,
+          "action": "결과 판정",
+          "pass": "모든 조건 충족",
+          "fail": "하나라도 미충족"
+        }
+      ],
+      "example": {
+        "checkpoint": "after_grid",
+        "expected": {"layer": "A-GRID", "LINE": {"min": 6}},
+        "summary_result": {"A-GRID": {"LINE": 6, "CIRCLE": 6, "TEXT": 6}},
+        "check": "LINE(6) >= min(6)",
+        "result": "PASS"
+      }
+    },
+
+    "procedure_bounds_check": {
+      "description": "도면 범위 검증",
+      "steps": [
+        {
+          "step": 1,
+          "action": "get_dxf_summary 호출"
+        },
+        {
+          "step": 2,
+          "action": "bounds 추출",
+          "fields": ["minX", "minY", "maxX", "maxY"]
+        },
+        {
+          "step": 3,
+          "action": "예상 범위와 비교",
+          "tolerance": "project_settings.verification_thresholds.position_tolerance"
+        }
+      ],
+      "example": {
+        "expected_bounds": {"minX": -1500, "minY": -1500, "maxX": 13500, "maxY": 9500},
+        "actual_bounds": {"minX": -1500, "minY": -1500, "maxX": 13500, "maxY": 9500},
+        "tolerance": 100,
+        "result": "PASS"
+      }
+    },
+
+    "procedure_layer_check": {
+      "description": "레이어 존재 검증",
+      "steps": [
+        {
+          "step": 1,
+          "action": "get_dxf_layers 호출"
+        },
+        {
+          "step": 2,
+          "action": "레이어 목록에서 required layers 확인"
+        },
+        {
+          "step": 3,
+          "action": "누락된 레이어 식별"
+        }
+      ],
+      "example": {
+        "required": ["A-GRID", "A-WALL", "A-TEXT", "A-DIM"],
+        "existing": ["0", "A-GRID", "A-WALL", "A-TEXT", "A-DIM"],
+        "missing": [],
+        "result": "PASS"
+      }
+    }
+  },
+
+  "L3_verification": {
+    "name": "시각적 검증",
+    "description": "렌더링 이미지로 최종 확인",
+
+    "procedure": {
+      "steps": [
+        {
+          "step": 1,
+          "action": "zoom_extents 호출",
+          "purpose": "전체 도면이 보이도록 뷰 설정"
+        },
+        {
+          "step": 2,
+          "action": "capture_dxf_view 호출",
+          "purpose": "현재 뷰 이미지 캡처"
+        },
+        {
+          "step": 3,
+          "action": "이미지 분석",
+          "check_items": [
+            "주요 요소가 모두 보이는지",
+            "요소들이 올바른 위치에 있는지",
+            "겹침이나 누락이 없는지",
+            "치수/텍스트가 읽을 수 있는지"
+          ]
+        },
+        {
+          "step": 4,
+          "action": "문제 발견 시 상세 확인",
+          "method": "zoom_to_bounds로 문제 영역 확대"
+        }
+      ]
+    },
+
+    "visual_checklist": {
+      "floor_plan": [
+        "그리드 선이 보이는가",
+        "그리드 버블과 라벨이 있는가",
+        "벽체가 닫힌 형태인가",
+        "개구부(문/창)가 표시되었는가",
+        "실명이 적절한 위치에 있는가",
+        "치수선이 객체 외곽에 배치되었는가"
+      ],
+      "steel_connection": [
+        "부재 외곽선이 보이는가",
+        "접합판이 올바른 위치인가",
+        "볼트 패턴이 규칙적인가",
+        "치수가 배치되었는가"
+      ]
+    }
+  },
+
+  "verification_report_format": {
+    "description": "검증 결과 보고 형식",
+    "template": {
+      "checkpoint": "checkpoint name",
+      "level": "L1/L2/L3",
+      "timestamp": "ISO datetime",
+      "checks": [
+        {
+          "type": "check type",
+          "expected": "expected value",
+          "actual": "actual value",
+          "result": "PASS/FAIL",
+          "notes": "additional notes"
+        }
+      ],
+      "overall_result": "PASS/FAIL",
+      "actions_taken": ["list of corrective actions if any"]
+    }
+  }
+}

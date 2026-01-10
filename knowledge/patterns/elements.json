@@ -1,0 +1,210 @@
+{
+  "version": "1.0",
+  "description": "요소별 작도법 정의 - 안정성이 검증된 방법 우선",
+
+  "layers": {
+    "description": "레이어 생성 및 설정",
+    "methods": {
+      "create_and_set": {
+        "description": "레이어 생성 후 현재 레이어로 설정",
+        "stability": "high",
+        "tools": ["create_layer", "set_current_layer"],
+        "sequence": [
+          {"tool": "create_layer", "purpose": "새 레이어 생성"},
+          {"tool": "set_current_layer", "purpose": "작업 레이어 지정"}
+        ]
+      }
+    },
+    "recommended": "create_and_set",
+    "notes": "ByLayer 원칙: 개체 속성은 레이어에서 상속"
+  },
+
+  "grid": {
+    "description": "그리드 라인 및 버블 작성",
+    "methods": {
+      "lines_with_bubbles": {
+        "description": "그리드 선 + 원형 버블 + 라벨",
+        "stability": "high",
+        "tools": ["create_line", "create_circle", "create_text"],
+        "sequence": [
+          {"tool": "create_line", "purpose": "수직/수평 그리드 선"},
+          {"tool": "create_circle", "purpose": "버블 원"},
+          {"tool": "create_text", "purpose": "그리드 라벨 (1,2,3 / A,B,C)"}
+        ],
+        "example": {
+          "vertical_grid": {
+            "tool": "create_line",
+            "args": {"start": {"x": 0, "y": -500}, "end": {"x": 0, "y": 8500}}
+          },
+          "bubble": {
+            "tool": "create_circle",
+            "args": {"center": {"x": 0, "y": -800}, "radius": 300}
+          },
+          "label": {
+            "tool": "create_text",
+            "args": {"position": {"x": 0, "y": -800}, "text": "1", "height": 250}
+          }
+        }
+      }
+    },
+    "recommended": "lines_with_bubbles",
+    "parallel_execution": true,
+    "notes": "모든 그리드 선은 병렬로 생성 가능"
+  },
+
+  "wall": {
+    "description": "벽체 작성",
+    "methods": {
+      "boundary_polyline": {
+        "description": "벽체 경계를 폴리라인으로 직접 작성",
+        "stability": "high",
+        "tools": ["create_polyline"],
+        "example": {
+          "tool": "create_polyline",
+          "args": {
+            "vertices": [
+              {"x": 0, "y": 0},
+              {"x": 12000, "y": 0},
+              {"x": 12000, "y": 8000},
+              {"x": 0, "y": 8000}
+            ],
+            "closed": true
+          }
+        },
+        "notes": "좌표를 직접 계산하여 정확한 벽체 형상 생성"
+      },
+      "centerline_offset": {
+        "description": "중심선 그린 후 offset으로 두께 생성",
+        "stability": "medium",
+        "tools": ["create_polyline", "offset_entity"],
+        "notes": "offset_entity는 entityRef 참조 필요 - 복잡할 수 있음"
+      },
+      "double_lines": {
+        "description": "안쪽/바깥쪽 라인을 각각 작성",
+        "stability": "high",
+        "tools": ["create_polyline"],
+        "notes": "계산량은 많지만 참조 불필요로 안정적"
+      }
+    },
+    "recommended": "boundary_polyline",
+    "lessons_learned": [
+      "offset 방식은 entityRef 참조가 복잡해서 boundary 우선 사용",
+      "복잡한 벽체는 여러 polyline으로 분할"
+    ]
+  },
+
+  "opening": {
+    "description": "문/창문 개구부 작성",
+    "methods": {
+      "door_swing": {
+        "description": "문 개구부 + 회전 호 표시",
+        "stability": "high",
+        "tools": ["create_line", "create_arc"],
+        "sequence": [
+          {"tool": "create_line", "purpose": "문짝 표시"},
+          {"tool": "create_arc", "purpose": "스윙 방향 호"}
+        ],
+        "example": {
+          "door_leaf": {
+            "tool": "create_line",
+            "args": {"start": {"x": 0, "y": 2000}, "end": {"x": 900, "y": 2000}}
+          },
+          "swing_arc": {
+            "tool": "create_arc",
+            "args": {"center": {"x": 0, "y": 2000}, "radius": 900, "startAngle": 0, "endAngle": 90}
+          }
+        }
+      },
+      "window_lines": {
+        "description": "창문 중앙선 + 유리선",
+        "stability": "high",
+        "tools": ["create_line"],
+        "notes": "벽체 두께 내 2~3개 평행선으로 표현"
+      }
+    },
+    "recommended": "door_swing"
+  },
+
+  "dimension": {
+    "description": "치수선 배치",
+    "methods": {
+      "linear_dimension": {
+        "description": "선형 치수 (수평/수직/정렬)",
+        "stability": "high",
+        "tools": ["create_dimension"],
+        "example": {
+          "tool": "create_dimension",
+          "args": {
+            "point1": {"x": 0, "y": 0},
+            "point2": {"x": 12000, "y": 0},
+            "dimLinePosition": {"x": 6000, "y": -600},
+            "dimensionType": "aligned"
+          }
+        }
+      }
+    },
+    "recommended": "linear_dimension",
+    "notes": "dimLinePosition은 치수선 위치, point1/point2에서 수직 오프셋"
+  },
+
+  "room_label": {
+    "description": "실명 및 면적 표기",
+    "methods": {
+      "text_label": {
+        "description": "실명 + 면적 텍스트",
+        "stability": "high",
+        "tools": ["create_text"],
+        "example": {
+          "tool": "create_text",
+          "args": {
+            "position": {"x": 6000, "y": 4000},
+            "text": "ROOM\\n96.0 m2",
+            "height": 250
+          }
+        }
+      }
+    },
+    "recommended": "text_label"
+  },
+
+  "bolt_pattern": {
+    "description": "볼트 패턴 배치",
+    "methods": {
+      "array_method": {
+        "description": "한 개 생성 후 array_copy로 배열",
+        "stability": "high",
+        "tools": ["create_bolt_symbol", "array_copy"],
+        "notes": "반복 요소는 array_copy 활용"
+      },
+      "individual_method": {
+        "description": "각 볼트를 개별 좌표로 생성",
+        "stability": "high",
+        "tools": ["create_bolt_symbol"],
+        "notes": "병렬 실행 시 빠름"
+      }
+    },
+    "recommended": "individual_method",
+    "parallel_execution": true,
+    "notes": "볼트 수가 적으면 개별 생성이 더 단순"
+  },
+
+  "annotation": {
+    "description": "주석 및 노트",
+    "methods": {
+      "leader_note": {
+        "description": "지시선 + 텍스트",
+        "stability": "high",
+        "tools": ["create_leader"],
+        "example": {
+          "tool": "create_leader",
+          "args": {
+            "vertices": [{"x": 1000, "y": 1000}, {"x": 1500, "y": 1300}, {"x": 2000, "y": 1300}],
+            "text": "NOTE",
+            "hasArrowhead": true
+          }
+        }
+      }
+    },
+    "recommended": "leader_note"
+  }
+}

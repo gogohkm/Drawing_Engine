@@ -1,0 +1,209 @@
+{
+  "version": "1.0",
+  "description": "실패 복구 전략 - 문제 유형별 대응 방법",
+
+  "tool_call_failures": {
+    "invalid_arguments": {
+      "symptoms": [
+        "error: invalid argument",
+        "required parameter missing",
+        "type mismatch"
+      ],
+      "diagnosis": {
+        "step1": "에러 메시지에서 문제 파라미터 식별",
+        "step2": "tool_usage.json에서 올바른 형식 확인",
+        "step3": "args 수정"
+      },
+      "recovery": {
+        "action": "올바른 args로 재시도",
+        "max_retries": 3
+      },
+      "common_fixes": {
+        "point format": "{'x': 0, 'y': 0} 형식 사용 (배열 아님)",
+        "vertices format": "[{'x': 0, 'y': 0}, {'x': 100, 'y': 0}] 형식",
+        "missing required": "required 파라미터 추가"
+      }
+    },
+
+    "layer_not_found": {
+      "symptoms": [
+        "layer not found",
+        "invalid layer name"
+      ],
+      "diagnosis": {
+        "step1": "get_dxf_layers로 현재 레이어 목록 확인",
+        "step2": "요청한 레이어명 존재 여부 확인"
+      },
+      "recovery": {
+        "action": "create_layer로 레이어 생성 후 재시도",
+        "sequence": [
+          {"tool": "create_layer", "args": {"name": "TARGET_LAYER"}},
+          {"tool": "원래 작업", "args": "원래 args"}
+        ]
+      }
+    },
+
+    "entity_not_found": {
+      "symptoms": [
+        "entity not found",
+        "invalid handle",
+        "no entity at position"
+      ],
+      "diagnosis": {
+        "step1": "find_entities로 해당 영역 검색",
+        "step2": "entityRef 방식 변경 시도"
+      },
+      "recovery": {
+        "alternatives": [
+          {
+            "method": "position 기반",
+            "entityRef": {"position": {"x": 100, "y": 100}},
+            "notes": "가장 가까운 entity 선택"
+          },
+          {
+            "method": "bounds 기반",
+            "entityRef": {"bounds": {"minX": 0, "minY": 0, "maxX": 200, "maxY": 200}},
+            "notes": "영역 내 모든 entity 선택"
+          },
+          {
+            "method": "handle 직접 지정",
+            "entityRef": {"handle": "ABC"},
+            "notes": "이전 생성 결과에서 handle 추출 필요"
+          }
+        ]
+      }
+    }
+  },
+
+  "verification_failures": {
+    "entity_count_mismatch": {
+      "symptoms": [
+        "expected N entities, found M",
+        "entity count below minimum"
+      ],
+      "diagnosis": {
+        "step1": "count_by_type으로 상세 현황 확인",
+        "step2": "누락된 entity 유형 식별",
+        "step3": "생성 시퀀스 리뷰"
+      },
+      "recovery": {
+        "if_less_than_expected": {
+          "action": "누락된 entity 추가 생성",
+          "method": "해당 step의 tool 재실행"
+        },
+        "if_more_than_expected": {
+          "action": "중복 확인 후 필요시 삭제",
+          "method": "find_entities로 중복 검색"
+        }
+      }
+    },
+
+    "wrong_position": {
+      "symptoms": [
+        "bounds outside expected range",
+        "entity at wrong location"
+      ],
+      "diagnosis": {
+        "step1": "get_dxf_summary로 actual bounds 확인",
+        "step2": "개별 entity 위치 확인 (find_entities)"
+      },
+      "recovery": {
+        "option1": {
+          "action": "move_entities로 위치 보정",
+          "when": "오차가 작고 entity 수가 적을 때"
+        },
+        "option2": {
+          "action": "delete_entities 후 재생성",
+          "when": "오차가 크거나 entity가 많을 때"
+        }
+      }
+    },
+
+    "wrong_layer": {
+      "symptoms": [
+        "entity on wrong layer",
+        "layer entity count mismatch"
+      ],
+      "diagnosis": {
+        "step1": "find_entities with layer filter로 확인"
+      },
+      "recovery": {
+        "action": "change_entity_layer로 레이어 변경",
+        "args": {
+          "entityRef": {"bounds": "affected area"},
+          "targetLayer": "correct layer name"
+        }
+      }
+    }
+  },
+
+  "sequence_failures": {
+    "dependency_error": {
+      "description": "이전 단계 결과에 의존하는 작업 실패",
+      "symptoms": [
+        "previous step not completed",
+        "required entity not found"
+      ],
+      "recovery": {
+        "action": "의존 단계부터 재실행",
+        "method": "checkpoint 이후 단계 순차 재실행"
+      }
+    },
+
+    "parallel_execution_partial_failure": {
+      "description": "병렬 실행 중 일부 실패",
+      "symptoms": [
+        "N of M tools succeeded"
+      ],
+      "recovery": {
+        "step1": "성공한 tool 결과 보존",
+        "step2": "실패한 tool만 개별 재시도",
+        "step3": "여전히 실패 시 순차 실행으로 전환"
+      }
+    }
+  },
+
+  "rollback_strategy": {
+    "description": "심각한 오류 시 롤백 전략",
+
+    "undo_available": {
+      "condition": "단일 작업 실패",
+      "action": "undo_last_action 호출",
+      "limitation": "한 단계만 취소 가능"
+    },
+
+    "checkpoint_rollback": {
+      "condition": "여러 작업 실패 또는 복구 불가",
+      "action": {
+        "step1": "마지막 성공 checkpoint 이후 entity 삭제",
+        "method": "erase_by_bounds 또는 layer별 삭제",
+        "step2": "checkpoint부터 재시작"
+      }
+    },
+
+    "full_restart": {
+      "condition": "도면 상태가 복구 불가능할 정도로 손상",
+      "action": "사용자에게 알리고 지시 대기",
+      "options": [
+        "save_dxf로 현재 상태 백업 후 새로 시작",
+        "사용자가 수동으로 정리 후 재시도"
+      ]
+    }
+  },
+
+  "prevention_guidelines": {
+    "before_execution": [
+      "tool_usage.json에서 args 형식 확인",
+      "필요한 레이어가 생성되었는지 확인",
+      "좌표 계산 결과 검토"
+    ],
+    "during_execution": [
+      "L1 검증으로 각 tool 결과 즉시 확인",
+      "병렬 실행 전 의존성 없음 확인"
+    ],
+    "after_execution": [
+      "checkpoint에서 L2 검증 수행",
+      "실패 시 즉시 복구 시도"
+    ]
+  }
+}

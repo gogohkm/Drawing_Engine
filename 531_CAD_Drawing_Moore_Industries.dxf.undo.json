@@ -1,306 +1,1089 @@
 {
   "formatId": "stgen-dxf-undo-v1",
   "version": "1.0",
-  "fileHash": "-8743457",
-  "lastModified": 1768048607354,
+  "fileHash": "16d637a7",
+  "lastModified": 1768063717288,
   "undoStack": [
     {
       "type": "add",
       "label": "Add",
-      "timestamp": 1768019146811,
+      "timestamp": 1768063690286,
       "data": {
         "actionType": "add",
         "entities": [
           {
-            "type": "LWPOLYLINE",
+            "type": "LINE",
             "layer": "Part",
             "data": {
-              "vertices": [
-                {
-                  "x": 60,
-                  "y": 10
-                },
-                {
-                  "x": 75,
-                  "y": 10
-                },
-                {
-                  "x": 75,
-                  "y": 25
-                },
-                {
-                  "x": 60,
-                  "y": 25
-                }
-              ],
-              "closed": true
-            }
-          }
-        ],
-        "indices": [
-          7083
-        ]
-      }
-    },
-    {
-      "type": "add",
-      "label": "Add",
-      "timestamp": 1768019147024,
-      "data": {
-        "actionType": "add",
-        "entities": [
-          {
-            "type": "CIRCLE",
-            "layer": "Part",
-            "data": {
-              "center": {
-                "x": 62,
-                "y": 12
+              "start": {
+                "x": 26.83832450274522,
+                "y": 5.22200466648942
               },
-              "radius": 0.75
+              "end": {
+                "x": 26.83832450274522,
+                "y": 8.765021572589431
+              }
             }
           }
         ],
         "indices": [
-          7084
+          6828
         ]
       }
     },
     {
       "type": "add",
       "label": "Add",
-      "timestamp": 1768019147251,
+      "timestamp": 1768063690341,
       "data": {
         "actionType": "add",
         "entities": [
           {
-            "type": "CIRCLE",
+            "type": "LINE",
             "layer": "Part",
             "data": {
-              "center": {
-                "x": 73,
-                "y": 12
+              "start": {
+                "x": 26.92123364424522,
+                "y": 8.788908364489428
               },
-              "radius": 0.75
+              "end": {
+                "x": 26.92123364424522,
+                "y": 5.19811787458943
+              }
             }
           }
         ],
         "indices": [
-          7085
+          6829
         ]
       }
     },
     {
       "type": "add",
       "label": "Add",
-      "timestamp": 1768019147468,
+      "timestamp": 1768063690377,
       "data": {
         "actionType": "add",
         "entities": [
           {
-            "type": "CIRCLE",
+            "type": "LINE",
             "layer": "Part",
             "data": {
-              "center": {
-                "x": 73,
-                "y": 23
+              "start": {
+                "x": 30.60333295574523,
+                "y": 5.000013119489429
               },
-              "radius": 0.75
+              "end": {
+                "x": 27.06031604964522,
+                "y": 5.000013119489429
+              }
             }
           }
         ],
         "indices": [
-          7086
+          6830
         ]
       }
     },
     {
       "type": "add",
       "label": "Add",
-      "timestamp": 1768019147865,
+      "timestamp": 1768063690411,
       "data": {
         "actionType": "add",
         "entities": [
           {
-            "type": "CIRCLE",
+            "type": "LINE",
             "layer": "Part",
             "data": {
-              "center": {
-                "x": 62,
-                "y": 23
+              "start": {
+                "x": 27.03642925774524,
+                "y": 5.082922261089431
               },
-              "radius": 0.75
+              "end": {
+                "x": 30.62721974764523,
+                "y": 5.082922261089431
+              }
             }
           }
         ],
         "indices": [
-          7087
+          6831
         ]
       }
     },
     {
       "type": "add",
       "label": "Add",
-      "timestamp": 1768019147968,
+      "timestamp": 1768063690444,
       "data": {
         "actionType": "add",
         "entities": [
           {
-            "type": "TEXT",
+            "type": "LINE",
+            "layer": "Part",
+            "data": {
+              "start": {
+                "x": 30.74241536114522,
+                "y": 5.19811787458943
+              },
+              "end": {
+                "x": 30.74241536114522,
+                "y": 8.788908364489428
+              }
+            }
+          }
+        ],
+        "indices": [
+          6832
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690478,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Part",
+            "data": {
+              "start": {
+                "x": 30.82532450274523,
+                "y": 8.765021572589431
+              },
+              "end": {
+                "x": 30.82532450274523,
+                "y": 5.22200466648942
+              }
+            }
+          }
+        ],
+        "indices": [
+          6833
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690510,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Part",
+            "data": {
+              "start": {
+                "x": 30.62721974764523,
+                "y": 8.90410397798943
+              },
+              "end": {
+                "x": 27.03642925774524,
+                "y": 8.90410397798943
+              }
+            }
+          }
+        ],
+        "indices": [
+          6834
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690544,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Part",
+            "data": {
+              "start": {
+                "x": 27.06031604964522,
+                "y": 8.987013119489431
+              },
+              "end": {
+                "x": 30.60333295574523,
+                "y": 8.987013119489431
+              }
+            }
+          }
+        ],
+        "indices": [
+          6835
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690590,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "FRONT PANEL",
+            "data": {
+              "start": {
+                "x": 26.94282450274523,
+                "y": 8.764413119489431
+              },
+              "end": {
+                "x": 26.94282450274523,
+                "y": 5.18541311948943
+              }
+            }
+          }
+        ],
+        "indices": [
+          6836
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690623,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "FRONT PANEL",
+            "data": {
+              "start": {
+                "x": 26.96168171824523,
+                "y": 6.233413119489429
+              },
+              "end": {
+                "x": 26.96168171824523,
+                "y": 6.235413119489431
+              }
+            }
+          }
+        ],
+        "indices": [
+          6837
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690656,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "FRONT PANEL",
+            "data": {
+              "start": {
+                "x": 27.07147860834523,
+                "y": 6.33436449508943
+              },
+              "end": {
+                "x": 27.07147860834523,
+                "y": 8.41575901388944
+              }
+            }
+          }
+        ],
+        "indices": [
+          6838
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690689,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "FRONT PANEL",
+            "data": {
+              "start": {
+                "x": 27.04282450274523,
+                "y": 5.085413119489429
+              },
+              "end": {
+                "x": 30.62182450274523,
+                "y": 5.085413119489429
+              }
+            }
+          }
+        ],
+        "indices": [
+          6839
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690721,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 27.56782450274523,
+                "y": 5.346413119489428
+              },
+              "end": {
+                "x": 28.00382450274522,
+                "y": 5.346413119489428
+              }
+            }
+          }
+        ],
+        "indices": [
+          6840
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690754,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 28.26582450274523,
+                "y": 5.346413119489428
+              },
+              "end": {
+                "x": 28.70182450274523,
+                "y": 5.346413119489428
+              }
+            }
+          }
+        ],
+        "indices": [
+          6841
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690786,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 28.96382450274522,
+                "y": 5.346413119489428
+              },
+              "end": {
+                "x": 29.39982450274523,
+                "y": 5.346413119489428
+              }
+            }
+          }
+        ],
+        "indices": [
+          6842
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690817,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 29.66182450274523,
+                "y": 5.346413119489428
+              },
+              "end": {
+                "x": 30.09782450274523,
+                "y": 5.346413119489428
+              }
+            }
+          }
+        ],
+        "indices": [
+          6843
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690848,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "FRONT PANEL",
+            "data": {
+              "start": {
+                "x": 27.39147860834523,
+                "y": 8.71575901388943
+              },
+              "end": {
+                "x": 27.39147860834523,
+                "y": 8.475759013889428
+              }
+            }
+          }
+        ],
+        "indices": [
+          6844
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690879,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 30.07441933674522,
+                "y": 5.614413119489429
+              },
+              "end": {
+                "x": 29.69682450274522,
+                "y": 5.614413119489429
+              }
+            }
+          }
+        ],
+        "indices": [
+          6845
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063690911,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
             "layer": "Label",
             "data": {
-              "position": {
-                "x": 60,
-                "y": 26
+              "start": {
+                "x": 27.43382450274522,
+                "y": 8.674413119489431
               },
-              "text": "PARAMETRIC MOUNTING PLATE (REV 0.1)",
-              "height": 0.5,
-              "rotation": 0,
-              "horizontalAlignment": 1,
-              "verticalAlignment": 2
+              "end": {
+                "x": 27.43382450274522,
+                "y": 8.524413119489429
+              }
             }
           }
         ],
         "indices": [
-          7088
+          6846
         ]
       }
     },
     {
       "type": "add",
       "label": "Add",
-      "timestamp": 1768019157895,
+      "timestamp": 1768063690941,
       "data": {
         "actionType": "add",
         "entities": [
           {
-            "type": "LWPOLYLINE",
-            "layer": "Part",
+            "type": "LINE",
+            "layer": "LCD",
             "data": {
-              "vertices": [
-                {
-                  "x": 60,
-                  "y": 10
-                },
-                {
-                  "x": 70,
-                  "y": 10
-                },
-                {
-                  "x": 70,
-                  "y": 25
-                },
-                {
-                  "x": 60,
-                  "y": 25
-                }
-              ],
-              "closed": true
+              "start": {
+                "x": 27.50182450274522,
+                "y": 8.410413119489428
+              },
+              "end": {
+                "x": 27.50182450274522,
+                "y": 6.81041311948943
+              }
             }
           }
         ],
         "indices": [
-          7084
+          6847
         ]
       }
     },
     {
       "type": "add",
       "label": "Add",
-      "timestamp": 1768019157998,
+      "timestamp": 1768063714770,
       "data": {
         "actionType": "add",
         "entities": [
           {
-            "type": "CIRCLE",
+            "type": "LINE",
             "layer": "Part",
             "data": {
-              "center": {
-                "x": 61.5,
-                "y": 11.5
+              "start": {
+                "x": 27.50182450274522,
+                "y": 6.678413119489429
               },
-              "radius": 0.75
+              "end": {
+                "x": 27.50182450274522,
+                "y": 6.488413119489431
+              }
             }
           }
         ],
         "indices": [
-          7085
+          6848
         ]
       }
     },
     {
       "type": "add",
       "label": "Add",
-      "timestamp": 1768019158347,
+      "timestamp": 1768063714799,
       "data": {
         "actionType": "add",
         "entities": [
           {
-            "type": "CIRCLE",
-            "layer": "Part",
+            "type": "LINE",
+            "layer": "Buttons",
             "data": {
-              "center": {
-                "x": 68.5,
-                "y": 11.5
+              "start": {
+                "x": 27.53782450274523,
+                "y": 6.172413119489429
               },
-              "radius": 0.75
+              "end": {
+                "x": 27.53782450274523,
+                "y": 5.904413119489428
+              }
             }
           }
         ],
         "indices": [
-          7086
+          6849
         ]
       }
     },
     {
       "type": "add",
       "label": "Add",
-      "timestamp": 1768019158602,
+      "timestamp": 1768063714828,
       "data": {
         "actionType": "add",
         "entities": [
           {
-            "type": "CIRCLE",
-            "layer": "Part",
+            "type": "LINE",
+            "layer": "Buttons",
             "data": {
-              "center": {
-                "x": 68.5,
-                "y": 23.5
+              "start": {
+                "x": 27.53782450274523,
+                "y": 5.64441311948943
               },
-              "radius": 0.75
+              "end": {
+                "x": 27.53782450274523,
+                "y": 5.376413119489429
+              }
             }
           }
         ],
         "indices": [
-          7087
+          6850
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063714855,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 30.09782450274523,
+                "y": 5.674413119489431
+              },
+              "end": {
+                "x": 29.66182450274523,
+                "y": 5.674413119489431
+              }
+            }
+          }
+        ],
+        "indices": [
+          6851
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063714882,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 29.39982450274523,
+                "y": 5.674413119489431
+              },
+              "end": {
+                "x": 28.96382450274522,
+                "y": 5.674413119489431
+              }
+            }
+          }
+        ],
+        "indices": [
+          6852
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063714908,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 28.70182450274523,
+                "y": 5.674413119489431
+              },
+              "end": {
+                "x": 28.26582450274523,
+                "y": 5.674413119489431
+              }
+            }
+          }
+        ],
+        "indices": [
+          6853
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063714934,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 28.00382450274522,
+                "y": 5.674413119489431
+              },
+              "end": {
+                "x": 27.56782450274523,
+                "y": 5.674413119489431
+              }
+            }
+          }
+        ],
+        "indices": [
+          6854
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063714960,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 27.56782450274523,
+                "y": 5.8744131194894305
+              },
+              "end": {
+                "x": 28.00382450274522,
+                "y": 5.8744131194894305
+              }
+            }
+          }
+        ],
+        "indices": [
+          6855
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063714986,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 28.26582450274523,
+                "y": 5.8744131194894305
+              },
+              "end": {
+                "x": 28.70182450274523,
+                "y": 5.8744131194894305
+              }
+            }
+          }
+        ],
+        "indices": [
+          6856
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063715011,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 28.96382450274522,
+                "y": 5.8744131194894305
+              },
+              "end": {
+                "x": 29.39982450274523,
+                "y": 5.8744131194894305
+              }
+            }
+          }
+        ],
+        "indices": [
+          6857
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063715036,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 29.66182450274523,
+                "y": 5.8744131194894305
+              },
+              "end": {
+                "x": 30.09782450274523,
+                "y": 5.8744131194894305
+              }
+            }
+          }
+        ],
+        "indices": [
+          6858
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063715062,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "FRONT PANEL",
+            "data": {
+              "start": {
+                "x": 26.95591979134523,
+                "y": 5.913413119489428
+              },
+              "end": {
+                "x": 27.15682450274524,
+                "y": 5.913413119489428
+              }
+            }
+          }
+        ],
+        "indices": [
+          6859
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063715087,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "FRONT PANEL",
+            "data": {
+              "start": {
+                "x": 30.50782450274522,
+                "y": 5.913413119489428
+              },
+              "end": {
+                "x": 30.70872921414522,
+                "y": 5.913413119489428
+              }
+            }
+          }
+        ],
+        "indices": [
+          6860
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063715113,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 29.69682450274522,
+                "y": 5.934413119489429
+              },
+              "end": {
+                "x": 30.07441933674523,
+                "y": 5.934413119489429
+              }
+            }
+          }
+        ],
+        "indices": [
+          6861
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063715140,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 28.03382450274522,
+                "y": 5.376413119489429
+              },
+              "end": {
+                "x": 28.03382450274522,
+                "y": 5.64441311948943
+              }
+            }
+          }
+        ],
+        "indices": [
+          6862
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063715167,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 28.03382450274522,
+                "y": 5.904413119489428
+              },
+              "end": {
+                "x": 28.03382450274522,
+                "y": 6.172413119489429
+              }
+            }
+          }
+        ],
+        "indices": [
+          6863
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063715192,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 30.09782450274523,
+                "y": 6.20241311948943
+              },
+              "end": {
+                "x": 29.66182450274523,
+                "y": 6.20241311948943
+              }
+            }
+          }
+        ],
+        "indices": [
+          6864
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063715218,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 29.39982450274523,
+                "y": 6.20241311948943
+              },
+              "end": {
+                "x": 28.96382450274522,
+                "y": 6.20241311948943
+              }
+            }
+          }
+        ],
+        "indices": [
+          6865
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063715244,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 28.70182450274523,
+                "y": 6.20241311948943
+              },
+              "end": {
+                "x": 28.26582450274523,
+                "y": 6.20241311948943
+              }
+            }
+          }
+        ],
+        "indices": [
+          6866
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768063715270,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "Buttons",
+            "data": {
+              "start": {
+                "x": 28.00382450274522,
+                "y": 6.20241311948943
+              },
+              "end": {
+                "x": 27.56782450274523,
+                "y": 6.20241311948943
+              }
+            }
+          }
+        ],
+        "indices": [
+          6867
         ]
       }
     }
   ],
-  "redoStack": [
-    {
-      "type": "add",
-      "label": "Add",
-      "timestamp": 1768019158676,
-      "data": {
-        "actionType": "add",
-        "entities": [
-          {
-            "type": "CIRCLE",
-            "layer": "Part",
-            "data": {
-              "center": {
-                "x": 61.5,
-                "y": 23.5
-              },
-              "radius": 0.75
-            }
-          }
-        ],
-        "indices": [
-          7088
-        ]
-      }
-    }
-  ]
+  "redoStack": []
 }

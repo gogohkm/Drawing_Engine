@@ -1,0 +1,230 @@
+{
+  "version": "1.0",
+  "description": "성공한 작도 시퀀스 예시 - 실제 실행 가능한 형태",
+
+  "simple_room": {
+    "name": "단순 사각형 방",
+    "description": "12m x 8m 사각형 방 평면도",
+    "drawing_type": "floor_plan",
+    "verified": false,
+    "sequence": [
+      {
+        "step": 1,
+        "name": "레이어 생성",
+        "parallel": true,
+        "tools": [
+          {"tool": "create_layer", "args": {"name": "A-GRID", "color": 8, "lineType": "CENTER"}},
+          {"tool": "create_layer", "args": {"name": "A-WALL", "color": 7, "lineType": "CONTINUOUS"}},
+          {"tool": "create_layer", "args": {"name": "A-TEXT", "color": 7, "lineType": "CONTINUOUS"}},
+          {"tool": "create_layer", "args": {"name": "A-DIM", "color": 7, "lineType": "CONTINUOUS"}}
+        ]
+      },
+      {
+        "step": 2,
+        "name": "그리드 작성",
+        "parallel": true,
+        "pre_action": {"tool": "set_current_layer", "args": {"name": "A-GRID"}},
+        "tools": [
+          {"tool": "create_line", "args": {"start": {"x": 0, "y": -500}, "end": {"x": 0, "y": 8500}}, "comment": "Grid 1"},
+          {"tool": "create_line", "args": {"start": {"x": 6000, "y": -500}, "end": {"x": 6000, "y": 8500}}, "comment": "Grid 2"},
+          {"tool": "create_line", "args": {"start": {"x": 12000, "y": -500}, "end": {"x": 12000, "y": 8500}}, "comment": "Grid 3"},
+          {"tool": "create_line", "args": {"start": {"x": -500, "y": 0}, "end": {"x": 12500, "y": 0}}, "comment": "Grid A"},
+          {"tool": "create_line", "args": {"start": {"x": -500, "y": 4000}, "end": {"x": 12500, "y": 4000}}, "comment": "Grid B"},
+          {"tool": "create_line", "args": {"start": {"x": -500, "y": 8000}, "end": {"x": 12500, "y": 8000}}, "comment": "Grid C"},
+          {"tool": "create_circle", "args": {"center": {"x": 0, "y": -800}, "radius": 300}, "comment": "Bubble 1"},
+          {"tool": "create_circle", "args": {"center": {"x": 6000, "y": -800}, "radius": 300}, "comment": "Bubble 2"},
+          {"tool": "create_circle", "args": {"center": {"x": 12000, "y": -800}, "radius": 300}, "comment": "Bubble 3"},
+          {"tool": "create_circle", "args": {"center": {"x": -800, "y": 0}, "radius": 300}, "comment": "Bubble A"},
+          {"tool": "create_circle", "args": {"center": {"x": -800, "y": 4000}, "radius": 300}, "comment": "Bubble B"},
+          {"tool": "create_circle", "args": {"center": {"x": -800, "y": 8000}, "radius": 300}, "comment": "Bubble C"},
+          {"tool": "create_text", "args": {"position": {"x": 0, "y": -800}, "text": "1", "height": 250}},
+          {"tool": "create_text", "args": {"position": {"x": 6000, "y": -800}, "text": "2", "height": 250}},
+          {"tool": "create_text", "args": {"position": {"x": 12000, "y": -800}, "text": "3", "height": 250}},
+          {"tool": "create_text", "args": {"position": {"x": -800, "y": 0}, "text": "A", "height": 250}},
+          {"tool": "create_text", "args": {"position": {"x": -800, "y": 4000}, "text": "B", "height": 250}},
+          {"tool": "create_text", "args": {"position": {"x": -800, "y": 8000}, "text": "C", "height": 250}}
+        ],
+        "checkpoint": "after_grid",
+        "verification": {"level": "L2", "check": "entity_count on A-GRID >= 18"}
+      },
+      {
+        "step": 3,
+        "name": "벽체 작성",
+        "parallel": false,
+        "pre_action": {"tool": "set_current_layer", "args": {"name": "A-WALL"}},
+        "tools": [
+          {
+            "tool": "create_polyline",
+            "args": {
+              "vertices": [
+                {"x": 0, "y": 0},
+                {"x": 12000, "y": 0},
+                {"x": 12000, "y": 8000},
+                {"x": 0, "y": 8000}
+              ],
+              "closed": true
+            },
+            "comment": "외벽"
+          }
+        ],
+        "checkpoint": "after_walls",
+        "verification": {"level": "L2", "check": "entity_count on A-WALL >= 1"}
+      },
+      {
+        "step": 4,
+        "name": "실명 표기",
+        "parallel": false,
+        "pre_action": {"tool": "set_current_layer", "args": {"name": "A-TEXT"}},
+        "tools": [
+          {
+            "tool": "create_text",
+            "args": {
+              "position": {"x": 6000, "y": 4000},
+              "text": "ROOM",
+              "height": 350
+            }
+          },
+          {
+            "tool": "create_text",
+            "args": {
+              "position": {"x": 6000, "y": 3500},
+              "text": "96.0 m2",
+              "height": 250
+            }
+          }
+        ]
+      },
+      {
+        "step": 5,
+        "name": "치수 배치",
+        "parallel": true,
+        "pre_action": {"tool": "set_current_layer", "args": {"name": "A-DIM"}},
+        "tools": [
+          {
+            "tool": "create_dimension",
+            "args": {
+              "point1": {"x": 0, "y": 0},
+              "point2": {"x": 12000, "y": 0},
+              "dimLinePosition": {"x": 6000, "y": -1500},
+              "dimensionType": "aligned"
+            },
+            "comment": "가로 전체 치수"
+          },
+          {
+            "tool": "create_dimension",
+            "args": {
+              "point1": {"x": 0, "y": 0},
+              "point2": {"x": 0, "y": 8000},
+              "dimLinePosition": {"x": -1500, "y": 4000},
+              "dimensionType": "aligned"
+            },
+            "comment": "세로 전체 치수"
+          }
+        ]
+      },
+      {
+        "step": 6,
+        "name": "최종 확인",
+        "parallel": false,
+        "tools": [
+          {"tool": "zoom_extents", "args": {}}
+        ],
+        "checkpoint": "final",
+        "verification": {"level": "L3", "check": "visual_confirmation"}
+      }
+    ],
+    "expected_result": {
+      "layers": ["A-GRID", "A-WALL", "A-TEXT", "A-DIM"],
+      "bounds": {"minX": -1500, "minY": -1500, "maxX": 13500, "maxY": 9500},
+      "entity_counts": {
+        "LINE": 6,
+        "CIRCLE": 6,
+        "TEXT": 8,
+        "LWPOLYLINE": 1,
+        "DIMENSION": 2
+      }
+    }
+  },
+
+  "grid_only": {
+    "name": "그리드만 작성",
+    "description": "2x2 그리드 작성 (기본 테스트용)",
+    "drawing_type": "any",
+    "verified": false,
+    "sequence": [
+      {
+        "step": 1,
+        "name": "레이어 생성",
+        "tools": [
+          {"tool": "create_layer", "args": {"name": "A-GRID", "color": 8, "lineType": "CENTER"}},
+          {"tool": "set_current_layer", "args": {"name": "A-GRID"}}
+        ]
+      },
+      {
+        "step": 2,
+        "name": "그리드 선 (병렬)",
+        "parallel": true,
+        "tools": [
+          {"tool": "create_line", "args": {"start": {"x": 0, "y": 0}, "end": {"x": 0, "y": 2000}}},
+          {"tool": "create_line", "args": {"start": {"x": 1000, "y": 0}, "end": {"x": 1000, "y": 2000}}},
+          {"tool": "create_line", "args": {"start": {"x": 2000, "y": 0}, "end": {"x": 2000, "y": 2000}}},
+          {"tool": "create_line", "args": {"start": {"x": 0, "y": 0}, "end": {"x": 2000, "y": 0}}},
+          {"tool": "create_line", "args": {"start": {"x": 0, "y": 1000}, "end": {"x": 2000, "y": 1000}}},
+          {"tool": "create_line", "args": {"start": {"x": 0, "y": 2000}, "end": {"x": 2000, "y": 2000}}}
+        ],
+        "verification": {"level": "L1", "check": "all tools returned success"}
+      }
+    ],
+    "expected_result": {
+      "entity_counts": {"LINE": 6}
+    }
+  },
+
+  "bolt_pattern_4x4": {
+    "name": "4x4 볼트 패턴",
+    "description": "16개 볼트 직사각형 배열",
+    "drawing_type": "steel_connection",
+    "verified": false,
+    "calculation": {
+      "base": {"x": 50, "y": 50},
+      "rows": 4,
+      "cols": 4,
+      "spacing": 80,
+      "positions": "calculated using rectangular_array formula"
+    },
+    "sequence": [
+      {
+        "step": 1,
+        "name": "레이어 설정",
+        "tools": [
+          {"tool": "create_layer", "args": {"name": "ST-BOLT", "color": 1}},
+          {"tool": "set_current_layer", "args": {"name": "ST-BOLT"}}
+        ]
+      },
+      {
+        "step": 2,
+        "name": "볼트 배치 (병렬)",
+        "parallel": true,
+        "tools": [
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 50, "y": 50}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 130, "y": 50}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 210, "y": 50}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 290, "y": 50}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 50, "y": 130}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 130, "y": 130}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 210, "y": 130}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 290, "y": 130}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 50, "y": 210}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 130, "y": 210}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 210, "y": 210}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 290, "y": 210}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 50, "y": 290}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 130, "y": 290}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 210, "y": 290}, "diameter": 22}},
+          {"tool": "create_bolt_symbol", "args": {"center": {"x": 290, "y": 290}, "diameter": 22}}
+        ],
+        "verification": {"level": "L2", "check": "entity count includes 16 bolt symbols"}
+      }
+    ]
+  }
+}

@@ -1,0 +1,362 @@
+{
+  "version": "1.0",
+  "description": "stgen MCP tool 실제 사용법 - 실제 args 스키마 기준",
+
+  "entity_creation": {
+    "create_line": {
+      "description": "두 점 사이에 선 생성",
+      "args": {
+        "start": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "end": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "layer": {"type": "string", "required": false, "default": "current layer"},
+        "color": {"type": "number", "required": false, "description": "ACI color (1-256)"}
+      },
+      "returns": "success message with entity info",
+      "example": {
+        "start": {"x": 0, "y": 0},
+        "end": {"x": 1000, "y": 0}
+      },
+      "parallel_safe": true
+    },
+
+    "create_circle": {
+      "description": "중심점과 반지름으로 원 생성",
+      "args": {
+        "center": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "radius": {"type": "number", "required": true, "min": ">0"},
+        "layer": {"type": "string", "required": false},
+        "color": {"type": "number", "required": false}
+      },
+      "returns": "success message with entity info",
+      "example": {
+        "center": {"x": 0, "y": 0},
+        "radius": 300
+      },
+      "parallel_safe": true
+    },
+
+    "create_arc": {
+      "description": "중심, 반지름, 시작/끝 각도로 호 생성",
+      "args": {
+        "center": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "radius": {"type": "number", "required": true, "min": ">0"},
+        "startAngle": {"type": "number", "required": true, "unit": "degrees"},
+        "endAngle": {"type": "number", "required": true, "unit": "degrees"},
+        "layer": {"type": "string", "required": false},
+        "color": {"type": "number", "required": false}
+      },
+      "returns": "success message with entity info",
+      "example": {
+        "center": {"x": 0, "y": 2000},
+        "radius": 900,
+        "startAngle": 0,
+        "endAngle": 90
+      },
+      "notes": "각도는 반시계 방향, X축 양의 방향이 0도",
+      "parallel_safe": true
+    },
+
+    "create_polyline": {
+      "description": "여러 꼭짓점을 연결하는 폴리라인 생성",
+      "args": {
+        "vertices": {"type": "array", "items": {"x": "number", "y": "number"}, "minItems": 2, "required": true},
+        "closed": {"type": "boolean", "required": false, "default": false},
+        "layer": {"type": "string", "required": false},
+        "color": {"type": "number", "required": false}
+      },
+      "returns": "success message with entity info",
+      "example": {
+        "vertices": [
+          {"x": 0, "y": 0},
+          {"x": 12000, "y": 0},
+          {"x": 12000, "y": 8000},
+          {"x": 0, "y": 8000}
+        ],
+        "closed": true
+      },
+      "parallel_safe": true
+    },
+
+    "create_rectangle": {
+      "description": "두 모서리 점으로 사각형 생성",
+      "args": {
+        "corner1": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "corner2": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "layer": {"type": "string", "required": false},
+        "color": {"type": "number", "required": false}
+      },
+      "returns": "success message with entity info",
+      "example": {
+        "corner1": {"x": 0, "y": 0},
+        "corner2": {"x": 1000, "y": 500}
+      },
+      "parallel_safe": true
+    },
+
+    "create_text": {
+      "description": "지정 위치에 텍스트 생성",
+      "args": {
+        "position": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "text": {"type": "string", "required": true},
+        "height": {"type": "number", "required": false, "default": 2.5},
+        "rotation": {"type": "number", "required": false, "default": 0, "unit": "degrees"},
+        "layer": {"type": "string", "required": false},
+        "color": {"type": "number", "required": false}
+      },
+      "returns": "success message with entity info",
+      "example": {
+        "position": {"x": 6000, "y": 4000},
+        "text": "ROOM",
+        "height": 250
+      },
+      "parallel_safe": true
+    },
+
+    "create_dimension": {
+      "description": "두 점 사이 치수선 생성",
+      "args": {
+        "point1": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "point2": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "dimLinePosition": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "dimensionType": {"type": "string", "enum": ["horizontal", "vertical", "aligned"], "default": "aligned"},
+        "textOverride": {"type": "string", "required": false},
+        "textHeight": {"type": "number", "required": false, "default": 2.5},
+        "arrowSize": {"type": "number", "required": false, "default": 2.5},
+        "layer": {"type": "string", "required": false},
+        "color": {"type": "number", "required": false}
+      },
+      "returns": "success message with entity info",
+      "example": {
+        "point1": {"x": 0, "y": 0},
+        "point2": {"x": 12000, "y": 0},
+        "dimLinePosition": {"x": 6000, "y": -600},
+        "dimensionType": "aligned"
+      },
+      "parallel_safe": true
+    },
+
+    "create_leader": {
+      "description": "지시선(화살표 + 텍스트) 생성",
+      "args": {
+        "vertices": {"type": "array", "items": {"x": "number", "y": "number"}, "minItems": 2, "required": true},
+        "text": {"type": "string", "required": false},
+        "hasArrowhead": {"type": "boolean", "required": false, "default": true},
+        "textHeight": {"type": "number", "required": false, "default": 2.5},
+        "layer": {"type": "string", "required": false},
+        "color": {"type": "number", "required": false}
+      },
+      "returns": "success message with entity info",
+      "example": {
+        "vertices": [{"x": 1000, "y": 1000}, {"x": 1500, "y": 1300}],
+        "text": "NOTE",
+        "hasArrowhead": true
+      },
+      "notes": "첫 번째 vertex가 화살표 끝",
+      "parallel_safe": true
+    },
+
+    "create_bolt_symbol": {
+      "description": "볼트 기호 (X 표시된 원) 생성",
+      "args": {
+        "center": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "diameter": {"type": "number", "required": false, "default": 10},
+        "crossExtend": {"type": "number", "required": false, "default": 0.1},
+        "layer": {"type": "string", "required": false},
+        "color": {"type": "number", "required": false}
+      },
+      "returns": "success message with entity info",
+      "example": {
+        "center": {"x": 100, "y": 100},
+        "diameter": 22
+      },
+      "parallel_safe": true
+    },
+
+    "create_center_mark": {
+      "description": "중심 마크 (+) 생성",
+      "args": {
+        "center": {"type": "object", "properties": {"x": "number", "y": "number"}, "required": true},
+        "size": {"type": "number", "required": false, "default": 3},
+        "layer": {"type": "string", "required": false},
+        "color": {"type": "number", "required": false}
+      },
+      "returns": "success message with entity info",
+      "example": {
+        "center": {"x": 500, "y": 500},
+        "size": 50
+      },
+      "parallel_safe": true
+    }
+  },
+
+  "layer_management": {
+    "create_layer": {
+      "description": "새 레이어 생성",
+      "args": {
+        "name": {"type": "string", "required": true},
+        "color": {"type": "number", "required": false, "description": "ACI color index"},
+        "lineType": {"type": "string", "required": false}
+      },
+      "returns": "success message",
+      "example": {
+        "name": "A-WALL",
+        "color": 7,
+        "lineType": "CONTINUOUS"
+      }
+    },
+
+    "set_current_layer": {
+      "description": "현재 작업 레이어 설정",
+      "args": {
+        "name": {"type": "string", "required": true}
+      },
+      "returns": "success message",
+      "example": {
+        "name": "A-WALL"
+      }
+    },
+
+    "set_layer_visibility": {
+      "description": "레이어 가시성 설정",
+      "args": {
+        "name": {"type": "string", "required": true},
+        "visible": {"type": "boolean", "required": true}
+      },
+      "returns": "success message",
+      "example": {
+        "name": "Z-TBD",
+        "visible": false
+      }
+    },
+
+    "get_dxf_layers": {
+      "description": "모든 레이어 목록 조회",
+      "args": {},
+      "returns": "layer list with visibility and entity counts"
+    }
+  },
+
+  "analysis": {
+    "get_dxf_status": {
+      "description": "현재 DXF 파일 상태 확인",
+      "args": {},
+      "returns": "file path and status"
+    },
+
+    "get_dxf_summary": {
+      "description": "DXF 파일 요약 정보",
+      "args": {},
+      "returns": "entity counts, bounds, layer list"
+    },
+
+    "capture_dxf_view": {
+      "description": "현재 뷰 이미지 캡처",
+      "args": {},
+      "returns": "base64 encoded PNG image"
+    },
+
+    "find_entities": {
+      "description": "조건에 맞는 엔티티 검색",
+      "args": {
+        "types": {"type": "array", "items": "string", "required": false},
+        "layers": {"type": "array", "items": "string", "required": false},
+        "bounds": {"type": "object", "properties": {"minX": "number", "minY": "number", "maxX": "number", "maxY": "number"}, "required": false},
+        "limit": {"type": "number", "required": false, "default": 100}
+      },
+      "returns": "matching entity list"
+    },
+
+    "count_by_type": {
+      "description": "엔티티 타입별 개수",
+      "args": {
+        "bounds": {"type": "object", "required": false},
+        "layers": {"type": "array", "required": false}
+      },
+      "returns": "count by entity type"
+    }
+  },
+
+  "modification": {
+    "move_entities": {
+      "description": "엔티티 이동",
+      "args": {
+        "entityRef": {"type": "object", "required": true, "description": "handle, handles, position, or bounds"},
+        "dx": {"type": "number", "required": true},
+        "dy": {"type": "number", "required": true}
+      },
+      "returns": "success message",
+      "notes": "entityRef로 대상 지정 필요"
+    },
+
+    "copy_entities": {
+      "description": "엔티티 복사",
+      "args": {
+        "entityRef": {"type": "object", "required": true},
+        "dx": {"type": "number", "required": true},
+        "dy": {"type": "number", "required": true}
+      },
+      "returns": "success message with new entity info"
+    },
+
+    "delete_entities": {
+      "description": "엔티티 삭제",
+      "args": {
+        "entityRef": {"type": "object", "required": true}
+      },
+      "returns": "success message"
+    },
+
+    "array_copy": {
+      "description": "배열 복사 (직사각형 또는 원형)",
+      "args": {
+        "entityRef": {"type": "object", "required": true},
+        "arrayType": {"type": "string", "enum": ["rectangular", "polar"], "default": "rectangular"},
+        "rows": {"type": "number", "required": false, "default": 1},
+        "columns": {"type": "number", "required": false, "default": 1},
+        "rowSpacing": {"type": "number", "required": false, "default": 10},
+        "columnSpacing": {"type": "number", "required": false, "default": 10},
+        "center": {"type": "object", "required": false, "description": "for polar array"},
+        "count": {"type": "number", "required": false, "description": "for polar array"},
+        "totalAngle": {"type": "number", "required": false, "default": 360}
+      },
+      "returns": "success message"
+    }
+  },
+
+  "file_operations": {
+    "save_dxf": {
+      "description": "DXF 파일 저장",
+      "args": {
+        "filePath": {"type": "string", "required": false, "description": "저장 경로, 미지정시 원본 위치"},
+        "overwrite": {"type": "boolean", "required": false, "default": false}
+      },
+      "returns": "success message"
+    },
+
+    "zoom_extents": {
+      "description": "전체 도면에 맞게 줌",
+      "args": {},
+      "returns": "success message"
+    },
+
+    "undo_last_action": {
+      "description": "마지막 작업 취소",
+      "args": {},
+      "returns": "success message"
+    }
+  },
+
+  "aci_colors": {
+    "description": "AutoCAD Color Index 참조",
+    "values": {
+      "1": "Red",
+      "2": "Yellow",
+      "3": "Green",
+      "4": "Cyan",
+      "5": "Blue",
+      "6": "Magenta",
+      "7": "White/Black",
+      "256": "ByLayer"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "version": "1.0",
+  "description": "프로젝트별 기본 설정 템플릿",
+
+  "defaults": {
+    "units": {
+      "value": "mm",
+      "description": "도면 단위",
+      "options": ["mm", "m", "inch", "feet"]
+    },
+    "scale": {
+      "model": "1:1",
+      "viewport": "1:100",
+      "description": "모델은 항상 1:1, 뷰포트에서만 축척 적용"
+    },
+    "precision": {
+      "coordinates": 1,
+      "dimensions": 0,
+      "description": "좌표는 소수점 1자리, 치수는 정수"
+    }
+  },
+
+  "text_standards": {
+    "title": {
+      "height": 500,
+      "font": "standard"
+    },
+    "room_label": {
+      "height": 250,
+      "font": "standard"
+    },
+    "dimension": {
+      "height": 200,
+      "font": "standard"
+    },
+    "note": {
+      "height": 175,
+      "font": "standard"
+    },
+    "grid_label": {
+      "height": 250,
+      "font": "standard"
+    }
+  },
+
+  "dimension_standards": {
+    "first_offset": 600,
+    "chain_offset": 400,
+    "arrow_size": 100,
+    "text_height": 200,
+    "description": "첫 치수선은 객체에서 600, 연속 치수는 400 간격"
+  },
+
+  "grid_standards": {
+    "bubble_radius": 300,
+    "bubble_offset": 300,
+    "line_extension": 500,
+    "label_height": 250,
+    "description": "버블 반지름 300, 그리드 선 끝에서 버블 중심까지 300"
+  },
+
+  "layer_templates": {
+    "architectural": {
+      "A-GRID": {"color": 8, "linetype": "CENTER", "description": "그리드"},
+      "A-WALL": {"color": 7, "linetype": "CONTINUOUS", "description": "벽체"},
+      "A-WALL-HIDDEN": {"color": 7, "linetype": "HIDDEN", "description": "보이지 않는 벽"},
+      "A-DOOR": {"color": 7, "linetype": "CONTINUOUS", "description": "문"},
+      "A-WINDOW": {"color": 7, "linetype": "CONTINUOUS", "description": "창문"},
+      "A-FURN": {"color": 8, "linetype": "CONTINUOUS", "description": "가구"},
+      "A-TEXT": {"color": 7, "linetype": "CONTINUOUS", "description": "텍스트"},
+      "A-DIM": {"color": 7, "linetype": "CONTINUOUS", "description": "치수"},
+      "A-ANNO": {"color": 7, "linetype": "CONTINUOUS", "description": "주석"},
+      "Z-TBD": {"color": 1, "linetype": "DASHED", "description": "미정/확인필요"}
+    },
+    "structural": {
+      "S-GRID": {"color": 8, "linetype": "CENTER", "description": "그리드"},
+      "S-STRU": {"color": 7, "linetype": "CONTINUOUS", "description": "구조체"},
+      "S-REBAR": {"color": 1, "linetype": "CONTINUOUS", "description": "철근"},
+      "S-DIM": {"color": 7, "linetype": "CONTINUOUS", "description": "치수"},
+      "S-TEXT": {"color": 7, "linetype": "CONTINUOUS", "description": "텍스트"}
+    },
+    "steel": {
+      "ST-MEMB": {"color": 7, "linetype": "CONTINUOUS", "description": "강재 부재"},
+      "ST-PLATE": {"color": 5, "linetype": "CONTINUOUS", "description": "접합판"},
+      "ST-BOLT": {"color": 1, "linetype": "CONTINUOUS", "description": "볼트"},
+      "ST-WELD": {"color": 3, "linetype": "CONTINUOUS", "description": "용접"},
+      "ST-DIM": {"color": 7, "linetype": "CONTINUOUS", "description": "치수"},
+      "ST-TEXT": {"color": 7, "linetype": "CONTINUOUS", "description": "텍스트"}
+    },
+    "electrical": {
+      "E-DEVICE": {"color": 7, "linetype": "CONTINUOUS", "description": "기기"},
+      "E-WIRE": {"color": 4, "linetype": "CONTINUOUS", "description": "배선"},
+      "E-TEXT": {"color": 7, "linetype": "CONTINUOUS", "description": "텍스트"}
+    }
+  },
+
+  "verification_thresholds": {
+    "position_tolerance": 1.0,
+    "angle_tolerance": 0.1,
+    "description": "검증 시 허용 오차"
+  },
+
+  "current_project": {
+    "name": null,
+    "drawing_type": null,
+    "layer_template": null,
+    "custom_settings": {}
+  }
+}

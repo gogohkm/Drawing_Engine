@@ -1,0 +1,35 @@
+{
+  "last_updated": "2026-01-11T01:47:05.643912",
+  "tasks": {
+    "copy_region_20260111_014004_3d982e": {
+      "task_id": "copy_region_20260111_014004_3d982e",
+      "task_type": "copy_region",
+      "description": "도면 영역 복사 테스트",
+      "status": "planning",
+      "created_at": "2026-01-11T01:40:04.266715",
+      "source_data": {},
+      "calculated_coords": [],
+      "total_steps": 0,
+      "steps": [],
+      "current_step": 0,
+      "checkpoints": [],
+      "last_updated": "2026-01-11T01:40:04.266717",
+      "notes": []
+    },
+    "redraw_selection_20260111_014705_d380af": {
+      "task_id": "redraw_selection_20260111_014705_d380af",
+      "task_type": "redraw_selection",
+      "description": "선택 영역 재그리기 테스트 - 2605개 엔티티",
+      "status": "planning",
+      "created_at": "2026-01-11T01:47:05.643907",
+      "source_data": {},
+      "calculated_coords": [],
+      "total_steps": 0,
+      "steps": [],
+      "current_step": 0,
+      "checkpoints": [],
+      "last_updated": "2026-01-11T01:47:05.643909",
+      "notes": []
+    }
+  }
+}
