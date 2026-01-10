@@ -1,0 +1,306 @@
+{
+  "formatId": "stgen-dxf-undo-v1",
+  "version": "1.0",
+  "fileHash": "-8743457",
+  "lastModified": 1768048607354,
+  "undoStack": [
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768019146811,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "Part",
+            "data": {
+              "vertices": [
+                {
+                  "x": 60,
+                  "y": 10
+                },
+                {
+                  "x": 75,
+                  "y": 10
+                },
+                {
+                  "x": 75,
+                  "y": 25
+                },
+                {
+                  "x": 60,
+                  "y": 25
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          7083
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768019147024,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "Part",
+            "data": {
+              "center": {
+                "x": 62,
+                "y": 12
+              },
+              "radius": 0.75
+            }
+          }
+        ],
+        "indices": [
+          7084
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768019147251,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "Part",
+            "data": {
+              "center": {
+                "x": 73,
+                "y": 12
+              },
+              "radius": 0.75
+            }
+          }
+        ],
+        "indices": [
+          7085
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768019147468,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "Part",
+            "data": {
+              "center": {
+                "x": 73,
+                "y": 23
+              },
+              "radius": 0.75
+            }
+          }
+        ],
+        "indices": [
+          7086
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768019147865,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "Part",
+            "data": {
+              "center": {
+                "x": 62,
+                "y": 23
+              },
+              "radius": 0.75
+            }
+          }
+        ],
+        "indices": [
+          7087
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768019147968,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "Label",
+            "data": {
+              "position": {
+                "x": 60,
+                "y": 26
+              },
+              "text": "PARAMETRIC MOUNTING PLATE (REV 0.1)",
+              "height": 0.5,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          7088
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768019157895,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "Part",
+            "data": {
+              "vertices": [
+                {
+                  "x": 60,
+                  "y": 10
+                },
+                {
+                  "x": 70,
+                  "y": 10
+                },
+                {
+                  "x": 70,
+                  "y": 25
+                },
+                {
+                  "x": 60,
+                  "y": 25
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          7084
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768019157998,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "Part",
+            "data": {
+              "center": {
+                "x": 61.5,
+                "y": 11.5
+              },
+              "radius": 0.75
+            }
+          }
+        ],
+        "indices": [
+          7085
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768019158347,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "Part",
+            "data": {
+              "center": {
+                "x": 68.5,
+                "y": 11.5
+              },
+              "radius": 0.75
+            }
+          }
+        ],
+        "indices": [
+          7086
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768019158602,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "Part",
+            "data": {
+              "center": {
+                "x": 68.5,
+                "y": 23.5
+              },
+              "radius": 0.75
+            }
+          }
+        ],
+        "indices": [
+          7087
+        ]
+      }
+    }
+  ],
+  "redoStack": [
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768019158676,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "Part",
+            "data": {
+              "center": {
+                "x": 61.5,
+                "y": 23.5
+              },
+              "radius": 0.75
+            }
+          }
+        ],
+        "indices": [
+          7088
+        ]
+      }
+    }
+  ]
+}
