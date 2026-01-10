@@ -1,8 +1,8 @@
 {
   "formatId": "stgen-dxf-undo-v1",
   "version": "1.0",
-  "fileHash": "-748f7f6c",
-  "lastModified": 1768061837743,
+  "fileHash": "83f7600",
+  "lastModified": 1768064807526,
   "undoStack": [
     {
       "type": "add",
@@ -730,6 +730,326 @@
           }
         ],
         "indices": [
+          20
+        ]
+      }
+    },
+    {
+      "type": "delete",
+      "label": "Delete",
+      "timestamp": 1768064805523,
+      "data": {
+        "actionType": "delete",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "A-GRID",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -500
+              },
+              "end": {
+                "x": 0,
+                "y": 8500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "A-GRID",
+            "data": {
+              "start": {
+                "x": 6000,
+                "y": -500
+              },
+              "end": {
+                "x": 6000,
+                "y": 8500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "A-GRID",
+            "data": {
+              "start": {
+                "x": 12000,
+                "y": -500
+              },
+              "end": {
+                "x": 12000,
+                "y": 8500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "A-GRID",
+            "data": {
+              "start": {
+                "x": -500,
+                "y": 0
+              },
+              "end": {
+                "x": 12500,
+                "y": 0
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "A-GRID",
+            "data": {
+              "start": {
+                "x": -500,
+                "y": 4000
+              },
+              "end": {
+                "x": 12500,
+                "y": 4000
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "A-GRID",
+            "data": {
+              "start": {
+                "x": -500,
+                "y": 8000
+              },
+              "end": {
+                "x": 12500,
+                "y": 8000
+              }
+            }
+          },
+          {
+            "type": "CIRCLE",
+            "layer": "A-GRID",
+            "data": {
+              "center": {
+                "x": 0,
+                "y": -800
+              },
+              "radius": 300
+            }
+          },
+          {
+            "type": "CIRCLE",
+            "layer": "A-GRID",
+            "data": {
+              "center": {
+                "x": 6000,
+                "y": -800
+              },
+              "radius": 300
+            }
+          },
+          {
+            "type": "CIRCLE",
+            "layer": "A-GRID",
+            "data": {
+              "center": {
+                "x": 12000,
+                "y": -800
+              },
+              "radius": 300
+            }
+          },
+          {
+            "type": "CIRCLE",
+            "layer": "A-GRID",
+            "data": {
+              "center": {
+                "x": -800,
+                "y": 0
+              },
+              "radius": 300
+            }
+          },
+          {
+            "type": "CIRCLE",
+            "layer": "A-GRID",
+            "data": {
+              "center": {
+                "x": -800,
+                "y": 4000
+              },
+              "radius": 300
+            }
+          },
+          {
+            "type": "CIRCLE",
+            "layer": "A-GRID",
+            "data": {
+              "center": {
+                "x": -800,
+                "y": 8000
+              },
+              "radius": 300
+            }
+          },
+          {
+            "type": "TEXT",
+            "layer": "A-GRID",
+            "data": {
+              "position": {
+                "x": 0,
+                "y": -800
+              },
+              "text": "1",
+              "height": 250,
+              "horizontalAlignment": 0,
+              "verticalAlignment": 0
+            }
+          },
+          {
+            "type": "TEXT",
+            "layer": "A-GRID",
+            "data": {
+              "position": {
+                "x": 6000,
+                "y": -800
+              },
+              "text": "2",
+              "height": 250,
+              "horizontalAlignment": 0,
+              "verticalAlignment": 0
+            }
+          },
+          {
+            "type": "TEXT",
+            "layer": "A-GRID",
+            "data": {
+              "position": {
+                "x": 12000,
+                "y": -800
+              },
+              "text": "3",
+              "height": 250,
+              "horizontalAlignment": 0,
+              "verticalAlignment": 0
+            }
+          },
+          {
+            "type": "TEXT",
+            "layer": "A-GRID",
+            "data": {
+              "position": {
+                "x": -800,
+                "y": 0
+              },
+              "text": "A",
+              "height": 250,
+              "horizontalAlignment": 0,
+              "verticalAlignment": 0
+            }
+          },
+          {
+            "type": "TEXT",
+            "layer": "A-GRID",
+            "data": {
+              "position": {
+                "x": -800,
+                "y": 4000
+              },
+              "text": "B",
+              "height": 250,
+              "horizontalAlignment": 0,
+              "verticalAlignment": 0
+            }
+          },
+          {
+            "type": "TEXT",
+            "layer": "A-GRID",
+            "data": {
+              "position": {
+                "x": -800,
+                "y": 8000
+              },
+              "text": "C",
+              "height": 250,
+              "horizontalAlignment": 0,
+              "verticalAlignment": 0
+            }
+          },
+          {
+            "type": "LWPOLYLINE",
+            "layer": "A-WALL",
+            "data": {
+              "vertices": [
+                {
+                  "x": 0,
+                  "y": 0
+                },
+                {
+                  "x": 12000,
+                  "y": 0
+                },
+                {
+                  "x": 12000,
+                  "y": 8000
+                },
+                {
+                  "x": 0,
+                  "y": 8000
+                }
+              ],
+              "closed": true
+            }
+          },
+          {
+            "type": "TEXT",
+            "layer": "A-TEXT",
+            "data": {
+              "position": {
+                "x": 6000,
+                "y": 4000
+              },
+              "text": "ROOM",
+              "height": 350,
+              "horizontalAlignment": 0,
+              "verticalAlignment": 0
+            }
+          },
+          {
+            "type": "TEXT",
+            "layer": "A-TEXT",
+            "data": {
+              "position": {
+                "x": 6000,
+                "y": 3500
+              },
+              "text": "96.0 m2",
+              "height": 250,
+              "horizontalAlignment": 0,
+              "verticalAlignment": 0
+            }
+          }
+        ],
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
           20
         ]
       }
