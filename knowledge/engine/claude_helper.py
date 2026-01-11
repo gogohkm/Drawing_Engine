@@ -36,32 +36,23 @@ try:
 except ImportError:
     CONTEXT_AVAILABLE = False
 
-# Image Analyzer 임포트
+# 공통 타입 임포트
 try:
-    from image_analyzer import ImageAnalyzer
-    IMAGE_ANALYZER_AVAILABLE = True
+    from common import Point2D, Point3D, TaskStatus, MCPToolGenerator
+    COMMON_AVAILABLE = True
 except ImportError:
-    IMAGE_ANALYZER_AVAILABLE = False
+    COMMON_AVAILABLE = False
 
 # Isometric Renderer 임포트
 try:
     from isometric_renderer import (
-        IsometricRenderer, Point3D, Point2D, SteelSection,
+        IsometricRenderer, SteelSection,
         draw_multi_bay_portal_frame, scale_for_canvas
     )
+    # Point2D, Point3D는 common에서 임포트
     ISOMETRIC_AVAILABLE = True
 except ImportError:
     ISOMETRIC_AVAILABLE = False
-
-# 2D View Renderer 임포트 (사진→2D 도면 변환) - 레거시
-try:
-    from view_renderer_2d import (
-        View2DRenderer, ProportionAnalysis, DrawingConfig,
-        analyze_proportions_from_description, create_drawing_from_photo_analysis
-    )
-    VIEW2D_AVAILABLE = True
-except ImportError:
-    VIEW2D_AVAILABLE = False
 
 # Photo Tracer 임포트 (사진 따라 그리기 통합 모듈) - 신규
 try:
@@ -102,8 +93,8 @@ def session_start() -> str:
         "tips": [],
         "active_tasks": [],  # 진행 중인 작업
         "context_manager": CONTEXT_AVAILABLE,
+        "common_types": COMMON_AVAILABLE,
         "isometric_renderer": ISOMETRIC_AVAILABLE,
-        "view_2d_renderer": VIEW2D_AVAILABLE,
         "photo_tracer": PHOTO_TRACER_AVAILABLE,
         "line_extractor": LINE_EXTRACTOR_AVAILABLE
     }

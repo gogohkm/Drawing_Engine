@@ -28,31 +28,31 @@ from typing import Dict, List, Optional, Any, Tuple
 from dataclasses import dataclass, field, asdict
 from enum import Enum
 
+# 공통 타입 임포트
+try:
+    from common import Point2D, MCPToolGenerator
+except ImportError:
+    # 독립 실행 시 로컬 정의
+    @dataclass
+    class Point2D:
+        """2D 점"""
+        x: float
+        y: float
+
+        def to_dict(self) -> Dict[str, float]:
+            return {"x": self.x, "y": self.y}
+
+        def __add__(self, other: 'Point2D') -> 'Point2D':
+            return Point2D(self.x + other.x, self.y + other.y)
+
+        def __sub__(self, other: 'Point2D') -> 'Point2D':
+            return Point2D(self.x - other.x, self.y - other.y)
+
+        def scale(self, factor: float) -> 'Point2D':
+            return Point2D(self.x * factor, self.y * factor)
+
 # 경로 설정
 KNOWLEDGE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# =============================================================================
-# 1. 데이터 클래스
-# =============================================================================
-
-@dataclass
-class Point2D:
-    """2D 점"""
-    x: float
-    y: float
-
-    def to_dict(self) -> Dict[str, float]:
-        return {"x": self.x, "y": self.y}
-
-    def __add__(self, other: 'Point2D') -> 'Point2D':
-        return Point2D(self.x + other.x, self.y + other.y)
-
-    def __sub__(self, other: 'Point2D') -> 'Point2D':
-        return Point2D(self.x - other.x, self.y - other.y)
-
-    def scale(self, factor: float) -> 'Point2D':
-        return Point2D(self.x * factor, self.y * factor)
 
 
 class ElementType(Enum):

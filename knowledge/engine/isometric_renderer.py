@@ -13,35 +13,38 @@ import math
 from typing import List, Tuple, Dict, Optional, Any
 from dataclasses import dataclass, field
 
+# 공통 타입 임포트
+try:
+    from common import Point2D, Point3D
+except ImportError:
+    # 독립 실행 시 로컬 정의 사용
+    @dataclass
+    class Point3D:
+        """3D point representation"""
+        x: float
+        y: float
+        z: float
 
-@dataclass
-class Point3D:
-    """3D point representation"""
-    x: float
-    y: float
-    z: float
+        def to_tuple(self) -> Tuple[float, float, float]:
+            return (self.x, self.y, self.z)
 
-    def to_tuple(self) -> Tuple[float, float, float]:
-        return (self.x, self.y, self.z)
+        def __add__(self, other: 'Point3D') -> 'Point3D':
+            return Point3D(self.x + other.x, self.y + other.y, self.z + other.z)
 
-    def __add__(self, other: 'Point3D') -> 'Point3D':
-        return Point3D(self.x + other.x, self.y + other.y, self.z + other.z)
+        def __sub__(self, other: 'Point3D') -> 'Point3D':
+            return Point3D(self.x - other.x, self.y - other.y, self.z - other.z)
 
-    def __sub__(self, other: 'Point3D') -> 'Point3D':
-        return Point3D(self.x - other.x, self.y - other.y, self.z - other.z)
+        def scale(self, factor: float) -> 'Point3D':
+            return Point3D(self.x * factor, self.y * factor, self.z * factor)
 
-    def scale(self, factor: float) -> 'Point3D':
-        return Point3D(self.x * factor, self.y * factor, self.z * factor)
+    @dataclass
+    class Point2D:
+        """2D point representation"""
+        x: float
+        y: float
 
-
-@dataclass
-class Point2D:
-    """2D point representation"""
-    x: float
-    y: float
-
-    def to_tuple(self) -> Tuple[float, float]:
-        return (self.x, self.y)
+        def to_tuple(self) -> Tuple[float, float]:
+            return (self.x, self.y)
 
 
 @dataclass

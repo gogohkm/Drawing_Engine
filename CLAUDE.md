@@ -219,9 +219,13 @@ auto_check(task_id, 현재단계, entity수)
 ```
 knowledge/
 ├── engine/                    # 자동화 스크립트
+│   ├── common.py              # 공통 타입 (Point2D, Point3D, TaskStatus, MCPToolGenerator)
 │   ├── drawing_engine.py      # 메인 엔진
 │   ├── context_manager.py     # 맥락 관리 (체크포인트, 복구)
-│   └── claude_helper.py       # Claude 연동 CLI 헬퍼
+│   ├── claude_helper.py       # Claude 연동 CLI 헬퍼
+│   ├── photo_tracer.py        # 사진 따라 그리기 (권장)
+│   ├── positional_line_extractor.py  # 위치 기반 선 추출
+│   └── isometric_renderer.py  # 등각 투영 렌더러 (3D→2D)
 ├── patterns/                  # 작도 패턴
 │   ├── elements.json          # 요소별 작도법
 │   ├── drawing_types.json     # 도면 유형
@@ -333,54 +337,32 @@ python claude_helper.py trace_status <id>        # 상태 조회
 
 ---
 
-## 이미지 기반 도면 작도 (Image Analyzer) - 레거시
+## 위치 기반 선 추출 (Positional Line Extractor)
 
-> **Note**: Photo Tracer (`trace_*`)를 권장합니다.
+사진에서 **위치 기반**으로 선을 추출합니다. 의미적 분류(column, beam 등) 없이 위치 정보만으로 선을 그립니다.
 
-이미지를 분석하여 도면을 자동으로 그리는 기능입니다.
+### 특징
 
-### 통합 명령
+- 9개 영역 기반 분할 (top-left, top-center, top-right, middle-left, ...)
+- 4가지 방향: horizontal, vertical, diagonal-up, diagonal-down
+- OpenCV 기반 선 감지 (LSD/Hough 변환)
+
+### 사용법
 
 ```bash
-python claude_helper.py image_draw '<분석결과_JSON>' [width] [height] [margin] [level]
+python claude_helper.py line_extract '<이미지경로>'
+python claude_helper.py line_extract_to_mcp '<이미지경로>' '<width>' '<height>'
 ```
 
-### 분석 결과 JSON 형식
+---
 
-```json
-{
-  "structure_type": "portal_frame_truss",
-  "width_height_ratio": 2.5,
-  "roof_pitch_degrees": 8,
-  "eave_height_ratio": 0.7,
-  "columns_left": 2,
-  "columns_right": 2,
-  "columns_middle": 1,
-  "truss_panels": 10,
-  "vertical_webs": 9,
-  "diagonal_webs": 10,
-  "purlins_per_slope": 8,
-  "bracing_levels": 2,
-  "detail_level": "L2_structural"
-}
-```
+## 등각 투영 렌더러 (Isometric Renderer)
 
-### 지원 구조 템플릿
+3D 좌표를 등각 투영 2D로 변환합니다. 철골 구조물의 등각 도면 생성에 사용됩니다.
 
-- `portal_frame_truss`: 포털 프레임 + 트러스 지붕 (공장, 창고)
-- `simple_gable_frame`: 단순 박공 프레임 (소규모 창고)
-- `multi_span_truss`: 다중 스팬 트러스 (대형 공장)
-- `warren_truss`: 워렌 트러스
-- `pratt_truss`: 프랫 트러스
+### 특징
 
-### 파일 구조
-
-```
-knowledge/
-├── patterns/
-│   ├── image_analysis.json     # 분석 체크리스트, 프롬프트
-│   └── structure_templates.json # 구조별 템플릿, 비율
-├── engine/
-│   └── image_analyzer.py       # 분석/좌표/시퀀스 생성
-└── analysis_cache/             # 분석 결과 저장 (자동 생성)
-```
+- 표준 등각 투영 (30도)
+- H-beam, C-channel 단면 지원
+- 배열 함수 (purlin array, X-bracing 등)
+- 다경간 포털 프레임 자동 생성

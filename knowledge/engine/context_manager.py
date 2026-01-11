@@ -35,18 +35,22 @@ from dataclasses import dataclass, field, asdict
 from enum import Enum
 import hashlib
 
+# 공통 타입 임포트
+try:
+    from common import TaskStatus, MCPToolGenerator
+except ImportError:
+    # 독립 실행 시 로컬 정의
+    class TaskStatus(Enum):
+        PLANNING = "planning"
+        READY = "ready"
+        IN_PROGRESS = "in_progress"
+        PAUSED = "paused"
+        COMPLETED = "completed"
+        FAILED = "failed"
+
 KNOWLEDGE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONTEXT_DIR = os.path.join(KNOWLEDGE_ROOT, "context")
 ACTIVE_TASKS_FILE = os.path.join(CONTEXT_DIR, "active_tasks.json")
-
-
-class TaskStatus(Enum):
-    PLANNING = "planning"       # 계획 수립 중
-    READY = "ready"             # 실행 준비 완료
-    IN_PROGRESS = "in_progress" # 실행 중
-    PAUSED = "paused"           # 일시 중지 (맥락 손실 시)
-    COMPLETED = "completed"     # 완료
-    FAILED = "failed"           # 실패
 
 
 @dataclass

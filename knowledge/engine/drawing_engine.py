@@ -16,15 +16,19 @@ from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, field, asdict
 from enum import Enum
 
+# 공통 타입 임포트
+try:
+    from common import TaskStatus
+except ImportError:
+    # 독립 실행 시 로컬 정의
+    class TaskStatus(Enum):
+        PENDING = "pending"
+        IN_PROGRESS = "in_progress"
+        SUCCESS = "success"
+        FAILED = "failed"
+
 # 경로 설정
 KNOWLEDGE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-class TaskStatus(Enum):
-    PENDING = "pending"
-    IN_PROGRESS = "in_progress"
-    SUCCESS = "success"
-    FAILED = "failed"
 
 
 @dataclass
