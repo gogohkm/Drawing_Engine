@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "stgen-dxf-viewer": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${userHome}/.cursor/extensions/jeil-structuralengineering-consultants.stgen-0.1.9-universal/media/mcp-server.js"
+      ],
+      "env": {
+        "STGEN_MCP_PORT": "52789"
+      }
+    }
+  }
+}

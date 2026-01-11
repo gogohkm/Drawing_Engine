@@ -11,6 +11,7 @@ Image Vectorizer - vtracer 알고리즘 기반 Python 구현
 3. 윤곽선 추출 (Contour Tracing - Moore-Neighbor)
 4. 경로 단순화 (Douglas-Peucker Algorithm)
 5. DXF MCP 도구 시퀀스 생성
+6. DXF 파일 직접 쓰기 (빠른 배치 처리)
 
 지원 형식 (의존성 없이):
 - PNG (zlib 압축 사용)
@@ -1431,20 +1432,46 @@ class ImageVectorizer:
             return False
 
     def load_from_base64(self, base64_data: str) -> bool:
-        """Base64 이미지 데이터 로드"""
+        """
+        Base64 이미지 데이터 로드 (PIL 없이 순수 Python)
+
+        지원 형식: PNG, JPEG
+        """
         try:
             import base64
-            from PIL import Image
-            import io
 
             # data:image/png;base64, 접두어 제거
             if ',' in base64_data:
                 base64_data = base64_data.split(',')[1]
 
             image_data = base64.b64decode(base64_data)
-            img = Image.open(io.BytesIO(image_data))
-            self.binary_image = BinaryImage.from_pil_image(img, self.threshold)
-            return True
+
+            # PNG 시그니처 확인
+            if image_data[:8] == b'\x89PNG\r\n\x1a\n':
+                decoder = PNGDecoder().decode_bytes(image_data)
+                gray_pixels = decoder.to_grayscale_array()
+                self.binary_image = BinaryImage.from_grayscale_array(gray_pixels, self.threshold)
+                return True
+
+            # JPEG 시그니처 확인
+            elif image_data[:2] == b'\xFF\xD8':
+                decoder = JPEGDecoder().decode_bytes(image_data)
+                gray_pixels = decoder.to_grayscale_array()
+                self.binary_image = BinaryImage.from_grayscale_array(gray_pixels, self.threshold)
+                return True
+
+            else:
+                # PIL 폴백 시도
+                try:
+                    from PIL import Image
+                    import io
+                    img = Image.open(io.BytesIO(image_data))
+                    self.binary_image = BinaryImage.from_pil_image(img, self.threshold)
+                    return True
+                except ImportError:
+                    print("Unsupported image format. Supported: PNG, JPEG")
+                    return False
+
         except Exception as e:
             print(f"Error loading base64 image: {e}")
             return False
@@ -1508,11 +1535,17 @@ class ImageVectorizer:
 
     def _transform_point(self, point: Point) -> Point:
         """좌표 변환 (스케일, 오프셋, Y반전)"""
-        x = point.x * self.output_scale + self.output_offset.x
-        y = point.y * self.output_scale
+        # X/Y 독립 스케일 적용 (set_output_bounds에서 설정)
+        scale_x = getattr(self, 'output_scale_x', self.output_scale)
+        scale_y = getattr(self, 'output_scale_y', self.output_scale)
+
+        x = point.x * scale_x + self.output_offset.x
 
         if self.flip_y and self.binary_image:
-            y = (self.binary_image.height - point.y) * self.output_scale
+            # Y 반전: 이미지 좌표계(위가 0) → DXF 좌표계(아래가 0)
+            y = (self.binary_image.height - point.y) * scale_y
+        else:
+            y = point.y * scale_y
 
         y += self.output_offset.y
 
@@ -1529,10 +1562,11 @@ class ImageVectorizer:
         if not self.binary_image:
             raise ValueError("Load image first")
 
-        # 스케일 계산
-        scale_x = width / self.binary_image.width
-        scale_y = height / self.binary_image.height
-        self.output_scale = min(scale_x, scale_y)
+        # 스케일 계산 - X/Y 독립적으로 적용하여 정확한 매핑
+        self.output_scale_x = width / self.binary_image.width
+        self.output_scale_y = height / self.binary_image.height
+        # 호환성을 위해 output_scale은 평균값으로 유지
+        self.output_scale = (self.output_scale_x + self.output_scale_y) / 2
 
         # 오프셋 설정
         self.output_offset = Point(x, y)
@@ -1647,6 +1681,266 @@ def cli_vectorize(image_path: str, bg_json: str, options_json: str = "{}") -> st
         return json.dumps({"error": str(e)})
 
 
+def cli_vectorize_to_dxf(image_path: str, bg_json: str, dxf_path: str, options_json: str = "{}") -> str:
+    """
+    이미지 벡터화 후 DXF 파일에 직접 쓰기 (빠른 배치 처리)
+
+    MCP create_line을 수백 번 호출하는 대신, DXF 파일을 직접 수정하여 속도 대폭 향상
+
+    Args:
+        image_path: 이미지 파일 경로
+        bg_json: 배경 영역 {"x":..., "y":..., "width":..., "height":...}
+        dxf_path: 수정할 DXF 파일 경로
+        options_json: 옵션 (mode, edge_threshold, epsilon, layer 등)
+
+    Returns:
+        결과 JSON (추가된 선 수, 소요 시간 등)
+    """
+    import time
+    start_time = time.time()
+
+    try:
+        bg = json.loads(bg_json)
+        options = json.loads(options_json)
+
+        vectorizer = ImageVectorizer()
+
+        # 옵션 설정 - 사진 트레이싱에 최적화된 기본값
+        vectorizer.mode = options.get("mode", "edge")
+        vectorizer.threshold = options.get("threshold", 128)
+        vectorizer.edge_threshold = options.get("edge_threshold", 25)  # 낮춰서 더 많은 선 포착
+        vectorizer.simplify_epsilon = options.get("epsilon", 1.5)      # 낮춰서 더 세밀한 선
+        vectorizer.min_contour_length = options.get("min_length", 5)   # 낮춰서 작은 윤곽도 포함
+        vectorizer.min_component_area = options.get("min_area", 8)
+
+        # 이미지 로드
+        if not vectorizer.load_image(image_path):
+            return json.dumps({"error": f"Failed to load image: {image_path}"})
+
+        # 출력 영역 설정
+        vectorizer.set_output_bounds(
+            bg["x"], bg["y"],
+            bg["width"], bg["height"]
+        )
+
+        # 벡터화
+        vectorizer.vectorize()
+
+        if not vectorizer.lines:
+            return json.dumps({"error": "No lines generated"})
+
+        # DXF 파일에 직접 쓰기
+        layer = options.get("layer", "TRACE")
+        result = write_lines_to_dxf(vectorizer.lines, dxf_path, layer)
+
+        elapsed = time.time() - start_time
+
+        return json.dumps({
+            "success": True,
+            "lines_added": len(vectorizer.lines),
+            "contours_found": len(vectorizer.contours),
+            "dxf_path": dxf_path,
+            "layer": layer,
+            "elapsed_seconds": round(elapsed, 2),
+            "message": f"{len(vectorizer.lines)}개 선을 DXF에 직접 추가 완료. MCP에서 새로고침 필요."
+        }, ensure_ascii=False, indent=2)
+
+    except Exception as e:
+        import traceback
+        return json.dumps({"error": str(e), "traceback": traceback.format_exc()})
+
+
+def write_lines_to_dxf(lines: List[Line], dxf_path: str, layer: str = "TRACE") -> Dict:
+    """
+    선 리스트를 DXF 파일에 직접 추가
+
+    DXF 파일 형식에 직접 LINE 엔티티를 삽입
+    (ezdxf 없이 순수 Python으로 구현)
+
+    Args:
+        lines: Line 객체 리스트
+        dxf_path: DXF 파일 경로
+        layer: 레이어 이름
+
+    Returns:
+        결과 정보
+    """
+    # DXF 파일 읽기
+    with open(dxf_path, 'r', encoding='utf-8', errors='ignore') as f:
+        content = f.read()
+
+    # ENTITIES 섹션 찾기
+    entities_start = content.find('ENTITIES')
+    if entities_start == -1:
+        raise ValueError("ENTITIES section not found in DXF")
+
+    # ENTITIES 다음 줄 위치 찾기
+    entities_line_end = content.find('\n', entities_start)
+
+    # ENDSEC 찾기 (ENTITIES 섹션의 끝)
+    endsec_pos = content.find('ENDSEC', entities_line_end)
+    if endsec_pos == -1:
+        raise ValueError("ENDSEC not found after ENTITIES")
+
+    # DXF 버전 확인 (AC1015 = DXF2000, 최소 형식일 수 있음)
+    import re
+    is_minimal_format = '100\nAcDbEntity' not in content
+
+    # 가장 큰 핸들 찾기 (새 엔티티용)
+    handles = re.findall(r'\n\s*5\n([0-9A-Fa-f]+)\n', content)
+    max_handle = max([int(h, 16) for h in handles]) if handles else 0x100
+
+    # 레이어가 존재하는지 확인하고, 없으면 기본 레이어("0") 사용
+    if f'\n  2\n{layer}\n' not in content and layer != "0":
+        # 레이어가 없으면 "0" 레이어 사용
+        layer = "0"
+
+    # LINE 엔티티들 생성
+    new_entities = []
+    for i, line in enumerate(lines):
+        if is_minimal_format:
+            # 최소 형식 DXF용 (핸들, 서브클래스 마커 없음)
+            line_entity = f"""  0
+LINE
+  8
+{layer}
+ 10
+{round(line.start.x, 4)}
+ 20
+{round(line.start.y, 4)}
+ 30
+0.0
+ 11
+{round(line.end.x, 4)}
+ 21
+{round(line.end.y, 4)}
+ 31
+0.0
+"""
+        else:
+            # 전체 형식 DXF용 (핸들, 서브클래스 마커 포함)
+            handle = format(max_handle + i + 1, 'X')
+            line_entity = f"""  0
+LINE
+  5
+{handle}
+100
+AcDbEntity
+  8
+{layer}
+100
+AcDbLine
+ 10
+{round(line.start.x, 4)}
+ 20
+{round(line.start.y, 4)}
+ 30
+0.0
+ 11
+{round(line.end.x, 4)}
+ 21
+{round(line.end.y, 4)}
+ 31
+0.0
+"""
+        new_entities.append(line_entity)
+
+    # 새 엔티티 삽입 (ENDSEC 앞에)
+    new_content = (
+        content[:endsec_pos] +
+        ''.join(new_entities) +
+        content[endsec_pos:]
+    )
+
+    # DXF 파일 쓰기
+    with open(dxf_path, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+
+    return {
+        "lines_written": len(lines),
+        "max_handle_used": format(max_handle + len(lines), 'X')
+    }
+
+
+def cli_extract_lines_only(image_path: str, bg_json: str, output_path: str, options_json: str = "{}") -> str:
+    """
+    이미지에서 선만 추출하여 JSON 파일로 저장 (DXF 수정 없이)
+
+    나중에 write_lines_to_dxf를 별도 호출하거나 MCP 사용 가능
+
+    Args:
+        image_path: 이미지 파일 경로
+        bg_json: 배경 영역
+        output_path: 출력 JSON 파일 경로
+        options_json: 옵션
+    """
+    try:
+        bg = json.loads(bg_json)
+        options = json.loads(options_json)
+
+        vectorizer = ImageVectorizer()
+
+        # 옵션 설정
+        vectorizer.mode = options.get("mode", "edge")
+        vectorizer.threshold = options.get("threshold", 128)
+        vectorizer.edge_threshold = options.get("edge_threshold", 25)
+        vectorizer.simplify_epsilon = options.get("epsilon", 1.5)
+        vectorizer.min_contour_length = options.get("min_length", 5)
+        vectorizer.min_component_area = options.get("min_area", 8)
+
+        # 이미지 로드
+        if not vectorizer.load_image(image_path):
+            return json.dumps({"error": f"Failed to load image: {image_path}"})
+
+        # 출력 영역 설정
+        vectorizer.set_output_bounds(
+            bg["x"], bg["y"],
+            bg["width"], bg["height"]
+        )
+
+        # 벡터화
+        vectorizer.vectorize()
+
+        # JSON으로 저장
+        lines_data = {
+            "total": len(vectorizer.lines),
+            "contours": len(vectorizer.contours),
+            "image_size": {
+                "width": vectorizer.binary_image.width if vectorizer.binary_image else 0,
+                "height": vectorizer.binary_image.height if vectorizer.binary_image else 0
+            },
+            "output_bounds": {
+                "x": bg["x"], "y": bg["y"],
+                "width": bg["width"], "height": bg["height"]
+            },
+            "options_used": {
+                "mode": vectorizer.mode,
+                "edge_threshold": vectorizer.edge_threshold,
+                "epsilon": vectorizer.simplify_epsilon
+            },
+            "lines": [
+                {
+                    "start": {"x": round(l.start.x, 4), "y": round(l.start.y, 4)},
+                    "end": {"x": round(l.end.x, 4), "y": round(l.end.y, 4)}
+                }
+                for l in vectorizer.lines
+            ]
+        }
+
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(lines_data, f, ensure_ascii=False, indent=2)
+
+        return json.dumps({
+            "success": True,
+            "total_lines": len(vectorizer.lines),
+            "contours_found": len(vectorizer.contours),
+            "output_file": output_path
+        }, ensure_ascii=False, indent=2)
+
+    except Exception as e:
+        return json.dumps({"error": str(e)})
+
+
 def cli_vectorize_base64(base64_data: str, bg_json: str, options_json: str = "{}") -> str:
     """
     Base64 이미지 벡터화
@@ -1684,6 +1978,76 @@ def cli_vectorize_base64(base64_data: str, bg_json: str, options_json: str = "{}
 
     except Exception as e:
         return json.dumps({"error": str(e)})
+
+
+def cli_vectorize_base64_to_dxf(base64_data: str, bg_json: str, dxf_path: str, options_json: str = "{}") -> str:
+    """
+    Base64 이미지 벡터화 후 DXF 파일에 직접 쓰기 (빠른 배치 처리, PIL 불필요)
+
+    Args:
+        base64_data: Base64 인코딩된 이미지 (PNG 또는 JPEG)
+        bg_json: 배경 영역 {"x":..., "y":..., "width":..., "height":...}
+        dxf_path: 수정할 DXF 파일 경로
+        options_json: 옵션
+
+    Returns:
+        결과 JSON
+    """
+    import time
+    start_time = time.time()
+
+    try:
+        bg = json.loads(bg_json)
+        options = json.loads(options_json)
+
+        vectorizer = ImageVectorizer()
+
+        # 옵션 설정 - 흑백 도면에 최적화
+        vectorizer.mode = options.get("mode", "binary")
+        vectorizer.threshold = options.get("threshold", 200)  # 흑백 도면용 높은 임계값
+        vectorizer.simplify_epsilon = options.get("epsilon", 1.0)
+        vectorizer.min_contour_length = options.get("min_length", 5)
+        vectorizer.min_component_area = options.get("min_area", 8)
+
+        # Base64 이미지 로드
+        if not vectorizer.load_from_base64(base64_data):
+            return json.dumps({"error": "Failed to load base64 image"})
+
+        # 출력 영역 설정
+        vectorizer.set_output_bounds(
+            bg["x"], bg["y"],
+            bg["width"], bg["height"]
+        )
+
+        # 벡터화
+        vectorizer.vectorize()
+
+        if not vectorizer.lines:
+            return json.dumps({"error": "No lines generated"})
+
+        # DXF 파일에 직접 쓰기
+        layer = options.get("layer", "TRACE")
+        result = write_lines_to_dxf(vectorizer.lines, dxf_path, layer)
+
+        elapsed = time.time() - start_time
+
+        return json.dumps({
+            "success": True,
+            "lines_added": len(vectorizer.lines),
+            "contours_found": len(vectorizer.contours),
+            "image_size": {
+                "width": vectorizer.binary_image.width if vectorizer.binary_image else 0,
+                "height": vectorizer.binary_image.height if vectorizer.binary_image else 0
+            },
+            "dxf_path": dxf_path,
+            "layer": layer,
+            "elapsed_seconds": round(elapsed, 2),
+            "message": f"{len(vectorizer.lines)}개 선을 DXF에 직접 추가 완료. 파일을 다시 열어주세요."
+        }, ensure_ascii=False, indent=2)
+
+    except Exception as e:
+        import traceback
+        return json.dumps({"error": str(e), "traceback": traceback.format_exc()})
 
 
 def cli_info() -> str:
@@ -1759,11 +2123,35 @@ if __name__ == "__main__":
         options_json = sys.argv[4] if len(sys.argv) > 4 else "{}"
         print(cli_vectorize(image_path, bg_json, options_json))
 
+    elif cmd == "vectorize_to_dxf" and len(sys.argv) >= 5:
+        # 빠른 DXF 직접 쓰기
+        image_path = sys.argv[2]
+        bg_json = sys.argv[3]
+        dxf_path = sys.argv[4]
+        options_json = sys.argv[5] if len(sys.argv) > 5 else "{}"
+        print(cli_vectorize_to_dxf(image_path, bg_json, dxf_path, options_json))
+
+    elif cmd == "extract_lines" and len(sys.argv) >= 5:
+        # 선만 추출하여 JSON 저장
+        image_path = sys.argv[2]
+        bg_json = sys.argv[3]
+        output_path = sys.argv[4]
+        options_json = sys.argv[5] if len(sys.argv) > 5 else "{}"
+        print(cli_extract_lines_only(image_path, bg_json, output_path, options_json))
+
     elif cmd == "vectorize_base64" and len(sys.argv) >= 4:
         base64_data = sys.argv[2]
         bg_json = sys.argv[3]
         options_json = sys.argv[4] if len(sys.argv) > 4 else "{}"
         print(cli_vectorize_base64(base64_data, bg_json, options_json))
+
+    elif cmd == "vectorize_base64_to_dxf" and len(sys.argv) >= 5:
+        # Base64 이미지 → DXF 직접 쓰기 (빠름, PIL 불필요)
+        base64_data = sys.argv[2]
+        bg_json = sys.argv[3]
+        dxf_path = sys.argv[4]
+        options_json = sys.argv[5] if len(sys.argv) > 5 else "{}"
+        print(cli_vectorize_base64_to_dxf(base64_data, bg_json, dxf_path, options_json))
 
     else:
         print(json.dumps({"error": f"Unknown command: {cmd}"}))

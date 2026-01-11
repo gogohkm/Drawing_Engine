@@ -79,8 +79,9 @@ except ImportError:
 try:
     from image_vectorizer import (
         ImageVectorizer, BinaryImage, GrayscaleImage, EdgeDetector,
-        ContourTracer, PathSimplifier,
-        cli_vectorize, cli_vectorize_base64, cli_info as vectorizer_info
+        ContourTracer, PathSimplifier, write_lines_to_dxf,
+        cli_vectorize, cli_vectorize_base64, cli_vectorize_base64_to_dxf,
+        cli_info as vectorizer_info
     )
     IMAGE_VECTORIZER_AVAILABLE = True
 except ImportError:
@@ -2014,10 +2015,72 @@ def vectorize_base64(base64_data: str, bg_json: str, options_json: str = "{}") -
     if not IMAGE_VECTORIZER_AVAILABLE:
         return json.dumps({
             "error": "Image Vectorizer not available",
-            "tip": "PIL/Pillow가 필요합니다"
+            "tip": "image_vectorizer.py를 확인하세요"
         })
 
     return cli_vectorize_base64(base64_data, bg_json, options_json)
+
+
+def vectorize_base64_to_dxf(base64_data: str, bg_json: str, dxf_path: str, options_json: str = "{}") -> str:
+    """
+    Base64 이미지를 벡터화하여 DXF 파일에 직접 저장 (빠른 배치 처리)
+
+    PIL 없이 순수 Python으로 PNG/JPEG 디코딩 가능
+
+    Args:
+        base64_data: Base64 인코딩된 이미지 데이터 (PNG 또는 JPEG)
+        bg_json: 배경 영역 {"x":..., "y":..., "width":..., "height":...}
+        dxf_path: 저장할 DXF 파일 경로
+        options_json: 옵션 JSON
+            - mode: 'binary' (이진화, 기본) 또는 'edge' (엣지 감지)
+            - threshold: 이진화 임계값 (기본 200, 흑백 도면용)
+            - epsilon: 단순화 허용 오차 (기본 1.0)
+            - min_length: 최소 윤곽선 길이 (기본 5)
+            - layer: 출력 레이어 이름 (기본 TRACE)
+
+    Returns:
+        결과 JSON (추가된 선 수, 소요 시간 등)
+    """
+    if not IMAGE_VECTORIZER_AVAILABLE:
+        return json.dumps({
+            "error": "Image Vectorizer not available",
+            "tip": "image_vectorizer.py를 확인하세요"
+        })
+
+    return cli_vectorize_base64_to_dxf(base64_data, bg_json, dxf_path, options_json)
+
+
+def save_base64_to_png(base64_data: str, output_path: str) -> str:
+    """
+    Base64 이미지를 PNG 파일로 저장 (PIL 불필요)
+
+    Args:
+        base64_data: Base64 인코딩된 이미지 (data:image/png;base64,... 형식 포함 가능)
+        output_path: 저장할 PNG 파일 경로
+
+    Returns:
+        결과 JSON
+    """
+    import base64
+
+    try:
+        # data:image/png;base64, 접두어 제거
+        if ',' in base64_data:
+            base64_data = base64_data.split(',')[1]
+
+        image_data = base64.b64decode(base64_data)
+
+        with open(output_path, 'wb') as f:
+            f.write(image_data)
+
+        return json.dumps({
+            "success": True,
+            "path": output_path,
+            "size": len(image_data)
+        })
+
+    except Exception as e:
+        return json.dumps({"error": str(e)})
 
 
 # CLI 인터페이스
@@ -2341,6 +2404,15 @@ if __name__ == "__main__":
     elif command == "vectorize_base64" and len(sys.argv) >= 4:
         options = sys.argv[4] if len(sys.argv) > 4 else "{}"
         print(vectorize_base64(sys.argv[2], sys.argv[3], options))
+
+    elif command == "vectorize_base64_to_dxf" and len(sys.argv) >= 5:
+        # Base64 이미지 → DXF 직접 쓰기 (빠름, PIL 불필요)
+        options = sys.argv[5] if len(sys.argv) > 5 else "{}"
+        print(vectorize_base64_to_dxf(sys.argv[2], sys.argv[3], sys.argv[4], options))
+
+    elif command == "save_base64_to_png" and len(sys.argv) >= 4:
+        # Base64 → PNG 파일 저장
+        print(save_base64_to_png(sys.argv[2], sys.argv[3]))
 
     else:
         print(json.dumps({"error": f"Unknown command or missing args: {command}"}))
