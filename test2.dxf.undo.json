@@ -1,0 +1,1089 @@
+{
+  "formatId": "stgen-dxf-undo-v1",
+  "version": "1.0",
+  "fileHash": "-4ba83293",
+  "lastModified": 1768144095196,
+  "undoStack": [
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768143987299,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -14.91,
+                "y": -1.97
+              },
+              "end": {
+                "x": -14.91,
+                "y": 48.03
+              }
+            }
+          }
+        ],
+        "indices": [
+          0
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768143987439,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 8.84,
+                "y": -1.97
+              },
+              "end": {
+                "x": 8.84,
+                "y": 48.03
+              }
+            }
+          }
+        ],
+        "indices": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768143987947,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 32.59,
+                "y": -1.97
+              },
+              "end": {
+                "x": 32.59,
+                "y": 48.03
+              }
+            }
+          }
+        ],
+        "indices": [
+          2
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768143987982,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 56.52,
+                "y": -1.97
+              },
+              "end": {
+                "x": 56.52,
+                "y": 48.03
+              }
+            }
+          }
+        ],
+        "indices": [
+          3
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768143988342,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 80.26,
+                "y": -1.97
+              },
+              "end": {
+                "x": 80.26,
+                "y": 48.03
+              }
+            }
+          }
+        ],
+        "indices": [
+          4
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768143988734,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 104.01,
+                "y": -1.97
+              },
+              "end": {
+                "x": 104.01,
+                "y": 48.03
+              }
+            }
+          }
+        ],
+        "indices": [
+          5
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768143989117,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 127.94,
+                "y": -1.97
+              },
+              "end": {
+                "x": 127.94,
+                "y": 48.03
+              }
+            }
+          }
+        ],
+        "indices": [
+          6
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768143989347,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -14.91,
+                "y": 48.03
+              },
+              "end": {
+                "x": 127.94,
+                "y": 48.03
+              }
+            }
+          }
+        ],
+        "indices": [
+          7
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768143989753,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -14.91,
+                "y": 48.03
+              },
+              "end": {
+                "x": 56.52,
+                "y": 73.03
+              }
+            }
+          }
+        ],
+        "indices": [
+          8
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768143989781,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 127.94,
+                "y": 48.03
+              },
+              "end": {
+                "x": 56.52,
+                "y": 73.03
+              }
+            }
+          }
+        ],
+        "indices": [
+          9
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144006718,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -31,
+                "y": -11
+              },
+              "end": {
+                "x": -31,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          0
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144007025,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -4,
+                "y": -11
+              },
+              "end": {
+                "x": -4,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144007335,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 25,
+                "y": -11
+              },
+              "end": {
+                "x": 25,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          2
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144007697,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 56.5,
+                "y": -11
+              },
+              "end": {
+                "x": 56.5,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          3
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144008030,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 88,
+                "y": -11
+              },
+              "end": {
+                "x": 88,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          4
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144008224,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 116,
+                "y": -11
+              },
+              "end": {
+                "x": 116,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          5
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144008547,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 143.5,
+                "y": -11
+              },
+              "end": {
+                "x": 143.5,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          6
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144008888,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -31,
+                "y": 48
+              },
+              "end": {
+                "x": 143.5,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          7
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144009094,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -31,
+                "y": 48
+              },
+              "end": {
+                "x": 56.5,
+                "y": 78
+              }
+            }
+          }
+        ],
+        "indices": [
+          8
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144009254,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 143.5,
+                "y": 48
+              },
+              "end": {
+                "x": 56.5,
+                "y": 78
+              }
+            }
+          }
+        ],
+        "indices": [
+          9
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144048862,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -15,
+                "y": -11
+              },
+              "end": {
+                "x": -15,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          0
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144050032,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 10,
+                "y": -11
+              },
+              "end": {
+                "x": 10,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144050856,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 35,
+                "y": -11
+              },
+              "end": {
+                "x": 35,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          2
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144050907,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 58,
+                "y": -11
+              },
+              "end": {
+                "x": 58,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          3
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144051321,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 80,
+                "y": -11
+              },
+              "end": {
+                "x": 80,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          4
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144051325,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 105,
+                "y": -11
+              },
+              "end": {
+                "x": 105,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          5
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144051369,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 130,
+                "y": -11
+              },
+              "end": {
+                "x": 130,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          6
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144051803,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -15,
+                "y": 48
+              },
+              "end": {
+                "x": 130,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          7
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144052202,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -15,
+                "y": 48
+              },
+              "end": {
+                "x": 58,
+                "y": 78
+              }
+            }
+          }
+        ],
+        "indices": [
+          8
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144052247,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 130,
+                "y": 48
+              },
+              "end": {
+                "x": 58,
+                "y": 78
+              }
+            }
+          }
+        ],
+        "indices": [
+          9
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144086023,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -15,
+                "y": -11
+              },
+              "end": {
+                "x": -15,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          0
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144087575,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 9,
+                "y": -11
+              },
+              "end": {
+                "x": 9,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144089139,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 33,
+                "y": -11
+              },
+              "end": {
+                "x": 33,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          2
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144089256,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 56.5,
+                "y": -11
+              },
+              "end": {
+                "x": 56.5,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          3
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144089769,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 80,
+                "y": -11
+              },
+              "end": {
+                "x": 80,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          4
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144090860,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 104,
+                "y": -11
+              },
+              "end": {
+                "x": 104,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          5
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144090985,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 128,
+                "y": -11
+              },
+              "end": {
+                "x": 128,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          6
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144091562,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -15,
+                "y": 48
+              },
+              "end": {
+                "x": 128,
+                "y": 48
+              }
+            }
+          }
+        ],
+        "indices": [
+          7
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144092086,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": -15,
+                "y": 48
+              },
+              "end": {
+                "x": 56.5,
+                "y": 78
+              }
+            }
+          }
+        ],
+        "indices": [
+          8
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768144093195,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 128,
+                "y": 48
+              },
+              "end": {
+                "x": 56.5,
+                "y": 78
+              }
+            }
+          }
+        ],
+        "indices": [
+          9
+        ]
+      }
+    }
+  ],
+  "redoStack": []
+}

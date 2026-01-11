@@ -54,12 +54,12 @@ try:
 except ImportError:
     ISOMETRIC_AVAILABLE = False
 
-# Photo Tracer 임포트 (사진 따라 그리기 통합 모듈) - 신규
+# Photo Tracer v2.0 임포트 (배경 이미지 위에 직접 트레이싱)
 try:
     from photo_tracer import (
-        PhotoTracer, TracingContext, VisualElementCount,
-        cli_checklist, cli_prompt, cli_create, cli_coords,
-        cli_sequence, cli_status, cli_draw, cli_info
+        PhotoTracer, TraceLine, BackgroundInfo,
+        cli_trace_info, cli_trace_checklist, cli_trace_init,
+        cli_trace_add, cli_trace_quick
     )
     PHOTO_TRACER_AVAILABLE = True
 except ImportError:
@@ -74,6 +74,17 @@ try:
     LINE_EXTRACTOR_AVAILABLE = True
 except ImportError:
     LINE_EXTRACTOR_AVAILABLE = False
+
+# Image Vectorizer 임포트 (vtracer 기반 이미지→벡터 변환)
+try:
+    from image_vectorizer import (
+        ImageVectorizer, BinaryImage, GrayscaleImage, EdgeDetector,
+        ContourTracer, PathSimplifier,
+        cli_vectorize, cli_vectorize_base64, cli_info as vectorizer_info
+    )
+    IMAGE_VECTORIZER_AVAILABLE = True
+except ImportError:
+    IMAGE_VECTORIZER_AVAILABLE = False
 
 
 def session_start() -> str:
@@ -1598,96 +1609,134 @@ def view2d_info() -> str:
     }, ensure_ascii=False, indent=2)
 
 
-# ========== Photo Tracer (사진 따라 그리기 통합 모듈) ==========
+# ========== Photo Tracer v2.0 (배경 이미지 위에 직접 트레이싱) ==========
+
+def trace_info() -> str:
+    """Photo Tracer 정보 및 사용법"""
+    if not PHOTO_TRACER_AVAILABLE:
+        return json.dumps({"error": "Photo Tracer not available"})
+    from photo_tracer import cli_trace_info
+    return cli_trace_info()
+
 
 def trace_checklist() -> str:
-    """사진 분석 체크리스트 조회"""
+    """사진 분석 체크리스트 - 정규화 좌표 파악용"""
     if not PHOTO_TRACER_AVAILABLE:
         return json.dumps({"error": "Photo Tracer not available"})
-    return cli_checklist()
+    from photo_tracer import cli_trace_checklist
+    return cli_trace_checklist()
 
 
-def trace_prompt() -> str:
-    """사진 분석 프롬프트 조회"""
-    if not PHOTO_TRACER_AVAILABLE:
-        return json.dumps({"error": "Photo Tracer not available"})
-    return cli_prompt()
-
-
-def trace_create(analysis_json: str, width: str = "800",
-                 origin_x: str = "50", origin_y: str = "50") -> str:
+def trace_init(bg_x: str, bg_y: str, bg_width: str, bg_height: str) -> str:
     """
-    사진 분석 결과로 추적 컨텍스트 생성
+    배경 이미지 정보 설정
 
     Args:
-        analysis_json: 사진 분석 결과 JSON
-        width: 캔버스 너비
-        origin_x, origin_y: 원점 좌표
+        bg_x, bg_y: 배경 이미지 좌하단 좌표
+        bg_width, bg_height: 배경 이미지 크기
 
     Returns:
-        context_id 포함 JSON
+        초기화 정보 JSON
     """
     if not PHOTO_TRACER_AVAILABLE:
         return json.dumps({"error": "Photo Tracer not available"})
-    return cli_create(analysis_json, width, origin_x, origin_y)
+    from photo_tracer import cli_trace_init
+    return cli_trace_init(bg_x, bg_y, bg_width, bg_height)
 
 
-def trace_coords(context_id: str) -> str:
-    """컨텍스트의 좌표 계산"""
-    if not PHOTO_TRACER_AVAILABLE:
-        return json.dumps({"error": "Photo Tracer not available"})
-    return cli_coords(context_id)
-
-
-def trace_sequence(context_id: str) -> str:
-    """MCP 도구 호출 시퀀스 생성"""
-    if not PHOTO_TRACER_AVAILABLE:
-        return json.dumps({"error": "Photo Tracer not available"})
-    return cli_sequence(context_id)
-
-
-def trace_status(context_id: str) -> str:
-    """컨텍스트 상태 조회"""
-    if not PHOTO_TRACER_AVAILABLE:
-        return json.dumps({"error": "Photo Tracer not available"})
-    return cli_status(context_id)
-
-
-def trace_draw(analysis_json: str, width: str = "800",
-               origin_x: str = "50", origin_y: str = "50") -> str:
+def trace_add(bg_json: str, lines_json: str) -> str:
     """
-    통합 명령: 분석 → 좌표 계산 → 시퀀스 생성
-
-    한 번의 호출로 전체 파이프라인 실행
+    선 추가 및 시퀀스 생성
 
     Args:
-        analysis_json: 사진 분석 결과 JSON
-            필수 필드:
-            - visible_column_frames: 겹쳐 보이는 기둥 프레임 수
-            - visible_purlin_lines: 보이는 퍼린 라인 수
-            - purlin_as_depth_lines: 퍼린을 깊이 라인으로 표현 (true)
-            - column_section_type: "H-beam" 또는 "simple"
-            - truss_type: "pratt", "warren", "howe"
-            - width_height_ratio: 가로:세로 비율
-            - eave_height_ratio: 처마높이/전체높이
-            - roof_pitch_degrees: 지붕 경사각
-
-        width: 캔버스 너비
-        origin_x, origin_y: 원점 좌표
+        bg_json: 배경 정보 {"x": ..., "y": ..., "width": ..., "height": ...}
+        lines_json: 선 목록 [{"id": ..., "nx1": ..., "ny1": ..., "nx2": ..., "ny2": ..., "layer": ...}, ...]
 
     Returns:
         MCP 시퀀스 포함 JSON
     """
     if not PHOTO_TRACER_AVAILABLE:
         return json.dumps({"error": "Photo Tracer not available"})
-    return cli_draw(analysis_json, width, origin_x, origin_y)
+    from photo_tracer import cli_trace_add
+    return cli_trace_add(bg_json, lines_json)
 
 
-def trace_info() -> str:
-    """Photo Tracer 정보 및 사용법"""
+def trace_quick(bg_json: str, elements_json: str) -> str:
+    """
+    빠른 트레이싱 - 구조물 요소 기반
+
+    사진에서 보이는 구조물 요소를 간단히 정의하면 자동으로 선으로 변환
+
+    Args:
+        bg_json: 배경 정보 {"x": ..., "y": ..., "width": ..., "height": ...}
+        elements_json: 구조물 요소 정의
+            {
+                "columns": [{"x": 0.12, "y_bottom": 0, "y_top": 0.58}, ...],
+                "beams": [{"x1": ..., "y1": ..., "x2": ..., "y2": ...}, ...],
+                "roof_left": {"x1": ..., "y1": ..., "x2": ..., "y2": ...},
+                "roof_right": {"x1": ..., "y1": ..., "x2": ..., "y2": ...},
+                "purlins": [{"x1": ..., "x2": ..., "y": ...}, ...],
+                "truss_webs": [{"x1": ..., "y1": ..., "x2": ..., "y2": ...}, ...],
+                "bracing": [{"x1": ..., "y1": ..., "x2": ..., "y2": ...}, ...],
+                "foundation": {"x1": ..., "x2": ..., "y": ...},
+                "lines": [{"id": ..., "nx1": ..., "ny1": ..., "nx2": ..., "ny2": ..., "layer": ...}, ...]
+            }
+
+    좌표는 모두 정규화 좌표 (0~1):
+        - x=0: 이미지 왼쪽, x=1: 이미지 오른쪽
+        - y=0: 이미지 아래쪽, y=1: 이미지 위쪽
+
+    Returns:
+        MCP 시퀀스 포함 JSON
+    """
     if not PHOTO_TRACER_AVAILABLE:
         return json.dumps({"error": "Photo Tracer not available"})
-    return cli_info()
+    from photo_tracer import cli_trace_quick
+    return cli_trace_quick(bg_json, elements_json)
+
+
+# 하위 호환성을 위한 deprecated 함수들
+def trace_prompt() -> str:
+    """[Deprecated] trace_info 사용 권장"""
+    return json.dumps({
+        "deprecated": True,
+        "message": "Use trace_info and trace_checklist instead"
+    })
+
+def trace_create(*args) -> str:
+    """[Deprecated] trace_quick 사용 권장"""
+    return json.dumps({
+        "deprecated": True,
+        "message": "Use trace_quick instead"
+    })
+
+def trace_coords(*args) -> str:
+    """[Deprecated] 좌표는 자동 계산됨"""
+    return json.dumps({
+        "deprecated": True,
+        "message": "Coordinates are now calculated automatically"
+    })
+
+def trace_sequence(*args) -> str:
+    """[Deprecated] trace_quick 또는 trace_add 사용"""
+    return json.dumps({
+        "deprecated": True,
+        "message": "Use trace_quick or trace_add instead"
+    })
+
+def trace_status(*args) -> str:
+    """[Deprecated] 상태 추적 제거됨"""
+    return json.dumps({
+        "deprecated": True,
+        "message": "Status tracking removed"
+    })
+
+def trace_draw(*args) -> str:
+    """[Deprecated] trace_quick 사용 권장"""
+    return json.dumps({
+        "deprecated": True,
+        "message": "Use trace_quick instead"
+    })
 
 
 # ========== Positional Line Extractor (위치 기반 선 추출) ==========
@@ -1905,6 +1954,72 @@ def line_info() -> str:
     }, ensure_ascii=False, indent=2)
 
 
+# ============ Image Vectorizer 함수 (vtracer 기반) ============
+
+def vectorize_info() -> str:
+    """
+    Image Vectorizer 정보 및 사용법
+
+    vtracer 알고리즘 기반 이미지→벡터 변환 엔진
+    """
+    if not IMAGE_VECTORIZER_AVAILABLE:
+        return json.dumps({
+            "error": "Image Vectorizer not available",
+            "available": False
+        })
+
+    return vectorizer_info()
+
+
+def vectorize(image_path: str, bg_json: str, options_json: str = "{}") -> str:
+    """
+    이미지 파일을 벡터화하여 MCP 시퀀스 생성
+
+    Args:
+        image_path: 이미지 파일 경로
+        bg_json: 배경 영역 {"x":-73,"y":-77,"width":178,"height":100}
+        options_json: 옵션 JSON
+            - mode: 'binary' (이진화), 'edge' (Sobel), 'edge_simple'
+            - threshold: 이진화 임계값 (기본: 128)
+            - edge_threshold: 엣지 감지 임계값 (기본: 50)
+            - epsilon: 단순화 오차 (기본: 2.0)
+            - min_length: 최소 윤곽선 길이 (기본: 10)
+            - min_area: 최소 연결 요소 크기 (기본: 16)
+            - layer: 출력 레이어 이름 (기본: TRACE)
+
+    Returns:
+        MCP 시퀀스 JSON
+    """
+    if not IMAGE_VECTORIZER_AVAILABLE:
+        return json.dumps({
+            "error": "Image Vectorizer not available. Check import errors.",
+            "tip": "PPM/PGM 형식은 의존성 없이 사용 가능"
+        })
+
+    return cli_vectorize(image_path, bg_json, options_json)
+
+
+def vectorize_base64(base64_data: str, bg_json: str, options_json: str = "{}") -> str:
+    """
+    Base64 이미지를 벡터화하여 MCP 시퀀스 생성
+
+    Args:
+        base64_data: Base64 인코딩된 이미지 데이터
+        bg_json: 배경 영역
+        options_json: 옵션 JSON
+
+    Returns:
+        MCP 시퀀스 JSON
+    """
+    if not IMAGE_VECTORIZER_AVAILABLE:
+        return json.dumps({
+            "error": "Image Vectorizer not available",
+            "tip": "PIL/Pillow가 필요합니다"
+        })
+
+    return cli_vectorize_base64(base64_data, bg_json, options_json)
+
+
 # CLI 인터페이스
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -1979,34 +2094,35 @@ if __name__ == "__main__":
         print("  3. view2d_from_photo - 전체 도면 시퀀스 생성")
         print("  4. 생성된 시퀀스의 MCP 도구 호출 실행")
         print("")
-        print("=== Photo Tracer (사진 따라 그리기) - 권장 ===")
-        print("  trace_info                     - Photo Tracer 정보 및 사용법")
-        print("  trace_checklist                - 분석 체크리스트 (보이는 요소 세기)")
-        print("  trace_prompt                   - 분석 프롬프트")
-        print("  trace_create '<json>' [w] [x] [y]  - 컨텍스트 생성")
-        print("  trace_coords <context_id>      - 좌표 계산")
-        print("  trace_sequence <context_id>    - MCP 시퀀스 생성")
-        print("  trace_status <context_id>      - 상태 조회")
-        print("  trace_draw '<json>' [w] [x] [y]    - 통합 명령 (분석→좌표→시퀀스)")
+        print("=== Photo Tracer v2.0 (배경 이미지 위에 직접 트레이싱) - 권장 ===")
+        print("  trace_info                     - 사용법 및 정보")
+        print("  trace_checklist                - 정규화 좌표 파악용 체크리스트")
+        print("  trace_init <x> <y> <w> <h>     - 배경 이미지 설정")
+        print("  trace_add '<bg>' '<lines>'     - 선 추가 및 시퀀스 생성")
+        print("  trace_quick '<bg>' '<elements>' - 빠른 트레이싱 (구조물 요소 기반)")
         print("")
-        print("=== Photo Tracer 워크플로우 (권장) ===")
-        print("  1. trace_checklist - 분석할 항목 확인")
-        print("  2. 사진 분석: 보이는 요소 정확히 세기")
-        print("     - visible_column_frames: 겹쳐 보이는 기둥 프레임 수")
-        print("     - visible_purlin_lines: 수평 퍼린 라인 수")
-        print("     - purlin_as_depth_lines: true (깊이 라인으로 표현)")
-        print("  3. trace_draw '<json>' - 시퀀스 생성")
-        print("  4. 시퀀스의 tools를 MCP로 실행")
+        print("=== Photo Tracer v2.0 워크플로우 (권장) ===")
+        print("  1. MCP get_background_images로 배경 이미지 정보 확인")
+        print("  2. trace_checklist - 정규화 좌표 파악법 확인")
+        print("  3. 사진을 보고 각 요소의 정규화 좌표(0~1) 파악")
+        print("     - x=0: 왼쪽, x=1: 오른쪽")
+        print("     - y=0: 아래, y=1: 위")
+        print("  4. trace_quick '<bg>' '<elements>' - 시퀀스 생성")
+        print("  5. 시퀀스의 tools를 MCP로 실행")
+        print("")
+        print("  예시:")
+        print('    trace_quick \'{"x":-73,"y":-77,"width":178,"height":100}\' \\')
+        print('      \'{"columns":[{"x":0.12,"y_bottom":0,"y_top":0.58}]}\'')
         print("")
         print("=== 핵심 차이점 ===")
         print("  iso_*     : 3D 좌표를 등각투상으로 투영 (3D→2D 계산)")
         print("  view2d_*  : 사진 비율 기반 2D 정면도 (레거시)")
-        print("  trace_*   : 사진에 보이는 것을 그대로 따라 그리기 (권장)")
+        print("  trace_*   : 배경 이미지 위에 직접 트레이싱 (권장)")
         print("")
-        print("  trace_* 핵심:")
-        print("    - 퍼린을 짧은 마크가 아닌 깊이 방향 수평선으로 표현")
-        print("    - 겹쳐 보이는 프레임들을 offset으로 표현")
-        print("    - H-beam 단면을 여러 라인으로 표현")
+        print("  trace_* v2.0 핵심:")
+        print("    - 배경 이미지 좌표계 기준으로 그리기")
+        print("    - 정규화 좌표(0~1)로 위치 지정")
+        print("    - 비율 자동계산 없음 - 직접 좌표 지정")
         print("")
         print("=== 위치 기반 선 추출 (Line Extractor) - 신규 ===")
         print("  line_info                      - 선 추출기 정보 및 사용법")
@@ -2026,6 +2142,30 @@ if __name__ == "__main__":
         print("    영역: top-left, top-center, middle-right, bottom-center 등")
         print("    방향: horizontal, vertical, diagonal-up, diagonal-down")
         print("    설명: 'top-left to top-center, horizontal'")
+        print("")
+        print("=== Image Vectorizer (vtracer 기반 벡터화) - 권장 ===")
+        print("  vectorize_info                 - 벡터화 엔진 정보")
+        print("  vectorize <path> '<bg>' '[options]' - 이미지 벡터화")
+        print("  vectorize_base64 '<data>' '<bg>' '[options]' - Base64 벡터화")
+        print("")
+        print("=== Image Vectorizer 워크플로우 (권장) ===")
+        print("  핵심: vtracer 알고리즘 기반 윤곽선 추출 및 단순화")
+        print("  1. MCP get_background_images로 배경 이미지 좌표 확인")
+        print("  2. vectorize <이미지경로> '<bg_json>' - 벡터화 및 MCP 시퀀스 생성")
+        print("  3. 시퀀스의 tools를 MCP로 실행")
+        print("")
+        print("  모드:")
+        print("    binary: 단순 이진화 (도면, 스케치용)")
+        print("    edge: Sobel 엣지 감지 (사진용)")
+        print("    edge_simple: 빠른 엣지 감지")
+        print("")
+        print("  예시:")
+        print('    vectorize "photo.jpg" \'{"x":-73,"y":-77,"width":178,"height":100}\' \\')
+        print('      \'{"mode":"edge","edge_threshold":30,"epsilon":3.0}\'')
+        print("")
+        print("  지원 형식:")
+        print("    PPM/PGM: 의존성 없이 사용 가능")
+        print("    JPG/PNG: PIL/Pillow 필요")
         sys.exit(1)
 
     command = sys.argv[1]
@@ -2147,29 +2287,30 @@ if __name__ == "__main__":
         oy = sys.argv[6] if len(sys.argv) > 6 else "50"
         print(view2d_truss_only(sys.argv[2], side, w, ox, oy))
 
-    # Photo Tracer 명령 (사진 따라 그리기)
+    # Photo Tracer v2.0 명령 (배경 이미지 위에 직접 트레이싱)
     elif command == "trace_info":
         print(trace_info())
     elif command == "trace_checklist":
         print(trace_checklist())
+    elif command == "trace_init" and len(sys.argv) >= 6:
+        print(trace_init(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5]))
+    elif command == "trace_add" and len(sys.argv) >= 4:
+        print(trace_add(sys.argv[2], sys.argv[3]))
+    elif command == "trace_quick" and len(sys.argv) >= 4:
+        print(trace_quick(sys.argv[2], sys.argv[3]))
+    # 하위 호환성 (deprecated)
     elif command == "trace_prompt":
         print(trace_prompt())
-    elif command == "trace_create" and len(sys.argv) > 2:
-        w = sys.argv[3] if len(sys.argv) > 3 else "800"
-        ox = sys.argv[4] if len(sys.argv) > 4 else "50"
-        oy = sys.argv[5] if len(sys.argv) > 5 else "50"
-        print(trace_create(sys.argv[2], w, ox, oy))
-    elif command == "trace_coords" and len(sys.argv) > 2:
-        print(trace_coords(sys.argv[2]))
-    elif command == "trace_sequence" and len(sys.argv) > 2:
-        print(trace_sequence(sys.argv[2]))
-    elif command == "trace_status" and len(sys.argv) > 2:
-        print(trace_status(sys.argv[2]))
-    elif command == "trace_draw" and len(sys.argv) > 2:
-        w = sys.argv[3] if len(sys.argv) > 3 else "800"
-        ox = sys.argv[4] if len(sys.argv) > 4 else "50"
-        oy = sys.argv[5] if len(sys.argv) > 5 else "50"
-        print(trace_draw(sys.argv[2], w, ox, oy))
+    elif command == "trace_create":
+        print(trace_create())
+    elif command == "trace_coords":
+        print(trace_coords())
+    elif command == "trace_sequence":
+        print(trace_sequence())
+    elif command == "trace_status":
+        print(trace_status())
+    elif command == "trace_draw":
+        print(trace_draw())
 
     # 위치 기반 선 추출 명령
     elif command == "line_info":
@@ -2190,6 +2331,16 @@ if __name__ == "__main__":
         height = sys.argv[5] if len(sys.argv) > 5 else "600"
         min_len = sys.argv[6] if len(sys.argv) > 6 else "30"
         print(line_extract_save(sys.argv[2], sys.argv[3], width, height, min_len))
+
+    # Image Vectorizer 명령 (vtracer 기반 이미지→벡터 변환)
+    elif command == "vectorize_info":
+        print(vectorize_info())
+    elif command == "vectorize" and len(sys.argv) >= 4:
+        options = sys.argv[4] if len(sys.argv) > 4 else "{}"
+        print(vectorize(sys.argv[2], sys.argv[3], options))
+    elif command == "vectorize_base64" and len(sys.argv) >= 4:
+        options = sys.argv[4] if len(sys.argv) > 4 else "{}"
+        print(vectorize_base64(sys.argv[2], sys.argv[3], options))
 
     else:
         print(json.dumps({"error": f"Unknown command or missing args: {command}"}))
