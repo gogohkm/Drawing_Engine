@@ -223,7 +223,8 @@ knowledge/
 │   ├── drawing_engine.py      # 메인 엔진
 │   ├── context_manager.py     # 맥락 관리 (체크포인트, 복구)
 │   ├── claude_helper.py       # Claude 연동 CLI 헬퍼
-│   ├── photo_tracer.py        # 사진 따라 그리기 (권장)
+│   ├── image_vectorizer.py    # 배경 이미지 벡터화
+│   ├── line_cleaner.py        # 벡터화 후처리 (이중선 제거, 병합)
 │   ├── positional_line_extractor.py  # 위치 기반 선 추출
 │   └── isometric_renderer.py  # 등각 투영 렌더러 (3D→2D)
 ├── patterns/                  # 작도 패턴
@@ -264,105 +265,134 @@ knowledge/
 
 ---
 
-## Photo Tracer (사진 따라 그리기) - 권장
+## 배경 이미지 벡터화 (Image Vectorizer)
 
-사진을 보고 **그대로 따라 그리는** 기능입니다.
+**사용자가 "벡터화 해줘"라고 요청하면 자동으로 실행합니다.**
 
-### 핵심 원칙
+배경 이미지를 CAD 선으로 변환합니다. PIL 없이 순수 Python으로 PNG/JPEG 디코딩 지원.
 
-- **3D 투영 계산이 아닌**, 사진에서 보이는 것을 그대로 그린다
-- 퍼린은 짧은 마크가 아닌, **깊이 방향 수평선**으로 표현
-- 겹쳐 보이는 프레임들을 **offset**으로 표현
-- H-beam 단면을 **여러 라인**으로 표현
+### 자동 워크플로우
 
-### 워크플로우
+사용자가 "벡터화", "벡터화 해줘", "배경 이미지 벡터화" 등을 요청하면:
 
 ```
-[1. 사진 분석]
-사진 보기 → trace_checklist 참고 → 보이는 요소 정확히 세기
-     ↓
-[2. 통합 명령 실행]
-python claude_helper.py trace_draw '<분석결과_JSON>'
-     ↓
-[3. 시퀀스 실행]
-생성된 sequence의 tools를 MCP 도구로 실행
+[1단계] 배경 이미지 정보 조회
+MCP: get_background_images
+→ 이미지 위치(x, y), 크기(width, height) 획득
+
+[2단계] 이미지 파일 경로 확인
+- 사용자에게 이미지 파일 경로 질문
+- 또는 이전에 알려준 경로 사용
+
+[3단계] 벡터화 실행
+cd knowledge/engine && python image_vectorizer.py vectorize_to_dxf \
+  "<이미지파일경로>" \
+  '{"x": <bg_x>, "y": <bg_y>, "width": <bg_width>, "height": <bg_height>}' \
+  "<출력DXF경로>" \
+  '{"mode": "binary", "threshold": 200, "epsilon": 1.0, "min_length": 5}'
+
+[4단계] 결과 안내
+- 생성된 LINE 수
+- 파일 다시 열기 안내
 ```
 
 ### 명령어
 
 ```bash
-# 정보 조회
-python claude_helper.py trace_info        # 사용법 및 예시
-python claude_helper.py trace_checklist   # 분석 체크리스트
-python claude_helper.py trace_prompt      # 분석 프롬프트
+# 이미지 파일 → DXF 직접 저장 (권장, 빠름)
+python image_vectorizer.py vectorize_to_dxf \
+  '<이미지경로>' \
+  '{"x": -15, "y": -10, "width": 108, "height": 100}' \
+  '<DXF경로>' \
+  '{"mode": "binary", "threshold": 200}'
 
-# 통합 명령 (권장)
-python claude_helper.py trace_draw '<JSON>' [width] [origin_x] [origin_y]
+# Base64 이미지 → DXF (MCP 캡처용)
+python image_vectorizer.py vectorize_base64_to_dxf \
+  '<base64데이터>' \
+  '{"x": ..., "y": ..., "width": ..., "height": ...}' \
+  '<DXF경로>'
 
-# 단계별 명령 (선택)
-python claude_helper.py trace_create '<JSON>'    # 컨텍스트 생성
-python claude_helper.py trace_coords <id>        # 좌표 계산
-python claude_helper.py trace_sequence <id>      # 시퀀스 생성
-python claude_helper.py trace_status <id>        # 상태 조회
+# 이미지 파일 → MCP 시퀀스 생성 (느림)
+python image_vectorizer.py vectorize '<이미지경로>' '<bg_json>'
 ```
 
-### 분석 결과 JSON 형식
+### 옵션
 
-```json
-{
-  "visible_column_frames": 4,      // 겹쳐 보이는 기둥 프레임 수
-  "visible_truss_frames": 4,       // 보이는 트러스 수
-  "frame_spacing_ratio": 0.025,    // 프레임 간격 (도면 폭 대비)
-  "columns_per_frame": 2,          // 프레임당 기둥 수
-  "column_section_type": "H-beam", // "H-beam" 또는 "simple"
-  "visible_purlin_lines": 8,       // 보이는 퍼린 라인 수
-  "purlin_as_depth_lines": true,   // 깊이 방향 라인으로 표현
-  "truss_type": "pratt",           // "pratt", "warren", "howe"
-  "truss_panel_count": 10,
-  "bracing_bays": 2,
-  "width_height_ratio": 2.5,
-  "eave_height_ratio": 0.72,
-  "roof_pitch_degrees": 8
-}
-```
+| 옵션 | 설명 | 기본값 |
+|------|------|--------|
+| `mode` | `binary` (이진화) 또는 `edge` (엣지감지) | `binary` |
+| `threshold` | 이진화 임계값 (0-255, 높을수록 더 많은 검정) | `200` |
+| `epsilon` | 단순화 허용 오차 (클수록 단순) | `1.0` |
+| `min_length` | 최소 윤곽선 길이 | `5` |
+| `min_area` | 최소 연결 요소 크기 | `8` |
+| `layer` | 출력 레이어 이름 | `0` |
 
-### 분석 시 핵심 체크리스트
+### 이미지 유형별 권장 설정
 
-| 항목 | 질문 | 필드 |
-|------|------|------|
-| 깊이/프레임 | 앞뒤로 겹쳐 보이는 기둥 몇 줄? | `visible_column_frames` |
-| 퍼린 | 수평 퍼린 라인 몇 개? | `visible_purlin_lines` |
-| 기둥 단면 | H-beam 형태 보이는가? | `column_section_type` |
-| 트러스 | 타입과 패널 수는? | `truss_type`, `truss_panel_count` |
+| 이미지 유형 | mode | threshold | epsilon |
+|------------|------|-----------|---------|
+| 흑백 도면/라인 드로잉 | `binary` | `200` | `1.0` |
+| 스캔된 도면 | `binary` | `150` | `1.5` |
+| 사진 (선 추출) | `edge` | - | `2.0` |
+
+### 주의사항
+
+- DXF 파일 직접 수정 후 **VS Code에서 파일을 다시 열어야** 변경사항이 표시됨
+- MCP Viewer는 메모리 캐시를 사용하므로 외부 수정이 즉시 반영되지 않음
 
 ---
 
-## 위치 기반 선 추출 (Positional Line Extractor)
+## 선 후처리 (Line Cleaner)
 
-사진에서 **위치 기반**으로 선을 추출합니다. 의미적 분류(column, beam 등) 없이 위치 정보만으로 선을 그립니다.
+**벡터화 후 "정리해줘"라고 요청하면 자동으로 실행합니다.**
 
-### 특징
+벡터화 결과의 이중선, 노이즈, 분절된 선을 깔끔하게 정리합니다.
 
-- 9개 영역 기반 분할 (top-left, top-center, top-right, middle-left, ...)
-- 4가지 방향: horizontal, vertical, diagonal-up, diagonal-down
-- OpenCV 기반 선 감지 (LSD/Hough 변환)
+### 기능
 
-### 사용법
+1. **중심선 추출**: 평행한 두 선 → 단일 중심선
+2. **선 병합**: 같은 직선 위의 분절된 선들 합치기
+3. **중복 제거**: 거의 같은 선 제거
+4. **노이즈 필터**: 짧은 선 제거
+5. **끝점 스냅**: 끝점을 가까운 점에 맞추기
+
+### 명령어
 
 ```bash
-python claude_helper.py line_extract '<이미지경로>'
-python claude_helper.py line_extract_to_mcp '<이미지경로>' '<width>' '<height>'
+# 분석 (정리 전 상태 확인)
+python line_cleaner.py analyze <input.dxf>
+
+# 정리 실행
+python line_cleaner.py clean <input.dxf> <output.dxf> [options_json]
+
+# 예시
+python line_cleaner.py clean input.dxf output.dxf '{"min_length": 3.0}'
 ```
 
----
+### 옵션
 
-## 등각 투영 렌더러 (Isometric Renderer)
+| 옵션 | 설명 | 기본값 |
+|------|------|--------|
+| `extract_centerline` | 평행선 → 중심선 변환 | `true` |
+| `parallel_distance_max` | 평행선 인식 최대 거리 | `5.0` |
+| `merge_collinear` | 같은 직선 위 선 병합 | `true` |
+| `collinear_gap_max` | 병합할 최대 갭 | `3.0` |
+| `remove_duplicates` | 중복 선 제거 | `true` |
+| `filter_short` | 짧은 선 제거 | `true` |
+| `min_length` | 최소 선 길이 | `3.0` |
+| `snap_endpoints` | 끝점 스냅 | `true` |
+| `snap_tolerance` | 스냅 허용 거리 | `2.0` |
 
-3D 좌표를 등각 투영 2D로 변환합니다. 철골 구조물의 등각 도면 생성에 사용됩니다.
+### 일반적인 워크플로우
 
-### 특징
+```
+[1] 배경 이미지 벡터화
+python image_vectorizer.py vectorize_to_dxf ...
+→ 981개 LINE 생성
 
-- 표준 등각 투영 (30도)
-- H-beam, C-channel 단면 지원
-- 배열 함수 (purlin array, X-bracing 등)
-- 다경간 포털 프레임 자동 생성
+[2] 선 정리
+python line_cleaner.py clean input.dxf output.dxf
+→ 199개 LINE (79.7% 감소)
+
+[3] VS Code에서 output.dxf 열기
+```

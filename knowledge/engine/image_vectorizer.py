@@ -1800,8 +1800,7 @@ def write_lines_to_dxf(lines: List[Line], dxf_path: str, layer: str = "TRACE") -
     for i, line in enumerate(lines):
         if is_minimal_format:
             # 최소 형식 DXF용 (핸들, 서브클래스 마커 없음)
-            line_entity = f"""  0
-LINE
+            line_entity = f"""LINE
   8
 {layer}
  10
@@ -1816,12 +1815,12 @@ LINE
 {round(line.end.y, 4)}
  31
 0.0
+  0
 """
         else:
             # 전체 형식 DXF용 (핸들, 서브클래스 마커 포함)
             handle = format(max_handle + i + 1, 'X')
-            line_entity = f"""  0
-LINE
+            line_entity = f"""LINE
   5
 {handle}
 100
@@ -1842,14 +1841,25 @@ AcDbLine
 {round(line.end.y, 4)}
  31
 0.0
+  0
 """
         new_entities.append(line_entity)
 
-    # 새 엔티티 삽입 (ENDSEC 앞에)
+    # 새 엔티티 삽입 (ENDSEC 앞의 "  0\n" 위치를 찾아서 삽입)
+    # DXF 형식: "  0\nENDSEC" 또는 "  0\n  ENDSEC"
+    # ENDSEC 앞의 그룹코드 0을 찾아서 그 뒤에 삽입
+    endsec_marker_pos = content.rfind('  0\n', entities_line_end, endsec_pos + 10)
+    if endsec_marker_pos == -1:
+        # "  0\n"을 못 찾으면 ENDSEC 바로 앞에 삽입
+        insert_pos = endsec_pos
+    else:
+        # "  0\n" 다음 위치에 삽입
+        insert_pos = endsec_marker_pos + 4
+
     new_content = (
-        content[:endsec_pos] +
+        content[:insert_pos] +
         ''.join(new_entities) +
-        content[endsec_pos:]
+        content[insert_pos:]
     )
 
     # DXF 파일 쓰기
