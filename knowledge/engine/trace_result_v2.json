@@ -1,0 +1,1696 @@
+{
+  "success": true,
+  "context_id": "trace_20260111_131917",
+  "canvas": {
+    "width": 20000.0,
+    "height": 13333.333333333334,
+    "origin_x": 0.0,
+    "origin_y": 0.0
+  },
+  "counts": {
+    "visible_column_frames": 0,
+    "visible_truss_frames": 0,
+    "frame_spacing_ratio": 0.03,
+    "columns_per_frame": 2,
+    "column_section_type": "H-beam",
+    "truss_panel_count": 8,
+    "truss_type": "pratt",
+    "visible_purlin_lines": 6,
+    "purlin_as_depth_lines": true,
+    "bracing_bays": 2,
+    "explicit_elements": [
+      {
+        "type": "column",
+        "start": {
+          "x": 0.04999999999999999,
+          "y": 0.15
+        },
+        "end": {
+          "x": 0.04999999999999999,
+          "y": 0.65
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.95,
+          "y": 0.15
+        },
+        "end": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.04999999999999999,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "end": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.04999999999999999,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.09499999999999997,
+          "y": 0.18
+        },
+        "end": {
+          "x": 0.09499999999999997,
+          "y": 0.66
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.905,
+          "y": 0.18
+        },
+        "end": {
+          "x": 0.905,
+          "y": 0.66
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.09499999999999997,
+          "y": 0.66
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.86
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.86
+        },
+        "end": {
+          "x": 0.905,
+          "y": 0.66
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.09499999999999997,
+          "y": 0.66
+        },
+        "end": {
+          "x": 0.905,
+          "y": 0.66
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.13999999999999996,
+          "y": 0.21
+        },
+        "end": {
+          "x": 0.13999999999999996,
+          "y": 0.67
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.8600000000000001,
+          "y": 0.21
+        },
+        "end": {
+          "x": 0.8600000000000001,
+          "y": 0.67
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.13999999999999996,
+          "y": 0.67
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.87
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.87
+        },
+        "end": {
+          "x": 0.8600000000000001,
+          "y": 0.67
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.13999999999999996,
+          "y": 0.67
+        },
+        "end": {
+          "x": 0.8600000000000001,
+          "y": 0.67
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.185,
+          "y": 0.24
+        },
+        "end": {
+          "x": 0.185,
+          "y": 0.68
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.815,
+          "y": 0.24
+        },
+        "end": {
+          "x": 0.815,
+          "y": 0.68
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.185,
+          "y": 0.68
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "end": {
+          "x": 0.815,
+          "y": 0.68
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.185,
+          "y": 0.68
+        },
+        "end": {
+          "x": 0.815,
+          "y": 0.68
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.22999999999999998,
+          "y": 0.27
+        },
+        "end": {
+          "x": 0.22999999999999998,
+          "y": 0.69
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.77,
+          "y": 0.27
+        },
+        "end": {
+          "x": 0.77,
+          "y": 0.69
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.22999999999999998,
+          "y": 0.69
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.89
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.89
+        },
+        "end": {
+          "x": 0.77,
+          "y": 0.69
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.22999999999999998,
+          "y": 0.69
+        },
+        "end": {
+          "x": 0.77,
+          "y": 0.69
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.275,
+          "y": 0.3
+        },
+        "end": {
+          "x": 0.275,
+          "y": 0.7
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.725,
+          "y": 0.3
+        },
+        "end": {
+          "x": 0.725,
+          "y": 0.7
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.275,
+          "y": 0.7
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.9
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.9
+        },
+        "end": {
+          "x": 0.725,
+          "y": 0.7
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.275,
+          "y": 0.7
+        },
+        "end": {
+          "x": 0.725,
+          "y": 0.7
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.05,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.4,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.6,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.05,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.4,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.6,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.05,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.4,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.6,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.05,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.4,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.6,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "bracing",
+        "start": {
+          "x": 0.05,
+          "y": 0.15
+        },
+        "end": {
+          "x": 0.12,
+          "y": 0.66
+        },
+        "layer": "BRACING"
+      },
+      {
+        "type": "bracing",
+        "start": {
+          "x": 0.12,
+          "y": 0.18
+        },
+        "end": {
+          "x": 0.05,
+          "y": 0.65
+        },
+        "layer": "BRACING"
+      }
+    ],
+    "width_height_ratio": 1.5,
+    "eave_height_ratio": 0.7,
+    "roof_pitch_degrees": 10
+  },
+  "key_features": {
+    "visible_frames": 0,
+    "purlin_as_depth_lines": true,
+    "h_beam_section": true
+  },
+  "total_elements": 75,
+  "total_steps": 10,
+  "sequence": [
+    {
+      "step": 1,
+      "name": "레이어 생성",
+      "parallel": true,
+      "tools": [
+        {
+          "tool": "create_layer",
+          "args": {
+            "name": "BEAM",
+            "color": 4
+          }
+        },
+        {
+          "tool": "create_layer",
+          "args": {
+            "name": "FOUNDATION",
+            "color": 8
+          }
+        },
+        {
+          "tool": "create_layer",
+          "args": {
+            "name": "TRUSS",
+            "color": 6
+          }
+        },
+        {
+          "tool": "create_layer",
+          "args": {
+            "name": "BRACING",
+            "color": 5
+          }
+        },
+        {
+          "tool": "create_layer",
+          "args": {
+            "name": "COLUMN",
+            "color": 7
+          }
+        },
+        {
+          "tool": "create_layer",
+          "args": {
+            "name": "PURLIN",
+            "color": 3
+          }
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "name": "H-beam 단면",
+      "element_type": "h_section",
+      "parallel": true,
+      "tools": [
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 300.0,
+              "y": 0.0
+            },
+            "end": {
+              "x": 300.0,
+              "y": 9333.333333333334
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": -300.0,
+              "y": 0.0
+            },
+            "end": {
+              "x": -300.0,
+              "y": 9333.333333333334
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": -300.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 300.0,
+              "y": 9333.333333333334
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": -300.0,
+              "y": 0.0
+            },
+            "end": {
+              "x": 300.0,
+              "y": 0.0
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 19700.0,
+              "y": 0.0
+            },
+            "end": {
+              "x": 19700.0,
+              "y": 9333.333333333334
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 20300.0,
+              "y": 0.0
+            },
+            "end": {
+              "x": 20300.0,
+              "y": 9333.333333333334
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 19700.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 20300.0,
+              "y": 9333.333333333334
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 19700.0,
+              "y": 0.0
+            },
+            "end": {
+              "x": 20300.0,
+              "y": 0.0
+            },
+            "layer": "COLUMN"
+          }
+        }
+      ],
+      "count": 8
+    },
+    {
+      "step": 3,
+      "name": "퍼린 (깊이 방향)",
+      "element_type": "purlin",
+      "parallel": true,
+      "tools": [
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 2500.0,
+              "y": 9774.150785104495
+            },
+            "end": {
+              "x": 1900.0,
+              "y": 9774.150785104495
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 5000.0,
+              "y": 10214.968236875658
+            },
+            "end": {
+              "x": 4400.0,
+              "y": 10214.968236875658
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 7500.0,
+              "y": 10655.785688646822
+            },
+            "end": {
+              "x": 6900.0,
+              "y": 10655.785688646822
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 17500.0,
+              "y": 9774.150785104495
+            },
+            "end": {
+              "x": 16900.0,
+              "y": 9774.150785104495
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 15000.0,
+              "y": 10214.968236875658
+            },
+            "end": {
+              "x": 14400.0,
+              "y": 10214.968236875658
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 12500.0,
+              "y": 10655.785688646822
+            },
+            "end": {
+              "x": 11900.0,
+              "y": 10655.785688646822
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 1000.0,
+              "y": 8666.666666666668
+            },
+            "end": {
+              "x": 8000.0,
+              "y": 10666.666666666668
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 19000.0,
+              "y": 8666.666666666668
+            },
+            "end": {
+              "x": 12000.0,
+              "y": 10666.666666666668
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 1000.0,
+              "y": 8666.666666666668
+            },
+            "end": {
+              "x": 8000.0,
+              "y": 10666.666666666668
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 19000.0,
+              "y": 8666.666666666668
+            },
+            "end": {
+              "x": 12000.0,
+              "y": 10666.666666666668
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 1000.0,
+              "y": 8666.666666666668
+            },
+            "end": {
+              "x": 8000.0,
+              "y": 10666.666666666668
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 19000.0,
+              "y": 8666.666666666668
+            },
+            "end": {
+              "x": 12000.0,
+              "y": 10666.666666666668
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 1000.0,
+              "y": 8666.666666666668
+            },
+            "end": {
+              "x": 8000.0,
+              "y": 10666.666666666668
+            },
+            "layer": "PURLIN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 19000.0,
+              "y": 8666.666666666668
+            },
+            "end": {
+              "x": 12000.0,
+              "y": 10666.666666666668
+            },
+            "layer": "PURLIN"
+          }
+        }
+      ],
+      "count": 14
+    },
+    {
+      "step": 4,
+      "name": "트러스 하현재",
+      "element_type": "truss_bottom_chord",
+      "parallel": true,
+      "tools": [
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 0.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 20000.0,
+              "y": 9333.333333333334
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 999.9999999999998,
+              "y": 8666.666666666668
+            },
+            "end": {
+              "x": 19000.0,
+              "y": 8666.666666666668
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 1899.9999999999995,
+              "y": 8800.0
+            },
+            "end": {
+              "x": 18100.0,
+              "y": 8800.0
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 2799.999999999999,
+              "y": 8933.333333333334
+            },
+            "end": {
+              "x": 17200.000000000004,
+              "y": 8933.333333333334
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 3700.0,
+              "y": 9066.666666666668
+            },
+            "end": {
+              "x": 16299.999999999998,
+              "y": 9066.666666666668
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 4600.0,
+              "y": 9200.0
+            },
+            "end": {
+              "x": 15400.0,
+              "y": 9200.0
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 5500.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 14500.0,
+              "y": 9333.333333333334
+            },
+            "layer": "TRUSS"
+          }
+        }
+      ],
+      "count": 7
+    },
+    {
+      "step": 5,
+      "name": "트러스 수직 웹",
+      "element_type": "truss_web_vertical",
+      "parallel": true,
+      "tools": [
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 2500.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 2500.0,
+              "y": 9774.150785104495
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 5000.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 5000.0,
+              "y": 10214.968236875658
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 7500.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 7500.0,
+              "y": 10655.785688646822
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 10000.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 10000.0,
+              "y": 11096.603140417983
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 17500.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 17500.0,
+              "y": 9774.150785104495
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 15000.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 15000.0,
+              "y": 10214.968236875658
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 12500.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 12500.0,
+              "y": 10655.785688646822
+            },
+            "layer": "TRUSS"
+          }
+        }
+      ],
+      "count": 7
+    },
+    {
+      "step": 6,
+      "name": "트러스 대각 웹",
+      "element_type": "truss_web_diagonal",
+      "parallel": true,
+      "tools": [
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 0.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 2500.0,
+              "y": 9774.150785104495
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 2500.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 5000.0,
+              "y": 10214.968236875658
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 5000.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 7500.0,
+              "y": 10655.785688646822
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 7500.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 10000.0,
+              "y": 11096.603140417983
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 20000.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 17500.0,
+              "y": 9774.150785104495
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 17500.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 15000.0,
+              "y": 10214.968236875658
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 15000.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 12500.0,
+              "y": 10655.785688646822
+            },
+            "layer": "TRUSS"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 12500.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 10000.0,
+              "y": 11096.603140417983
+            },
+            "layer": "TRUSS"
+          }
+        }
+      ],
+      "count": 8
+    },
+    {
+      "step": 7,
+      "name": "X-가새",
+      "element_type": "bracing",
+      "parallel": true,
+      "tools": [
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "end": {
+              "x": 6666.666666666667,
+              "y": 9333.333333333334
+            },
+            "layer": "BRACING"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 6666.666666666667,
+              "y": 0.0
+            },
+            "end": {
+              "x": 0.0,
+              "y": 9333.333333333334
+            },
+            "layer": "BRACING"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 13333.333333333332,
+              "y": 0.0
+            },
+            "end": {
+              "x": 20000.0,
+              "y": 9333.333333333334
+            },
+            "layer": "BRACING"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 20000.0,
+              "y": 0.0
+            },
+            "end": {
+              "x": 13333.333333333332,
+              "y": 9333.333333333334
+            },
+            "layer": "BRACING"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 1000.0,
+              "y": 2000.0
+            },
+            "end": {
+              "x": 2400.0,
+              "y": 8800.0
+            },
+            "layer": "BRACING"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 2400.0,
+              "y": 2400.0
+            },
+            "end": {
+              "x": 1000.0,
+              "y": 8666.666666666668
+            },
+            "layer": "BRACING"
+          }
+        }
+      ],
+      "count": 6
+    },
+    {
+      "step": 8,
+      "name": "기둥",
+      "element_type": "column",
+      "parallel": true,
+      "tools": [
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 999.9999999999998,
+              "y": 2000.0
+            },
+            "end": {
+              "x": 999.9999999999998,
+              "y": 8666.666666666668
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 19000.0,
+              "y": 2000.0
+            },
+            "end": {
+              "x": 19000.0,
+              "y": 8666.666666666668
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 1899.9999999999995,
+              "y": 2400.0
+            },
+            "end": {
+              "x": 1899.9999999999995,
+              "y": 8800.0
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 18100.0,
+              "y": 2400.0
+            },
+            "end": {
+              "x": 18100.0,
+              "y": 8800.0
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 2799.999999999999,
+              "y": 2800.0
+            },
+            "end": {
+              "x": 2799.999999999999,
+              "y": 8933.333333333334
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 17200.000000000004,
+              "y": 2800.0
+            },
+            "end": {
+              "x": 17200.000000000004,
+              "y": 8933.333333333334
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 3700.0,
+              "y": 3200.0
+            },
+            "end": {
+              "x": 3700.0,
+              "y": 9066.666666666668
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 16299.999999999998,
+              "y": 3200.0
+            },
+            "end": {
+              "x": 16299.999999999998,
+              "y": 9066.666666666668
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 4600.0,
+              "y": 3600.0000000000005
+            },
+            "end": {
+              "x": 4600.0,
+              "y": 9200.0
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 15400.0,
+              "y": 3600.0000000000005
+            },
+            "end": {
+              "x": 15400.0,
+              "y": 9200.0
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 5500.0,
+              "y": 4000.0
+            },
+            "end": {
+              "x": 5500.0,
+              "y": 9333.333333333334
+            },
+            "layer": "COLUMN"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 14500.0,
+              "y": 4000.0
+            },
+            "end": {
+              "x": 14500.0,
+              "y": 9333.333333333334
+            },
+            "layer": "COLUMN"
+          }
+        }
+      ],
+      "count": 12
+    },
+    {
+      "step": 9,
+      "name": "래프터/상현재",
+      "element_type": "rafter",
+      "parallel": true,
+      "tools": [
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 999.9999999999998,
+              "y": 8666.666666666668
+            },
+            "end": {
+              "x": 10000.0,
+              "y": 11333.333333333334
+            },
+            "layer": "BEAM"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 10000.0,
+              "y": 11333.333333333334
+            },
+            "end": {
+              "x": 19000.0,
+              "y": 8666.666666666668
+            },
+            "layer": "BEAM"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 1899.9999999999995,
+              "y": 8800.0
+            },
+            "end": {
+              "x": 10000.0,
+              "y": 11466.666666666668
+            },
+            "layer": "BEAM"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 10000.0,
+              "y": 11466.666666666668
+            },
+            "end": {
+              "x": 18100.0,
+              "y": 8800.0
+            },
+            "layer": "BEAM"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 2799.999999999999,
+              "y": 8933.333333333334
+            },
+            "end": {
+              "x": 10000.0,
+              "y": 11600.0
+            },
+            "layer": "BEAM"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 10000.0,
+              "y": 11600.0
+            },
+            "end": {
+              "x": 17200.000000000004,
+              "y": 8933.333333333334
+            },
+            "layer": "BEAM"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 3700.0,
+              "y": 9066.666666666668
+            },
+            "end": {
+              "x": 10000.0,
+              "y": 11733.333333333334
+            },
+            "layer": "BEAM"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 10000.0,
+              "y": 11733.333333333334
+            },
+            "end": {
+              "x": 16299.999999999998,
+              "y": 9066.666666666668
+            },
+            "layer": "BEAM"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 4600.0,
+              "y": 9200.0
+            },
+            "end": {
+              "x": 10000.0,
+              "y": 11866.666666666668
+            },
+            "layer": "BEAM"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 10000.0,
+              "y": 11866.666666666668
+            },
+            "end": {
+              "x": 15400.0,
+              "y": 9200.0
+            },
+            "layer": "BEAM"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 5500.0,
+              "y": 9333.333333333334
+            },
+            "end": {
+              "x": 10000.0,
+              "y": 12000.0
+            },
+            "layer": "BEAM"
+          }
+        },
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 10000.0,
+              "y": 12000.0
+            },
+            "end": {
+              "x": 14500.0,
+              "y": 9333.333333333334
+            },
+            "layer": "BEAM"
+          }
+        }
+      ],
+      "count": 12
+    },
+    {
+      "step": 10,
+      "name": "기초",
+      "element_type": "foundation",
+      "parallel": true,
+      "tools": [
+        {
+          "tool": "create_line",
+          "args": {
+            "start": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "end": {
+              "x": 20000.0,
+              "y": 0.0
+            },
+            "layer": "FOUNDATION"
+          }
+        }
+      ],
+      "count": 1
+    }
+  ]
+}

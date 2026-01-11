@@ -1,0 +1,1273 @@
+{
+  "context_id": "trace_20260111_134049",
+  "created_at": "2026-01-11T13:40:49.975934",
+  "photo_description": "",
+  "element_counts": {
+    "visible_column_frames": 0,
+    "visible_truss_frames": 0,
+    "frame_spacing_ratio": 0.03,
+    "columns_per_frame": 2,
+    "column_section_type": "H-beam",
+    "truss_panel_count": 8,
+    "truss_type": "pratt",
+    "visible_purlin_lines": 6,
+    "purlin_as_depth_lines": true,
+    "bracing_bays": 2,
+    "explicit_elements": [
+      {
+        "type": "column",
+        "layer": "COLUMN",
+        "start": {
+          "x": 0.42,
+          "y": 0.05
+        },
+        "end": {
+          "x": 0.42,
+          "y": 0.95
+        }
+      },
+      {
+        "type": "column",
+        "layer": "COLUMN",
+        "start": {
+          "x": 0.44,
+          "y": 0.05
+        },
+        "end": {
+          "x": 0.44,
+          "y": 0.95
+        }
+      },
+      {
+        "type": "column",
+        "layer": "COLUMN",
+        "start": {
+          "x": 0.56,
+          "y": 0.05
+        },
+        "end": {
+          "x": 0.56,
+          "y": 0.95
+        }
+      },
+      {
+        "type": "column",
+        "layer": "COLUMN",
+        "start": {
+          "x": 0.54,
+          "y": 0.05
+        },
+        "end": {
+          "x": 0.54,
+          "y": 0.95
+        }
+      },
+      {
+        "type": "column",
+        "layer": "COLUMN",
+        "start": {
+          "x": 0.49,
+          "y": 0.05
+        },
+        "end": {
+          "x": 0.49,
+          "y": 0.95
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.42,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.15,
+          "y": 0.45
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.42,
+          "y": 0.63
+        },
+        "end": {
+          "x": 0.15,
+          "y": 0.43
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.42,
+          "y": 0.35
+        },
+        "end": {
+          "x": 0.15,
+          "y": 0.15
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.42,
+          "y": 0.33
+        },
+        "end": {
+          "x": 0.15,
+          "y": 0.13
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.15,
+          "y": 0.45
+        },
+        "end": {
+          "x": 0.15,
+          "y": 0.15
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.3,
+          "y": 0.48
+        },
+        "end": {
+          "x": 0.3,
+          "y": 0.28
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.56,
+          "y": 0.6
+        },
+        "end": {
+          "x": 0.85,
+          "y": 0.45
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.56,
+          "y": 0.58
+        },
+        "end": {
+          "x": 0.85,
+          "y": 0.43
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.56,
+          "y": 0.3
+        },
+        "end": {
+          "x": 0.85,
+          "y": 0.15
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.56,
+          "y": 0.28
+        },
+        "end": {
+          "x": 0.85,
+          "y": 0.13
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.85,
+          "y": 0.45
+        },
+        "end": {
+          "x": 0.85,
+          "y": 0.15
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.56,
+          "y": 0.8
+        },
+        "end": {
+          "x": 0.75,
+          "y": 0.9
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.56,
+          "y": 0.7
+        },
+        "end": {
+          "x": 0.75,
+          "y": 0.8
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.35,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.42,
+          "y": 0.65
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.35,
+          "y": 0.6
+        },
+        "end": {
+          "x": 0.42,
+          "y": 0.6
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.56,
+          "y": 0.6
+        },
+        "end": {
+          "x": 0.63,
+          "y": 0.6
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.56,
+          "y": 0.55
+        },
+        "end": {
+          "x": 0.63,
+          "y": 0.55
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "ANNOTATION",
+        "start": {
+          "x": 0.3,
+          "y": 0.88
+        },
+        "end": {
+          "x": 0.43,
+          "y": 0.85
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "ANNOTATION",
+        "start": {
+          "x": 0.1,
+          "y": 0.38
+        },
+        "end": {
+          "x": 0.25,
+          "y": 0.35
+        }
+      }
+    ],
+    "width_height_ratio": 1.0,
+    "eave_height_ratio": 0.72,
+    "roof_pitch_degrees": 8.0
+  },
+  "canvas": {
+    "width": 10000,
+    "height": 10000.0,
+    "origin_x": 0,
+    "origin_y": 0
+  },
+  "key_points": {
+    "bottom_left": {
+      "x": 0,
+      "y": 0
+    },
+    "bottom_right": {
+      "x": 10000,
+      "y": 0
+    },
+    "bottom_center": {
+      "x": 5000.0,
+      "y": 0
+    },
+    "eave_left": {
+      "x": 0,
+      "y": 7200.0
+    },
+    "eave_right": {
+      "x": 10000,
+      "y": 7200.0
+    },
+    "ridge": {
+      "x": 5000.0,
+      "y": 7902.704173511957
+    },
+    "_width": 10000,
+    "_height": 10000.0,
+    "_eave_height": 7200.0,
+    "_ridge_height": 7902.704173511957,
+    "_frame_offset": 300.0
+  },
+  "elements": [
+    {
+      "type": "h_section",
+      "id": "h_L_inner",
+      "start": {
+        "x": 150.0,
+        "y": 0
+      },
+      "end": {
+        "x": 150.0,
+        "y": 7200.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "inner_flange"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_L_outer",
+      "start": {
+        "x": -150.0,
+        "y": 0
+      },
+      "end": {
+        "x": -150.0,
+        "y": 7200.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "outer_flange"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_L_top_cap",
+      "start": {
+        "x": -150.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 150.0,
+        "y": 7200.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "top_cap"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_L_bottom_cap",
+      "start": {
+        "x": -150.0,
+        "y": 0
+      },
+      "end": {
+        "x": 150.0,
+        "y": 0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "bottom_cap"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_R_inner",
+      "start": {
+        "x": 9850.0,
+        "y": 0
+      },
+      "end": {
+        "x": 9850.0,
+        "y": 7200.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "inner_flange"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_R_outer",
+      "start": {
+        "x": 10150.0,
+        "y": 0
+      },
+      "end": {
+        "x": 10150.0,
+        "y": 7200.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "outer_flange"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_R_top_cap",
+      "start": {
+        "x": 9850.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 10150.0,
+        "y": 7200.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "top_cap"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_R_bottom_cap",
+      "start": {
+        "x": 9850.0,
+        "y": 0
+      },
+      "end": {
+        "x": 10150.0,
+        "y": 0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "bottom_cap"
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_L_1",
+      "start": {
+        "x": 1250.0,
+        "y": 7375.676043377989
+      },
+      "end": {
+        "x": 950.0,
+        "y": 7375.676043377989
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "left",
+        "index": 1
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_L_2",
+      "start": {
+        "x": 2500.0,
+        "y": 7551.352086755978
+      },
+      "end": {
+        "x": 2200.0,
+        "y": 7551.352086755978
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "left",
+        "index": 2
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_L_3",
+      "start": {
+        "x": 3750.0,
+        "y": 7727.028130133968
+      },
+      "end": {
+        "x": 3450.0,
+        "y": 7727.028130133968
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "left",
+        "index": 3
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_R_1",
+      "start": {
+        "x": 8750.0,
+        "y": 7375.676043377989
+      },
+      "end": {
+        "x": 8450.0,
+        "y": 7375.676043377989
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "right",
+        "index": 1
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_R_2",
+      "start": {
+        "x": 7500.0,
+        "y": 7551.352086755978
+      },
+      "end": {
+        "x": 7200.0,
+        "y": 7551.352086755978
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "right",
+        "index": 2
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_R_3",
+      "start": {
+        "x": 6250.0,
+        "y": 7727.028130133968
+      },
+      "end": {
+        "x": 5950.0,
+        "y": 7727.028130133968
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "right",
+        "index": 3
+      },
+      "drawn": false
+    },
+    {
+      "type": "truss_bottom_chord",
+      "id": "truss_bottom_chord",
+      "start": {
+        "x": 0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 10000,
+        "y": 7200.0
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_L_1",
+      "start": {
+        "x": 1250.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 1250.0,
+        "y": 7375.676043377989
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_L_2",
+      "start": {
+        "x": 2500.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 2500.0,
+        "y": 7551.352086755978
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_L_3",
+      "start": {
+        "x": 3750.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 3750.0,
+        "y": 7727.028130133968
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_center",
+      "start": {
+        "x": 5000.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 5000.0,
+        "y": 7902.704173511957
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_R_1",
+      "start": {
+        "x": 8750.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 8750.0,
+        "y": 7375.676043377989
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_R_2",
+      "start": {
+        "x": 7500.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 7500.0,
+        "y": 7551.352086755978
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_R_3",
+      "start": {
+        "x": 6250.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 6250.0,
+        "y": 7727.028130133968
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_L_0",
+      "start": {
+        "x": 0.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 1250.0,
+        "y": 7375.676043377989
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_L_1",
+      "start": {
+        "x": 1250.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 2500.0,
+        "y": 7551.352086755978
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_L_2",
+      "start": {
+        "x": 2500.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 3750.0,
+        "y": 7727.028130133968
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_L_3",
+      "start": {
+        "x": 3750.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 5000.0,
+        "y": 7902.704173511957
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_R_0",
+      "start": {
+        "x": 10000.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 8750.0,
+        "y": 7375.676043377989
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_R_1",
+      "start": {
+        "x": 8750.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 7500.0,
+        "y": 7551.352086755978
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_R_2",
+      "start": {
+        "x": 7500.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 6250.0,
+        "y": 7727.028130133968
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_R_3",
+      "start": {
+        "x": 6250.0,
+        "y": 7200.0
+      },
+      "end": {
+        "x": 5000.0,
+        "y": 7902.704173511957
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "bracing",
+      "id": "brace_L1",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 3333.3333333333335,
+        "y": 7200.0
+      },
+      "layer": "BRACING",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "bracing",
+      "id": "brace_L2",
+      "start": {
+        "x": 3333.3333333333335,
+        "y": 0
+      },
+      "end": {
+        "x": 0,
+        "y": 7200.0
+      },
+      "layer": "BRACING",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "bracing",
+      "id": "brace_R1",
+      "start": {
+        "x": 6666.666666666666,
+        "y": 0
+      },
+      "end": {
+        "x": 10000,
+        "y": 7200.0
+      },
+      "layer": "BRACING",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "bracing",
+      "id": "brace_R2",
+      "start": {
+        "x": 10000,
+        "y": 0
+      },
+      "end": {
+        "x": 6666.666666666666,
+        "y": 7200.0
+      },
+      "layer": "BRACING",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "exp_1",
+      "start": {
+        "x": 4200.0,
+        "y": 500.0
+      },
+      "end": {
+        "x": 4200.0,
+        "y": 9500.0
+      },
+      "layer": "COLUMN",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "exp_2",
+      "start": {
+        "x": 4400.0,
+        "y": 500.0
+      },
+      "end": {
+        "x": 4400.0,
+        "y": 9500.0
+      },
+      "layer": "COLUMN",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "exp_3",
+      "start": {
+        "x": 5600.000000000001,
+        "y": 500.0
+      },
+      "end": {
+        "x": 5600.000000000001,
+        "y": 9500.0
+      },
+      "layer": "COLUMN",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "exp_4",
+      "start": {
+        "x": 5400.0,
+        "y": 500.0
+      },
+      "end": {
+        "x": 5400.0,
+        "y": 9500.0
+      },
+      "layer": "COLUMN",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "exp_5",
+      "start": {
+        "x": 4900.0,
+        "y": 500.0
+      },
+      "end": {
+        "x": 4900.0,
+        "y": 9500.0
+      },
+      "layer": "COLUMN",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_6",
+      "start": {
+        "x": 4200.0,
+        "y": 6500.0
+      },
+      "end": {
+        "x": 1500.0,
+        "y": 4500.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_7",
+      "start": {
+        "x": 4200.0,
+        "y": 6300.0
+      },
+      "end": {
+        "x": 1500.0,
+        "y": 4300.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_8",
+      "start": {
+        "x": 4200.0,
+        "y": 3500.0
+      },
+      "end": {
+        "x": 1500.0,
+        "y": 1500.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_9",
+      "start": {
+        "x": 4200.0,
+        "y": 3300.0
+      },
+      "end": {
+        "x": 1500.0,
+        "y": 1300.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_10",
+      "start": {
+        "x": 1500.0,
+        "y": 4500.0
+      },
+      "end": {
+        "x": 1500.0,
+        "y": 1500.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_11",
+      "start": {
+        "x": 3000.0,
+        "y": 4800.0
+      },
+      "end": {
+        "x": 3000.0,
+        "y": 2800.0000000000005
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_12",
+      "start": {
+        "x": 5600.000000000001,
+        "y": 6000.0
+      },
+      "end": {
+        "x": 8500.0,
+        "y": 4500.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_13",
+      "start": {
+        "x": 5600.000000000001,
+        "y": 5800.0
+      },
+      "end": {
+        "x": 8500.0,
+        "y": 4300.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_14",
+      "start": {
+        "x": 5600.000000000001,
+        "y": 3000.0
+      },
+      "end": {
+        "x": 8500.0,
+        "y": 1500.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_15",
+      "start": {
+        "x": 5600.000000000001,
+        "y": 2800.0000000000005
+      },
+      "end": {
+        "x": 8500.0,
+        "y": 1300.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_16",
+      "start": {
+        "x": 8500.0,
+        "y": 4500.0
+      },
+      "end": {
+        "x": 8500.0,
+        "y": 1500.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_17",
+      "start": {
+        "x": 5600.000000000001,
+        "y": 8000.0
+      },
+      "end": {
+        "x": 7500.0,
+        "y": 9000.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_18",
+      "start": {
+        "x": 5600.000000000001,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 7500.0,
+        "y": 8000.0
+      },
+      "layer": "BEAM",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_19",
+      "start": {
+        "x": 3500.0,
+        "y": 6500.0
+      },
+      "end": {
+        "x": 4200.0,
+        "y": 6500.0
+      },
+      "layer": "CONNECTION",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_20",
+      "start": {
+        "x": 3500.0,
+        "y": 6000.0
+      },
+      "end": {
+        "x": 4200.0,
+        "y": 6000.0
+      },
+      "layer": "CONNECTION",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_21",
+      "start": {
+        "x": 5600.000000000001,
+        "y": 6000.0
+      },
+      "end": {
+        "x": 6300.0,
+        "y": 6000.0
+      },
+      "layer": "CONNECTION",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_22",
+      "start": {
+        "x": 5600.000000000001,
+        "y": 5500.0
+      },
+      "end": {
+        "x": 6300.0,
+        "y": 5500.0
+      },
+      "layer": "CONNECTION",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_23",
+      "start": {
+        "x": 3000.0,
+        "y": 8800.0
+      },
+      "end": {
+        "x": 4300.0,
+        "y": 8500.0
+      },
+      "layer": "ANNOTATION",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "beam",
+      "id": "exp_24",
+      "start": {
+        "x": 1000.0,
+        "y": 3800.0
+      },
+      "end": {
+        "x": 2500.0,
+        "y": 3500.0
+      },
+      "layer": "ANNOTATION",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "foundation",
+      "id": "foundation",
+      "start": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 10000,
+        "y": 0
+      },
+      "layer": "FOUNDATION",
+      "properties": {},
+      "drawn": false
+    }
+  ],
+  "drawn_elements": [],
+  "status": "calculated",
+  "current_step": 0,
+  "total_steps": 10,
+  "notes": []
+}

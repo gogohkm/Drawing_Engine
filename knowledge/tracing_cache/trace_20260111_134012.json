@@ -1,0 +1,335 @@
+{
+  "context_id": "trace_20260111_134012",
+  "created_at": "2026-01-11T13:40:12.124432",
+  "photo_description": "",
+  "element_counts": {
+    "visible_column_frames": 0,
+    "visible_truss_frames": 0,
+    "frame_spacing_ratio": 0.03,
+    "columns_per_frame": 2,
+    "column_section_type": "H-beam",
+    "truss_panel_count": 8,
+    "truss_type": "pratt",
+    "visible_purlin_lines": 6,
+    "purlin_as_depth_lines": true,
+    "bracing_bays": 2,
+    "explicit_elements": [
+      {
+        "type": "LINE",
+        "layer": "COLUMN",
+        "start": [
+          0.42,
+          0.05
+        ],
+        "end": [
+          0.42,
+          0.95
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "COLUMN",
+        "start": [
+          0.44,
+          0.05
+        ],
+        "end": [
+          0.44,
+          0.95
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "COLUMN",
+        "start": [
+          0.56,
+          0.05
+        ],
+        "end": [
+          0.56,
+          0.95
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "COLUMN",
+        "start": [
+          0.54,
+          0.05
+        ],
+        "end": [
+          0.54,
+          0.95
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "COLUMN",
+        "start": [
+          0.49,
+          0.05
+        ],
+        "end": [
+          0.49,
+          0.95
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.42,
+          0.65
+        ],
+        "end": [
+          0.15,
+          0.45
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.42,
+          0.63
+        ],
+        "end": [
+          0.15,
+          0.43
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.42,
+          0.35
+        ],
+        "end": [
+          0.15,
+          0.15
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.42,
+          0.33
+        ],
+        "end": [
+          0.15,
+          0.13
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.15,
+          0.45
+        ],
+        "end": [
+          0.15,
+          0.15
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.3,
+          0.48
+        ],
+        "end": [
+          0.3,
+          0.28
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.56,
+          0.6
+        ],
+        "end": [
+          0.85,
+          0.45
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.56,
+          0.58
+        ],
+        "end": [
+          0.85,
+          0.43
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.56,
+          0.3
+        ],
+        "end": [
+          0.85,
+          0.15
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.56,
+          0.28
+        ],
+        "end": [
+          0.85,
+          0.13
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.85,
+          0.45
+        ],
+        "end": [
+          0.85,
+          0.15
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.56,
+          0.8
+        ],
+        "end": [
+          0.75,
+          0.9
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "BEAM",
+        "start": [
+          0.56,
+          0.7
+        ],
+        "end": [
+          0.75,
+          0.8
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "CONNECTION",
+        "start": [
+          0.35,
+          0.65
+        ],
+        "end": [
+          0.42,
+          0.65
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "CONNECTION",
+        "start": [
+          0.35,
+          0.6
+        ],
+        "end": [
+          0.42,
+          0.6
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "CONNECTION",
+        "start": [
+          0.56,
+          0.6
+        ],
+        "end": [
+          0.63,
+          0.6
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "CONNECTION",
+        "start": [
+          0.56,
+          0.55
+        ],
+        "end": [
+          0.63,
+          0.55
+        ]
+      },
+      {
+        "type": "TEXT",
+        "layer": "ANNOTATION",
+        "position": [
+          0.3,
+          0.9
+        ],
+        "text": "기둥 (Column)"
+      },
+      {
+        "type": "TEXT",
+        "layer": "ANNOTATION",
+        "position": [
+          0.05,
+          0.4
+        ],
+        "text": "보 (Beam)"
+      },
+      {
+        "type": "TEXT",
+        "layer": "ANNOTATION",
+        "position": [
+          0.15,
+          0.75
+        ],
+        "text": "약축용 split-tee"
+      },
+      {
+        "type": "TEXT",
+        "layer": "ANNOTATION",
+        "position": [
+          0.8,
+          0.7
+        ],
+        "text": "강축용 split-tee"
+      }
+    ],
+    "width_height_ratio": 2.5,
+    "eave_height_ratio": 0.72,
+    "roof_pitch_degrees": 8.0
+  },
+  "canvas": {
+    "width": 10000,
+    "height": 4000.0,
+    "origin_x": 0,
+    "origin_y": 0
+  },
+  "key_points": {},
+  "elements": [],
+  "drawn_elements": [],
+  "status": "created",
+  "current_step": 0,
+  "total_steps": 0,
+  "notes": []
+}

@@ -1,0 +1,623 @@
+{
+  "context_id": "trace_20260111_134437",
+  "created_at": "2026-01-11T13:44:37.785176",
+  "photo_description": "",
+  "element_counts": {
+    "visible_column_frames": 0,
+    "visible_truss_frames": 0,
+    "frame_spacing_ratio": 0.03,
+    "columns_per_frame": 2,
+    "column_section_type": "H-beam",
+    "truss_panel_count": 8,
+    "truss_type": "pratt",
+    "visible_purlin_lines": 6,
+    "purlin_as_depth_lines": true,
+    "bracing_bays": 2,
+    "explicit_elements": [
+      {
+        "type": "column",
+        "layer": "COLUMN",
+        "start": {
+          "x": 0.46,
+          "y": 0.05
+        },
+        "end": {
+          "x": 0.46,
+          "y": 0.95
+        }
+      },
+      {
+        "type": "column",
+        "layer": "COLUMN",
+        "start": {
+          "x": 0.47,
+          "y": 0.05
+        },
+        "end": {
+          "x": 0.47,
+          "y": 0.95
+        }
+      },
+      {
+        "type": "column",
+        "layer": "COLUMN",
+        "start": {
+          "x": 0.54,
+          "y": 0.05
+        },
+        "end": {
+          "x": 0.54,
+          "y": 0.95
+        }
+      },
+      {
+        "type": "column",
+        "layer": "COLUMN",
+        "start": {
+          "x": 0.53,
+          "y": 0.05
+        },
+        "end": {
+          "x": 0.53,
+          "y": 0.95
+        }
+      },
+      {
+        "type": "column",
+        "layer": "COLUMN",
+        "start": {
+          "x": 0.5,
+          "y": 0.05
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.95
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.47,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.15,
+          "y": 0.45
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.47,
+          "y": 0.63
+        },
+        "end": {
+          "x": 0.15,
+          "y": 0.43
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.47,
+          "y": 0.35
+        },
+        "end": {
+          "x": 0.15,
+          "y": 0.15
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.47,
+          "y": 0.33
+        },
+        "end": {
+          "x": 0.15,
+          "y": 0.13
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.15,
+          "y": 0.45
+        },
+        "end": {
+          "x": 0.15,
+          "y": 0.15
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.54,
+          "y": 0.6
+        },
+        "end": {
+          "x": 0.85,
+          "y": 0.45
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.54,
+          "y": 0.58
+        },
+        "end": {
+          "x": 0.85,
+          "y": 0.43
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.54,
+          "y": 0.3
+        },
+        "end": {
+          "x": 0.85,
+          "y": 0.15
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.54,
+          "y": 0.28
+        },
+        "end": {
+          "x": 0.85,
+          "y": 0.13
+        }
+      },
+      {
+        "type": "beam",
+        "layer": "BEAM",
+        "start": {
+          "x": 0.85,
+          "y": 0.45
+        },
+        "end": {
+          "x": 0.85,
+          "y": 0.15
+        }
+      },
+      {
+        "type": "connection",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.38,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.47,
+          "y": 0.65
+        }
+      },
+      {
+        "type": "connection",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.38,
+          "y": 0.61
+        },
+        "end": {
+          "x": 0.42,
+          "y": 0.61
+        }
+      },
+      {
+        "type": "connection",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.38,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.38,
+          "y": 0.61
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.395,
+          "y": 0.63
+        },
+        "end": {
+          "x": 0.405,
+          "y": 0.63
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.4,
+          "y": 0.625
+        },
+        "end": {
+          "x": 0.4,
+          "y": 0.635
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.395,
+          "y": 0.64
+        },
+        "end": {
+          "x": 0.405,
+          "y": 0.64
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.4,
+          "y": 0.635
+        },
+        "end": {
+          "x": 0.4,
+          "y": 0.645
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.425,
+          "y": 0.63
+        },
+        "end": {
+          "x": 0.435,
+          "y": 0.63
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.43,
+          "y": 0.625
+        },
+        "end": {
+          "x": 0.43,
+          "y": 0.635
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.425,
+          "y": 0.64
+        },
+        "end": {
+          "x": 0.435,
+          "y": 0.64
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.43,
+          "y": 0.635
+        },
+        "end": {
+          "x": 0.43,
+          "y": 0.645
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.455,
+          "y": 0.63
+        },
+        "end": {
+          "x": 0.465,
+          "y": 0.63
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.46,
+          "y": 0.625
+        },
+        "end": {
+          "x": 0.46,
+          "y": 0.635
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.455,
+          "y": 0.64
+        },
+        "end": {
+          "x": 0.465,
+          "y": 0.64
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.46,
+          "y": 0.635
+        },
+        "end": {
+          "x": 0.46,
+          "y": 0.645
+        }
+      },
+      {
+        "type": "connection",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.54,
+          "y": 0.6
+        },
+        "end": {
+          "x": 0.65,
+          "y": 0.6
+        }
+      },
+      {
+        "type": "connection",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.58,
+          "y": 0.55
+        },
+        "end": {
+          "x": 0.65,
+          "y": 0.55
+        }
+      },
+      {
+        "type": "connection",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.65,
+          "y": 0.6
+        },
+        "end": {
+          "x": 0.65,
+          "y": 0.55
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.565,
+          "y": 0.57
+        },
+        "end": {
+          "x": 0.575,
+          "y": 0.57
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.57,
+          "y": 0.565
+        },
+        "end": {
+          "x": 0.57,
+          "y": 0.575
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.565,
+          "y": 0.58
+        },
+        "end": {
+          "x": 0.575,
+          "y": 0.58
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.57,
+          "y": 0.575
+        },
+        "end": {
+          "x": 0.57,
+          "y": 0.585
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.595,
+          "y": 0.57
+        },
+        "end": {
+          "x": 0.605,
+          "y": 0.57
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.6,
+          "y": 0.565
+        },
+        "end": {
+          "x": 0.6,
+          "y": 0.575
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.595,
+          "y": 0.58
+        },
+        "end": {
+          "x": 0.605,
+          "y": 0.58
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.6,
+          "y": 0.575
+        },
+        "end": {
+          "x": 0.6,
+          "y": 0.585
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.625,
+          "y": 0.57
+        },
+        "end": {
+          "x": 0.635,
+          "y": 0.57
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.63,
+          "y": 0.565
+        },
+        "end": {
+          "x": 0.63,
+          "y": 0.575
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.625,
+          "y": 0.58
+        },
+        "end": {
+          "x": 0.635,
+          "y": 0.58
+        }
+      },
+      {
+        "type": "bolt",
+        "layer": "CONNECTION",
+        "start": {
+          "x": 0.63,
+          "y": 0.575
+        },
+        "end": {
+          "x": 0.63,
+          "y": 0.585
+        }
+      },
+      {
+        "type": "annotation",
+        "layer": "ANNOTATION",
+        "start": {
+          "x": 0.35,
+          "y": 0.88
+        },
+        "end": {
+          "x": 0.48,
+          "y": 0.85
+        }
+      },
+      {
+        "type": "annotation",
+        "layer": "ANNOTATION",
+        "start": {
+          "x": 0.1,
+          "y": 0.4
+        },
+        "end": {
+          "x": 0.25,
+          "y": 0.38
+        }
+      },
+      {
+        "type": "annotation",
+        "layer": "ANNOTATION",
+        "start": {
+          "x": 0.75,
+          "y": 0.58
+        },
+        "end": {
+          "x": 0.63,
+          "y": 0.58
+        }
+      },
+      {
+        "type": "annotation",
+        "layer": "ANNOTATION",
+        "start": {
+          "x": 0.25,
+          "y": 0.63
+        },
+        "end": {
+          "x": 0.38,
+          "y": 0.63
+        }
+      }
+    ],
+    "width_height_ratio": 1.0,
+    "eave_height_ratio": 0.72,
+    "roof_pitch_degrees": 8.0
+  },
+  "canvas": {
+    "width": 10000,
+    "height": 10000.0,
+    "origin_x": 0,
+    "origin_y": 0
+  },
+  "key_points": {},
+  "elements": [],
+  "drawn_elements": [],
+  "status": "created",
+  "current_step": 0,
+  "total_steps": 0,
+  "notes": []
+}

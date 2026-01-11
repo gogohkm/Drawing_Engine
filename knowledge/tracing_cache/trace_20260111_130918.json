@@ -1,0 +1,1091 @@
+{
+  "context_id": "trace_20260111_130918",
+  "created_at": "2026-01-11T13:09:18.463290",
+  "photo_description": "",
+  "element_counts": {
+    "visible_column_frames": 6,
+    "visible_truss_frames": 6,
+    "frame_spacing_ratio": 0.05,
+    "columns_per_frame": 2,
+    "column_section_type": "H-beam",
+    "truss_panel_count": 8,
+    "truss_type": "pratt",
+    "visible_purlin_lines": 8,
+    "purlin_as_depth_lines": true,
+    "bracing_bays": 2,
+    "width_height_ratio": 2.0,
+    "eave_height_ratio": 0.7,
+    "roof_pitch_degrees": 10
+  },
+  "canvas": {
+    "width": 20000.0,
+    "height": 10000.0,
+    "origin_x": 0.0,
+    "origin_y": 0.0
+  },
+  "key_points": {
+    "bottom_left": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "bottom_right": {
+      "x": 20000.0,
+      "y": 0.0
+    },
+    "bottom_center": {
+      "x": 10000.0,
+      "y": 0.0
+    },
+    "eave_left": {
+      "x": 0.0,
+      "y": 7000.0
+    },
+    "eave_right": {
+      "x": 20000.0,
+      "y": 7000.0
+    },
+    "ridge": {
+      "x": 10000.0,
+      "y": 8763.269807084649
+    },
+    "_width": 20000.0,
+    "_height": 10000.0,
+    "_eave_height": 7000.0,
+    "_ridge_height": 8763.269807084649,
+    "_frame_offset": 1000.0
+  },
+  "elements": [
+    {
+      "type": "column",
+      "id": "col_L_f0",
+      "start": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 0.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 0,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "col_R_f0",
+      "start": {
+        "x": 20000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 20000.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 0,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "col_L_f1",
+      "start": {
+        "x": 1000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 1000.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 1,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "col_R_f1",
+      "start": {
+        "x": 21000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 21000.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 1,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "col_L_f2",
+      "start": {
+        "x": 2000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 2000.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 2,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "col_R_f2",
+      "start": {
+        "x": 22000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 22000.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 2,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "col_L_f3",
+      "start": {
+        "x": 3000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 3000.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 3,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "col_R_f3",
+      "start": {
+        "x": 23000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 23000.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 3,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "col_L_f4",
+      "start": {
+        "x": 4000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 4000.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 4,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "col_R_f4",
+      "start": {
+        "x": 24000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 24000.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 4,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "col_L_f5",
+      "start": {
+        "x": 5000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 5000.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 5,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "column",
+      "id": "col_R_f5",
+      "start": {
+        "x": 25000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 25000.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "frame": 5,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_L_inner",
+      "start": {
+        "x": 300.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 300.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "inner_flange"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_L_outer",
+      "start": {
+        "x": -300.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": -300.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "outer_flange"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_L_top_cap",
+      "start": {
+        "x": -300.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 300.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "top_cap"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_L_bottom_cap",
+      "start": {
+        "x": -300.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 300.0,
+        "y": 0.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "bottom_cap"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_R_inner",
+      "start": {
+        "x": 19700.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 19700.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "inner_flange"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_R_outer",
+      "start": {
+        "x": 20300.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 20300.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "outer_flange"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_R_top_cap",
+      "start": {
+        "x": 19700.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 20300.0,
+        "y": 7000.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "top_cap"
+      },
+      "drawn": false
+    },
+    {
+      "type": "h_section",
+      "id": "h_R_bottom_cap",
+      "start": {
+        "x": 19700.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 20300.0,
+        "y": 0.0
+      },
+      "layer": "COLUMN",
+      "properties": {
+        "part": "bottom_cap"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_L_f0",
+      "start": {
+        "x": 0.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 10000.0,
+        "y": 8763.269807084649
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 0,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_R_f0",
+      "start": {
+        "x": 10000.0,
+        "y": 8763.269807084649
+      },
+      "end": {
+        "x": 20000.0,
+        "y": 7000.0
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 0,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_L_f1",
+      "start": {
+        "x": 1000.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 11000.0,
+        "y": 8763.269807084649
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 1,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_R_f1",
+      "start": {
+        "x": 11000.0,
+        "y": 8763.269807084649
+      },
+      "end": {
+        "x": 21000.0,
+        "y": 7000.0
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 1,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_L_f2",
+      "start": {
+        "x": 2000.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 12000.0,
+        "y": 8763.269807084649
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 2,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_R_f2",
+      "start": {
+        "x": 12000.0,
+        "y": 8763.269807084649
+      },
+      "end": {
+        "x": 22000.0,
+        "y": 7000.0
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 2,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_L_f3",
+      "start": {
+        "x": 3000.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 13000.0,
+        "y": 8763.269807084649
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 3,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_R_f3",
+      "start": {
+        "x": 13000.0,
+        "y": 8763.269807084649
+      },
+      "end": {
+        "x": 23000.0,
+        "y": 7000.0
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 3,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_L_f4",
+      "start": {
+        "x": 4000.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 14000.0,
+        "y": 8763.269807084649
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 4,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_R_f4",
+      "start": {
+        "x": 14000.0,
+        "y": 8763.269807084649
+      },
+      "end": {
+        "x": 24000.0,
+        "y": 7000.0
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 4,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_L_f5",
+      "start": {
+        "x": 5000.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 15000.0,
+        "y": 8763.269807084649
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 5,
+        "side": "left"
+      },
+      "drawn": false
+    },
+    {
+      "type": "rafter",
+      "id": "rafter_R_f5",
+      "start": {
+        "x": 15000.0,
+        "y": 8763.269807084649
+      },
+      "end": {
+        "x": 25000.0,
+        "y": 7000.0
+      },
+      "layer": "BEAM",
+      "properties": {
+        "frame": 5,
+        "side": "right"
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_L_1",
+      "start": {
+        "x": 2000.0,
+        "y": 7352.65396141693
+      },
+      "end": {
+        "x": 7000.0,
+        "y": 7352.65396141693
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "left",
+        "index": 1
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_L_2",
+      "start": {
+        "x": 4000.0,
+        "y": 7705.307922833859
+      },
+      "end": {
+        "x": 9000.0,
+        "y": 7705.307922833859
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "left",
+        "index": 2
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_L_3",
+      "start": {
+        "x": 6000.0,
+        "y": 8057.96188425079
+      },
+      "end": {
+        "x": 11000.0,
+        "y": 8057.96188425079
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "left",
+        "index": 3
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_L_4",
+      "start": {
+        "x": 8000.0,
+        "y": 8410.615845667719
+      },
+      "end": {
+        "x": 13000.0,
+        "y": 8410.615845667719
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "left",
+        "index": 4
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_R_1",
+      "start": {
+        "x": 18000.0,
+        "y": 7352.65396141693
+      },
+      "end": {
+        "x": 23000.0,
+        "y": 7352.65396141693
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "right",
+        "index": 1
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_R_2",
+      "start": {
+        "x": 16000.0,
+        "y": 7705.307922833859
+      },
+      "end": {
+        "x": 21000.0,
+        "y": 7705.307922833859
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "right",
+        "index": 2
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_R_3",
+      "start": {
+        "x": 14000.0,
+        "y": 8057.96188425079
+      },
+      "end": {
+        "x": 19000.0,
+        "y": 8057.96188425079
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "right",
+        "index": 3
+      },
+      "drawn": false
+    },
+    {
+      "type": "purlin",
+      "id": "purlin_R_4",
+      "start": {
+        "x": 12000.0,
+        "y": 8410.615845667719
+      },
+      "end": {
+        "x": 17000.0,
+        "y": 8410.615845667719
+      },
+      "layer": "PURLIN",
+      "properties": {
+        "side": "right",
+        "index": 4
+      },
+      "drawn": false
+    },
+    {
+      "type": "truss_bottom_chord",
+      "id": "truss_bottom_chord",
+      "start": {
+        "x": 0.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 20000.0,
+        "y": 7000.0
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_L_1",
+      "start": {
+        "x": 2500.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 2500.0,
+        "y": 7440.817451771162
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_L_2",
+      "start": {
+        "x": 5000.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 5000.0,
+        "y": 7881.6349035423245
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_L_3",
+      "start": {
+        "x": 7500.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 7500.0,
+        "y": 8322.452355313486
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_center",
+      "start": {
+        "x": 10000.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 10000.0,
+        "y": 8763.269807084649
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_R_1",
+      "start": {
+        "x": 17500.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 17500.0,
+        "y": 7440.817451771162
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_R_2",
+      "start": {
+        "x": 15000.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 15000.0,
+        "y": 7881.6349035423245
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_vertical",
+      "id": "web_vert_R_3",
+      "start": {
+        "x": 12500.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 12500.0,
+        "y": 8322.452355313486
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_L_0",
+      "start": {
+        "x": 0.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 2500.0,
+        "y": 7440.817451771162
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_L_1",
+      "start": {
+        "x": 2500.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 5000.0,
+        "y": 7881.6349035423245
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_L_2",
+      "start": {
+        "x": 5000.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 7500.0,
+        "y": 8322.452355313486
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_L_3",
+      "start": {
+        "x": 7500.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 10000.0,
+        "y": 8763.269807084649
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_R_0",
+      "start": {
+        "x": 20000.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 17500.0,
+        "y": 7440.817451771162
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_R_1",
+      "start": {
+        "x": 17500.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 15000.0,
+        "y": 7881.6349035423245
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_R_2",
+      "start": {
+        "x": 15000.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 12500.0,
+        "y": 8322.452355313486
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "truss_web_diagonal",
+      "id": "web_diag_R_3",
+      "start": {
+        "x": 12500.0,
+        "y": 7000.0
+      },
+      "end": {
+        "x": 10000.0,
+        "y": 8763.269807084649
+      },
+      "layer": "TRUSS",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "bracing",
+      "id": "brace_L1",
+      "start": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 6666.666666666667,
+        "y": 7000.0
+      },
+      "layer": "BRACING",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "bracing",
+      "id": "brace_L2",
+      "start": {
+        "x": 6666.666666666667,
+        "y": 0.0
+      },
+      "end": {
+        "x": 0.0,
+        "y": 7000.0
+      },
+      "layer": "BRACING",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "bracing",
+      "id": "brace_R1",
+      "start": {
+        "x": 13333.333333333332,
+        "y": 0.0
+      },
+      "end": {
+        "x": 20000.0,
+        "y": 7000.0
+      },
+      "layer": "BRACING",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "bracing",
+      "id": "brace_R2",
+      "start": {
+        "x": 20000.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 13333.333333333332,
+        "y": 7000.0
+      },
+      "layer": "BRACING",
+      "properties": {},
+      "drawn": false
+    },
+    {
+      "type": "foundation",
+      "id": "foundation",
+      "start": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "end": {
+        "x": 20000.0,
+        "y": 0.0
+      },
+      "layer": "FOUNDATION",
+      "properties": {},
+      "drawn": false
+    }
+  ],
+  "drawn_elements": [],
+  "status": "calculated",
+  "current_step": 0,
+  "total_steps": 10,
+  "notes": []
+}

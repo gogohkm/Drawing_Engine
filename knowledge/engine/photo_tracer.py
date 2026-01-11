@@ -123,6 +123,9 @@ class VisualElementCount:
     # 가새
     bracing_bays: int = 2  # X-가새가 있는 베이 수
 
+    # 직접 지정 요소 (2nd 2D tracing mode)
+    explicit_elements: List[Dict] = field(default_factory=list)
+
     # 비율 정보
     width_height_ratio: float = 2.5
     eave_height_ratio: float = 0.72
@@ -352,22 +355,24 @@ class PhotoTracer:
 ## 출력 형식
 JSON으로 출력:
 ```json
-{
-  "visible_column_frames": 4,
-  "visible_truss_frames": 4,
-  "frame_spacing_ratio": 0.025,
-  "columns_per_frame": 2,
-  "column_section_type": "H-beam",
-  "visible_purlin_lines": 8,
-  "purlin_as_depth_lines": true,
-  "truss_type": "pratt",
-  "truss_panel_count": 10,
-  "bracing_bays": 2,
-  "width_height_ratio": 2.5,
-  "eave_height_ratio": 0.72,
-  "roof_pitch_degrees": 8
+  "roof_pitch_degrees": 8,
+  "explicit_elements": [
+    {
+      "type": "column",
+      "id": "col_1",
+      "start": {"x": 0.1, "y": 0.1},
+      "end": {"x": 0.1, "y": 0.8},
+      "layer": "COLUMN"
+    }
+  ]
 }
-```"""
+```
+
+## 중요: 직접 2D 추적 (Recommended)
+사진과 똑같은 도면을 얻으려면 `explicit_elements` 목록에 각 선의 시작점과 끝점을 0.0~1.0 사이의 정규화된 좌표로 입력하세요.
+- x=0: 사진의 왼쪽 끝, x=1.0: 사진의 오른쪽 끝
+- y=0: 사진의 아래쪽 끝, y=1.0: 사진의 위쪽 끝
+"""
 
     # =========================================================================
     # 2.2 컨텍스트 생성/저장/로드
@@ -584,7 +589,30 @@ JSON으로 출력:
         if c.bracing_bays > 0:
             elements.extend(self._generate_bracing_elements(kp, c))
 
-        # 7. 기초선
+        # 7. 직접 지정 요소 (2D Tracing)
+        if c.explicit_elements:
+            origin_x = ctx.origin_x
+            origin_y = ctx.origin_y
+            width = ctx.canvas_width - 2 * ctx.origin_x
+            height = width / c.width_height_ratio
+
+            for exp in c.explicit_elements:
+                element_id += 1
+                start_x = origin_x + width * exp["start"]["x"]
+                start_y = origin_y + height * exp["start"]["y"]
+                end_x = origin_x + width * exp["end"]["x"]
+                end_y = origin_y + height * exp["end"]["y"]
+
+                elements.append(VisualElement(
+                    element_type=ElementType(exp.get("type", "beam")),
+                    element_id=exp.get("id", f"exp_{element_id}"),
+                    start=Point2D(start_x, start_y),
+                    end=Point2D(end_x, end_y),
+                    layer=exp.get("layer", "0"),
+                    properties=exp.get("properties", {})
+                ))
+
+        # 8. 기초선
         elements.append(VisualElement(
             element_type=ElementType.FOUNDATION,
             element_id="foundation",

@@ -1,8 +1,8 @@
 {
   "formatId": "stgen-dxf-undo-v1",
   "version": "1.0",
-  "fileHash": "-44f95ec8",
-  "lastModified": 1768069802100,
+  "fileHash": "-7aadf952",
+  "lastModified": 1768108116962,
   "undoStack": [
     {
       "type": "add",
@@ -12870,7 +12870,6585 @@
           69
         ]
       }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104587402,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": 0
+              },
+              "end": {
+                "x": 0,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          70
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104587909,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 20000,
+                "y": 0
+              },
+              "end": {
+                "x": 20000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          71
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104588431,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 1000,
+                "y": 0
+              },
+              "end": {
+                "x": 1000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          72
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104588838,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 21000,
+                "y": 0
+              },
+              "end": {
+                "x": 21000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          73
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104589266,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 2000,
+                "y": 0
+              },
+              "end": {
+                "x": 2000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          74
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104589862,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 22000,
+                "y": 0
+              },
+              "end": {
+                "x": 22000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          75
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104590372,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 3000,
+                "y": 0
+              },
+              "end": {
+                "x": 3000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          76
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104590705,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 23000,
+                "y": 0
+              },
+              "end": {
+                "x": 23000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          77
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104591211,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4000,
+                "y": 0
+              },
+              "end": {
+                "x": 4000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          78
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104591840,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 24000,
+                "y": 0
+              },
+              "end": {
+                "x": 24000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          79
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104592198,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 5000,
+                "y": 0
+              },
+              "end": {
+                "x": 5000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          80
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104592258,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 25000,
+                "y": 0
+              },
+              "end": {
+                "x": 25000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          81
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104602824,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 300,
+                "y": 0
+              },
+              "end": {
+                "x": 300,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          82
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104603233,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": -300,
+                "y": 0
+              },
+              "end": {
+                "x": -300,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          83
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104603559,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": -300,
+                "y": 7000
+              },
+              "end": {
+                "x": 300,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          84
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104604090,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": -300,
+                "y": 0
+              },
+              "end": {
+                "x": 300,
+                "y": 0
+              }
+            }
+          }
+        ],
+        "indices": [
+          85
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104604711,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 19700,
+                "y": 0
+              },
+              "end": {
+                "x": 19700,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          86
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104605217,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 20300,
+                "y": 0
+              },
+              "end": {
+                "x": 20300,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          87
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104605527,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 19700,
+                "y": 7000
+              },
+              "end": {
+                "x": 20300,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          88
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104605538,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 19700,
+                "y": 0
+              },
+              "end": {
+                "x": 20300,
+                "y": 0
+              }
+            }
+          }
+        ],
+        "indices": [
+          89
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104613306,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": 7000
+              },
+              "end": {
+                "x": 10000,
+                "y": 8763.269807084649
+              }
+            }
+          }
+        ],
+        "indices": [
+          90
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104613923,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 10000,
+                "y": 8763.269807084649
+              },
+              "end": {
+                "x": 20000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          91
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104614738,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 1000,
+                "y": 7000
+              },
+              "end": {
+                "x": 11000,
+                "y": 8763.269807084649
+              }
+            }
+          }
+        ],
+        "indices": [
+          92
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104615190,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 11000,
+                "y": 8763.269807084649
+              },
+              "end": {
+                "x": 21000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          93
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104615897,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 2000,
+                "y": 7000
+              },
+              "end": {
+                "x": 12000,
+                "y": 8763.269807084649
+              }
+            }
+          }
+        ],
+        "indices": [
+          94
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104616486,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12000,
+                "y": 8763.269807084649
+              },
+              "end": {
+                "x": 22000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          95
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104617102,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 3000,
+                "y": 7000
+              },
+              "end": {
+                "x": 13000,
+                "y": 8763.269807084649
+              }
+            }
+          }
+        ],
+        "indices": [
+          96
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104617819,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 13000,
+                "y": 8763.269807084649
+              },
+              "end": {
+                "x": 23000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          97
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104618331,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4000,
+                "y": 7000
+              },
+              "end": {
+                "x": 14000,
+                "y": 8763.269807084649
+              }
+            }
+          }
+        ],
+        "indices": [
+          98
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104619046,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 14000,
+                "y": 8763.269807084649
+              },
+              "end": {
+                "x": 24000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          99
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104619557,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5000,
+                "y": 7000
+              },
+              "end": {
+                "x": 15000,
+                "y": 8763.269807084649
+              }
+            }
+          }
+        ],
+        "indices": [
+          100
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104620273,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 15000,
+                "y": 8763.269807084649
+              },
+              "end": {
+                "x": 25000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          101
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104621062,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 2000,
+                "y": 7352.65396141693
+              },
+              "end": {
+                "x": 7000,
+                "y": 7352.65396141693
+              }
+            }
+          }
+        ],
+        "indices": [
+          102
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104621778,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 4000,
+                "y": 7705.307922833859
+              },
+              "end": {
+                "x": 9000,
+                "y": 7705.307922833859
+              }
+            }
+          }
+        ],
+        "indices": [
+          103
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104622495,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 6000,
+                "y": 8057.96188425079
+              },
+              "end": {
+                "x": 11000,
+                "y": 8057.96188425079
+              }
+            }
+          }
+        ],
+        "indices": [
+          104
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104623245,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 8000,
+                "y": 8410.615845667719
+              },
+              "end": {
+                "x": 13000,
+                "y": 8410.615845667719
+              }
+            }
+          }
+        ],
+        "indices": [
+          105
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104624061,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 18000,
+                "y": 7352.65396141693
+              },
+              "end": {
+                "x": 23000,
+                "y": 7352.65396141693
+              }
+            }
+          }
+        ],
+        "indices": [
+          106
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104624726,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 16000,
+                "y": 7705.307922833859
+              },
+              "end": {
+                "x": 21000,
+                "y": 7705.307922833859
+              }
+            }
+          }
+        ],
+        "indices": [
+          107
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104625317,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 14000,
+                "y": 8057.96188425079
+              },
+              "end": {
+                "x": 19000,
+                "y": 8057.96188425079
+              }
+            }
+          }
+        ],
+        "indices": [
+          108
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104625402,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 12000,
+                "y": 8410.615845667719
+              },
+              "end": {
+                "x": 17000,
+                "y": 8410.615845667719
+              }
+            }
+          }
+        ],
+        "indices": [
+          109
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104647784,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": 7000
+              },
+              "end": {
+                "x": 20000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          110
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104648248,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 2500,
+                "y": 7000
+              },
+              "end": {
+                "x": 2500,
+                "y": 7440.81745177116
+              }
+            }
+          }
+        ],
+        "indices": [
+          111
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104648846,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 5000,
+                "y": 7000
+              },
+              "end": {
+                "x": 5000,
+                "y": 7881.63490354232
+              }
+            }
+          }
+        ],
+        "indices": [
+          112
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104649557,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 7500,
+                "y": 7000
+              },
+              "end": {
+                "x": 7500,
+                "y": 8322.45235531349
+              }
+            }
+          }
+        ],
+        "indices": [
+          113
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104650275,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 10000,
+                "y": 7000
+              },
+              "end": {
+                "x": 10000,
+                "y": 8763.26980708465
+              }
+            }
+          }
+        ],
+        "indices": [
+          114
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104650775,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 17500,
+                "y": 7000
+              },
+              "end": {
+                "x": 17500,
+                "y": 7440.81745177116
+              }
+            }
+          }
+        ],
+        "indices": [
+          115
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104651278,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 15000,
+                "y": 7000
+              },
+              "end": {
+                "x": 15000,
+                "y": 7881.63490354232
+              }
+            }
+          }
+        ],
+        "indices": [
+          116
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104651762,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 7000
+              },
+              "end": {
+                "x": 12500,
+                "y": 8322.45235531349
+              }
+            }
+          }
+        ],
+        "indices": [
+          117
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104652464,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": 7000
+              },
+              "end": {
+                "x": 2500,
+                "y": 7440.81745177116
+              }
+            }
+          }
+        ],
+        "indices": [
+          118
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104653037,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 2500,
+                "y": 7000
+              },
+              "end": {
+                "x": 5000,
+                "y": 7881.63490354232
+              }
+            }
+          }
+        ],
+        "indices": [
+          119
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104653551,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 5000,
+                "y": 7000
+              },
+              "end": {
+                "x": 7500,
+                "y": 8322.45235531349
+              }
+            }
+          }
+        ],
+        "indices": [
+          120
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104654282,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 7500,
+                "y": 7000
+              },
+              "end": {
+                "x": 10000,
+                "y": 8763.26980708465
+              }
+            }
+          }
+        ],
+        "indices": [
+          121
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104654823,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 20000,
+                "y": 7000
+              },
+              "end": {
+                "x": 17500,
+                "y": 7440.81745177116
+              }
+            }
+          }
+        ],
+        "indices": [
+          122
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104655589,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 17500,
+                "y": 7000
+              },
+              "end": {
+                "x": 15000,
+                "y": 7881.63490354232
+              }
+            }
+          }
+        ],
+        "indices": [
+          123
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104656081,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 15000,
+                "y": 7000
+              },
+              "end": {
+                "x": 12500,
+                "y": 8322.45235531349
+              }
+            }
+          }
+        ],
+        "indices": [
+          124
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104656147,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 7000
+              },
+              "end": {
+                "x": 10000,
+                "y": 8763.26980708465
+              }
+            }
+          }
+        ],
+        "indices": [
+          125
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104664719,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BRACING",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": 0
+              },
+              "end": {
+                "x": 6666.66666666667,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          126
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104665223,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BRACING",
+            "data": {
+              "start": {
+                "x": 6666.66666666667,
+                "y": 0
+              },
+              "end": {
+                "x": 0,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          127
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104665744,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BRACING",
+            "data": {
+              "start": {
+                "x": 13333.3333333333,
+                "y": 0
+              },
+              "end": {
+                "x": 20000,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          128
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104666358,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BRACING",
+            "data": {
+              "start": {
+                "x": 20000,
+                "y": 0
+              },
+              "end": {
+                "x": 13333.3333333333,
+                "y": 7000
+              }
+            }
+          }
+        ],
+        "indices": [
+          129
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768104667987,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "FOUNDATION",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": 0
+              },
+              "end": {
+                "x": 20000,
+                "y": 0
+              }
+            }
+          }
+        ],
+        "indices": [
+          130
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105172319,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 300,
+                "y": 0
+              },
+              "end": {
+                "x": 300,
+                "y": 9333
+              }
+            }
+          }
+        ],
+        "indices": [
+          0
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105172668,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": -300,
+                "y": 0
+              },
+              "end": {
+                "x": -300,
+                "y": 9333
+              }
+            }
+          }
+        ],
+        "indices": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105172929,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": -300,
+                "y": 9333
+              },
+              "end": {
+                "x": 300,
+                "y": 9333
+              }
+            }
+          }
+        ],
+        "indices": [
+          2
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105173004,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 20300,
+                "y": 0
+              },
+              "end": {
+                "x": 20300,
+                "y": 9333
+              }
+            }
+          }
+        ],
+        "indices": [
+          3
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105178410,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 1000,
+                "y": 2000
+              },
+              "end": {
+                "x": 1000,
+                "y": 8666
+              }
+            }
+          }
+        ],
+        "indices": [
+          4
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105178459,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 19000,
+                "y": 2000
+              },
+              "end": {
+                "x": 19000,
+                "y": 8666
+              }
+            }
+          }
+        ],
+        "indices": [
+          5
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105178783,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 1000,
+                "y": 8666
+              },
+              "end": {
+                "x": 10000,
+                "y": 11333
+              }
+            }
+          }
+        ],
+        "indices": [
+          6
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105179089,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 10000,
+                "y": 11333
+              },
+              "end": {
+                "x": 19000,
+                "y": 8666
+              }
+            }
+          }
+        ],
+        "indices": [
+          7
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105179398,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 1900,
+                "y": 2400
+              },
+              "end": {
+                "x": 1900,
+                "y": 8800
+              }
+            }
+          }
+        ],
+        "indices": [
+          8
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105179777,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 18100,
+                "y": 2400
+              },
+              "end": {
+                "x": 18100,
+                "y": 8800
+              }
+            }
+          }
+        ],
+        "indices": [
+          9
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105180065,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 1900,
+                "y": 8800
+              },
+              "end": {
+                "x": 10000,
+                "y": 11466
+              }
+            }
+          }
+        ],
+        "indices": [
+          10
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105180301,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 10000,
+                "y": 11466
+              },
+              "end": {
+                "x": 18100,
+                "y": 8800
+              }
+            }
+          }
+        ],
+        "indices": [
+          11
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105180678,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 2800,
+                "y": 2800
+              },
+              "end": {
+                "x": 2800,
+                "y": 8933
+              }
+            }
+          }
+        ],
+        "indices": [
+          12
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105180699,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 17200,
+                "y": 2800
+              },
+              "end": {
+                "x": 17200,
+                "y": 8933
+              }
+            }
+          }
+        ],
+        "indices": [
+          13
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105184329,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 2800,
+                "y": 8933
+              },
+              "end": {
+                "x": 10000,
+                "y": 11600
+              }
+            }
+          }
+        ],
+        "indices": [
+          14
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105184336,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 10000,
+                "y": 11600
+              },
+              "end": {
+                "x": 17200,
+                "y": 8933
+              }
+            }
+          }
+        ],
+        "indices": [
+          15
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105184653,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 3700,
+                "y": 3200
+              },
+              "end": {
+                "x": 3700,
+                "y": 9066
+              }
+            }
+          }
+        ],
+        "indices": [
+          16
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105185022,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 16300,
+                "y": 3200
+              },
+              "end": {
+                "x": 16300,
+                "y": 9066
+              }
+            }
+          }
+        ],
+        "indices": [
+          17
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105185335,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 3700,
+                "y": 9066
+              },
+              "end": {
+                "x": 10000,
+                "y": 11733
+              }
+            }
+          }
+        ],
+        "indices": [
+          18
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105185674,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 10000,
+                "y": 11733
+              },
+              "end": {
+                "x": 16300,
+                "y": 9066
+              }
+            }
+          }
+        ],
+        "indices": [
+          19
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105186004,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4600,
+                "y": 3600
+              },
+              "end": {
+                "x": 4600,
+                "y": 9200
+              }
+            }
+          }
+        ],
+        "indices": [
+          20
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105186355,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 15400,
+                "y": 3600
+              },
+              "end": {
+                "x": 15400,
+                "y": 9200
+              }
+            }
+          }
+        ],
+        "indices": [
+          21
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105186662,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4600,
+                "y": 9200
+              },
+              "end": {
+                "x": 10000,
+                "y": 11866
+              }
+            }
+          }
+        ],
+        "indices": [
+          22
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105186674,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 10000,
+                "y": 11866
+              },
+              "end": {
+                "x": 15400,
+                "y": 9200
+              }
+            }
+          }
+        ],
+        "indices": [
+          23
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105190142,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 5500,
+                "y": 4000
+              },
+              "end": {
+                "x": 5500,
+                "y": 9333
+              }
+            }
+          }
+        ],
+        "indices": [
+          24
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105190403,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 14500,
+                "y": 4000
+              },
+              "end": {
+                "x": 14500,
+                "y": 9333
+              }
+            }
+          }
+        ],
+        "indices": [
+          25
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105190719,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5500,
+                "y": 9333
+              },
+              "end": {
+                "x": 10000,
+                "y": 12000
+              }
+            }
+          }
+        ],
+        "indices": [
+          26
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768105190827,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 10000,
+                "y": 12000
+              },
+              "end": {
+                "x": 14500,
+                "y": 9333
+              }
+            }
+          }
+        ],
+        "indices": [
+          27
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106032969,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 375,
+                "y": 0
+              },
+              "end": {
+                "x": 375,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          0
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106033279,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": -375,
+                "y": 0
+              },
+              "end": {
+                "x": -375,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106033626,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": -375,
+                "y": 11718
+              },
+              "end": {
+                "x": 375,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          2
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106033850,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 24625,
+                "y": 0
+              },
+              "end": {
+                "x": 24625,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          3
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106033914,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 25375,
+                "y": 0
+              },
+              "end": {
+                "x": 25375,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          4
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106037846,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": 11718
+              },
+              "end": {
+                "x": 12500,
+                "y": 13475
+              }
+            }
+          }
+        ],
+        "indices": [
+          5
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106038146,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 13475
+              },
+              "end": {
+                "x": 25000,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          6
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106038454,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 6250,
+                "y": 3125
+              },
+              "end": {
+                "x": 18750,
+                "y": 3125
+              }
+            }
+          }
+        ],
+        "indices": [
+          7
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106038741,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 6250,
+                "y": 2343
+              },
+              "end": {
+                "x": 6250,
+                "y": 6250
+              }
+            }
+          }
+        ],
+        "indices": [
+          8
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106038783,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 18750,
+                "y": 2343
+              },
+              "end": {
+                "x": 18750,
+                "y": 6250
+              }
+            }
+          }
+        ],
+        "indices": [
+          9
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106047204,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": 11718
+              },
+              "end": {
+                "x": 12500,
+                "y": 13475
+              }
+            }
+          }
+        ],
+        "indices": [
+          10
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106047246,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 13475
+              },
+              "end": {
+                "x": 25000,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          11
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106047460,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 500,
+                "y": 11718
+              },
+              "end": {
+                "x": 12500,
+                "y": 14062
+              }
+            }
+          }
+        ],
+        "indices": [
+          12
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106047821,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 14062
+              },
+              "end": {
+                "x": 24500,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          13
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106048163,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 1433,
+                "y": 11284
+              },
+              "end": {
+                "x": 12500,
+                "y": 13541
+              }
+            }
+          }
+        ],
+        "indices": [
+          14
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106048411,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 13541
+              },
+              "end": {
+                "x": 23566,
+                "y": 11284
+              }
+            }
+          }
+        ],
+        "indices": [
+          15
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106048703,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 2366,
+                "y": 10850
+              },
+              "end": {
+                "x": 12500,
+                "y": 13020
+              }
+            }
+          }
+        ],
+        "indices": [
+          16
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106049049,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 13020
+              },
+              "end": {
+                "x": 22633,
+                "y": 10850
+              }
+            }
+          }
+        ],
+        "indices": [
+          17
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106049402,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 3300,
+                "y": 10416
+              },
+              "end": {
+                "x": 12500,
+                "y": 12500
+              }
+            }
+          }
+        ],
+        "indices": [
+          18
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106049493,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 12500
+              },
+              "end": {
+                "x": 21700,
+                "y": 10416
+              }
+            }
+          }
+        ],
+        "indices": [
+          19
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106053880,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4233,
+                "y": 9982
+              },
+              "end": {
+                "x": 12500,
+                "y": 11979
+              }
+            }
+          }
+        ],
+        "indices": [
+          20
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106054072,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 11979
+              },
+              "end": {
+                "x": 20766,
+                "y": 9982
+              }
+            }
+          }
+        ],
+        "indices": [
+          21
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106054393,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5166,
+                "y": 9548
+              },
+              "end": {
+                "x": 12500,
+                "y": 11458
+              }
+            }
+          }
+        ],
+        "indices": [
+          22
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106054731,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 11458
+              },
+              "end": {
+                "x": 19833,
+                "y": 9548
+              }
+            }
+          }
+        ],
+        "indices": [
+          23
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106055084,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 6099,
+                "y": 9114
+              },
+              "end": {
+                "x": 12500,
+                "y": 10937
+              }
+            }
+          }
+        ],
+        "indices": [
+          24
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106055403,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 10937
+              },
+              "end": {
+                "x": 18900,
+                "y": 9114
+              }
+            }
+          }
+        ],
+        "indices": [
+          25
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106055746,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 7033,
+                "y": 8680
+              },
+              "end": {
+                "x": 12500,
+                "y": 10416
+              }
+            }
+          }
+        ],
+        "indices": [
+          26
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106056070,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 10416
+              },
+              "end": {
+                "x": 17966,
+                "y": 8680
+              }
+            }
+          }
+        ],
+        "indices": [
+          27
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106056302,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 7966,
+                "y": 8246
+              },
+              "end": {
+                "x": 12500,
+                "y": 9895
+              }
+            }
+          }
+        ],
+        "indices": [
+          28
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106056374,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 12500,
+                "y": 9895
+              },
+              "end": {
+                "x": 17033,
+                "y": 8246
+              }
+            }
+          }
+        ],
+        "indices": [
+          29
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106060564,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": 11718
+              },
+              "end": {
+                "x": 25000,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          30
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106060725,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 500,
+                "y": 11718
+              },
+              "end": {
+                "x": 24500,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          31
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106061087,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 1433,
+                "y": 11284
+              },
+              "end": {
+                "x": 23566,
+                "y": 11284
+              }
+            }
+          }
+        ],
+        "indices": [
+          32
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106061432,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 2366,
+                "y": 10850
+              },
+              "end": {
+                "x": 22633,
+                "y": 10850
+              }
+            }
+          }
+        ],
+        "indices": [
+          33
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106061646,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "TRUSS",
+            "data": {
+              "start": {
+                "x": 3300,
+                "y": 10416
+              },
+              "end": {
+                "x": 21700,
+                "y": 10416
+              }
+            }
+          }
+        ],
+        "indices": [
+          34
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106061983,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 500,
+                "y": 1562
+              },
+              "end": {
+                "x": 500,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          35
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106062308,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 24500,
+                "y": 1562
+              },
+              "end": {
+                "x": 24500,
+                "y": 11718
+              }
+            }
+          }
+        ],
+        "indices": [
+          36
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106062638,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 1433,
+                "y": 1909
+              },
+              "end": {
+                "x": 1433,
+                "y": 11284
+              }
+            }
+          }
+        ],
+        "indices": [
+          37
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106062916,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 23566,
+                "y": 1909
+              },
+              "end": {
+                "x": 23566,
+                "y": 11284
+              }
+            }
+          }
+        ],
+        "indices": [
+          38
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106063003,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 2366,
+                "y": 2256
+              },
+              "end": {
+                "x": 2366,
+                "y": 10850
+              }
+            }
+          }
+        ],
+        "indices": [
+          39
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106067121,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 22633,
+                "y": 2256
+              },
+              "end": {
+                "x": 22633,
+                "y": 10850
+              }
+            }
+          }
+        ],
+        "indices": [
+          40
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106067264,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 3300,
+                "y": 2604
+              },
+              "end": {
+                "x": 3300,
+                "y": 10416
+              }
+            }
+          }
+        ],
+        "indices": [
+          41
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106067606,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 21700,
+                "y": 2604
+              },
+              "end": {
+                "x": 21700,
+                "y": 10416
+              }
+            }
+          }
+        ],
+        "indices": [
+          42
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106067944,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4233,
+                "y": 2951
+              },
+              "end": {
+                "x": 4233,
+                "y": 9982
+              }
+            }
+          }
+        ],
+        "indices": [
+          43
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106068296,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 20766,
+                "y": 2951
+              },
+              "end": {
+                "x": 20766,
+                "y": 9982
+              }
+            }
+          }
+        ],
+        "indices": [
+          44
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106068620,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 5166,
+                "y": 3298
+              },
+              "end": {
+                "x": 5166,
+                "y": 9548
+              }
+            }
+          }
+        ],
+        "indices": [
+          45
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106068956,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 19833,
+                "y": 3298
+              },
+              "end": {
+                "x": 19833,
+                "y": 9548
+              }
+            }
+          }
+        ],
+        "indices": [
+          46
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106069185,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 6099,
+                "y": 3645
+              },
+              "end": {
+                "x": 6099,
+                "y": 9114
+              }
+            }
+          }
+        ],
+        "indices": [
+          47
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106069484,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 18900,
+                "y": 3645
+              },
+              "end": {
+                "x": 18900,
+                "y": 9114
+              }
+            }
+          }
+        ],
+        "indices": [
+          48
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106069566,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "FOUNDATION",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": 0
+              },
+              "end": {
+                "x": 25000,
+                "y": 0
+              }
+            }
+          }
+        ],
+        "indices": [
+          49
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106074142,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0.02,
+                "y": 0.78
+              },
+              "end": {
+                "x": 0.5,
+                "y": 0.62
+              }
+            }
+          }
+        ],
+        "indices": [
+          50
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106074491,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0.02,
+                "y": 0.81
+              },
+              "end": {
+                "x": 0.5,
+                "y": 0.64
+              }
+            }
+          }
+        ],
+        "indices": [
+          51
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106074841,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0.02,
+                "y": 0.84
+              },
+              "end": {
+                "x": 0.5,
+                "y": 0.66
+              }
+            }
+          }
+        ],
+        "indices": [
+          52
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106074952,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0.02,
+                "y": 0.87
+              },
+              "end": {
+                "x": 0.5,
+                "y": 0.68
+              }
+            }
+          }
+        ],
+        "indices": [
+          53
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106461680,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4200,
+                "y": 500
+              },
+              "end": {
+                "x": 4200,
+                "y": 9500
+              }
+            }
+          }
+        ],
+        "indices": [
+          0
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106462044,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4400,
+                "y": 500
+              },
+              "end": {
+                "x": 4400,
+                "y": 9500
+              }
+            }
+          }
+        ],
+        "indices": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106462382,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 5600,
+                "y": 500
+              },
+              "end": {
+                "x": 5600,
+                "y": 9500
+              }
+            }
+          }
+        ],
+        "indices": [
+          2
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106462664,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 5400,
+                "y": 500
+              },
+              "end": {
+                "x": 5400,
+                "y": 9500
+              }
+            }
+          }
+        ],
+        "indices": [
+          3
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106462744,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4900,
+                "y": 500
+              },
+              "end": {
+                "x": 4900,
+                "y": 9500
+              }
+            }
+          }
+        ],
+        "indices": [
+          4
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106466486,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4200,
+                "y": 6500
+              },
+              "end": {
+                "x": 1500,
+                "y": 4500
+              }
+            }
+          }
+        ],
+        "indices": [
+          5
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106466881,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4200,
+                "y": 6300
+              },
+              "end": {
+                "x": 1500,
+                "y": 4300
+              }
+            }
+          }
+        ],
+        "indices": [
+          6
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106467115,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4200,
+                "y": 3500
+              },
+              "end": {
+                "x": 1500,
+                "y": 1500
+              }
+            }
+          }
+        ],
+        "indices": [
+          7
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106467452,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4200,
+                "y": 3300
+              },
+              "end": {
+                "x": 1500,
+                "y": 1300
+              }
+            }
+          }
+        ],
+        "indices": [
+          8
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106467805,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 1500,
+                "y": 4500
+              },
+              "end": {
+                "x": 1500,
+                "y": 1500
+              }
+            }
+          }
+        ],
+        "indices": [
+          9
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106468114,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 3000,
+                "y": 4800
+              },
+              "end": {
+                "x": 3000,
+                "y": 2800
+              }
+            }
+          }
+        ],
+        "indices": [
+          10
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106468375,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5600,
+                "y": 6000
+              },
+              "end": {
+                "x": 8500,
+                "y": 4500
+              }
+            }
+          }
+        ],
+        "indices": [
+          11
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106468737,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5600,
+                "y": 5800
+              },
+              "end": {
+                "x": 8500,
+                "y": 4300
+              }
+            }
+          }
+        ],
+        "indices": [
+          12
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106469051,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5600,
+                "y": 3000
+              },
+              "end": {
+                "x": 8500,
+                "y": 1500
+              }
+            }
+          }
+        ],
+        "indices": [
+          13
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106469378,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5600,
+                "y": 2800
+              },
+              "end": {
+                "x": 8500,
+                "y": 1300
+              }
+            }
+          }
+        ],
+        "indices": [
+          14
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106469734,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 8500,
+                "y": 4500
+              },
+              "end": {
+                "x": 8500,
+                "y": 1500
+              }
+            }
+          }
+        ],
+        "indices": [
+          15
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106469949,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5600,
+                "y": 8000
+              },
+              "end": {
+                "x": 7500,
+                "y": 9000
+              }
+            }
+          }
+        ],
+        "indices": [
+          16
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106470339,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5600,
+                "y": 7000
+              },
+              "end": {
+                "x": 7500,
+                "y": 8000
+              }
+            }
+          }
+        ],
+        "indices": [
+          17
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106470682,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3500,
+                "y": 6500
+              },
+              "end": {
+                "x": 4200,
+                "y": 6500
+              }
+            }
+          }
+        ],
+        "indices": [
+          18
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106471035,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3500,
+                "y": 6000
+              },
+              "end": {
+                "x": 4200,
+                "y": 6000
+              }
+            }
+          }
+        ],
+        "indices": [
+          19
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106471273,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5600,
+                "y": 6000
+              },
+              "end": {
+                "x": 6300,
+                "y": 6000
+              }
+            }
+          }
+        ],
+        "indices": [
+          20
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106471607,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5600,
+                "y": 5500
+              },
+              "end": {
+                "x": 6300,
+                "y": 5500
+              }
+            }
+          }
+        ],
+        "indices": [
+          21
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106471898,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "ANNOTATION",
+            "data": {
+              "start": {
+                "x": 3000,
+                "y": 8800
+              },
+              "end": {
+                "x": 4300,
+                "y": 8500
+              }
+            }
+          }
+        ],
+        "indices": [
+          22
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106471970,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "ANNOTATION",
+            "data": {
+              "start": {
+                "x": 1000,
+                "y": 3800
+              },
+              "end": {
+                "x": 2500,
+                "y": 3500
+              }
+            }
+          }
+        ],
+        "indices": [
+          23
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106476530,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "ANNOTATION",
+            "data": {
+              "position": {
+                "x": 3000,
+                "y": 8900
+              },
+              "text": "기둥 (Column)",
+              "height": 200,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          24
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106476618,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "ANNOTATION",
+            "data": {
+              "position": {
+                "x": 1000,
+                "y": 3900
+              },
+              "text": "보 (Beam)",
+              "height": 200,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          25
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106477058,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "ANNOTATION",
+            "data": {
+              "position": {
+                "x": 6400,
+                "y": 5500
+              },
+              "text": "강축용 split-tee (Strong axis)",
+              "height": 200,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          26
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106477186,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "ANNOTATION",
+            "data": {
+              "position": {
+                "x": 2500,
+                "y": 6000
+              },
+              "text": "약축용 split-tee (Weak axis)",
+              "height": 200,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          27
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106711752,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4550,
+                "y": 500
+              },
+              "end": {
+                "x": 4550,
+                "y": 9500
+              }
+            }
+          }
+        ],
+        "indices": [
+          0
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106712089,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4650,
+                "y": 500
+              },
+              "end": {
+                "x": 4650,
+                "y": 9500
+              }
+            }
+          }
+        ],
+        "indices": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106712305,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 5450,
+                "y": 500
+              },
+              "end": {
+                "x": 5450,
+                "y": 9500
+              }
+            }
+          }
+        ],
+        "indices": [
+          2
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106712640,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 5350,
+                "y": 500
+              },
+              "end": {
+                "x": 5350,
+                "y": 9500
+              }
+            }
+          }
+        ],
+        "indices": [
+          3
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106717074,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4950,
+                "y": 500
+              },
+              "end": {
+                "x": 4950,
+                "y": 9500
+              }
+            }
+          }
+        ],
+        "indices": [
+          4
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106721039,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 5050,
+                "y": 500
+              },
+              "end": {
+                "x": 5050,
+                "y": 9500
+              }
+            }
+          }
+        ],
+        "indices": [
+          5
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106721385,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4650,
+                "y": 6500
+              },
+              "end": {
+                "x": 1500,
+                "y": 4500
+              }
+            }
+          }
+        ],
+        "indices": [
+          6
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106721707,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4650,
+                "y": 6300
+              },
+              "end": {
+                "x": 1500,
+                "y": 4300
+              }
+            }
+          }
+        ],
+        "indices": [
+          7
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106721926,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4650,
+                "y": 3500
+              },
+              "end": {
+                "x": 1500,
+                "y": 1500
+              }
+            }
+          }
+        ],
+        "indices": [
+          8
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106722281,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4650,
+                "y": 3300
+              },
+              "end": {
+                "x": 1500,
+                "y": 1300
+              }
+            }
+          }
+        ],
+        "indices": [
+          9
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106722610,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 1500,
+                "y": 4500
+              },
+              "end": {
+                "x": 1500,
+                "y": 1500
+              }
+            }
+          }
+        ],
+        "indices": [
+          10
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106722975,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 3000,
+                "y": 5000
+              },
+              "end": {
+                "x": 3000,
+                "y": 2000
+              }
+            }
+          }
+        ],
+        "indices": [
+          11
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106723303,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5450,
+                "y": 6000
+              },
+              "end": {
+                "x": 8500,
+                "y": 4500
+              }
+            }
+          }
+        ],
+        "indices": [
+          12
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106723628,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5450,
+                "y": 5800
+              },
+              "end": {
+                "x": 8500,
+                "y": 4300
+              }
+            }
+          }
+        ],
+        "indices": [
+          13
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106723856,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5450,
+                "y": 3000
+              },
+              "end": {
+                "x": 8500,
+                "y": 1500
+              }
+            }
+          }
+        ],
+        "indices": [
+          14
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106724188,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5450,
+                "y": 2800
+              },
+              "end": {
+                "x": 8500,
+                "y": 1300
+              }
+            }
+          }
+        ],
+        "indices": [
+          15
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106724236,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 8500,
+                "y": 4500
+              },
+              "end": {
+                "x": 8500,
+                "y": 1500
+              }
+            }
+          }
+        ],
+        "indices": [
+          16
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106727965,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3500,
+                "y": 6500
+              },
+              "end": {
+                "x": 4600,
+                "y": 6500
+              }
+            }
+          }
+        ],
+        "indices": [
+          17
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106728289,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3500,
+                "y": 6100
+              },
+              "end": {
+                "x": 4200,
+                "y": 6100
+              }
+            }
+          }
+        ],
+        "indices": [
+          18
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106728517,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4600,
+                "y": 6500
+              },
+              "end": {
+                "x": 4600,
+                "y": 6800
+              }
+            }
+          }
+        ],
+        "indices": [
+          19
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106728889,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3500,
+                "y": 6500
+              },
+              "end": {
+                "x": 3500,
+                "y": 6100
+              }
+            }
+          }
+        ],
+        "indices": [
+          20
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106729228,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3760,
+                "y": 6350
+              },
+              "end": {
+                "x": 3840,
+                "y": 6350
+              }
+            }
+          }
+        ],
+        "indices": [
+          21
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106729568,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3800,
+                "y": 6310
+              },
+              "end": {
+                "x": 3800,
+                "y": 6390
+              }
+            }
+          }
+        ],
+        "indices": [
+          22
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106729848,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4060,
+                "y": 6350
+              },
+              "end": {
+                "x": 4140,
+                "y": 6350
+              }
+            }
+          }
+        ],
+        "indices": [
+          23
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106730159,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4100,
+                "y": 6310
+              },
+              "end": {
+                "x": 4100,
+                "y": 6390
+              }
+            }
+          }
+        ],
+        "indices": [
+          24
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106730574,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4360,
+                "y": 6350
+              },
+              "end": {
+                "x": 4440,
+                "y": 6350
+              }
+            }
+          }
+        ],
+        "indices": [
+          25
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106730840,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4400,
+                "y": 6310
+              },
+              "end": {
+                "x": 4400,
+                "y": 6390
+              }
+            }
+          }
+        ],
+        "indices": [
+          26
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106731167,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3760,
+                "y": 6250
+              },
+              "end": {
+                "x": 3840,
+                "y": 6250
+              }
+            }
+          }
+        ],
+        "indices": [
+          27
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106731398,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3800,
+                "y": 6210
+              },
+              "end": {
+                "x": 3800,
+                "y": 6290
+              }
+            }
+          }
+        ],
+        "indices": [
+          28
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106731797,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4060,
+                "y": 6250
+              },
+              "end": {
+                "x": 4140,
+                "y": 6250
+              }
+            }
+          }
+        ],
+        "indices": [
+          29
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106734915,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4100,
+                "y": 6210
+              },
+              "end": {
+                "x": 4100,
+                "y": 6290
+              }
+            }
+          }
+        ],
+        "indices": [
+          30
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106738906,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5400,
+                "y": 6000
+              },
+              "end": {
+                "x": 6500,
+                "y": 6000
+              }
+            }
+          }
+        ],
+        "indices": [
+          31
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106739251,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5800,
+                "y": 5500
+              },
+              "end": {
+                "x": 6500,
+                "y": 5500
+              }
+            }
+          }
+        ],
+        "indices": [
+          32
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106739604,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5400,
+                "y": 6000
+              },
+              "end": {
+                "x": 5400,
+                "y": 6300
+              }
+            }
+          }
+        ],
+        "indices": [
+          33
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106739822,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5620,
+                "y": 5850
+              },
+              "end": {
+                "x": 5700,
+                "y": 5850
+              }
+            }
+          }
+        ],
+        "indices": [
+          34
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106740163,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5660,
+                "y": 5810
+              },
+              "end": {
+                "x": 5660,
+                "y": 5890
+              }
+            }
+          }
+        ],
+        "indices": [
+          35
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106740496,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5920,
+                "y": 5850
+              },
+              "end": {
+                "x": 6000,
+                "y": 5850
+              }
+            }
+          }
+        ],
+        "indices": [
+          36
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106740907,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5960,
+                "y": 5810
+              },
+              "end": {
+                "x": 5960,
+                "y": 5890
+              }
+            }
+          }
+        ],
+        "indices": [
+          37
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106741214,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 6220,
+                "y": 5850
+              },
+              "end": {
+                "x": 6300,
+                "y": 5850
+              }
+            }
+          }
+        ],
+        "indices": [
+          38
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106741386,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 6260,
+                "y": 5810
+              },
+              "end": {
+                "x": 6260,
+                "y": 5890
+              }
+            }
+          }
+        ],
+        "indices": [
+          39
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106741702,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5620,
+                "y": 5750
+              },
+              "end": {
+                "x": 5700,
+                "y": 5750
+              }
+            }
+          }
+        ],
+        "indices": [
+          40
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106742137,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5660,
+                "y": 5710
+              },
+              "end": {
+                "x": 5660,
+                "y": 5790
+              }
+            }
+          }
+        ],
+        "indices": [
+          41
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106742372,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5920,
+                "y": 5750
+              },
+              "end": {
+                "x": 6000,
+                "y": 5750
+              }
+            }
+          }
+        ],
+        "indices": [
+          42
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106742701,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5960,
+                "y": 5710
+              },
+              "end": {
+                "x": 5960,
+                "y": 5790
+              }
+            }
+          }
+        ],
+        "indices": [
+          43
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106742906,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 6220,
+                "y": 5750
+              },
+              "end": {
+                "x": 6300,
+                "y": 5750
+              }
+            }
+          }
+        ],
+        "indices": [
+          44
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768106742968,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 6260,
+                "y": 5710
+              },
+              "end": {
+                "x": 6260,
+                "y": 5790
+              }
+            }
+          }
+        ],
+        "indices": [
+          45
+        ]
+      }
     }
   ],
-  "redoStack": []
+  "redoStack": [
+    {
+      "type": "delete",
+      "label": "Delete",
+      "timestamp": 1768108072565,
+      "data": {
+        "actionType": "delete",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 1500,
+                "y": 4500
+              },
+              "end": {
+                "x": 1500,
+                "y": 1500
+              }
+            }
+          }
+        ],
+        "indices": [
+          0
+        ]
+      }
+    },
+    {
+      "type": "delete",
+      "label": "Delete",
+      "timestamp": 1768108070921,
+      "data": {
+        "actionType": "delete",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4550,
+                "y": 500
+              },
+              "end": {
+                "x": 4550,
+                "y": 9500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4650,
+                "y": 500
+              },
+              "end": {
+                "x": 4650,
+                "y": 9500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 5450,
+                "y": 500
+              },
+              "end": {
+                "x": 5450,
+                "y": 9500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 5350,
+                "y": 500
+              },
+              "end": {
+                "x": 5350,
+                "y": 9500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 4950,
+                "y": 500
+              },
+              "end": {
+                "x": 4950,
+                "y": 9500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "COLUMN",
+            "data": {
+              "start": {
+                "x": 5050,
+                "y": 500
+              },
+              "end": {
+                "x": 5050,
+                "y": 9500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4650,
+                "y": 6500
+              },
+              "end": {
+                "x": 1500,
+                "y": 4500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4650,
+                "y": 6300
+              },
+              "end": {
+                "x": 1500,
+                "y": 4300
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4650,
+                "y": 3500
+              },
+              "end": {
+                "x": 1500,
+                "y": 1500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 4650,
+                "y": 3300
+              },
+              "end": {
+                "x": 1500,
+                "y": 1300
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 3000,
+                "y": 5000
+              },
+              "end": {
+                "x": 3000,
+                "y": 2000
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5450,
+                "y": 6000
+              },
+              "end": {
+                "x": 8500,
+                "y": 4500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5450,
+                "y": 5800
+              },
+              "end": {
+                "x": 8500,
+                "y": 4300
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5450,
+                "y": 3000
+              },
+              "end": {
+                "x": 8500,
+                "y": 1500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 5450,
+                "y": 2800
+              },
+              "end": {
+                "x": 8500,
+                "y": 1300
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 8500,
+                "y": 4500
+              },
+              "end": {
+                "x": 8500,
+                "y": 1500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3500,
+                "y": 6500
+              },
+              "end": {
+                "x": 4600,
+                "y": 6500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3500,
+                "y": 6100
+              },
+              "end": {
+                "x": 4200,
+                "y": 6100
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4600,
+                "y": 6500
+              },
+              "end": {
+                "x": 4600,
+                "y": 6800
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3500,
+                "y": 6500
+              },
+              "end": {
+                "x": 3500,
+                "y": 6100
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3760,
+                "y": 6350
+              },
+              "end": {
+                "x": 3840,
+                "y": 6350
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3800,
+                "y": 6310
+              },
+              "end": {
+                "x": 3800,
+                "y": 6390
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4060,
+                "y": 6350
+              },
+              "end": {
+                "x": 4140,
+                "y": 6350
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4100,
+                "y": 6310
+              },
+              "end": {
+                "x": 4100,
+                "y": 6390
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4360,
+                "y": 6350
+              },
+              "end": {
+                "x": 4440,
+                "y": 6350
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4400,
+                "y": 6310
+              },
+              "end": {
+                "x": 4400,
+                "y": 6390
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3760,
+                "y": 6250
+              },
+              "end": {
+                "x": 3840,
+                "y": 6250
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 3800,
+                "y": 6210
+              },
+              "end": {
+                "x": 3800,
+                "y": 6290
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4060,
+                "y": 6250
+              },
+              "end": {
+                "x": 4140,
+                "y": 6250
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 4100,
+                "y": 6210
+              },
+              "end": {
+                "x": 4100,
+                "y": 6290
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5400,
+                "y": 6000
+              },
+              "end": {
+                "x": 6500,
+                "y": 6000
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5800,
+                "y": 5500
+              },
+              "end": {
+                "x": 6500,
+                "y": 5500
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5400,
+                "y": 6000
+              },
+              "end": {
+                "x": 5400,
+                "y": 6300
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5620,
+                "y": 5850
+              },
+              "end": {
+                "x": 5700,
+                "y": 5850
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5660,
+                "y": 5810
+              },
+              "end": {
+                "x": 5660,
+                "y": 5890
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5920,
+                "y": 5850
+              },
+              "end": {
+                "x": 6000,
+                "y": 5850
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5960,
+                "y": 5810
+              },
+              "end": {
+                "x": 5960,
+                "y": 5890
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 6220,
+                "y": 5850
+              },
+              "end": {
+                "x": 6300,
+                "y": 5850
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 6260,
+                "y": 5810
+              },
+              "end": {
+                "x": 6260,
+                "y": 5890
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5620,
+                "y": 5750
+              },
+              "end": {
+                "x": 5700,
+                "y": 5750
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5660,
+                "y": 5710
+              },
+              "end": {
+                "x": 5660,
+                "y": 5790
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5920,
+                "y": 5750
+              },
+              "end": {
+                "x": 6000,
+                "y": 5750
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 5960,
+                "y": 5710
+              },
+              "end": {
+                "x": 5960,
+                "y": 5790
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 6220,
+                "y": 5750
+              },
+              "end": {
+                "x": 6300,
+                "y": 5750
+              }
+            }
+          },
+          {
+            "type": "LINE",
+            "layer": "CONNECTION",
+            "data": {
+              "start": {
+                "x": 6260,
+                "y": 5710
+              },
+              "end": {
+                "x": 6260,
+                "y": 5790
+              }
+            }
+          }
+        ],
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45
+        ]
+      }
+    }
+  ]
 }

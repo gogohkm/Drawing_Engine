@@ -1,0 +1,515 @@
+{
+  "context_id": "trace_20260111_131858",
+  "created_at": "2026-01-11T13:18:58.090448",
+  "photo_description": "",
+  "element_counts": {
+    "visible_column_frames": 0,
+    "visible_truss_frames": 0,
+    "frame_spacing_ratio": 0.03,
+    "columns_per_frame": 2,
+    "column_section_type": "H-beam",
+    "truss_panel_count": 8,
+    "truss_type": "pratt",
+    "visible_purlin_lines": 6,
+    "purlin_as_depth_lines": true,
+    "bracing_bays": 2,
+    "explicit_elements": [
+      {
+        "type": "column",
+        "start": {
+          "x": 0.04999999999999999,
+          "y": 0.15
+        },
+        "end": {
+          "x": 0.04999999999999999,
+          "y": 0.65
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.95,
+          "y": 0.15
+        },
+        "end": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.04999999999999999,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "end": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.04999999999999999,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.09499999999999997,
+          "y": 0.18
+        },
+        "end": {
+          "x": 0.09499999999999997,
+          "y": 0.66
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.905,
+          "y": 0.18
+        },
+        "end": {
+          "x": 0.905,
+          "y": 0.66
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.09499999999999997,
+          "y": 0.66
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.86
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.86
+        },
+        "end": {
+          "x": 0.905,
+          "y": 0.66
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.09499999999999997,
+          "y": 0.66
+        },
+        "end": {
+          "x": 0.905,
+          "y": 0.66
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.13999999999999996,
+          "y": 0.21
+        },
+        "end": {
+          "x": 0.13999999999999996,
+          "y": 0.67
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.8600000000000001,
+          "y": 0.21
+        },
+        "end": {
+          "x": 0.8600000000000001,
+          "y": 0.67
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.13999999999999996,
+          "y": 0.67
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.87
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.87
+        },
+        "end": {
+          "x": 0.8600000000000001,
+          "y": 0.67
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.13999999999999996,
+          "y": 0.67
+        },
+        "end": {
+          "x": 0.8600000000000001,
+          "y": 0.67
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.185,
+          "y": 0.24
+        },
+        "end": {
+          "x": 0.185,
+          "y": 0.68
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.815,
+          "y": 0.24
+        },
+        "end": {
+          "x": 0.815,
+          "y": 0.68
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.185,
+          "y": 0.68
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "end": {
+          "x": 0.815,
+          "y": 0.68
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.185,
+          "y": 0.68
+        },
+        "end": {
+          "x": 0.815,
+          "y": 0.68
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.22999999999999998,
+          "y": 0.27
+        },
+        "end": {
+          "x": 0.22999999999999998,
+          "y": 0.69
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.77,
+          "y": 0.27
+        },
+        "end": {
+          "x": 0.77,
+          "y": 0.69
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.22999999999999998,
+          "y": 0.69
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.89
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.89
+        },
+        "end": {
+          "x": 0.77,
+          "y": 0.69
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.22999999999999998,
+          "y": 0.69
+        },
+        "end": {
+          "x": 0.77,
+          "y": 0.69
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.275,
+          "y": 0.3
+        },
+        "end": {
+          "x": 0.275,
+          "y": 0.7
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "column",
+        "start": {
+          "x": 0.725,
+          "y": 0.3
+        },
+        "end": {
+          "x": 0.725,
+          "y": 0.7
+        },
+        "layer": "COLUMN"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.275,
+          "y": 0.7
+        },
+        "end": {
+          "x": 0.5,
+          "y": 0.9
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "rafter",
+        "start": {
+          "x": 0.5,
+          "y": 0.9
+        },
+        "end": {
+          "x": 0.725,
+          "y": 0.7
+        },
+        "layer": "BEAM"
+      },
+      {
+        "type": "truss_bottom_chord",
+        "start": {
+          "x": 0.275,
+          "y": 0.7
+        },
+        "end": {
+          "x": 0.725,
+          "y": 0.7
+        },
+        "layer": "TRUSS"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.05,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.4,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.6,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.05,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.4,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.6,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.05,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.4,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.6,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.05,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.4,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "purlin",
+        "start": {
+          "x": 0.95,
+          "y": 0.65
+        },
+        "end": {
+          "x": 0.6,
+          "y": 0.8
+        },
+        "layer": "PURLIN"
+      },
+      {
+        "type": "bracing",
+        "start": {
+          "x": 0.05,
+          "y": 0.15
+        },
+        "end": {
+          "x": 0.12,
+          "y": 0.66
+        },
+        "layer": "BRACING"
+      },
+      {
+        "type": "bracing",
+        "start": {
+          "x": 0.12,
+          "y": 0.18
+        },
+        "end": {
+          "x": 0.05,
+          "y": 0.65
+        },
+        "layer": "BRACING"
+      }
+    ],
+    "width_height_ratio": 1.5,
+    "eave_height_ratio": 0.7,
+    "roof_pitch_degrees": 10
+  },
+  "canvas": {
+    "width": 20000.0,
+    "height": 13333.333333333334,
+    "origin_x": 0.0,
+    "origin_y": 0.0
+  },
+  "key_points": {},
+  "elements": [],
+  "drawn_elements": [],
+  "status": "created",
+  "current_step": 0,
+  "total_steps": 0,
+  "notes": []
+}
