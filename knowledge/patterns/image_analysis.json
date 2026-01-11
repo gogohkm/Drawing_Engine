@@ -1,0 +1,264 @@
+{
+  "version": "1.0",
+  "description": "이미지 → 도면 변환을 위한 분석 체크리스트 및 가이드",
+
+  "analysis_pipeline": {
+    "description": "이미지 분석 5단계 파이프라인",
+    "stages": [
+      {
+        "stage": 1,
+        "name": "structure_recognition",
+        "description": "건물/구조물 유형 식별",
+        "output": "structure_type, sub_type"
+      },
+      {
+        "stage": 2,
+        "name": "proportion_analysis",
+        "description": "전체 비율 및 치수 분석",
+        "output": "width_height_ratio, key_dimensions"
+      },
+      {
+        "stage": 3,
+        "name": "pattern_extraction",
+        "description": "반복 요소 및 패턴 추출",
+        "output": "repetitive_elements, spacing"
+      },
+      {
+        "stage": 4,
+        "name": "drawing_plan",
+        "description": "작도 계획 수립",
+        "output": "sequence, coordinates"
+      },
+      {
+        "stage": 5,
+        "name": "execution_verification",
+        "description": "실행 및 검증",
+        "output": "entity_counts, comparison"
+      }
+    ]
+  },
+
+  "analysis_checklist": {
+    "structure_identification": {
+      "question": "구조물의 유형은?",
+      "options": [
+        {"value": "portal_frame", "label": "포털 프레임 (기둥+보)"},
+        {"value": "truss_roof", "label": "트러스 지붕"},
+        {"value": "space_frame", "label": "스페이스 프레임 (3D 격자)"},
+        {"value": "braced_frame", "label": "가새 골조"},
+        {"value": "moment_frame", "label": "모멘트 골조"},
+        {"value": "floor_plan", "label": "평면도"},
+        {"value": "section", "label": "단면도"},
+        {"value": "elevation", "label": "입면도"},
+        {"value": "detail", "label": "상세도"},
+        {"value": "other", "label": "기타"}
+      ]
+    },
+
+    "proportions": {
+      "overall": {
+        "width_height_ratio": {
+          "question": "전체 가로:세로 비율은?",
+          "examples": ["2:1 (넓은 건물)", "1.5:1 (일반)", "1:1 (정사각형)", "1:2 (세로로 긴)"],
+          "how_to_measure": "이미지에서 전체 외곽 기준"
+        },
+        "scale_reference": {
+          "question": "축척 참조점이 있는가?",
+          "examples": ["치수선", "사람 크기", "문/창문", "기둥 간격"]
+        }
+      },
+      "roof": {
+        "pitch_angle": {
+          "question": "지붕 경사각은?",
+          "options": [
+            {"value": "flat", "degrees": "0-5", "description": "평지붕"},
+            {"value": "low", "degrees": "5-15", "description": "낮은 경사 (산업용 일반)"},
+            {"value": "medium", "degrees": "15-30", "description": "중간 경사"},
+            {"value": "steep", "degrees": "30-45", "description": "급경사"},
+            {"value": "very_steep", "degrees": "45+", "description": "매우 급경사"}
+          ]
+        },
+        "type": {
+          "question": "지붕 형태는?",
+          "options": ["gable (박공)", "hip (모임)", "flat (평)", "mono (편)", "curved (곡면)"]
+        }
+      },
+      "column": {
+        "height_ratio": {
+          "question": "기둥 높이 / 전체 높이 비율은?",
+          "typical_values": {
+            "industrial": "0.6-0.75",
+            "warehouse": "0.7-0.8",
+            "residential": "0.8-0.9"
+          }
+        },
+        "section_type": {
+          "question": "기둥 단면 형태는?",
+          "options": ["H형강", "I형강", "박스", "원형", "조적"]
+        }
+      }
+    },
+
+    "repetitive_elements": {
+      "columns": {
+        "count": "기둥 개수 (좌/우/중간)",
+        "spacing": "기둥 간격 (등간격 여부)",
+        "pattern": "배치 패턴"
+      },
+      "truss_members": {
+        "panels": "트러스 패널 개수 (상현재 분할 수)",
+        "web_type": {
+          "question": "웹 부재 형태는?",
+          "options": [
+            {"value": "warren", "description": "워렌 (지그재그 대각선만)"},
+            {"value": "pratt", "description": "프랫 (수직+대각선, 대각선 중앙향)"},
+            {"value": "howe", "description": "하우 (수직+대각선, 대각선 외향)"},
+            {"value": "k_truss", "description": "K-트러스"},
+            {"value": "vierendeel", "description": "비렌딜 (수직만, 대각선 없음)"}
+          ]
+        },
+        "vertical_members": "수직 웹부재 개수",
+        "diagonal_members": "대각 웹부재 개수"
+      },
+      "purlins": {
+        "count": "퍼린 개수 (한쪽 경사면당)",
+        "spacing": "퍼린 간격"
+      },
+      "bracing": {
+        "locations": "가새 위치",
+        "pattern": "X자, V자, K자 등"
+      },
+      "bolts": {
+        "at_connections": "연결부 볼트 패턴",
+        "typical_count": "연결부당 볼트 개수"
+      }
+    },
+
+    "detail_level": {
+      "question": "어느 수준까지 표현할 것인가?",
+      "levels": [
+        {
+          "level": "L1_outline",
+          "description": "외곽선만 (빠른 스케치)",
+          "includes": ["주요 기둥", "지붕 외곽", "주요 보"]
+        },
+        {
+          "level": "L2_structural",
+          "description": "구조 부재 (일반 도면)",
+          "includes": ["L1 + 트러스 부재", "퍼린", "가새"]
+        },
+        {
+          "level": "L3_detailed",
+          "description": "상세 (시공 도면)",
+          "includes": ["L2 + 볼트", "플레이트", "용접 심볼", "치수"]
+        }
+      ]
+    }
+  },
+
+  "analysis_prompts": {
+    "stage1_structure": {
+      "prompt": "이 이미지의 구조물 유형을 식별해주세요:\n1. 주요 구조 시스템 (포털프레임, 트러스, 가새골조 등)\n2. 용도 추정 (산업용, 창고, 공장 등)\n3. 주요 구성 요소 목록",
+      "expected_output": {
+        "structure_type": "string",
+        "sub_type": "string",
+        "usage": "string",
+        "main_components": ["array"]
+      }
+    },
+    "stage2_proportions": {
+      "prompt": "이 구조물의 비율을 분석해주세요:\n1. 전체 가로:세로 비율 (예: 2:1)\n2. 지붕 경사각 (도 단위 추정)\n3. 기둥높이/전체높이 비율\n4. 스팬 개수 (기둥 사이 공간)",
+      "expected_output": {
+        "width_height_ratio": "number",
+        "roof_pitch_degrees": "number",
+        "eave_height_ratio": "number",
+        "span_count": "number"
+      }
+    },
+    "stage3_patterns": {
+      "prompt": "반복 요소를 세어주세요:\n1. 기둥 개수 (좌측, 우측, 중간)\n2. 트러스 패널 개수 (상현재가 몇 등분되어 있는지)\n3. 수직 웹부재 개수\n4. 대각 웹부재 개수\n5. 퍼린 개수 (한쪽 경사면)\n6. 수평 가새 레벨 수",
+      "expected_output": {
+        "columns": {"left": "number", "right": "number", "middle": "number"},
+        "truss_panels": "number",
+        "vertical_webs": "number",
+        "diagonal_webs": "number",
+        "purlins_per_slope": "number",
+        "bracing_levels": "number"
+      }
+    }
+  },
+
+  "common_mistakes": {
+    "proportions": [
+      {
+        "mistake": "지붕 경사를 너무 급하게 그림",
+        "cause": "삼각형 트러스를 강조해서 인식",
+        "prevention": "실제 산업용 건물은 5-15도가 일반적",
+        "correction": "이미지에서 실제 경사각 측정 후 적용"
+      },
+      {
+        "mistake": "기둥 높이 비율 오류",
+        "cause": "지붕 부분을 과대 표현",
+        "prevention": "기둥높이/전체높이 = 0.65-0.75가 일반적",
+        "correction": "eave_height_ratio 명시적 계산"
+      }
+    ],
+    "patterns": [
+      {
+        "mistake": "트러스 부재 수 부족",
+        "cause": "대략적으로 그려서 밀도 낮음",
+        "prevention": "이미지에서 정확히 개수 세기",
+        "correction": "패널 수 = 상현재 분할 수로 계산"
+      },
+      {
+        "mistake": "퍼린 간격 불균일",
+        "cause": "등간격 계산 없이 대충 배치",
+        "prevention": "span / (purlin_count + 1) 공식 사용",
+        "correction": "좌표 계산기로 정확한 위치 산출"
+      }
+    ],
+    "elements": [
+      {
+        "mistake": "중간 기둥 누락",
+        "cause": "양쪽 기둥만 그림",
+        "prevention": "이미지에서 모든 기둥 개수 확인",
+        "correction": "다중 스팬 구조 인식"
+      },
+      {
+        "mistake": "연결부 상세 생략",
+        "cause": "빠르게 그리려다 생략",
+        "prevention": "detail_level 미리 결정",
+        "correction": "L2/L3에서는 볼트 심볼 필수"
+      }
+    ]
+  },
+
+  "verification_rules": {
+    "proportion_check": {
+      "description": "비율 검증",
+      "rules": [
+        "완성된 도면의 W:H 비율이 분석값과 ±10% 이내",
+        "지붕 경사각이 분석값과 ±3도 이내",
+        "기둥 높이 비율이 분석값과 ±5% 이내"
+      ]
+    },
+    "element_count_check": {
+      "description": "요소 개수 검증",
+      "rules": [
+        "기둥 개수 일치",
+        "트러스 패널 수 일치",
+        "퍼린 개수 ±1 이내",
+        "웹부재 개수 ±2 이내"
+      ]
+    },
+    "visual_comparison": {
+      "description": "시각적 비교",
+      "method": "원본 이미지와 완성 도면을 나란히 놓고 비교",
+      "checkpoints": [
+        "전체 실루엣 유사성",
+        "부재 밀도 유사성",
+        "대칭성 확인"
+      ]
+    }
+  }
+}

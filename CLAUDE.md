@@ -257,3 +257,130 @@ knowledge/
 - **high**: 바로 사용 (create_line, create_polyline, create_text 등)
 - **medium**: 주의 필요 (offset_entity - entityRef 참조 복잡)
 - **low**: 피하거나 대안 사용
+
+---
+
+## Photo Tracer (사진 따라 그리기) - 권장
+
+사진을 보고 **그대로 따라 그리는** 기능입니다.
+
+### 핵심 원칙
+
+- **3D 투영 계산이 아닌**, 사진에서 보이는 것을 그대로 그린다
+- 퍼린은 짧은 마크가 아닌, **깊이 방향 수평선**으로 표현
+- 겹쳐 보이는 프레임들을 **offset**으로 표현
+- H-beam 단면을 **여러 라인**으로 표현
+
+### 워크플로우
+
+```
+[1. 사진 분석]
+사진 보기 → trace_checklist 참고 → 보이는 요소 정확히 세기
+     ↓
+[2. 통합 명령 실행]
+python claude_helper.py trace_draw '<분석결과_JSON>'
+     ↓
+[3. 시퀀스 실행]
+생성된 sequence의 tools를 MCP 도구로 실행
+```
+
+### 명령어
+
+```bash
+# 정보 조회
+python claude_helper.py trace_info        # 사용법 및 예시
+python claude_helper.py trace_checklist   # 분석 체크리스트
+python claude_helper.py trace_prompt      # 분석 프롬프트
+
+# 통합 명령 (권장)
+python claude_helper.py trace_draw '<JSON>' [width] [origin_x] [origin_y]
+
+# 단계별 명령 (선택)
+python claude_helper.py trace_create '<JSON>'    # 컨텍스트 생성
+python claude_helper.py trace_coords <id>        # 좌표 계산
+python claude_helper.py trace_sequence <id>      # 시퀀스 생성
+python claude_helper.py trace_status <id>        # 상태 조회
+```
+
+### 분석 결과 JSON 형식
+
+```json
+{
+  "visible_column_frames": 4,      // 겹쳐 보이는 기둥 프레임 수
+  "visible_truss_frames": 4,       // 보이는 트러스 수
+  "frame_spacing_ratio": 0.025,    // 프레임 간격 (도면 폭 대비)
+  "columns_per_frame": 2,          // 프레임당 기둥 수
+  "column_section_type": "H-beam", // "H-beam" 또는 "simple"
+  "visible_purlin_lines": 8,       // 보이는 퍼린 라인 수
+  "purlin_as_depth_lines": true,   // 깊이 방향 라인으로 표현
+  "truss_type": "pratt",           // "pratt", "warren", "howe"
+  "truss_panel_count": 10,
+  "bracing_bays": 2,
+  "width_height_ratio": 2.5,
+  "eave_height_ratio": 0.72,
+  "roof_pitch_degrees": 8
+}
+```
+
+### 분석 시 핵심 체크리스트
+
+| 항목 | 질문 | 필드 |
+|------|------|------|
+| 깊이/프레임 | 앞뒤로 겹쳐 보이는 기둥 몇 줄? | `visible_column_frames` |
+| 퍼린 | 수평 퍼린 라인 몇 개? | `visible_purlin_lines` |
+| 기둥 단면 | H-beam 형태 보이는가? | `column_section_type` |
+| 트러스 | 타입과 패널 수는? | `truss_type`, `truss_panel_count` |
+
+---
+
+## 이미지 기반 도면 작도 (Image Analyzer) - 레거시
+
+> **Note**: Photo Tracer (`trace_*`)를 권장합니다.
+
+이미지를 분석하여 도면을 자동으로 그리는 기능입니다.
+
+### 통합 명령
+
+```bash
+python claude_helper.py image_draw '<분석결과_JSON>' [width] [height] [margin] [level]
+```
+
+### 분석 결과 JSON 형식
+
+```json
+{
+  "structure_type": "portal_frame_truss",
+  "width_height_ratio": 2.5,
+  "roof_pitch_degrees": 8,
+  "eave_height_ratio": 0.7,
+  "columns_left": 2,
+  "columns_right": 2,
+  "columns_middle": 1,
+  "truss_panels": 10,
+  "vertical_webs": 9,
+  "diagonal_webs": 10,
+  "purlins_per_slope": 8,
+  "bracing_levels": 2,
+  "detail_level": "L2_structural"
+}
+```
+
+### 지원 구조 템플릿
+
+- `portal_frame_truss`: 포털 프레임 + 트러스 지붕 (공장, 창고)
+- `simple_gable_frame`: 단순 박공 프레임 (소규모 창고)
+- `multi_span_truss`: 다중 스팬 트러스 (대형 공장)
+- `warren_truss`: 워렌 트러스
+- `pratt_truss`: 프랫 트러스
+
+### 파일 구조
+
+```
+knowledge/
+├── patterns/
+│   ├── image_analysis.json     # 분석 체크리스트, 프롬프트
+│   └── structure_templates.json # 구조별 템플릿, 비율
+├── engine/
+│   └── image_analyzer.py       # 분석/좌표/시퀀스 생성
+└── analysis_cache/             # 분석 결과 저장 (자동 생성)
+```

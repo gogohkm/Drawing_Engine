@@ -1,0 +1,22 @@
+{
+  "structure_type": "portal_frame_truss",
+  "sub_type": "",
+  "usage": "",
+  "main_components": [],
+  "width_height_ratio": 2.5,
+  "roof_pitch_degrees": 8,
+  "eave_height_ratio": 0.7,
+  "span_count": 1,
+  "columns_left": 1,
+  "columns_right": 1,
+  "columns_middle": 0,
+  "truss_panels": 8,
+  "vertical_webs": 7,
+  "diagonal_webs": 8,
+  "purlins_per_slope": 6,
+  "bracing_levels": 2,
+  "detail_level": "L2_structural",
+  "analysis_id": "analysis_20260111_022305",
+  "created_at": "2026-01-11T02:23:05.392930",
+  "notes": []
+}

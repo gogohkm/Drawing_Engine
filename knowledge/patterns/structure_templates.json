@@ -1,0 +1,468 @@
+{
+  "version": "1.0",
+  "description": "구조물 유형별 기본 템플릿 - 비율, 요소 개수, 작도 순서 정의",
+
+  "templates": {
+    "portal_frame_truss": {
+      "name": "포털 프레임 + 트러스 지붕",
+      "description": "산업용 건물의 가장 일반적인 형태. H형강 기둥과 삼각 트러스 지붕",
+      "typical_usage": ["공장", "창고", "체육관", "전시장"],
+
+      "default_proportions": {
+        "width_height_ratio": 2.0,
+        "eave_height_ratio": 0.7,
+        "roof_pitch_degrees": 10,
+        "column_width_ratio": 0.08
+      },
+
+      "typical_elements": {
+        "columns_per_side": 2,
+        "truss_panels": 8,
+        "vertical_webs": 7,
+        "diagonal_webs": 8,
+        "purlins_per_slope": 6,
+        "horizontal_bracing_levels": 2,
+        "x_bracing_bays": 1
+      },
+
+      "layers": {
+        "COLUMN": {"color": 7, "description": "기둥"},
+        "BEAM": {"color": 4, "description": "보, 트러스"},
+        "PURLIN": {"color": 3, "description": "퍼린"},
+        "BRACING": {"color": 5, "description": "가새"},
+        "BOLT": {"color": 2, "description": "볼트 심볼"}
+      },
+
+      "drawing_sequence": [
+        {
+          "step": 1,
+          "name": "기둥",
+          "elements": ["left_column", "right_column", "middle_columns"],
+          "layer": "COLUMN",
+          "parallel": true
+        },
+        {
+          "step": 2,
+          "name": "트러스 현재",
+          "elements": ["top_chord_left", "top_chord_right", "bottom_chord"],
+          "layer": "BEAM",
+          "parallel": true
+        },
+        {
+          "step": 3,
+          "name": "트러스 웹부재",
+          "elements": ["vertical_webs", "diagonal_webs"],
+          "layer": "BEAM",
+          "parallel": true
+        },
+        {
+          "step": 4,
+          "name": "퍼린",
+          "elements": ["purlins"],
+          "layer": "PURLIN",
+          "parallel": true
+        },
+        {
+          "step": 5,
+          "name": "수평보 및 가새",
+          "elements": ["eave_beams", "horizontal_bracing", "x_bracing"],
+          "layer": "BRACING",
+          "parallel": true
+        },
+        {
+          "step": 6,
+          "name": "연결부 상세",
+          "elements": ["column_base_bolts", "eave_connection_bolts", "ridge_bolts"],
+          "layer": "BOLT",
+          "parallel": true
+        }
+      ],
+
+      "coordinate_formulas": {
+        "description": "좌표 계산 공식 (canvas_width, canvas_height 기준)",
+        "column": {
+          "left_x": "margin",
+          "right_x": "canvas_width - margin",
+          "bottom_y": "margin",
+          "eave_y": "margin + (canvas_height - 2*margin) * eave_height_ratio"
+        },
+        "roof": {
+          "ridge_x": "canvas_width / 2",
+          "ridge_y": "eave_y + (right_x - left_x) / 2 * tan(roof_pitch_degrees)",
+          "note": "낮은 경사일수록 ridge_y가 eave_y에 가까움"
+        },
+        "truss_panels": {
+          "panel_width": "(ridge_x - left_x) / (truss_panels / 2)",
+          "bottom_chord_y": "eave_y - chord_depth"
+        },
+        "purlins": {
+          "spacing": "slope_length / (purlins_per_slope + 1)",
+          "note": "경사면을 따라 등간격 배치"
+        }
+      }
+    },
+
+    "simple_gable_frame": {
+      "name": "단순 박공 프레임",
+      "description": "트러스 없이 경사 보만 있는 간단한 구조",
+      "typical_usage": ["소규모 창고", "차고", "간이 건물"],
+
+      "default_proportions": {
+        "width_height_ratio": 1.5,
+        "eave_height_ratio": 0.75,
+        "roof_pitch_degrees": 20,
+        "column_width_ratio": 0.1
+      },
+
+      "typical_elements": {
+        "columns_per_side": 1,
+        "rafters": 2,
+        "purlins_per_slope": 3,
+        "tie_beam": 1
+      },
+
+      "layers": {
+        "COLUMN": {"color": 7, "description": "기둥"},
+        "RAFTER": {"color": 4, "description": "서까래/경사보"},
+        "PURLIN": {"color": 3, "description": "퍼린"}
+      },
+
+      "drawing_sequence": [
+        {"step": 1, "name": "기둥", "elements": ["left_column", "right_column"], "layer": "COLUMN"},
+        {"step": 2, "name": "경사보", "elements": ["left_rafter", "right_rafter"], "layer": "RAFTER"},
+        {"step": 3, "name": "타이빔", "elements": ["tie_beam"], "layer": "BEAM"},
+        {"step": 4, "name": "퍼린", "elements": ["purlins"], "layer": "PURLIN"}
+      ]
+    },
+
+    "multi_span_truss": {
+      "name": "다중 스팬 트러스",
+      "description": "중간 기둥이 있는 넓은 건물",
+      "typical_usage": ["대형 공장", "물류센터", "격납고"],
+
+      "default_proportions": {
+        "width_height_ratio": 3.0,
+        "eave_height_ratio": 0.65,
+        "roof_pitch_degrees": 8,
+        "column_width_ratio": 0.05
+      },
+
+      "typical_elements": {
+        "spans": 2,
+        "columns_total": 3,
+        "truss_panels_per_span": 6,
+        "purlins_per_slope": 8,
+        "valley_gutter": true
+      },
+
+      "layers": {
+        "COLUMN": {"color": 7},
+        "BEAM": {"color": 4},
+        "PURLIN": {"color": 3},
+        "GUTTER": {"color": 6}
+      },
+
+      "drawing_sequence": [
+        {"step": 1, "name": "모든 기둥", "elements": ["all_columns"], "layer": "COLUMN"},
+        {"step": 2, "name": "각 스팬 트러스", "elements": ["span_trusses"], "layer": "BEAM"},
+        {"step": 3, "name": "퍼린", "elements": ["purlins"], "layer": "PURLIN"},
+        {"step": 4, "name": "골짜기 홈통", "elements": ["valley_gutter"], "layer": "GUTTER"}
+      ]
+    },
+
+    "h_beam_column": {
+      "name": "H형강 기둥 상세",
+      "description": "H형강 기둥의 2D 표현 (단면 또는 정면)",
+      "view_types": ["section", "elevation"],
+
+      "section_proportions": {
+        "flange_width": 1.0,
+        "depth": 1.0,
+        "flange_thickness_ratio": 0.1,
+        "web_thickness_ratio": 0.06
+      },
+
+      "elevation_proportions": {
+        "width_depth_ratio": 0.5,
+        "flange_visible": true
+      },
+
+      "drawing_elements": {
+        "section": [
+          "top_flange_outline",
+          "bottom_flange_outline",
+          "web_left_line",
+          "web_right_line"
+        ],
+        "elevation": [
+          "left_flange_line",
+          "right_flange_line",
+          "web_centerline"
+        ]
+      }
+    },
+
+    "warren_truss": {
+      "name": "워렌 트러스",
+      "description": "지그재그 대각선만 있는 트러스 (수직 부재 없음)",
+
+      "default_proportions": {
+        "span_depth_ratio": 10,
+        "panel_count": 8
+      },
+
+      "typical_elements": {
+        "top_chord": 1,
+        "bottom_chord": 1,
+        "diagonals": "panel_count"
+      },
+
+      "geometry": {
+        "diagonal_angle": 60,
+        "note": "정삼각형에 가까운 형태가 효율적"
+      }
+    },
+
+    "pratt_truss": {
+      "name": "프랫 트러스",
+      "description": "수직 부재 + 중앙 향하는 대각선",
+
+      "default_proportions": {
+        "span_depth_ratio": 8,
+        "panel_count": 8
+      },
+
+      "typical_elements": {
+        "top_chord": 1,
+        "bottom_chord": 1,
+        "verticals": "panel_count - 1",
+        "diagonals": "panel_count"
+      },
+
+      "geometry": {
+        "verticals": "compression",
+        "diagonals": "tension (pointing toward center)",
+        "note": "하중이 위에서 오는 경우 효율적"
+      }
+    },
+
+    "multi_bay_portal_3d": {
+      "name": "다중 베이 포털 프레임 (3D/등각투상)",
+      "description": "H형강 기둥과 경사 보로 구성된 산업용 건물의 3D 등각투상 표현",
+      "typical_usage": ["공장", "창고", "물류센터", "격납고"],
+      "view_type": "isometric",
+
+      "default_dimensions": {
+        "num_bays": 2,
+        "bay_width_mm": 6000,
+        "building_depth_mm": 20000,
+        "eave_height_mm": 6000,
+        "ridge_height_mm": 7500,
+        "column_section": "H-400x200",
+        "rafter_section": "H-350x175",
+        "purlin_section": "C-150x75"
+      },
+
+      "default_proportions": {
+        "width_height_ratio": 2.0,
+        "eave_height_ratio": 0.8,
+        "roof_pitch_degrees": 10,
+        "depth_width_ratio": 1.67
+      },
+
+      "typical_elements": {
+        "columns_front": "num_bays + 1",
+        "columns_back": "num_bays + 1",
+        "rafters_front": 2,
+        "rafters_back": 2,
+        "purlins_per_slope": 6,
+        "eave_struts": "num_bays + 1",
+        "ridge_beam": 1,
+        "x_bracing_bays": 2
+      },
+
+      "layers": {
+        "COLUMN": {"color": 7, "description": "H형강 기둥"},
+        "BEAM": {"color": 4, "description": "경사보/래프터, 처마보"},
+        "PURLIN": {"color": 3, "description": "C형강 퍼린"},
+        "BRACING": {"color": 5, "description": "가새"},
+        "GIRT": {"color": 6, "description": "벽 가트"}
+      },
+
+      "drawing_sequence": [
+        {
+          "step": 1,
+          "name": "기둥 (전면 프레임)",
+          "elements": ["front_columns"],
+          "layer": "COLUMN",
+          "method": "draw_h_beam_segment",
+          "parallel": true
+        },
+        {
+          "step": 2,
+          "name": "기둥 (후면 프레임)",
+          "elements": ["back_columns"],
+          "layer": "COLUMN",
+          "method": "draw_h_beam_segment",
+          "parallel": true
+        },
+        {
+          "step": 3,
+          "name": "경사보 (전면)",
+          "elements": ["front_left_rafter", "front_right_rafter"],
+          "layer": "BEAM",
+          "method": "draw_h_beam_segment",
+          "parallel": true
+        },
+        {
+          "step": 4,
+          "name": "경사보 (후면)",
+          "elements": ["back_left_rafter", "back_right_rafter"],
+          "layer": "BEAM",
+          "method": "draw_h_beam_segment",
+          "parallel": true
+        },
+        {
+          "step": 5,
+          "name": "퍼린 (깊이 방향 배열)",
+          "elements": ["purlin_array_left_slope", "purlin_array_right_slope"],
+          "layer": "PURLIN",
+          "method": "draw_purlin_array",
+          "parallel": true,
+          "note": "퍼린은 Z축(깊이) 방향으로 연장"
+        },
+        {
+          "step": 6,
+          "name": "처마보/이브 스트럿",
+          "elements": ["eave_struts"],
+          "layer": "BEAM",
+          "method": "add_line",
+          "parallel": true
+        },
+        {
+          "step": 7,
+          "name": "용마루 보",
+          "elements": ["ridge_beam"],
+          "layer": "BEAM",
+          "method": "add_line"
+        },
+        {
+          "step": 8,
+          "name": "X-가새",
+          "elements": ["front_x_bracing", "back_x_bracing"],
+          "layer": "BRACING",
+          "method": "draw_x_bracing",
+          "parallel": true
+        }
+      ],
+
+      "isometric_settings": {
+        "projection_angle": 30,
+        "x_axis": "left-right (horizontal)",
+        "y_axis": "up-down (vertical)",
+        "z_axis": "front-back (depth)",
+        "scale_auto": true,
+        "canvas_fit_margin": 50
+      },
+
+      "coordinate_formulas_3d": {
+        "column": {
+          "front_x": "i * bay_width for i in range(num_bays + 1)",
+          "front_z": 0,
+          "back_z": "building_depth",
+          "bottom_y": 0,
+          "top_y": "eave_height"
+        },
+        "rafter": {
+          "left_start": "(0, eave_height, z)",
+          "left_end": "(total_width/2, ridge_height, z)",
+          "right_start": "(total_width, eave_height, z)",
+          "right_end": "(total_width/2, ridge_height, z)"
+        },
+        "purlin": {
+          "position_on_rafter": "equidistant along slope",
+          "direction": "z-axis (depth)",
+          "length": "building_depth"
+        }
+      },
+
+      "section_details": {
+        "h_beam_3d": {
+          "representation": "8-12 lines showing flanges and web",
+          "visibility": "context-dependent based on viewing angle",
+          "lines": {
+            "vertical_column": [
+              "left_flange_front", "left_flange_back",
+              "right_flange_front", "right_flange_back",
+              "top_cap_lines", "bottom_cap_lines"
+            ],
+            "horizontal_beam": [
+              "top_flange_front", "top_flange_back",
+              "bottom_flange_front", "bottom_flange_back",
+              "end_caps"
+            ]
+          }
+        },
+        "c_channel_3d": {
+          "representation": "3-5 lines showing web and flanges",
+          "lines": ["web_line", "top_flange", "bottom_flange"]
+        }
+      }
+    }
+  },
+
+  "element_patterns": {
+    "h_beam_2d": {
+      "description": "H형강 2D 표현 (8개 LINE)",
+      "lines": [
+        {"name": "top_flange_top", "from": "(-fw/2, h/2)", "to": "(fw/2, h/2)"},
+        {"name": "top_flange_bottom", "from": "(-fw/2, h/2-ft)", "to": "(fw/2, h/2-ft)"},
+        {"name": "top_flange_left", "from": "(-fw/2, h/2)", "to": "(-fw/2, h/2-ft)"},
+        {"name": "top_flange_right", "from": "(fw/2, h/2)", "to": "(fw/2, h/2-ft)"},
+        {"name": "bottom_flange_top", "from": "(-fw/2, -h/2+ft)", "to": "(fw/2, -h/2+ft)"},
+        {"name": "bottom_flange_bottom", "from": "(-fw/2, -h/2)", "to": "(fw/2, -h/2)"},
+        {"name": "web_left", "from": "(-wt/2, h/2-ft)", "to": "(-wt/2, -h/2+ft)"},
+        {"name": "web_right", "from": "(wt/2, h/2-ft)", "to": "(wt/2, -h/2+ft)"}
+      ],
+      "parameters": {
+        "fw": "flange_width",
+        "h": "total_height",
+        "ft": "flange_thickness",
+        "wt": "web_thickness"
+      }
+    },
+
+    "bolt_connection": {
+      "description": "볼트 연결 패턴",
+      "patterns": {
+        "single_row": {
+          "count": 2,
+          "spacing": "60mm typical"
+        },
+        "double_row": {
+          "count": 4,
+          "row_spacing": "80mm",
+          "col_spacing": "60mm"
+        },
+        "staggered": {
+          "count": 6,
+          "pattern": "지그재그 배치"
+        }
+      }
+    }
+  },
+
+  "scale_guidelines": {
+    "description": "도면 스케일 가이드라인",
+    "canvas_sizes": {
+      "small": {"width": 400, "height": 300, "margin": 30},
+      "medium": {"width": 800, "height": 500, "margin": 50},
+      "large": {"width": 1200, "height": 700, "margin": 80}
+    },
+    "element_sizes": {
+      "bolt_diameter": {"small": 8, "medium": 12, "large": 16},
+      "text_height": {"small": 3, "medium": 5, "large": 8},
+      "line_weight": "ByLayer 사용 권장"
+    }
+  }
+}
