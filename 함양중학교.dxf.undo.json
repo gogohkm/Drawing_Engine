@@ -1,0 +1,48 @@
+{
+  "formatId": "stgen-dxf-undo-v1",
+  "version": "1.0",
+  "fileHash": "-24389e13",
+  "lastModified": 1768294511791,
+  "undoStack": [
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768294509714,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "그래픽 객체",
+            "color": 1,
+            "data": {
+              "vertices": [
+                {
+                  "x": 7400,
+                  "y": 4600
+                },
+                {
+                  "x": 11400,
+                  "y": 4600
+                },
+                {
+                  "x": 11400,
+                  "y": 5800
+                },
+                {
+                  "x": 7400,
+                  "y": 5800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          88384
+        ]
+      }
+    }
+  ],
+  "redoStack": []
+}

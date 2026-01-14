@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch:*)",
+      "Bash(git reset:*)",
+      "Bash(wc:*)",
+      "Bash(grep:*)",
+      "Bash(node -e \"\nconst net = require\\(''net''\\);\nconst client = new net.Socket\\(\\);\n\nclient.connect\\(52789, ''localhost'', \\(\\) => {\n  const request = JSON.stringify\\({\n    jsonrpc: ''2.0'',\n    id: 1,\n    method: ''tools/call'',\n    params: {\n      name: ''capture_dxf_view'',\n      arguments: {}\n    }\n  }\\);\n  client.write\\(request + ''\\\\n''\\);\n}\\);\n\nclient.on\\(''data'', \\(data\\) => {\n  console.log\\(data.toString\\(\\)\\);\n  client.destroy\\(\\);\n}\\);\n\nclient.on\\(''error'', \\(err\\) => {\n  console.error\\(''Connection error:'', err.message\\);\n}\\);\n\")",
+      "Bash(curl:*)",
+      "mcp__stgen-dxf-viewer__capture_dxf_view",
+      "mcp__stgen-dxf-viewer__get_dxf_summary",
+      "mcp__stgen-dxf-viewer__get_background_images",
+      "Bash(python image_vectorizer.py:*)",
+      "Bash(copy \"c:\\\\Coding_Works\\\\Drawing_Engine\\\\test11.dxf\" \"c:\\\\Coding_Works\\\\Drawing_Engine\\\\steel_structure.dxf\")",
+      "Bash(for t in 50 80 100 150 180 200)",
+      "Bash(do echo \"=== threshold: $t ===\")",
+      "Bash(done)",
+      "mcp__stgen-dxf-viewer__get_dxf_status",
+      "mcp__stgen-dxf-viewer__create_layer",
+      "mcp__stgen-dxf-viewer__set_current_layer",
+      "mcp__stgen-dxf-viewer__create_line"
+    ]
+  }
+}
