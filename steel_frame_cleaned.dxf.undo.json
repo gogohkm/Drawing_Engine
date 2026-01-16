@@ -1,0 +1,569 @@
+{
+  "formatId": "stgen-dxf-undo-v1",
+  "version": "1.0",
+  "fileHash": "-55b02b3a",
+  "lastModified": 1768377979599,
+  "undoStack": [
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377944913,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 52,
+                "y": 55
+              },
+              "end": {
+                "x": 52,
+                "y": 120
+              }
+            }
+          }
+        ],
+        "indices": [
+          24963
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377945012,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 72,
+                "y": 55
+              },
+              "end": {
+                "x": 72,
+                "y": 122
+              }
+            }
+          }
+        ],
+        "indices": [
+          24964
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377945107,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 95,
+                "y": 55
+              },
+              "end": {
+                "x": 95,
+                "y": 125
+              }
+            }
+          }
+        ],
+        "indices": [
+          24965
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377945190,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 130,
+                "y": 55
+              },
+              "end": {
+                "x": 130,
+                "y": 118
+              }
+            }
+          }
+        ],
+        "indices": [
+          24966
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377952829,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 52,
+                "y": 120
+              },
+              "end": {
+                "x": 95,
+                "y": 135
+              }
+            }
+          }
+        ],
+        "indices": [
+          24967
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377952911,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 95,
+                "y": 135
+              },
+              "end": {
+                "x": 130,
+                "y": 118
+              }
+            }
+          }
+        ],
+        "indices": [
+          24968
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377952984,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 72,
+                "y": 122
+              },
+              "end": {
+                "x": 95,
+                "y": 130
+              }
+            }
+          }
+        ],
+        "indices": [
+          24969
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377953058,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 95,
+                "y": 130
+              },
+              "end": {
+                "x": 130,
+                "y": 118
+              }
+            }
+          }
+        ],
+        "indices": [
+          24970
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377961281,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 52,
+                "y": 100
+              },
+              "end": {
+                "x": 130,
+                "y": 100
+              }
+            }
+          }
+        ],
+        "indices": [
+          24971
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377961357,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 52,
+                "y": 85
+              },
+              "end": {
+                "x": 130,
+                "y": 85
+              }
+            }
+          }
+        ],
+        "indices": [
+          24972
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377961437,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 52,
+                "y": 68
+              },
+              "end": {
+                "x": 130,
+                "y": 68
+              }
+            }
+          }
+        ],
+        "indices": [
+          24973
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377961513,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 52,
+                "y": 55
+              },
+              "end": {
+                "x": 130,
+                "y": 55
+              }
+            }
+          }
+        ],
+        "indices": [
+          24974
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377969306,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 55,
+                "y": 121
+              },
+              "end": {
+                "x": 127,
+                "y": 119
+              }
+            }
+          }
+        ],
+        "indices": [
+          24975
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377969398,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 60,
+                "y": 123
+              },
+              "end": {
+                "x": 95,
+                "y": 131
+              }
+            }
+          }
+        ],
+        "indices": [
+          24976
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377969479,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 65,
+                "y": 125
+              },
+              "end": {
+                "x": 95,
+                "y": 132
+              }
+            }
+          }
+        ],
+        "indices": [
+          24977
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377969560,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 52,
+                "y": 110
+              },
+              "end": {
+                "x": 130,
+                "y": 110
+              }
+            }
+          }
+        ],
+        "indices": [
+          24978
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377977309,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 52,
+                "y": 55
+              },
+              "end": {
+                "x": 72,
+                "y": 85
+              }
+            }
+          }
+        ],
+        "indices": [
+          24979
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377977399,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 72,
+                "y": 55
+              },
+              "end": {
+                "x": 52,
+                "y": 85
+              }
+            }
+          }
+        ],
+        "indices": [
+          24980
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377977488,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 95,
+                "y": 85
+              },
+              "end": {
+                "x": 130,
+                "y": 110
+              }
+            }
+          }
+        ],
+        "indices": [
+          24981
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768377977574,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "STRUCTURE",
+            "color": 1,
+            "data": {
+              "start": {
+                "x": 130,
+                "y": 85
+              },
+              "end": {
+                "x": 95,
+                "y": 110
+              }
+            }
+          }
+        ],
+        "indices": [
+          24982
+        ]
+      }
+    }
+  ],
+  "redoStack": []
+}

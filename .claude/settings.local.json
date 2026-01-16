@@ -18,7 +18,13 @@
       "mcp__stgen-dxf-viewer__get_dxf_status",
       "mcp__stgen-dxf-viewer__create_layer",
       "mcp__stgen-dxf-viewer__set_current_layer",
-      "mcp__stgen-dxf-viewer__create_line"
+      "mcp__stgen-dxf-viewer__create_line",
+      "Bash(for:*)",
+      "Bash(do echo \"=== threshold: $t, epsilon: 0.05 ===\")",
+      "mcp__stgen-dxf-viewer__erase_by_bounds",
+      "mcp__stgen-dxf-viewer__analyze_region",
+      "mcp__stgen-dxf-viewer__find_entities",
+      "Bash(python:*)"
     ]
   }
 }
