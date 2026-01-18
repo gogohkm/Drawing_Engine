@@ -23,10 +23,18 @@ import json
 import math
 import struct
 import sys
-import zlib
-from dataclasses import dataclass, field
-from typing import List, Tuple, Dict, Optional, Set
+import base64
+from typing import List, Dict, Tuple, Optional, NamedTuple, Any
+
+# OpenCV (PnP 계산용) - 선택적 의존성
+try:
+    import cv2
+    import numpy as np
+    HAS_CV2 = True
+except ImportError:
+    HAS_CV2 = False
 from collections import deque
+from dataclasses import dataclass, field
 
 
 # ============ PNG 디코더 (순수 Python, zlib 사용) ============
@@ -1410,6 +1418,192 @@ class ImageVectorizer:
         self.output_scale = 1.0       # 출력 스케일
         self.output_offset = Point(0, 0)  # 출력 오프셋
         self.flip_y = True            # Y축 반전 (이미지는 위가 0, DXF는 아래가 0)
+        
+        # PnP 변환 설정
+        self.pnp_enabled = False
+        self.pnp_r_matrix = None      # 3x3 Rotation matrix
+        self.pnp_t_vec = None         # 3x1 Translation vector
+        self.pnp_camera_matrix = None # 3x3 Camera matrix
+        
+        # Homography (평면 기반 측정용)
+        self.homography_matrix = None
+        self.homography_inverse = None
+        self.homography_metadata = {}
+
+    def set_pnp_pose(self, r_matrix: List[List[float]], t_vec: List[float], camera_matrix: List[List[float]]):
+        """PnP 자세 매개변수 설정"""
+        self.pnp_enabled = True
+        self.pnp_r_matrix = r_matrix
+        self.pnp_t_vec = t_vec
+        self.pnp_camera_matrix = camera_matrix
+
+    def calculate_pnp(self, points2d: List[Dict], points3d: List[Dict], camera_matrix: List[List[float]]) -> Dict[str, Any]:
+        """
+        OpenCV(cv2)를 사용하여 PnP 자세 계산.
+        성공 시 회전/이동 행렬을 저장하고 통계(재투영 오차, 인라이어)를 반환.
+        """
+        if not HAS_CV2:
+            return {"success": False, "error": "opencv-python (cv2) is not installed."}
+
+        try:
+            # 1. 데이터 준비
+            img_pts = np.array([[p['x'], p['y']] for p in points2d], dtype=np.float32)
+            obj_pts = np.array([[p['x'], p['y'], p['z']] for p in points3d], dtype=np.float32)
+            k_mtx = np.array(camera_matrix, dtype=np.float32)
+            dist_coeffs = np.zeros(5, dtype=np.float32)  # 왜곡 없음 가정
+
+            # 2. PnP 문제 풀기 (RANSAC 사용)
+            success, rvec, tvec, inliers = cv2.solvePnPRansac(
+                obj_pts, img_pts, k_mtx, dist_coeffs,
+                flags=cv2.SOLVEPNP_ITERATIVE,
+                reprojectionError=20.0,  # 오차 허용 범위 확대
+                iterationsCount=200
+            )
+
+            # RANSAC 실패 시 일반 solvePnP 시도 (최소 4점 필요)
+            if not success or inliers is None or len(inliers) < 4:
+                success, rvec, tvec = cv2.solvePnP(
+                    obj_pts, img_pts, k_mtx, dist_coeffs,
+                    flags=cv2.SOLVEPNP_ITERATIVE
+                )
+                if success:
+                    inliers = np.arange(len(obj_pts))
+                else:
+                    return {"success": False, "error": "cv2.solvePnP failed."}
+
+            # 3. Rodrigues 변환 (rvec -> 3x3 R matrix)
+            rmat, _ = cv2.Rodrigues(rvec)
+
+            # 4. 품질 지표 계산 (Reprojection Error)
+            projected_pts, _ = cv2.projectPoints(obj_pts, rvec, tvec, k_mtx, dist_coeffs)
+            projected_pts = projected_pts.squeeze()
+            errors = np.linalg.norm(projected_pts - img_pts, axis=1)
+            mean_error = float(np.mean(errors))
+            
+            # 인라이어(Inliers) 수 추출
+            inlier_count = len(inliers) if inliers is not None else 0
+
+            # 5. 결과 저장
+            self.pnp_r_matrix = rmat.tolist()
+            self.pnp_t_vec = tvec.flatten().tolist()
+            self.pnp_camera_matrix = camera_matrix
+            self.pnp_enabled = True
+            
+            return {
+                "success": True,
+                "repro_error": round(mean_error, 4),
+                "inliers": inlier_count,
+                "rvec": rvec.flatten().tolist(),
+                "tvec": tvec.flatten().tolist()
+            }
+        except Exception as e:
+            return {"success": False, "error": f"PnP calculation failed: {str(e)}"}
+
+    def world_to_pixel(self, x: float, y: float, z: float) -> Optional[Dict[str, float]]:
+        """
+        CAD 좌표 (X, Y, Z)를 현재 PnP 자세를 사용하여 픽셀 좌표 (u, v)로 투영.
+        검증용(Feature C).
+        """
+        if not self.pnp_enabled or not HAS_CV2:
+            return None
+            
+        try:
+            obj_pts = np.array([[x, y, z]], dtype=np.float32)
+            k_mtx = np.array(self.pnp_camera_matrix, dtype=np.float32)
+            rmat = np.array(self.pnp_r_matrix, dtype=np.float32)
+            rvec, _ = cv2.Rodrigues(rmat)
+            tvec = np.array(self.pnp_t_vec, dtype=np.float32)
+            dist_coeffs = np.zeros(5, dtype=np.float32)
+
+            img_pts, _ = cv2.projectPoints(obj_pts, rvec, tvec, k_mtx, dist_coeffs)
+            u, v = img_pts.squeeze()
+            return {"x": float(u), "y": float(v)}
+        except Exception:
+            return None
+
+    # ============ Homography (평면 변환) 로직 ============
+
+    def calculate_homography(self, src_pts: List[Dict], span_mm: float, height_mm: Optional[float] = None) -> Dict:
+        """
+        4개 포인트와 기준 치수를 이용해 호모그래피 행렬 계산
+        
+        Args:
+            src_pts: 이미지 상의 4개 점 [{'x': u, 'y': v}, ...] (A, B, C, D 순서)
+            span_mm: 기준 폭 (A-B 거리)
+            height_mm: 기준 높이 (A-D 거리), 생략 시 이미지 비율로 자동 계산
+        """
+        if not HAS_CV2:
+            return {"success": False, "error": "OpenCV is required"}
+            
+        if len(src_pts) != 4:
+            return {"success": False, "error": "Exactly 4 points are required"}
+
+        try:
+            # 1. 소스 포인트 준비
+            pts_src = np.array([[p['x'], p['y']] for p in src_pts], dtype=np.float32)
+            
+            # 2. 타겟 포인트 (평면 mm 좌표) 설정
+            L = float(span_mm)
+            if height_mm:
+                Ly = float(height_mm)
+            else:
+                # 이미지에서의 픽셀 거리비를 사용하여 Ly 추정
+                len_ab_px = np.linalg.norm(pts_src[1] - pts_src[0])
+                len_ad_px = np.linalg.norm(pts_src[3] - pts_src[0])
+                r = len_ad_px / len_ab_px if len_ab_px > 0 else 1.0
+                Ly = r * L
+                
+            pts_dst = np.array([
+                [0, 0],    # A'
+                [L, 0],    # B'
+                [L, Ly],   # C'
+                [0, Ly]    # D'
+            ], dtype=np.float32)
+            
+            # 3. 호모그래피 계산
+            H, _ = cv2.findHomography(pts_src, pts_dst)
+            if H is None:
+                return {"success": False, "error": "Failed to find homography"}
+                
+            H = H.astype(float) # float32 -> float64 (JSON serializable)
+            self.homography_matrix = H.tolist()
+            self.homography_inverse = np.linalg.inv(H).tolist()
+            self.homography_metadata = {
+                "span_mm": float(L),
+                "height_mm": float(Ly),
+                "src_points": src_pts
+            }
+            
+            return {
+                "success": True, 
+                "h_matrix": self.homography_matrix,
+                "span_mm": float(L),
+                "height_mm": float(Ly)
+            }
+        except Exception as e:
+            return {"success": False, "error": str(e)}
+
+    def transform_point_homography(self, u: float, v: float) -> Optional[List[float]]:
+        """이미지 픽셀 (u, v)를 평면 (X, Y) mm 좌표로 변환"""
+        if self.homography_matrix is None:
+            return None
+            
+        H = np.array(self.homography_matrix)
+        p = np.array([u, v, 1.0])
+        q = H @ p
+        if abs(q[2]) < 1e-12:
+            return None
+        return [float(q[0]/q[2]), float(q[1]/q[2])]
+
+    def get_homography_distance(self, p1_uv: List[float], p2_uv: List[float]) -> Optional[float]:
+        """두 픽셀 사이의 평면상 실측 거리(mm) 계산"""
+        x1 = self.transform_point_homography(p1_uv[0], p1_uv[1])
+        x2 = self.transform_point_homography(p2_uv[0], p2_uv[1])
+        
+        if x1 is None or x2 is None:
+            return None
+            
+        return float(((x1[0]-x2[0])**2 + (x1[1]-x2[1])**2)**0.5)
 
     def load_image(self, filepath: str) -> bool:
         """이미지 파일 로드 (PNG, JPEG, PPM 지원 - 의존성 없음)"""
@@ -1534,8 +1728,11 @@ class ImageVectorizer:
             self.lines.append(Line(start=start, end=end))
 
     def _transform_point(self, point: Point) -> Point:
-        """좌표 변환 (스케일, 오프셋, Y반전)"""
-        # X/Y 독립 스케일 적용 (set_output_bounds에서 설정)
+        """좌표 변환 (PnP 기반 또는 스케일/오프셋 기반)"""
+        if self.pnp_enabled and self.pnp_r_matrix and self.pnp_t_vec and self.pnp_camera_matrix:
+            return self._transform_point_pnp(point)
+            
+        # 기본 스케일/오프셋 기반 변환
         scale_x = getattr(self, 'output_scale_x', self.output_scale)
         scale_y = getattr(self, 'output_scale_y', self.output_scale)
 
@@ -1550,6 +1747,55 @@ class ImageVectorizer:
         y += self.output_offset.y
 
         return Point(x, y)
+
+    def _transform_point_pnp(self, point: Point, plane_z: float = 0.0) -> Point:
+        """
+        PnP 자세 정보를 이용한 픽셀 -> CAD 좌표 변환 (순수 Python)
+        Z=plane_z 평면과의 교점을 계산
+        """
+        try:
+            # 1. 카메라 매트릭스 역행렬 (3x3)
+            K = self.pnp_camera_matrix
+            # 단순화를 위해 3x3 역행렬 직접 계산 (보통 대각 성분 위주임)
+            det_K = K[0][0] * K[1][1] # K[0][1], K[1][0] 등이 0이라고 가정
+            if det_K == 0: return Point(0, 0)
+            
+            # K_inv * [u, v, 1]
+            # u_norm = (u - cx) / fx
+            # v_norm = (v - cy) / fy
+            u_norm = (point.x - K[0][2]) / K[0][0]
+            v_norm = (point.y - K[1][2]) / K[1][1]
+            
+            # 2. 카메라 좌표계에서의 광선 방향 vector (u_norm, v_norm, 1.0)
+            # 3. 세계 좌표계로 회전 (R_inv * ray_cam)
+            # R이 직교 행렬이므로 R_inv = R_transposed
+            R = self.pnp_r_matrix
+            ray_world = [
+                R[0][0] * u_norm + R[1][0] * v_norm + R[2][0] * 1.0,
+                R[0][1] * u_norm + R[1][1] * v_norm + R[2][1] * 1.0,
+                R[0][2] * u_norm + R[1][2] * v_norm + R[2][2] * 1.0
+            ]
+            
+            # 4. 카메라 위치 (C = -R_inv * t)
+            t = self.pnp_t_vec
+            cam_pos = [
+                -(R[0][0] * t[0] + R[1][0] * t[1] + R[2][0] * t[2]),
+                -(R[0][1] * t[0] + R[1][1] * t[1] + R[2][1] * t[2]),
+                -(R[0][2] * t[0] + R[1][2] * t[1] + R[2][2] * t[2])
+            ]
+            
+            # 5. Ray-Plane intersection: P = C + k*ray_world
+            # P_z = plane_z => cam_pos_z + k * ray_world_z = plane_z
+            if abs(ray_world[2]) < 1e-6: return Point(0, 0)
+            
+            k = (plane_z - cam_pos[2]) / ray_world[2]
+            
+            return Point(
+                cam_pos[0] + k * ray_world[0],
+                cam_pos[1] + k * ray_world[1]
+            )
+        except Exception:
+            return Point(0, 0)
 
     def set_output_bounds(self, x: float, y: float, width: float, height: float):
         """
@@ -1624,6 +1870,124 @@ class ImageVectorizer:
             "total_steps": len(sequence),
             "sequence": sequence
         }
+
+
+def cli_vectorize_pnp(image_path: str, r_json: str, t_json: str, k_json: str, options_json: str = "{}") -> str:
+    """PnP 자세 정보 또는 매칭 포인트를 이용한 이미지 벡터화 CLI"""
+    try:
+        r_data = json.loads(r_json)
+        t_data = json.loads(t_json)
+        camera_matrix = json.loads(k_json)
+        options = json.loads(options_json)
+        
+        vectorizer = ImageVectorizer()
+        pnp_metrics = {}
+        
+        # r_data가 포인트 리스트인 경우 PnP 계산 수행
+        if isinstance(r_data, list) and isinstance(t_data, list) and len(r_data) >= 4:
+            res = vectorizer.calculate_pnp(r_data, t_data, camera_matrix)
+            if not res["success"]:
+                return json.dumps({"error": res["error"]})
+            pnp_metrics = {
+                "repro_error": res.get("repro_error"),
+                "inliers": res.get("inliers")
+            }
+        else:
+            vectorizer.set_pnp_pose(r_data, t_data, camera_matrix)
+        
+        # 옵션 설정
+        vectorizer.mode = options.get("mode", "edge")
+        vectorizer.threshold = options.get("threshold", 128)
+        vectorizer.edge_threshold = options.get("edge_threshold", 50)
+        vectorizer.simplify_epsilon = options.get("epsilon", 2.0)
+
+        # 이미지 로드
+        if not vectorizer.load_image(image_path):
+            return json.dumps({"error": f"Failed to load image: {image_path}"})
+
+        # 벡터화
+        vectorizer.vectorize()
+
+        # MCP 시퀀스 생성
+        layer = options.get("layer", "PnP_TRACE")
+        result = vectorizer.generate_mcp_sequence(layer)
+        
+        # PnP 메트릭 주입
+        if pnp_metrics:
+            result["pnp_metrics"] = pnp_metrics
+
+        return json.dumps(result, ensure_ascii=False, indent=2)
+
+    except Exception as e:
+        return json.dumps({"error": str(e)})
+
+
+def cli_vectorize_pnp_to_dxf(image_path: str, r_json: str, t_json: str, k_json: str, dxf_path: str, options_json: str = "{}") -> str:
+    """
+    PnP 자세 정보를 이용해 이미지를 벡터화하고 DXF 파일에 직접 쓰기 (고성능)
+    """
+    import time
+    start_time = time.time()
+
+    try:
+        r_data = json.loads(r_json)
+        t_data = json.loads(t_json)
+        camera_matrix = json.loads(k_json)
+        options = json.loads(options_json)
+        
+        vectorizer = ImageVectorizer()
+        pnp_metrics = None
+        
+        # r_data가 포인트 리스트인 경우 PnP 계산 수행
+        if isinstance(r_data, list) and isinstance(t_data, list) and len(r_data) >= 4:
+            res = vectorizer.calculate_pnp(r_data, t_data, camera_matrix)
+            if not res["success"]:
+                return json.dumps({"error": res["error"]})
+            pnp_metrics = {
+                "repro_error": res.get("repro_error"),
+                "inliers": res.get("inliers")
+            }
+        else:
+            vectorizer.set_pnp_pose(r_data, t_data, camera_matrix)
+        
+        # 옵션 설정
+        vectorizer.mode = options.get("mode", "edge")
+        vectorizer.threshold = options.get("threshold", 128)
+        vectorizer.edge_threshold = options.get("edge_threshold", 50)
+        vectorizer.simplify_epsilon = options.get("epsilon", 2.0)
+
+        # 이미지 로드
+        if not vectorizer.load_image(image_path):
+            return json.dumps({"error": f"Failed to load image: {image_path}"})
+
+        # 벡터화
+        vectorizer.vectorize()
+
+        if not vectorizer.lines:
+            return json.dumps({"error": "No lines generated"})
+
+        # DXF 파일에 직접 쓰기
+        layer = options.get("layer", "PnP_TRACE")
+        result = write_lines_to_dxf(vectorizer.lines, dxf_path, layer)
+
+        elapsed = time.time() - start_time
+
+        output = {
+            "success": True,
+            "lines_added": len(vectorizer.lines),
+            "dxf_path": dxf_path,
+            "layer": layer,
+            "elapsed_seconds": round(elapsed, 2),
+            "message": f"{len(vectorizer.lines)}개 선을 PnP 변환 후 DXF에 직접 추가 완료."
+        }
+        if pnp_metrics:
+            output["pnp_metrics"] = pnp_metrics
+
+        return json.dumps(output, ensure_ascii=False, indent=2)
+
+    except Exception as e:
+        import traceback
+        return json.dumps({"error": str(e), "traceback": traceback.format_exc()})
 
 
 # ============ CLI 함수들 ============
@@ -1766,6 +2130,31 @@ def write_lines_to_dxf(lines: List[Line], dxf_path: str, layer: str = "TRACE") -
         결과 정보
     """
     # DXF 파일 읽기
+    import os
+    if not os.path.exists(dxf_path):
+        # 최소 DXF 템플릿 생성
+        template = """  0
+SECTION
+  2
+HEADER
+  9
+$ACADVER
+  1
+AC1015
+  0
+ENDSEC
+  0
+SECTION
+  2
+ENTITIES
+  0
+ENDSEC
+  0
+EOF
+"""
+        with open(dxf_path, 'w', encoding='utf-8') as f:
+            f.write(template)
+
     with open(dxf_path, 'r', encoding='utf-8', errors='ignore') as f:
         content = f.read()
 
@@ -2155,13 +2544,136 @@ if __name__ == "__main__":
         options_json = sys.argv[4] if len(sys.argv) > 4 else "{}"
         print(cli_vectorize_base64(base64_data, bg_json, options_json))
 
-    elif cmd == "vectorize_base64_to_dxf" and len(sys.argv) >= 5:
-        # Base64 이미지 → DXF 직접 쓰기 (빠름, PIL 불필요)
-        base64_data = sys.argv[2]
-        bg_json = sys.argv[3]
-        dxf_path = sys.argv[4]
+    elif cmd == "vectorize_pnp" and len(sys.argv) >= 6:
+        image_path = sys.argv[2]
+        r_json = sys.argv[3]
+        t_json = sys.argv[4]
+        k_json = sys.argv[5]
+        options_json = sys.argv[6] if len(sys.argv) > 6 else "{}"
+        print(cli_vectorize_pnp(image_path, r_json, t_json, k_json, options_json))
+
+    elif cmd == "vectorize_pnp" and len(sys.argv) >= 6:
+        image_path = sys.argv[2]
+        r_json = sys.argv[3]
+        t_json = sys.argv[4]
+        k_json = sys.argv[5]
+        options_json = sys.argv[6] if len(sys.argv) > 6 else "{}"
+        print(cli_vectorize_pnp(image_path, r_json, t_json, k_json, options_json))
+
+    elif cmd == "vectorize_pnp_to_dxf" and len(sys.argv) >= 7:
+        image_path = sys.argv[2]
+        r_json = sys.argv[3]
+        t_json = sys.argv[4]
+        k_json = sys.argv[5]
+        dxf_path = sys.argv[6]
+        options_json = sys.argv[7] if len(sys.argv) > 7 else "{}"
+        print(cli_vectorize_pnp_to_dxf(image_path, r_json, t_json, k_json, dxf_path, options_json))
+
+    elif cmd == "vectorize_homography" and len(sys.argv) >= 5:
+        image_path = sys.argv[2]
+        pts_json = sys.argv[3]
+        span_mm = float(sys.argv[4])
         options_json = sys.argv[5] if len(sys.argv) > 5 else "{}"
-        print(cli_vectorize_base64_to_dxf(base64_data, bg_json, dxf_path, options_json))
+        
+        vectorizer = ImageVectorizer()
+        pts = json.loads(pts_json)
+        res = vectorizer.calculate_homography(pts, span_mm)
+        if not res["success"]:
+            print(json.dumps(res))
+            sys.exit(1)
+            
+        options = json.loads(options_json)
+        vectorizer.mode = options.get("mode", "edge")
+        vectorizer.edge_threshold = options.get("edge_threshold", 50)
+        vectorizer.simplify_epsilon = options.get("epsilon", 2.0)
+        
+        if not vectorizer.load_image(image_path):
+            print(json.dumps({"error": "Load failed"}))
+            sys.exit(1)
+            
+        vectorizer.vectorize()
+        # Homography 기반 변환은 vectorize() 내부에서 PnP가 꺼져있으면 기본 scale만 적용됨.
+        # 여기서는 "평면 좌표계"로 변환된 DXF를 원하는 경우:
+        for line in vectorizer.lines:
+            p1 = vectorizer.transform_point_homography(line.start.x / vectorizer.output_scale_x, 
+                                                      line.start.y / vectorizer.output_scale_y)
+            p2 = vectorizer.transform_point_homography(line.end.x / vectorizer.output_scale_x, 
+                                                      line.end.y / vectorizer.output_scale_y)
+            if p1 and p2:
+                line.start = Point(p1[0], p1[1])
+                line.end = Point(p2[0], p2[1])
+                
+        print(json.dumps(vectorizer.generate_mcp_sequence(options.get("layer", "HOMOGRAPHY_TRACE"))))
+
+    elif cmd == "vectorize_perspective" and len(sys.argv) >= 3:
+        image_path = sys.argv[2]
+        options_json = sys.argv[3] if len(sys.argv) > 3 else "{}"
+        
+        vectorizer = ImageVectorizer()
+        options = json.loads(options_json)
+        
+        vectorizer.mode = options.get("mode", "edge")
+        vectorizer.edge_threshold = options.get("edge_threshold", 50)
+        vectorizer.simplify_epsilon = options.get("epsilon", 2.0)
+        
+        if not vectorizer.load_image(image_path):
+            print(json.dumps({"error": "Load failed"}))
+            sys.exit(1)
+            
+        # 원근 그대로 유지 (1:1 매핑)
+        vectorizer.set_output_bounds(0, 0, vectorizer.binary_image.width, vectorizer.binary_image.height)
+        vectorizer.vectorize()
+        
+        print(json.dumps(vectorizer.generate_mcp_sequence(options.get("layer", "PERSPECTIVE_TRACE"))))
+
+    elif cmd == "measure_distance_homography" and len(sys.argv) >= 6:
+        # p1_x, p1_y, p2_x, p2_y, h_matrix_json
+        p1 = [float(sys.argv[2]), float(sys.argv[3])]
+        p2 = [float(sys.argv[4]), float(sys.argv[5])]
+        h_matrix = json.loads(sys.argv[6])
+        
+        vectorizer = ImageVectorizer()
+        vectorizer.homography_matrix = h_matrix
+        
+        dist = vectorizer.get_homography_distance(p1, p2)
+        print(json.dumps({"success": True, "distance_mm": dist}))
+
+    elif cmd == "calibrate_homography" and len(sys.argv) >= 4:
+        # pts_json, span_mm, height_mm(optional)
+        pts = json.loads(sys.argv[2])
+        span_mm = float(sys.argv[3])
+        height_mm = float(sys.argv[4]) if len(sys.argv) > 4 else None
+        
+        vectorizer = ImageVectorizer()
+        res = vectorizer.calculate_homography(pts, span_mm, height_mm)
+        print(json.dumps(res))
+
+    elif cmd == "vectorize_perspective_to_dxf" and len(sys.argv) >= 4:
+        image_path = sys.argv[2]
+        dxf_path = sys.argv[3]
+        options_json = sys.argv[4] if len(sys.argv) > 4 else "{}"
+        
+        vectorizer = ImageVectorizer()
+        options = json.loads(options_json)
+        
+        vectorizer.mode = options.get("mode", "edge")
+        vectorizer.edge_threshold = options.get("edge_threshold", 50)
+        vectorizer.simplify_epsilon = options.get("epsilon", 2.0)
+        
+        if not vectorizer.load_image(image_path):
+            print(json.dumps({"error": "Load failed"}))
+            sys.exit(1)
+            
+        vectorizer.set_output_bounds(0, 0, vectorizer.binary_image.width, vectorizer.binary_image.height)
+        vectorizer.vectorize()
+        
+        if not vectorizer.lines:
+            print(json.dumps({"error": "No lines"}))
+            sys.exit(1)
+            
+        layer = options.get("layer", "PERSPECTIVE_TRACE")
+        res = write_lines_to_dxf(vectorizer.lines, dxf_path, layer)
+        print(json.dumps(res, ensure_ascii=False))
 
     else:
         print(json.dumps({"error": f"Unknown command: {cmd}"}))

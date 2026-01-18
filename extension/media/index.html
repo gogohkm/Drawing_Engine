@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PnP Registration Tool</title>
+    <style>
+        body {
+            font-family: var(--vscode-font-family);
+            color: var(--vscode-foreground);
+            background-color: var(--vscode-editor-background);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        canvas {
+            border: 1px solid var(--vscode-panel-border);
+            cursor: crosshair;
+            max-width: 100%;
+            height: auto;
+            background-color: #000;
+        }
+
+        .controls {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+            background-color: var(--vscode-button-background);
+            color: var(--vscode-button-foreground);
+            border: none;
+            border-radius: 2px;
+        }
+
+        button:hover {
+            background-color: var(--vscode-button-hoverBackground);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #pnp-status {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: var(--vscode-descriptionForeground);
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Photo-to-CAD Registration (PnP)</h2>
+        <canvas id="image-canvas"></canvas>
+
+        <div class="controls">
+            <button id="solve-pnp-btn" disabled>Solve PnP (Python Backend)</button>
+            <button id="reset-btn">Reset Points</button>
+        </div>
+
+        <div id="pnp-status">Loading photo...</div>
+    </div>
+
+    <!-- main.js handles point collection and communication -->
+    <script src="main.js"></script>
+    document.getElementById('pnp-status').style.color = "red";
+    }
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+    // Basic reset logic - can be expanded in main.js
+    location.reload();
+    });
+    </script>
+</body>
+
+</html>
