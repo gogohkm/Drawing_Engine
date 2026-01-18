@@ -24,7 +24,9 @@
       "mcp__stgen-dxf-viewer__erase_by_bounds",
       "mcp__stgen-dxf-viewer__analyze_region",
       "mcp__stgen-dxf-viewer__find_entities",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(ls:*)",
+      "Bash(du -sh:*)"
     ]
   }
 }
