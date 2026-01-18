@@ -26,7 +26,10 @@
       "mcp__stgen-dxf-viewer__find_entities",
       "Bash(python:*)",
       "Bash(ls:*)",
-      "Bash(du -sh:*)"
+      "Bash(du -sh:*)",
+      "Bash(find:*)",
+      "Bash(.venv/bin/python:*)",
+      "Bash(code:*)"
     ]
   }
 }
