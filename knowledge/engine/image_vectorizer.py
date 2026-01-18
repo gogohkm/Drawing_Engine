@@ -768,15 +768,16 @@ def load_image_native(filepath: str) -> Tuple[int, int, List[List[int]]]:
 class Point:
     x: float
     y: float
+    z: float = 0.0
 
     def __hash__(self):
-        return hash((self.x, self.y))
+        return hash((self.x, self.y, self.z))
 
     def __eq__(self, other):
-        return self.x == other.x and self.y == other.y
+        return self.x == other.x and self.y == other.y and self.z == other.z
 
     def distance_to(self, other: 'Point') -> float:
-        return math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2)
+        return math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2 + (self.z - other.z)**2)
 
 
 @dataclass
@@ -1732,6 +1733,15 @@ class ImageVectorizer:
         if self.pnp_enabled and self.pnp_r_matrix and self.pnp_t_vec and self.pnp_camera_matrix:
             return self._transform_point_pnp(point)
             
+        if hasattr(self, 'homography_matrix') and self.homography_matrix:
+            res = self.transform_point_homography(point.x, point.y)
+            if res:
+                # Estimate a 3D Z-coordinate based on pixel height for 3D visualization
+                # This ensures the DXF is not flat. Higher pixels = higher Z (up to 4m scale)
+                h = self.binary_image.height if self.binary_image else 1.0
+                z_estimate = (1.0 - (point.y / h)) * 4000.0 if h > 0 else 0.0
+                return Point(x=res[0], y=res[1], z=z_estimate)
+            
         # 기본 스케일/오프셋 기반 변환
         scale_x = getattr(self, 'output_scale_x', self.output_scale)
         scale_y = getattr(self, 'output_scale_y', self.output_scale)
@@ -1792,7 +1802,8 @@ class ImageVectorizer:
             
             return Point(
                 cam_pos[0] + k * ray_world[0],
-                cam_pos[1] + k * ray_world[1]
+                cam_pos[1] + k * ray_world[1],
+                plane_z
             )
         except Exception:
             return Point(0, 0)
@@ -2197,13 +2208,13 @@ EOF
  20
 {round(line.start.y, 4)}
  30
-0.0
+{round(line.start.z, 4)}
  11
 {round(line.end.x, 4)}
  21
 {round(line.end.y, 4)}
  31
-0.0
+{round(line.end.z, 4)}
   0
 """
         else:
@@ -2223,13 +2234,13 @@ AcDbLine
  20
 {round(line.start.y, 4)}
  30
-0.0
+{round(line.start.z, 4)}
  11
 {round(line.end.x, 4)}
  21
 {round(line.end.y, 4)}
  31
-0.0
+{round(line.end.z, 4)}
   0
 """
         new_entities.append(line_entity)
@@ -2495,6 +2506,51 @@ def cli_info() -> str:
     }, ensure_ascii=False, indent=2)
 
 
+def cli_vectorize_real_world_dxf(image_path: str, dxf_path: str, method: str, params_json: str, options_json: str = "{}") -> str:
+    """
+    이미지를 벡터화하고 실제 mm 단위의 3D DXF로 저장합니다.
+    """
+    import time
+    start_time = time.time()
+    try:
+        params = json.loads(params_json)
+        options = json.loads(options_json)
+        vectorizer = ImageVectorizer()
+
+        if method == 'pnp':
+            vectorizer.set_pnp_pose(params['R'], params['t'], params['K'])
+        elif method == 'homography':
+            vectorizer.homography_matrix = params['H']
+        else:
+            return json.dumps({"error": f"Unknown method: {method}"})
+
+        # 옵션 설정
+        vectorizer.mode = options.get("mode", "edge")
+        vectorizer.threshold = options.get("threshold", 128)
+        vectorizer.edge_threshold = options.get("edge_threshold", 50)
+        vectorizer.simplify_epsilon = options.get("epsilon", 2.0)
+
+        if not vectorizer.load_image(image_path):
+            return json.dumps({"error": f"Failed to load image: {image_path}"})
+
+        vectorizer.vectorize()
+        if not vectorizer.lines:
+            return json.dumps({"error": "No lines generated"})
+
+        layer = options.get("layer", "REAL_WORLD_3D")
+        write_lines_to_dxf(vectorizer.lines, dxf_path, layer)
+
+        return json.dumps({
+            "success": True,
+            "lines_added": len(vectorizer.lines),
+            "dxf_path": dxf_path,
+            "method": method,
+            "elapsed": round(time.time() - start_time, 2)
+        })
+    except Exception as e:
+        return json.dumps({"error": str(e)})
+
+
 # ============ Main ============
 
 if __name__ == "__main__":
@@ -2513,7 +2569,16 @@ if __name__ == "__main__":
 
     cmd = sys.argv[1]
 
-    if cmd == "info":
+    if cmd == "vectorize_real_world_dxf" and len(sys.argv) >= 6:
+        # image_path, dxf_path, method, params_json, options_json
+        image_path = sys.argv[2]
+        dxf_path = sys.argv[3]
+        method = sys.argv[4]
+        params_json = sys.argv[5]
+        options_json = sys.argv[6] if len(sys.argv) > 6 else "{}"
+        print(cli_vectorize_real_world_dxf(image_path, dxf_path, method, params_json, options_json))
+
+    elif cmd == "info":
         print(cli_info())
 
     elif cmd == "vectorize" and len(sys.argv) >= 4:
