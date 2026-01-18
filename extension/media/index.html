@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PnP Registration Tool</title>
+    <title>3D Photo Measurement Tool</title>
     <style>
         body {
             font-family: var(--vscode-font-family);
@@ -20,6 +20,9 @@
         .container {
             width: 100%;
             max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         canvas {
@@ -31,15 +34,16 @@
         }
 
         .controls {
-            margin-top: 15px;
+            margin-top: 10px;
             display: flex;
             gap: 10px;
             width: 100%;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         button {
-            padding: 8px 16px;
+            padding: 6px 12px;
             cursor: pointer;
             background-color: var(--vscode-button-background);
             color: var(--vscode-button-foreground);
@@ -56,41 +60,96 @@
             cursor: not-allowed;
         }
 
-        #pnp-status {
-            margin-top: 10px;
+        .status {
+            margin-top: 5px;
             font-size: 0.9em;
             color: var(--vscode-descriptionForeground);
+            text-align: center;
         }
 
         h2 {
-            margin-bottom: 10px;
+            margin: 15px 0 5px 0;
+        }
+
+        input,
+        select {
+            background-color: var(--vscode-input-background);
+            color: var(--vscode-input-foreground);
+            border: 1px solid var(--vscode-input-border);
+            padding: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 0.85em;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--vscode-panel-border);
+            padding: 4px;
+            text-align: center;
+        }
+
+        .active-row {
+            background-color: var(--vscode-list-hoverBackground);
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h2>Photo-to-CAD Registration (PnP)</h2>
-        <canvas id="image-canvas"></canvas>
-
+        <!-- MVP-1: Plane Homography (Simplified) -->
+        <h2>1. Plane Homography (Quick)</h2>
         <div class="controls">
-            <button id="solve-pnp-btn" disabled>Solve PnP (Python Backend)</button>
-            <button id="reset-btn">Reset Points</button>
+            <label>Span (mm): <input type="number" id="span-mm" value="20000" style="width: 70px;"></label>
+            <button id="calibrate-plane-btn">Calibrate (4 pts)</button>
+            <button id="measure-p2p-btn" disabled>Measure P2P</button>
+        </div>
+        <div id="plane-status" class="status">Pick 4 points for quick plane measurement.</div>
+
+        <hr style="width: 100%; margin: 20px 0; border: 0; border-top: 1px solid var(--vscode-panel-border);">
+
+        <!-- MVP-2: True 3D PnP -->
+        <h2>2. True 3D PnP Registration</h2>
+        <div class="controls">
+            <button id="start-pnp-btn">Start PnP Registration (Pick 4+ pts)</button>
+            <button id="solve-pnp-btn">Solve Camera Pose</button>
+            <button id="reset-pnp-btn">Reset</button>
         </div>
 
-        <div id="pnp-status">Loading photo...</div>
+        <table id="pnp-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Pixel [u, v]</th>
+                    <th>World [X, Y, Z] (mm)</th>
+                </tr>
+            </thead>
+            <tbody id="pnp-body"></tbody>
+        </table>
+
+        <div id="pnp-measure-controls"
+            style="display: none; width: 100%; border: 1px solid var(--vscode-panel-border); padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+            <div class="controls">
+                <label>Target Plane:
+                    <select id="plane-select">
+                        <option value="z0">Z = 0 (Floor)</option>
+                        <option value="y0">Y = 0 (Front)</option>
+                        <option value="x0">X = 0 (Side)</option>
+                    </select>
+                </label>
+                <button id="pnp-measure-btn">Measure P2P (3D)</button>
+            </div>
+            <div id="pnp-measure-status" class="status">Click 2 points in 3D space.</div>
+        </div>
+
+        <canvas id="image-canvas"></canvas>
+        <div id="main-status" class="status">Loading...</div>
     </div>
-
-    <!-- main.js handles point collection and communication -->
     <script src="main.js"></script>
-    document.getElementById('pnp-status').style.color = "red";
-    }
-
-    document.getElementById('reset-btn').addEventListener('click', () => {
-    // Basic reset logic - can be expanded in main.js
-    location.reload();
-    });
-    </script>
 </body>
 
 </html>

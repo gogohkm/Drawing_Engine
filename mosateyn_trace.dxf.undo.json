@@ -1,0 +1,90 @@
+{
+  "formatId": "stgen-dxf-undo-v1",
+  "version": "1.0",
+  "fileHash": "3da11e15",
+  "lastModified": 1768729485001,
+  "undoStack": [
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768729323952,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 297.5,
+                "y": 244
+              },
+              "end": {
+                "x": 747,
+                "y": 247
+              }
+            }
+          }
+        ],
+        "indices": [
+          5470
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768729330780,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 300,
+                "y": 263
+              },
+              "end": {
+                "x": 749.5758193537828,
+                "y": 267.1202649231581
+              }
+            }
+          }
+        ],
+        "indices": [
+          5471
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1768729482986,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 25,
+                "y": 443
+              },
+              "end": {
+                "x": 1002.945668789809,
+                "y": 459.6117834394904
+              }
+            }
+          }
+        ],
+        "indices": [
+          5472
+        ]
+      }
+    }
+  ],
+  "redoStack": []
+}

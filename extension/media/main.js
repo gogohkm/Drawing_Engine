@@ -1,138 +1,180 @@
 /**
- * VS Code Webview Main Script for Drawing Engine PnP
- * Simplified Version: Delegates calculation to Python backend
+ * VS Code Webview Main Script - Supports Homography (MVP-1) and PnP (MVP-2)
  */
 
 (function () {
     const vscode = acquireVsCodeApi();
 
-    let points2D = []; // {x, y}
-    let points3D = []; // {x, y, z}
+    let points2D = [];
+    let pnpPoints = []; // [{u, v, x, y, z}]
     let currentImage = null;
+    let homographyMatrix = null;
+    let cameraPose = null; // {R, t, K}
+    let mode = 'idle'; // 'calibrate', 'measure', 'pnp_register', 'pnp_measure'
 
-    // UI Elements
-    const imageCanvas = document.getElementById('image-canvas');
-    const ctx = imageCanvas.getContext('2d');
-    const solveBtn = document.getElementById('solve-pnp-btn');
-    const resetBtn = document.getElementById('reset-btn');
-    const statusText = document.getElementById('pnp-status');
+    const canvas = document.getElementById('image-canvas');
+    const ctx = canvas.getContext('2d');
+    const mainStatus = document.getElementById('main-status');
 
-    /**
-     * Get Camera Matrix approximation
-     */
-    function getCameraMatrix(width, height) {
-        const fx = width * 1.0;
-        const fy = width * 1.0;
-        const cx = width / 2;
-        const cy = height / 2;
-        return [
-            [fx, 0, cx],
-            [0, fy, cy],
-            [0, 0, 1]
-        ];
-    }
+    // Homography Elements
+    const calibrateBtn = document.getElementById('calibrate-plane-btn');
+    const measureBtn = document.getElementById('measure-p2p-btn');
+    const planeStatus = document.getElementById('plane-status');
 
-    /**
-     * Handle messages from the extension host
-     */
+    // PnP Elements
+    const startPnpBtn = document.getElementById('start-pnp-btn');
+    const solvePnpBtn = document.getElementById('solve-pnp-btn');
+    const resetPnpBtn = document.getElementById('reset-pnp-btn');
+    const pnpBody = document.getElementById('pnp-body');
+    const pnpMeasureControls = document.getElementById('pnp-measure-controls');
+    const pnpMeasureBtn = document.getElementById('pnp-measure-btn');
+    const pnpMeasureStatus = document.getElementById('pnp-measure-status');
+    const planeSelect = document.getElementById('plane-select');
+
     window.addEventListener('message', event => {
         const message = event.data;
         switch (message.command) {
-            case 'loadImage':
-                loadImage(message.data);
-                break;
-            case 'add3DPoint':
-                addPoint3D(message.point);
-                break;
-            case 'pnpCalculated':
-                // Received result from Python
-                if (message.error) {
-                    statusText.innerText = `Error from Python: ${message.error}`;
-                    statusText.style.color = 'red';
-                } else {
-                    const error = message.repro_error !== undefined ? ` (Error: ${message.repro_error}px)` : '';
-                    const inliers = message.inliers !== undefined ? ` [Inliers: ${message.inliers}/${points2D.length}]` : '';
-                    statusText.innerText = `Success! Pose calculated in Python.${error}${inliers}`;
-                    statusText.style.color = 'lightgreen';
-                }
-                break;
+            case 'loadImage': loadImage(message.data); break;
+            case 'calibrateResult': handleCalibrateResult(message.result); break;
+            case 'measureResult': handleMeasureResult(message.result); break;
+            case 'pnpSolveResult': handlePnpSolveResult(message.result); break;
+            case 'pnpMeasureResult': handlePnpMeasureResult(message.result); break;
         }
     });
 
-    function loadImage(base64Data) {
+    function loadImage(base64) {
         const img = new Image();
         img.onload = () => {
-            imageCanvas.width = img.width;
-            imageCanvas.height = img.height;
-            ctx.drawImage(img, 0, 0);
-            currentImage = img;
-            statusText.innerText = "Image loaded. Pick at least 4 points on the image.";
-            clearPoints();
+            canvas.width = img.width; canvas.height = img.height;
+            ctx.drawImage(img, 0, 0); currentImage = img;
+            mainStatus.innerText = "Photo Ready.";
         };
-        img.src = base64Data;
+        img.src = base64;
     }
 
-    imageCanvas.addEventListener('click', (e) => {
+    canvas.addEventListener('click', (e) => {
         if (!currentImage) return;
+        const rect = canvas.getBoundingClientRect();
+        const u = (e.clientX - rect.left) * (canvas.width / rect.width);
+        const v = (e.clientY - rect.top) * (canvas.height / rect.height);
 
-        const rect = imageCanvas.getBoundingClientRect();
-        const x = (e.clientX - rect.left) * (imageCanvas.width / rect.width);
-        const y = (e.clientY - rect.top) * (imageCanvas.height / rect.height);
-
-        points2D.push({ x, y });
-        drawPoint(x, y, points2D.length);
-
-        vscode.postMessage({
-            command: 'request3DPoint',
-            index: points2D.length
-        });
+        if (mode === 'calibrate') {
+            points2D.push({ u, v });
+            drawPoint(u, v, points2D.length, 'yellow');
+            if (points2D.length === 4) calibratePlane();
+        } else if (mode === 'measure') {
+            points2D.push({ u, v });
+            drawPoint(u, v, points2D.length, 'cyan');
+            if (points2D.length === 2) measureP2P();
+        } else if (mode === 'pnp_register') {
+            const id = pnpPoints.length + 1;
+            pnpPoints.push({ u, v, x: 0, y: 0, z: 0 });
+            drawPoint(u, v, id, 'red');
+            updatePnpTable();
+        } else if (mode === 'pnp_measure') {
+            points2D.push({ u, v });
+            drawPoint(u, v, points2D.length, 'magenta');
+            if (points2D.length === 2) measure3DDist();
+        }
     });
 
-    function addPoint3D(point) {
-        points3D.push(point);
-        if (points2D.length >= 4 && points3D.length === points2D.length) {
-            solveBtn.disabled = false;
-            statusText.innerText = `Ready to solve. ${points2D.length} points collected.`;
+    function drawPoint(u, v, label, color) {
+        ctx.fillStyle = color;
+        ctx.beginPath(); ctx.arc(u, v, 6, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = 'white'; ctx.font = 'bold 14px Arial';
+        ctx.fillText(label, u + 8, v + 8);
+    }
+
+    function redraw() { if (currentImage) ctx.drawImage(currentImage, 0, 0); }
+
+    // --- Mode Switches ---
+    calibrateBtn.onclick = () => { mode = 'calibrate'; points2D = []; redraw(); planeStatus.innerText = "Pick 4 points (TL, TR, BR, BL)"; };
+    measureBtn.onclick = () => { mode = 'measure'; points2D = []; redraw(); };
+    startPnpBtn.onclick = () => { mode = 'pnp_register'; pnpPoints = []; redraw(); updatePnpTable(); };
+
+    // --- Homography Logic ---
+    function calibratePlane() {
+        vscode.postMessage({
+            command: 'calibratePlanePython',
+            pts: points2D,
+            span_mm: parseFloat(document.getElementById('span-mm').value)
+        });
+    }
+    function handleCalibrateResult(res) {
+        if (res.ok) {
+            homographyMatrix = res.H_img_to_plane;
+            planeStatus.innerText = `Calibrated! Lx=${res.Lx_mm.toFixed(0)}, Ly=${res.Ly_mm.toFixed(0)}`;
+            measureBtn.disabled = false;
+        }
+    }
+    function measureP2P() {
+        vscode.postMessage({ command: 'measureP2PPython', H: homographyMatrix, P1: points2D[0], P2: points2D[1] });
+    }
+    function handleMeasureResult(res) {
+        if (res.ok) planeStatus.innerText = `Dist: ${res.distance_mm.toFixed(1)}mm`;
+    }
+
+    // --- PnP Logic ---
+    function updatePnpTable() {
+        pnpBody.innerHTML = pnpPoints.map((p, i) => `
+            <tr>
+                <td>${i + 1}</td>
+                <td>${p.u.toFixed(0)}, ${p.v.toFixed(0)}</td>
+                <td>
+                    X:<input type="number" value="${p.x}" onchange="updatePnpCoord(${i}, 'x', this.value)" style="width:50px">
+                    Y:<input type="number" value="${p.y}" onchange="updatePnpCoord(${i}, 'y', this.value)" style="width:50px">
+                    Z:<input type="number" value="${p.z}" onchange="updatePnpCoord(${i}, 'z', this.value)" style="width:50px">
+                </td>
+            </tr>
+        `).join('');
+    }
+    window.updatePnpCoord = (idx, axis, val) => { pnpPoints[idx][axis] = parseFloat(val); };
+
+    solvePnpBtn.onclick = () => {
+        vscode.postMessage({
+            command: 'solvePnpPython',
+            points2D: pnpPoints.map(p => [p.u, p.v]),
+            points3D: pnpPoints.map(p => [p.x, p.y, p.z]),
+            width: canvas.width, height: canvas.height
+        });
+    };
+
+    function handlePnpSolveResult(res) {
+        if (res.ok) {
+            cameraPose = { R: res.R, t: res.t, K: res.K };
+            mainStatus.innerText = "Camera Pose Solved!";
+            pnpMeasureControls.style.display = 'block';
+        } else {
+            mainStatus.innerText = "PnP Failed: " + res.error;
         }
     }
 
-    function drawPoint(x, y, label) {
-        ctx.fillStyle = 'red';
-        ctx.beginPath();
-        ctx.arc(x, y, 5, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.fillStyle = 'white';
-        ctx.font = '12px Arial';
-        ctx.fillText(label, x + 7, y + 7);
-    }
+    pnpMeasureBtn.onclick = () => { mode = 'pnp_measure'; points2D = []; redraw(); pnpMeasureStatus.innerText = "Pick 2 points."; };
 
-    function clearPoints() {
-        points2D = [];
-        points3D = [];
-        solveBtn.disabled = true;
-        // Redraw image
-        if (currentImage) ctx.drawImage(currentImage, 0, 0);
-    }
-
-    resetBtn.addEventListener('click', () => {
-        clearPoints();
-        statusText.innerText = "Points reset. Pick at least 4 points.";
-    });
-
-    /**
-     * Send points to Python for PnP
-     */
-    solveBtn.addEventListener('click', () => {
-        statusText.innerText = "Requesting PnP calculation from Python backend...";
-
-        const cameraMatrix = getCameraMatrix(imageCanvas.width, imageCanvas.height);
+    function measure3DDist() {
+        const plane = planeSelect.value;
+        let n = [0, 0, 1], d = 0;
+        if (plane === 'y0') { n = [0, 1, 0]; }
+        else if (plane === 'x0') { n = [1, 0, 0]; }
 
         vscode.postMessage({
-            command: 'calculatePnpPython',
-            points2D: points2D,
-            points3D: points3D,
-            cameraMatrix: cameraMatrix
+            command: 'measure3DDistPython',
+            pose: cameraPose,
+            P1: points2D[0],
+            P2: points2D[1],
+            plane_n: n, plane_d: d
         });
-    });
+    }
+
+    function handlePnpMeasureResult(res) {
+        if (res.ok) {
+            pnpMeasureStatus.innerText = `3D Dist: ${res.distance_mm.toFixed(1)}mm`;
+            // Line
+            ctx.strokeStyle = 'magenta'; ctx.lineWidth = 3;
+            ctx.beginPath(); ctx.moveTo(points2D[0].u, points2D[0].v); ctx.lineTo(points2D[1].u, points2D[1].v); ctx.stroke();
+        }
+    }
+
+    resetPnpBtn.onclick = () => { pnpPoints = []; updatePnpTable(); redraw(); pnpMeasureControls.style.display = 'none'; };
 
 }());
