@@ -24,39 +24,71 @@ from typing import List, Tuple, Optional, Set, Dict
 
 
 @dataclass
-class Point2D:
-    """2D 점"""
+class Point3D:
+    """
+    3D 점 - 벡터화 후처리용
+
+    STGEN DXF 에디터는 3D 좌표계를 사용합니다.
+    """
     x: float
     y: float
+    z: float = 0.0
 
-    def distance_to(self, other: 'Point2D') -> float:
+    def distance_to(self, other: 'Point3D') -> float:
+        """3D 거리 계산"""
+        return math.sqrt(
+            (self.x - other.x) ** 2 +
+            (self.y - other.y) ** 2 +
+            (self.z - other.z) ** 2
+        )
+
+    def distance_xy(self, other: 'Point3D') -> float:
+        """XY 평면 거리 계산 (z 무시) - 2D 호환용"""
         return math.sqrt((self.x - other.x) ** 2 + (self.y - other.y) ** 2)
 
     def __hash__(self):
-        return hash((round(self.x, 4), round(self.y, 4)))
+        return hash((round(self.x, 4), round(self.y, 4), round(self.z, 4)))
 
     def __eq__(self, other):
-        if not isinstance(other, Point2D):
+        if not isinstance(other, Point3D):
             return False
-        return abs(self.x - other.x) < 0.0001 and abs(self.y - other.y) < 0.0001
+        return (abs(self.x - other.x) < 0.0001 and
+                abs(self.y - other.y) < 0.0001 and
+                abs(self.z - other.z) < 0.0001)
+
+    def to_dict(self) -> dict:
+        """딕셔너리로 변환"""
+        return {"x": self.x, "y": self.y, "z": self.z}
+
+    def to_tuple(self) -> Tuple[float, float, float]:
+        """튜플로 변환"""
+        return (self.x, self.y, self.z)
 
 
 @dataclass
-class Line2D:
-    """2D 선분"""
-    start: Point2D
-    end: Point2D
+class Line3D:
+    """3D 선분"""
+    start: Point3D
+    end: Point3D
     layer: str = "0"
 
     @property
     def length(self) -> float:
+        """3D 길이"""
         return self.start.distance_to(self.end)
 
     @property
-    def midpoint(self) -> Point2D:
-        return Point2D(
+    def length_xy(self) -> float:
+        """XY 평면 길이 (2D 호환)"""
+        return self.start.distance_xy(self.end)
+
+    @property
+    def midpoint(self) -> Point3D:
+        """3D 중점"""
+        return Point3D(
             (self.start.x + self.end.x) / 2,
-            (self.start.y + self.end.y) / 2
+            (self.start.y + self.end.y) / 2,
+            (self.start.z + self.end.z) / 2
         )
 
     @property
@@ -83,15 +115,15 @@ class Line2D:
             (self.end.y - self.start.y) / length
         )
 
-    def distance_to_point(self, point: Point2D) -> float:
-        """점에서 선분까지의 최단 거리"""
-        # 선분의 방향 벡터
+    def distance_to_point(self, point: Point3D) -> float:
+        """점에서 선분까지의 최단 거리 (XY 평면)"""
+        # 선분의 방향 벡터 (XY 평면)
         dx = self.end.x - self.start.x
         dy = self.end.y - self.start.y
         length_sq = dx * dx + dy * dy
 
         if length_sq < 0.0001:
-            return self.start.distance_to(point)
+            return self.start.distance_xy(point)
 
         # 점을 선분에 투영한 파라미터 t
         t = max(0, min(1, (
@@ -100,21 +132,22 @@ class Line2D:
         ) / length_sq))
 
         # 가장 가까운 점
-        closest = Point2D(
+        closest = Point3D(
             self.start.x + t * dx,
-            self.start.y + t * dy
+            self.start.y + t * dy,
+            self.start.z + t * (self.end.z - self.start.z)
         )
 
-        return point.distance_to(closest)
+        return point.distance_xy(closest)
 
-    def distance_to_line_infinite(self, point: Point2D) -> float:
-        """점에서 무한 직선까지의 거리"""
+    def distance_to_line_infinite(self, point: Point3D) -> float:
+        """점에서 무한 직선까지의 거리 (XY 평면)"""
         dx = self.end.x - self.start.x
         dy = self.end.y - self.start.y
         length = math.sqrt(dx * dx + dy * dy)
 
         if length < 0.0001:
-            return self.start.distance_to(point)
+            return self.start.distance_xy(point)
 
         # 직선의 방정식: ax + by + c = 0
         # (y2-y1)x - (x2-x1)y + (x2-x1)y1 - (y2-y1)x1 = 0
@@ -124,8 +157,8 @@ class Line2D:
 
         return abs(a * point.x + b * point.y + c) / length
 
-    def project_point(self, point: Point2D) -> float:
-        """점을 선분에 투영한 파라미터 t (0: start, 1: end)"""
+    def project_point(self, point: Point3D) -> float:
+        """점을 선분에 투영한 파라미터 t (0: start, 1: end) - XY 평면 기준"""
         dx = self.end.x - self.start.x
         dy = self.end.y - self.start.y
         length_sq = dx * dx + dy * dy
@@ -138,17 +171,17 @@ class Line2D:
             (point.y - self.start.y) * dy
         ) / length_sq
 
-    def is_parallel_to(self, other: 'Line2D', angle_tolerance: float = 2.0) -> bool:
-        """다른 선과 평행한지 확인"""
+    def is_parallel_to(self, other: 'Line3D', angle_tolerance: float = 2.0) -> bool:
+        """다른 선과 평행한지 확인 (XY 평면 기준)"""
         angle_diff = abs(self.angle - other.angle)
         if angle_diff > 90:
             angle_diff = 180 - angle_diff
         return angle_diff < angle_tolerance
 
-    def is_collinear_with(self, other: 'Line2D',
+    def is_collinear_with(self, other: 'Line3D',
                           angle_tolerance: float = 2.0,
                           distance_tolerance: float = 1.0) -> bool:
-        """다른 선과 같은 직선 위에 있는지 확인"""
+        """다른 선과 같은 직선 위에 있는지 확인 (XY 평면 기준)"""
         if not self.is_parallel_to(other, angle_tolerance):
             return False
 
@@ -212,8 +245,8 @@ class LineCleaner:
 
     def __init__(self, options: CleanerOptions = None):
         self.options = options or CleanerOptions()
-        self.lines: List[Line2D] = []
-        self.cleaned_lines: List[Line2D] = []
+        self.lines: List[Line3D] = []
+        self.cleaned_lines: List[Line3D] = []
         self.stats = {
             "input_count": 0,
             "after_centerline": 0,
@@ -262,11 +295,11 @@ class LineCleaner:
         self.stats["input_count"] = len(self.lines)
         return True
 
-    def _parse_line_entity(self, block: str) -> Optional[Line2D]:
-        """LINE 엔티티 블록 파싱"""
+    def _parse_line_entity(self, block: str) -> Optional[Line3D]:
+        """LINE 엔티티 블록 파싱 (3D 좌표 지원)"""
         lines = [l.strip() for l in block.split('\n') if l.strip()]
 
-        x1 = y1 = x2 = y2 = None
+        x1 = y1 = z1 = x2 = y2 = z2 = None
         layer = "0"
 
         i = 0
@@ -281,20 +314,27 @@ class LineCleaner:
                     x1 = float(value)
                 elif code == '20':
                     y1 = float(value)
+                elif code == '30':
+                    z1 = float(value)
                 elif code == '11':
                     x2 = float(value)
                 elif code == '21':
                     y2 = float(value)
+                elif code == '31':
+                    z2 = float(value)
             except ValueError:
                 pass
 
             i += 2
 
         if all(v is not None for v in [x1, y1, x2, y2]):
-            return Line2D(Point2D(x1, y1), Point2D(x2, y2), layer)
+            # z 좌표가 없으면 0으로 설정
+            z1 = z1 if z1 is not None else 0.0
+            z2 = z2 if z2 is not None else 0.0
+            return Line3D(Point3D(x1, y1, z1), Point3D(x2, y2, z2), layer)
         return None
 
-    def clean(self) -> List[Line2D]:
+    def clean(self) -> List[Line3D]:
         """전체 정리 프로세스 실행"""
         working_lines = list(self.lines)
 
@@ -342,7 +382,7 @@ class LineCleaner:
 
         return self.cleaned_lines
 
-    def _extract_centerlines(self, lines: List[Line2D]) -> List[Line2D]:
+    def _extract_centerlines(self, lines: List[Line3D]) -> List[Line3D]:
         """평행한 선 쌍에서 중심선 추출"""
         result = []
         used = set()
@@ -393,7 +433,7 @@ class LineCleaner:
 
         return result
 
-    def _calculate_centerline(self, parallel_lines: List[Line2D]) -> Optional[Line2D]:
+    def _calculate_centerline(self, parallel_lines: List[Line3D]) -> Optional[Line3D]:
         """평행선 그룹의 중심선 계산"""
         if len(parallel_lines) < 2:
             return parallel_lines[0] if parallel_lines else None
@@ -418,7 +458,7 @@ class LineCleaner:
         # 중심점 계산 (모든 중점의 평균)
         avg_x = sum(p.x for p in all_midpoints) / len(all_midpoints)
         avg_y = sum(p.y for p in all_midpoints) / len(all_midpoints)
-        center = Point2D(avg_x, avg_y)
+        center = Point3D(avg_x, avg_y)
 
         # 중심선의 시작점과 끝점
         dx = base_line.end.x - base_line.start.x
@@ -436,18 +476,18 @@ class LineCleaner:
         center_t = base_line.project_point(center)
 
         # 새로운 시작점과 끝점
-        new_start = Point2D(
+        new_start = Point3D(
             center.x + (t_min - center_t) * length * dir_x,
             center.y + (t_min - center_t) * length * dir_y
         )
-        new_end = Point2D(
+        new_end = Point3D(
             center.x + (t_max - center_t) * length * dir_x,
             center.y + (t_max - center_t) * length * dir_y
         )
 
-        return Line2D(new_start, new_end, base_line.layer)
+        return Line3D(new_start, new_end, base_line.layer)
 
-    def _merge_collinear_lines(self, lines: List[Line2D]) -> List[Line2D]:
+    def _merge_collinear_lines(self, lines: List[Line3D]) -> List[Line3D]:
         """같은 직선 위의 선분들 병합"""
         result = []
         used = set()
@@ -485,7 +525,7 @@ class LineCleaner:
 
         return result
 
-    def _calculate_gap(self, line1: Line2D, line2: Line2D) -> Optional[float]:
+    def _calculate_gap(self, line1: Line3D, line2: Line3D) -> Optional[float]:
         """두 선분 사이의 갭 계산 (겹치면 None 반환)"""
         # line1을 기준으로 line2의 끝점들 투영
         t1 = line1.project_point(line2.start)
@@ -500,19 +540,19 @@ class LineCleaner:
 
         # 갭 계산
         if t_min > 1:
-            gap_start = Point2D(
+            gap_start = Point3D(
                 line1.start.x + t_min * (line1.end.x - line1.start.x),
                 line1.start.y + t_min * (line1.end.y - line1.start.y)
             )
             return line1.end.distance_to(gap_start)
         else:  # t_max < 0
-            gap_end = Point2D(
+            gap_end = Point3D(
                 line1.start.x + t_max * (line1.end.x - line1.start.x),
                 line1.start.y + t_max * (line1.end.y - line1.start.y)
             )
             return line1.start.distance_to(gap_end)
 
-    def _merge_line_group(self, lines: List[Line2D]) -> List[Line2D]:
+    def _merge_line_group(self, lines: List[Line3D]) -> List[Line3D]:
         """같은 직선 위의 선분들을 하나로 병합"""
         if not lines:
             return []
@@ -542,36 +582,36 @@ class LineCleaner:
         for t, point in all_points[1:]:
             if t - current_end_t > self.options.collinear_gap_max / base.length:
                 # 갭 발견 - 이전 구간 저장
-                start_pt = Point2D(
+                start_pt = Point3D(
                     base.start.x + current_start_t * (base.end.x - base.start.x),
                     base.start.y + current_start_t * (base.end.y - base.start.y)
                 )
-                end_pt = Point2D(
+                end_pt = Point3D(
                     base.start.x + current_end_t * (base.end.x - base.start.x),
                     base.start.y + current_end_t * (base.end.y - base.start.y)
                 )
                 if start_pt.distance_to(end_pt) > 0.1:
-                    result.append(Line2D(start_pt, end_pt, base.layer))
+                    result.append(Line3D(start_pt, end_pt, base.layer))
 
                 current_start_t = t
 
             current_end_t = max(current_end_t, t)
 
         # 마지막 구간
-        start_pt = Point2D(
+        start_pt = Point3D(
             base.start.x + current_start_t * (base.end.x - base.start.x),
             base.start.y + current_start_t * (base.end.y - base.start.y)
         )
-        end_pt = Point2D(
+        end_pt = Point3D(
             base.start.x + current_end_t * (base.end.x - base.start.x),
             base.start.y + current_end_t * (base.end.y - base.start.y)
         )
         if start_pt.distance_to(end_pt) > 0.1:
-            result.append(Line2D(start_pt, end_pt, base.layer))
+            result.append(Line3D(start_pt, end_pt, base.layer))
 
         return result
 
-    def _remove_duplicates(self, lines: List[Line2D]) -> List[Line2D]:
+    def _remove_duplicates(self, lines: List[Line3D]) -> List[Line3D]:
         """중복 선 제거"""
         result = []
 
@@ -594,11 +634,11 @@ class LineCleaner:
 
         return result
 
-    def _filter_short_lines(self, lines: List[Line2D]) -> List[Line2D]:
+    def _filter_short_lines(self, lines: List[Line3D]) -> List[Line3D]:
         """짧은 선 제거"""
         return [line for line in lines if line.length >= self.options.min_length]
 
-    def _snap_endpoints(self, lines: List[Line2D]) -> List[Line2D]:
+    def _snap_endpoints(self, lines: List[Line3D]) -> List[Line3D]:
         """끝점을 가까운 점에 스냅"""
         if not lines:
             return lines
@@ -610,7 +650,7 @@ class LineCleaner:
             all_points.append(line.end)
 
         # 각 점에 대해 가까운 점들의 평균 위치 계산
-        point_clusters: Dict[int, List[Point2D]] = {}
+        point_clusters: Dict[int, List[Point3D]] = {}
         cluster_id = 0
         point_to_cluster: Dict[int, int] = {}
 
@@ -637,11 +677,11 @@ class LineCleaner:
                 cluster_id += 1
 
         # 클러스터별 평균 위치 계산
-        cluster_centers: Dict[int, Point2D] = {}
+        cluster_centers: Dict[int, Point3D] = {}
         for cid, cluster in point_clusters.items():
             avg_x = sum(p.x for p in cluster) / len(cluster)
             avg_y = sum(p.y for p in cluster) / len(cluster)
-            cluster_centers[cid] = Point2D(avg_x, avg_y)
+            cluster_centers[cid] = Point3D(avg_x, avg_y)
 
         # 선의 끝점 업데이트
         result = []
@@ -657,11 +697,11 @@ class LineCleaner:
             if end_idx in point_to_cluster:
                 new_end = cluster_centers[point_to_cluster[end_idx]]
 
-            result.append(Line2D(new_start, new_end, line.layer))
+            result.append(Line3D(new_start, new_end, line.layer))
 
         return result
 
-    def _snap_angles(self, lines: List[Line2D]) -> List[Line2D]:
+    def _snap_angles(self, lines: List[Line3D]) -> List[Line3D]:
         """선의 각도를 주요 각도에 스냅"""
         if not lines or not self.options.snap_angle_list:
             return lines
@@ -694,7 +734,7 @@ class LineCleaner:
 
         return result
 
-    def _rotate_line_to_angle(self, line: Line2D, target_angle: float) -> Line2D:
+    def _rotate_line_to_angle(self, line: Line3D, target_angle: float) -> Line3D:
         """선을 지정된 각도로 회전 (중점 기준)"""
         midpoint = line.midpoint
         half_length = line.length / 2
@@ -704,10 +744,10 @@ class LineCleaner:
         dx = half_length * math.cos(rad)
         dy = half_length * math.sin(rad)
 
-        new_start = Point2D(midpoint.x - dx, midpoint.y - dy)
-        new_end = Point2D(midpoint.x + dx, midpoint.y + dy)
+        new_start = Point3D(midpoint.x - dx, midpoint.y - dy)
+        new_end = Point3D(midpoint.x + dx, midpoint.y + dy)
 
-        return Line2D(new_start, new_end, line.layer)
+        return Line3D(new_start, new_end, line.layer)
 
     def save_to_dxf(self, dxf_path: str, template_path: str = None) -> bool:
         """정리된 선을 DXF로 저장"""
@@ -744,10 +784,14 @@ class LineCleaner:
         return True
 
     def _generate_line_entities(self) -> str:
-        """LINE 엔티티 문자열 생성"""
+        """LINE 엔티티 문자열 생성 (3D 좌표 포함)"""
         entities = []
 
         for line in self.cleaned_lines:
+            # z 좌표 지원 - Point3D에 z가 있으면 사용, 없으면 0
+            z1 = getattr(line.start, 'z', 0.0)
+            z2 = getattr(line.end, 'z', 0.0)
+
             entity = f"""  0
 LINE
   8
@@ -757,13 +801,13 @@ LINE
  20
 {round(line.start.y, 4)}
  30
-0.0
+{round(z1, 4)}
  11
 {round(line.end.x, 4)}
  21
 {round(line.end.y, 4)}
  31
-0.0
+{round(z2, 4)}
 """
             entities.append(entity)
 

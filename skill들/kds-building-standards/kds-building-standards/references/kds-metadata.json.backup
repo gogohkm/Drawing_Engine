@@ -1,0 +1,5024 @@
+{
+  "version": "2025.11",
+  "last_updated": "2025-11-16",
+  "total_documents": 75,
+  "total_images": 206,
+  "documents": {
+    "KDS_10_10_00": {
+      "id": "KDS_10_10_00",
+      "filename": "KDS_10_10_00.md",
+      "korean_title": "설계기준 총칙",
+      "english_title": "Design Standard General Provisions",
+      "english_filename": "design-standard-general-provisions.md",
+      "version": "21.05",
+      "category": "general",
+      "subcategory": [],
+      "keywords_korean": [
+        "설계기준",
+        "총칙",
+        "구조검사"
+      ],
+      "keywords_english": [
+        "design standard",
+        "general provisions",
+        "structural inspection"
+      ],
+      "related_standards": [],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 9.4,
+        "line_count": 247,
+        "word_count": 1111
+      },
+      "original_filename": "KDS_10_10_00_설계기준_총칙_21.05.md"
+    },
+    "KDS_11_10_05": {
+      "id": "KDS_11_10_05",
+      "filename": "KDS_11_10_05.md",
+      "korean_title": "지반 설계 일반",
+      "english_title": "Soil/Ground 설계 General",
+      "english_filename": "soil/ground-설계-general.md",
+      "version": "21.12",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "설계",
+        "일반"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 10.9,
+        "line_count": 171,
+        "word_count": 1112
+      },
+      "original_filename": "KDS_11_10_05_지반_설계_일반_21.12.md"
+    },
+    "KDS_11_10_10": {
+      "id": "KDS_11_10_10",
+      "filename": "KDS_11_10_10.md",
+      "korean_title": "지반조사",
+      "english_title": "Soil/Ground조사",
+      "english_filename": "soil/ground조사.md",
+      "version": "21.12",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "지반조사"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "N = 30 이상 3회 연속 또는 풍화암 확인(핸드오거는 가능심도까지)</td>",
+          "line_number": 316,
+          "line_range": [
+            311,
+            321
+          ]
+        },
+        {
+          "id": "formula_2",
+          "formula": "N = 30 이상 3회 연속 또는 풍화암 확인",
+          "line_number": 409,
+          "line_range": [
+            404,
+            414
+          ]
+        }
+      ],
+      "images": [],
+      "file_stats": {
+        "size_kb": 39.0,
+        "line_count": 779,
+        "word_count": 3958
+      },
+      "original_filename": "KDS_11_10_10_지반조사_21.12.md"
+    },
+    "KDS_11_10_15": {
+      "id": "KDS_11_10_15",
+      "filename": "KDS_11_10_15.md",
+      "korean_title": "지반계측",
+      "english_title": "Soil/Ground계측",
+      "english_filename": "soil/ground계측.md",
+      "version": "21.12",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "지반계측"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image0",
+          "description_file": "images-database.md",
+          "caption": "Image 0",
+          "description_anchor": "kds_11_10_15_image0"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 91.8,
+        "line_count": 1609,
+        "word_count": 9038
+      },
+      "original_filename": "KDS_11_10_15_지반계측_21.12.md"
+    },
+    "KDS_11_30_05": {
+      "id": "KDS_11_30_05",
+      "filename": "KDS_11_30_05.md",
+      "korean_title": "연약지반 설계일반",
+      "english_title": "연약Soil/Ground 설계General",
+      "english_filename": "연약soil/ground-설계general.md",
+      "version": "21.12",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "연약지반",
+        "설계일반"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 24.3,
+        "line_count": 406,
+        "word_count": 2293
+      },
+      "original_filename": "KDS_11_30_05_연약지반_설계일반_21.12.md"
+    },
+    "KDS_11_50_05": {
+      "id": "KDS_11_50_05",
+      "filename": "KDS_11_50_05.md",
+      "korean_title": "얕은기초 설계기준 일반설계법",
+      "english_title": "얕은Foundation Design Standard General설계법",
+      "english_filename": "얕은foundation-design-standard-general설계법.md",
+      "version": "21.05",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "설계기준",
+        "일반설계법"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 17.9,
+        "line_count": 248,
+        "word_count": 1703
+      },
+      "original_filename": "KDS_11_50_05_얕은기초_설계기준_일반설계법_21.05.md"
+    },
+    "KDS_11_50_15": {
+      "id": "KDS_11_50_15",
+      "filename": "KDS_11_50_15.md",
+      "korean_title": "깊은기초 설계기준 일반설계법",
+      "english_title": "깊은Foundation Design Standard General설계법",
+      "english_filename": "깊은foundation-design-standard-general설계법.md",
+      "version": "21.05",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "설계기준",
+        "일반설계법"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 26.9,
+        "line_count": 442,
+        "word_count": 2489
+      },
+      "original_filename": "KDS_11_50_15_깊은기초_설계기준_일반설계법_21.05.md"
+    },
+    "KDS_11_50_25": {
+      "id": "KDS_11_50_25",
+      "filename": "KDS_11_50_25.md",
+      "korean_title": "기초 내진 설계기준",
+      "english_title": "Foundation 내진 Design Standard",
+      "english_filename": "foundation-내진-design-standard.md",
+      "version": "21.05",
+      "category": "seismic",
+      "subcategory": [],
+      "keywords_korean": [
+        "내진",
+        "지진",
+        "밑면전단력",
+        "응답스펙트럼",
+        "지진하중",
+        "기초",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "seismic",
+        "earthquake",
+        "base shear",
+        "response spectrum"
+      ],
+      "related_standards": [
+        "KDS_41_12_00",
+        "KDS_17_10_00",
+        "KDS_14_20_80",
+        "KDS_14_31_60"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 8.6,
+        "line_count": 152,
+        "word_count": 869
+      },
+      "original_filename": "KDS_11_50_25_기초_내진_설계기준_21.05.md"
+    },
+    "KDS_11_50_30": {
+      "id": "KDS_11_50_30",
+      "filename": "KDS_11_50_30.md",
+      "korean_title": "진동기계기초 설계기준",
+      "english_title": "진동기계Foundation Design Standard",
+      "english_filename": "진동기계foundation-design-standard.md",
+      "version": "21.05",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "진동기계기초",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image1",
+          "description_file": "images-database.md",
+          "caption": "Image 1",
+          "description_anchor": "kds_11_50_30_image1"
+        },
+        {
+          "id": "image2",
+          "description_file": "images-database.md",
+          "caption": "Image 2",
+          "description_anchor": "kds_11_50_30_image2"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 5.9,
+        "line_count": 153,
+        "word_count": 583
+      },
+      "original_filename": "KDS_11_50_30_진동기계기초_설계기준_21.05.md"
+    },
+    "KDS_11_60_00": {
+      "id": "KDS_11_60_00",
+      "filename": "KDS_11_60_00.md",
+      "korean_title": "앵커 설계기준",
+      "english_title": "앵커 Design Standard",
+      "english_filename": "앵커-design-standard.md",
+      "version": "20.12",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "앵커",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 13.3,
+        "line_count": 279,
+        "word_count": 1285
+      },
+      "original_filename": "KDS_11_60_00_앵커_설계기준_20.12.md"
+    },
+    "KDS_11_80_05": {
+      "id": "KDS_11_80_05",
+      "filename": "KDS_11_80_05.md",
+      "korean_title": "콘크리트옹벽",
+      "english_title": "콘크리트옹벽",
+      "english_filename": "콘크리트옹벽.md",
+      "version": "20.12",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "콘크리트옹벽"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "FS = \\frac{S_{R}}{S_{D}}>\\ FS$ (4.4-1)",
+          "line_number": 402,
+          "line_range": [
+            397,
+            407
+          ]
+        },
+        {
+          "id": "formula_2",
+          "formula": "FS = \\frac{S_{R} + R_{key}}{S_{D}}$ (4.4-2)",
+          "line_number": 428,
+          "line_range": [
+            423,
+            433
+          ]
+        },
+        {
+          "id": "formula_3",
+          "formula": "FS = \\frac{M_{R}}{M_{D}} \\geqq FS$ (4.4-3)",
+          "line_number": 444,
+          "line_range": [
+            439,
+            449
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": "image3",
+          "description_file": "images-database.md",
+          "caption": "Image 3",
+          "description_anchor": "kds_11_80_05_image3"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 32.1,
+        "line_count": 626,
+        "word_count": 3208
+      },
+      "original_filename": "KDS_11_80_05_콘크리트옹벽_20.12.md"
+    },
+    "KDS_11_80_10": {
+      "id": "KDS_11_80_10",
+      "filename": "KDS_11_80_10.md",
+      "korean_title": "보강토옹벽 2020",
+      "english_title": "보강토옹벽 2020",
+      "english_filename": "보강토옹벽-2020.md",
+      "version": "unknown",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "보강토옹벽"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image4",
+          "description_file": "images-database.md",
+          "caption": "Image 4",
+          "description_anchor": "kds_11_80_10_image4"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 14.5,
+        "line_count": 295,
+        "word_count": 1395
+      },
+      "original_filename": "KDS_11_80_10_보강토옹벽_2020.md"
+    },
+    "KDS_11_80_15": {
+      "id": "KDS_11_80_15",
+      "filename": "KDS_11_80_15.md",
+      "korean_title": "돌망태옹벽",
+      "english_title": "돌망태옹벽",
+      "english_filename": "돌망태옹벽.md",
+      "version": "20.12",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "돌망태옹벽"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 6.2,
+        "line_count": 170,
+        "word_count": 630
+      },
+      "original_filename": "KDS_11_80_15_돌망태옹벽_20.12.md"
+    },
+    "KDS_11_80_20": {
+      "id": "KDS_11_80_20",
+      "filename": "KDS_11_80_20.md",
+      "korean_title": "기대기옹벽",
+      "english_title": "기대기옹벽",
+      "english_filename": "기대기옹벽.md",
+      "version": "20.12",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "기대기옹벽"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 5.5,
+        "line_count": 178,
+        "word_count": 530
+      },
+      "original_filename": "KDS_11_80_20_기대기옹벽_20.12.md"
+    },
+    "KDS_11_80_25": {
+      "id": "KDS_11_80_25",
+      "filename": "KDS_11_80_25.md",
+      "korean_title": "돌 블록 쌓기옹벽",
+      "english_title": "돌 블록 쌓기옹벽",
+      "english_filename": "돌-블록-쌓기옹벽.md",
+      "version": "20.12",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "블록",
+        "쌓기옹벽"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 2.5,
+        "line_count": 68,
+        "word_count": 251
+      },
+      "original_filename": "KDS_11_80_25_돌_블록_쌓기옹벽_20.12.md"
+    },
+    "KDS_11_90_00": {
+      "id": "KDS_11_90_00",
+      "filename": "KDS_11_90_00.md",
+      "korean_title": "비탈면 내진설계기준",
+      "english_title": "비탈면 Seismic Design Standard",
+      "english_filename": "비탈면-seismic-design-standard.md",
+      "version": "20.8",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "비탈면",
+        "내진설계기준"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 8.8,
+        "line_count": 200,
+        "word_count": 824
+      },
+      "original_filename": "KDS_11_90_00_비탈면_내진설계기준_20.8.md"
+    },
+    "KDS_14_20_01": {
+      "id": "KDS_14_20_01",
+      "filename": "KDS_14_20_01.md",
+      "korean_title": "콘크리트구조 설계 강도설계법 일반사항",
+      "english_title": "Concrete Structure Design - Strength Design Method",
+      "english_filename": "concrete-structure-design---strength-design-method.md",
+      "version": "22.01",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "콘크리트구조",
+        "설계",
+        "강도설계법",
+        "일반사항"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 122.6,
+        "line_count": 1820,
+        "word_count": 12258
+      },
+      "original_filename": "KDS_14_20_01_콘크리트구조_설계_강도설계법_일반사항_22.01.md"
+    },
+    "KDS_14_20_10": {
+      "id": "KDS_14_20_10",
+      "filename": "KDS_14_20_10.md",
+      "korean_title": "콘크리트구조 해석과 설계 원칙",
+      "english_title": "Concrete Structure 해석과 설계 원칙",
+      "english_filename": "concrete-structure-해석과-설계-원칙.md",
+      "version": "21.02",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "콘크리트구조",
+        "해석과",
+        "설계",
+        "원칙"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 21.5,
+        "line_count": 468,
+        "word_count": 2330
+      },
+      "original_filename": "KDS_14_20_10_콘크리트구조_해석과_설계_원칙_21.02.md"
+    },
+    "KDS_14_20_20": {
+      "id": "KDS_14_20_20",
+      "filename": "KDS_14_20_20.md",
+      "korean_title": "콘크리트구조 휨 및 압축 설계기준",
+      "english_title": "Concrete Structure 휨 및 압축 Design Standard",
+      "english_filename": "concrete-structure-휨-및-압축-design-standard.md",
+      "version": "unknown",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "콘크리트구조",
+        "압축",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 47.6,
+        "line_count": 816,
+        "word_count": 4732
+      },
+      "original_filename": "KDS_14_20_20_콘크리트구조_휨_및_압축_설계기준.md"
+    },
+    "KDS_14_20_22": {
+      "id": "KDS_14_20_22",
+      "filename": "KDS_14_20_22.md",
+      "korean_title": "콘크리트구조 전단 및 비틀림 설계기준",
+      "english_title": "Concrete Structure 전단 및 비틀림 Design Standard",
+      "english_filename": "concrete-structure-전단-및-비틀림-design-standard.md",
+      "version": "22.01",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "콘크리트구조",
+        "전단",
+        "비틀림",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 67.6,
+        "line_count": 971,
+        "word_count": 6555
+      },
+      "original_filename": "KDS_14_20_22_콘크리트구조_전단_및_비틀림_설계기준_22.01.md"
+    },
+    "KDS_14_20_24": {
+      "id": "KDS_14_20_24",
+      "filename": "KDS_14_20_24.md",
+      "korean_title": "콘크리트구조 스트럿-타이모델 기준",
+      "english_title": "Concrete Structure 스트럿-타이모델 기준",
+      "english_filename": "concrete-structure-스트럿-타이모델-기준.md",
+      "version": "21.02",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "콘크리트구조",
+        "스트럿",
+        "타이모델",
+        "기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 12.8,
+        "line_count": 272,
+        "word_count": 1332
+      },
+      "original_filename": "KDS_14_20_24_콘크리트구조_스트럿-타이모델_기준_21.02.md"
+    },
+    "KDS_14_20_26": {
+      "id": "KDS_14_20_26",
+      "filename": "KDS_14_20_26.md",
+      "korean_title": "콘크리트구조 피로 설계기준",
+      "english_title": "Concrete Structure 피로 Design Standard",
+      "english_filename": "concrete-structure-피로-design-standard.md",
+      "version": "21.02",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "콘크리트구조",
+        "피로",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 3.0,
+        "line_count": 108,
+        "word_count": 364
+      },
+      "original_filename": "KDS_14_20_26_콘크리트구조_피로_설계기준_21.02.md"
+    },
+    "KDS_14_20_30": {
+      "id": "KDS_14_20_30",
+      "filename": "KDS_14_20_30.md",
+      "korean_title": "콘크리트구조 사용성 설계기준",
+      "english_title": "Concrete Structure 사용성 Design Standard",
+      "english_filename": "concrete-structure-사용성-design-standard.md",
+      "version": "21.02",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "콘크리트구조",
+        "사용성",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 28.9,
+        "line_count": 664,
+        "word_count": 2873
+      },
+      "original_filename": "KDS_14_20_30_콘크리트구조_사용성_설계기준_21.02.md"
+    },
+    "KDS_14_20_40": {
+      "id": "KDS_14_20_40",
+      "filename": "KDS_14_20_40.md",
+      "korean_title": "콘크리트구조 내구성 설계기준",
+      "english_title": "Concrete Structure 내구성 Design Standard",
+      "english_filename": "concrete-structure-내구성-design-standard.md",
+      "version": "unknown",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "콘크리트구조",
+        "내구성",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 46.3,
+        "line_count": 1006,
+        "word_count": 4492
+      },
+      "original_filename": "KDS_14_20_40_콘크리트구조_내구성_설계기준.md"
+    },
+    "KDS_14_20_50": {
+      "id": "KDS_14_20_50",
+      "filename": "KDS_14_20_50.md",
+      "korean_title": "콘크리트구조 철근상세 설계기준",
+      "english_title": "Concrete Structure 철근상세 Design Standard",
+      "english_filename": "concrete-structure-철근상세-design-standard.md",
+      "version": "unknown",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "콘크리트구조",
+        "철근상세",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 30.0,
+        "line_count": 535,
+        "word_count": 3199
+      },
+      "original_filename": "KDS_14_20_50_콘크리트구조_철근상세_설계기준.md"
+    },
+    "KDS_14_20_52": {
+      "id": "KDS_14_20_52",
+      "filename": "KDS_14_20_52.md",
+      "korean_title": "콘크리트구조 정착 및 이음 설계기준",
+      "english_title": "Concrete Structure 정착 및 이음 Design Standard",
+      "english_filename": "concrete-structure-정착-및-이음-design-standard.md",
+      "version": "22.01",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "콘크리트구조",
+        "정착",
+        "이음",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 39.4,
+        "line_count": 562,
+        "word_count": 4077
+      },
+      "original_filename": "KDS_14_20_52_콘크리트구조_정착_및_이음_설계기준_22.01.md"
+    },
+    "KDS_14_20_54": {
+      "id": "KDS_14_20_54",
+      "filename": "KDS_14_20_54.md",
+      "korean_title": "콘크리트용 앵커 설계기준",
+      "english_title": "콘크리트용 앵커 Design Standard",
+      "english_filename": "콘크리트용-앵커-design-standard.md",
+      "version": "21.02",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "콘크리트용",
+        "앵커",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 53.9,
+        "line_count": 922,
+        "word_count": 5383
+      },
+      "original_filename": "KDS_14_20_54_콘크리트용_앵커_설계기준_21.02.md"
+    },
+    "KDS_14_20_60": {
+      "id": "KDS_14_20_60",
+      "filename": "KDS_14_20_60.md",
+      "korean_title": "프리스트레스트 콘크리트구조 설계기준",
+      "english_title": "프리스트레스트 Concrete Structure Design Standard",
+      "english_filename": "프리스트레스트-concrete-structure-design-standard.md",
+      "version": "unknown",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "프리스트레스트",
+        "콘크리트구조",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 31.5,
+        "line_count": 485,
+        "word_count": 3190
+      },
+      "original_filename": "KDS_14_20_60_프리스트레스트_콘크리트구조_설계기준.md"
+    },
+    "KDS_14_20_62": {
+      "id": "KDS_14_20_62",
+      "filename": "KDS_14_20_62.md",
+      "korean_title": "프리캐스트 콘크리트구조 설계기준",
+      "english_title": "프리캐스트 Concrete Structure Design Standard",
+      "english_filename": "프리캐스트-concrete-structure-design-standard.md",
+      "version": "22.01",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "프리캐스트",
+        "콘크리트구조",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 15.2,
+        "line_count": 234,
+        "word_count": 1536
+      },
+      "original_filename": "KDS_14_20_62_프리캐스트_콘크리트구조_설계기준_22.01.md"
+    },
+    "KDS_14_20_64": {
+      "id": "KDS_14_20_64",
+      "filename": "KDS_14_20_64.md",
+      "korean_title": "구조용 무근콘크리트 설계기준",
+      "english_title": "구조용 무근콘크리트 Design Standard",
+      "english_filename": "구조용-무근콘크리트-design-standard.md",
+      "version": "21.02",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "구조용",
+        "무근콘크리트",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 16.0,
+        "line_count": 308,
+        "word_count": 1705
+      },
+      "original_filename": "KDS_14_20_64_구조용_무근콘크리트_설계기준_21.02.md"
+    },
+    "KDS_14_20_66": {
+      "id": "KDS_14_20_66",
+      "filename": "KDS_14_20_66.md",
+      "korean_title": "합성콘크리트 설계기준",
+      "english_title": "합성콘크리트 Design Standard",
+      "english_filename": "합성콘크리트-design-standard.md",
+      "version": "21.02",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "합성콘크리트",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 13.8,
+        "line_count": 254,
+        "word_count": 1449
+      },
+      "original_filename": "KDS_14_20_66_합성콘크리트_설계기준_21.02.md"
+    },
+    "KDS_14_20_68": {
+      "id": "KDS_14_20_68",
+      "filename": "KDS_14_20_68.md",
+      "korean_title": "유리섬유 강화 폴리머 보강근 콘크리트구조 설계기준",
+      "english_title": "유리섬유 강화 폴리머 보강근 Concrete Structure Design Standard",
+      "english_filename": "유리섬유-강화-폴리머-보강근-concrete-structure-design-standard.md",
+      "version": "24.12",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "유리섬유",
+        "강화",
+        "폴리머",
+        "보강근",
+        "콘크리트구조"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 100.8,
+        "line_count": 2026,
+        "word_count": 10500
+      },
+      "original_filename": "KDS_14_20_68_유리섬유_강화_폴리머_보강근_콘크리트구조_설계기준_24.12_수정.md"
+    },
+    "KDS_14_20_70": {
+      "id": "KDS_14_20_70",
+      "filename": "KDS_14_20_70.md",
+      "korean_title": "콘크리트 슬래브와 기초판 설계기준",
+      "english_title": "콘크리트 슬래브와 Foundation판 Design Standard",
+      "english_filename": "콘크리트-슬래브와-foundation판-design-standard.md",
+      "version": "21.02",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "슬래브와",
+        "기초판",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "M = 0.07\\lbrack(w_{d} + 0.5w_{l})l_{2}{l_{n}}^{2} - w_{d}'l_{2}'(l_{n}')^{2}\\rbrack$ (4.1-3)",
+          "line_number": 486,
+          "line_range": [
+            481,
+            491
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": "image0",
+          "description_file": "images-database.md",
+          "caption": "Image 0",
+          "description_anchor": "kds_14_20_70_image0"
+        },
+        {
+          "id": "image1",
+          "description_file": "images-database.md",
+          "caption": "Image 1",
+          "description_anchor": "kds_14_20_70_image1"
+        },
+        {
+          "id": "image2",
+          "description_file": "images-database.md",
+          "caption": "Image 2",
+          "description_anchor": "kds_14_20_70_image2"
+        },
+        {
+          "id": "image3",
+          "description_file": "images-database.md",
+          "caption": "Image 3",
+          "description_anchor": "kds_14_20_70_image3"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 66.7,
+        "line_count": 1995,
+        "word_count": 6335
+      },
+      "original_filename": "KDS_14_20_70_콘크리트_슬래브와_기초판_설계기준_21.02.md"
+    },
+    "KDS_14_20_72": {
+      "id": "KDS_14_20_72",
+      "filename": "KDS_14_20_72.md",
+      "korean_title": "콘크리트 벽체 설계기준",
+      "english_title": "콘크리트 벽체 Design Standard",
+      "english_filename": "콘크리트-벽체-design-standard.md",
+      "version": "21.02",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "벽체",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 12.8,
+        "line_count": 276,
+        "word_count": 1430
+      },
+      "original_filename": "KDS_14_20_72_콘크리트_벽체_설계기준_21.02.md"
+    },
+    "KDS_14_20_74": {
+      "id": "KDS_14_20_74",
+      "filename": "KDS_14_20_74.md",
+      "korean_title": "기타 콘크리트구조 설계기준",
+      "english_title": "기타 Concrete Structure Design Standard",
+      "english_filename": "기타-concrete-structure-design-standard.md",
+      "version": "21.02",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "기타",
+        "콘크리트구조",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 23.4,
+        "line_count": 436,
+        "word_count": 2445
+      },
+      "original_filename": "KDS_14_20_74_기타_콘크리트구조_설계기준_21.02.md"
+    },
+    "KDS_14_20_80": {
+      "id": "KDS_14_20_80",
+      "filename": "KDS_14_20_80.md",
+      "korean_title": "콘크리트 내진설계기준",
+      "english_title": "콘크리트 Seismic Design Standard",
+      "english_filename": "콘크리트-seismic-design-standard.md",
+      "version": "21.02",
+      "category": "seismic",
+      "subcategory": [],
+      "keywords_korean": [
+        "내진",
+        "지진",
+        "밑면전단력",
+        "응답스펙트럼",
+        "지진하중",
+        "콘크리트",
+        "내진설계기준"
+      ],
+      "keywords_english": [
+        "seismic",
+        "earthquake",
+        "base shear",
+        "response spectrum"
+      ],
+      "related_standards": [
+        "KDS_41_12_00",
+        "KDS_17_10_00",
+        "KDS_14_31_60"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 57.9,
+        "line_count": 757,
+        "word_count": 5942
+      },
+      "original_filename": "KDS_14_20_80_콘크리트_내진설계기준_21.02.md"
+    },
+    "KDS_14_20_90": {
+      "id": "KDS_14_20_90",
+      "filename": "KDS_14_20_90.md",
+      "korean_title": "기존 콘크리트구조물의 안전성 평가기준",
+      "english_title": "기존 Concrete Structure물의 안전성 평가기준",
+      "english_filename": "기존-concrete-structure물의-안전성-평가기준.md",
+      "version": "21.02",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "기존",
+        "콘크리트구조물의",
+        "안전성",
+        "평가기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 27.6,
+        "line_count": 467,
+        "word_count": 2871
+      },
+      "original_filename": "KDS_14_20_90_기존_콘크리트구조물의_안전성_평가기준_21.02.md"
+    },
+    "KDS_14_30_05": {
+      "id": "KDS_14_30_05",
+      "filename": "KDS_14_30_05.md",
+      "korean_title": "강구조 설계 일반사항 허용응력설계법",
+      "english_title": "Steel Structure Design - ASD Method",
+      "english_filename": "steel-structure-design---asd-method.md",
+      "version": "19.05",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "설계",
+        "일반사항",
+        "허용응력설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 62.2,
+        "line_count": 2220,
+        "word_count": 6375
+      },
+      "original_filename": "KDS_14_30_05_강구조_설계_일반사항_허용응력설계법_19.05.md"
+    },
+    "KDS_14_30_10": {
+      "id": "KDS_14_30_10",
+      "filename": "KDS_14_30_10.md",
+      "korean_title": "강구조 부재 설계기준 허용응력설계법",
+      "english_title": "Steel Structure 부재 Design Standard 허용응력설계법",
+      "english_filename": "steel-structure-부재-design-standard-허용응력설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "부재",
+        "설계기준",
+        "허용응력설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "R = \\frac{48,000{t_{w}}^{3}}{h}\\lbrack 1 + 0.4(\\frac{d_{c}/t_{w}}{l/b_{f}})^{3}\\rbrack$ (4.5-52)",
+          "line_number": 1004,
+          "line_range": [
+            999,
+            1009
+          ]
+        },
+        {
+          "id": "formula_2",
+          "formula": "R = \\frac{48,000{t_{w}}^{3}}{h}\\lbrack 0.4(\\frac{d_{c}/t_{w}}{l/b_{f}})^{3}\\rbrack$ (4.5-53)",
+          "line_number": 1008,
+          "line_range": [
+            1003,
+            1013
+          ]
+        },
+        {
+          "id": "formula_3",
+          "formula": "M = T\\frac{l}{10}$ (4.8-15)",
+          "line_number": 2704,
+          "line_range": [
+            2699,
+            2709
+          ]
+        },
+        {
+          "id": "formula_4",
+          "formula": "F = C_{d}\\frac{w}{2g}Au|u|+ C_{m}\\frac{w}{g}V\\frac{\\partial u}{\\partial t}$ (4.8-17)",
+          "line_number": 2845,
+          "line_range": [
+            2840,
+            2850
+          ]
+        },
+        {
+          "id": "formula_5",
+          "formula": "F = C_{s}\\frac{w}{2g}AV^{2}$ (4.8-18)",
+          "line_number": 2868,
+          "line_range": [
+            2863,
+            2873
+          ]
+        },
+        {
+          "id": "formula_6",
+          "formula": "F = Cf_{c}Dh$ (4.8-19)",
+          "line_number": 2884,
+          "line_range": [
+            2879,
+            2889
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": "image10",
+          "description_file": "images-database.md",
+          "caption": "Image 10",
+          "description_anchor": "kds_14_30_10_image10"
+        },
+        {
+          "id": "image11",
+          "description_file": "images-database.md",
+          "caption": "Image 11",
+          "description_anchor": "kds_14_30_10_image11"
+        },
+        {
+          "id": "image12",
+          "description_file": "images-database.md",
+          "caption": "Image 12",
+          "description_anchor": "kds_14_30_10_image12"
+        },
+        {
+          "id": "image13",
+          "description_file": "images-database.md",
+          "caption": "Image 13",
+          "description_anchor": "kds_14_30_10_image13"
+        },
+        {
+          "id": "image14",
+          "description_file": "images-database.md",
+          "caption": "Image 14",
+          "description_anchor": "kds_14_30_10_image14"
+        },
+        {
+          "id": "image15",
+          "description_file": "images-database.md",
+          "caption": "Image 15",
+          "description_anchor": "kds_14_30_10_image15"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 139.7,
+        "line_count": 3100,
+        "word_count": 13648
+      },
+      "original_filename": "KDS_14_30_10_강구조_부재_설계기준_허용응력설계법.md"
+    },
+    "KDS_14_30_20": {
+      "id": "KDS_14_30_20",
+      "filename": "KDS_14_30_20.md",
+      "korean_title": "강구조 피로 및 파단 설계기준 허용응력설계법",
+      "english_title": "Steel Structure 피로 및 파단 Design Standard 허용응력설계법",
+      "english_filename": "steel-structure-피로-및-파단-design-standard-허용응력설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "피로",
+        "파단",
+        "설계기준",
+        "허용응력설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image16",
+          "description_file": "images-database.md",
+          "caption": "Image 16",
+          "description_anchor": "kds_14_30_20_image16"
+        },
+        {
+          "id": "image17",
+          "description_file": "images-database.md",
+          "caption": "Image 17",
+          "description_anchor": "kds_14_30_20_image17"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 19.8,
+        "line_count": 660,
+        "word_count": 2024
+      },
+      "original_filename": "KDS_14_30_20_강구조_피로_및_파단_설계기준_허용응력설계법.md"
+    },
+    "KDS_14_30_25": {
+      "id": "KDS_14_30_25",
+      "filename": "KDS_14_30_25.md",
+      "korean_title": "강구조 연결 설계기준 허용응력설계법",
+      "english_title": "Steel Structure 연결 Design Standard 허용응력설계법",
+      "english_filename": "steel-structure-연결-design-standard-허용응력설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "연결",
+        "설계기준",
+        "허용응력설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 18.4,
+        "line_count": 781,
+        "word_count": 1917
+      },
+      "original_filename": "KDS_14_30_25_강구조_연결_설계기준_허용응력설계법.md"
+    },
+    "KDS_14_30_50": {
+      "id": "KDS_14_30_50",
+      "filename": "KDS_14_30_50.md",
+      "korean_title": "강구조 사용성 설계 허용응력설계법",
+      "english_title": "Steel Structure 사용성 설계 허용응력설계법",
+      "english_filename": "steel-structure-사용성-설계-허용응력설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "사용성",
+        "설계",
+        "허용응력설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 3.2,
+        "line_count": 84,
+        "word_count": 351
+      },
+      "original_filename": "KDS_14_30_50_강구조_사용성_설계_허용응력설계법.md"
+    },
+    "KDS_14_31_05": {
+      "id": "KDS_14_31_05",
+      "filename": "KDS_14_31_05.md",
+      "korean_title": "강구조 설계 일반사항 하중저항계수설계법",
+      "english_title": "Steel Structure Design - LRFD Method",
+      "english_filename": "steel-structure-design---lrfd-method.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "설계",
+        "일반사항",
+        "하중저항계수설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 127.4,
+        "line_count": 3131,
+        "word_count": 12456
+      },
+      "original_filename": "KDS_14_31_05_강구조_설계_일반사항_하중저항계수설계법.md"
+    },
+    "KDS_14_31_10": {
+      "id": "KDS_14_31_10",
+      "filename": "KDS_14_31_10.md",
+      "korean_title": "강구조 부재 설계기준 하중저항계수설계법",
+      "english_title": "Steel Structure 부재 Design Standard 하중저항계수설계법",
+      "english_filename": "steel-structure-부재-design-standard-하중저항계수설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "부재",
+        "설계기준",
+        "하중저항계수설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "C = 1.0$ (4.3-185)",
+          "line_number": 3076,
+          "line_range": [
+            3071,
+            3081
+          ]
+        },
+        {
+          "id": "formula_2",
+          "formula": "C = \\frac{1.12}{(D/t_{w})}\\sqrt{\\frac{E k}{F_{yw}}}$ (4.3-186)",
+          "line_number": 3080,
+          "line_range": [
+            3075,
+            3085
+          ]
+        },
+        {
+          "id": "formula_3",
+          "formula": "C = \\frac{1.57}{(D/t_{w})^{2}}(\\frac{Ek}{F_{yw}})$ (4.3-187)",
+          "line_number": 3084,
+          "line_range": [
+            3079,
+            3089
+          ]
+        },
+        {
+          "id": "formula_4",
+          "formula": "P = \\sqrt{{P_{p}}^{2} + {F_{p}}^{2}}$ (4.3-206)",
+          "line_number": 3272,
+          "line_range": [
+            3267,
+            3277
+          ]
+        },
+        {
+          "id": "formula_5",
+          "formula": "P = \\sqrt{{P_{T}}^{2} + {F_{T}}^{2}}$ (4.3-210)",
+          "line_number": 3300,
+          "line_range": [
+            3295,
+            3305
+          ]
+        },
+        {
+          "id": "formula_6",
+          "formula": "C = \\frac{\\pi(D - t)^{2}t}{2}$",
+          "line_number": 4486,
+          "line_range": [
+            4481,
+            4491
+          ]
+        },
+        {
+          "id": "formula_7",
+          "formula": "C = 2(B - t)(H - t)t - 4.5(4 - \\pi)t^{3}$",
+          "line_number": 4487,
+          "line_range": [
+            4482,
+            4492
+          ]
+        },
+        {
+          "id": "formula_8",
+          "formula": "P = T_{D} + T_{C})T_{D}$: 파형강판에 작용하는 고정하중에 의한 압축력 (kN/m)",
+          "line_number": 5264,
+          "line_range": [
+            5259,
+            5269
+          ]
+        },
+        {
+          "id": "formula_9",
+          "formula": "M = M_{1} + M_{B} + M_{C})M_{1}$: 상부 아치 정점부까지 고정하중에 의한 휨모멘트 ($kN \\cdot m/m$)",
+          "line_number": 5274,
+          "line_range": [
+            5269,
+            5279
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": "image22",
+          "description_file": "images-database.md",
+          "caption": "Image 22",
+          "description_anchor": "kds_14_31_10_image22"
+        },
+        {
+          "id": "image23",
+          "description_file": "images-database.md",
+          "caption": "Image 23",
+          "description_anchor": "kds_14_31_10_image23"
+        },
+        {
+          "id": "image24",
+          "description_file": "images-database.md",
+          "caption": "Image 24",
+          "description_anchor": "kds_14_31_10_image24"
+        },
+        {
+          "id": "image25",
+          "description_file": "images-database.md",
+          "caption": "Image 25",
+          "description_anchor": "kds_14_31_10_image25"
+        },
+        {
+          "id": "image26",
+          "description_file": "images-database.md",
+          "caption": "Image 26",
+          "description_anchor": "kds_14_31_10_image26"
+        },
+        {
+          "id": "image27",
+          "description_file": "images-database.md",
+          "caption": "Image 27",
+          "description_anchor": "kds_14_31_10_image27"
+        },
+        {
+          "id": "image28",
+          "description_file": "images-database.md",
+          "caption": "Image 28",
+          "description_anchor": "kds_14_31_10_image28"
+        },
+        {
+          "id": "image29",
+          "description_file": "images-database.md",
+          "caption": "Image 29",
+          "description_anchor": "kds_14_31_10_image29"
+        },
+        {
+          "id": "image30",
+          "description_file": "images-database.md",
+          "caption": "Image 30",
+          "description_anchor": "kds_14_31_10_image30"
+        },
+        {
+          "id": "image31",
+          "description_file": "images-database.md",
+          "caption": "Image 31",
+          "description_anchor": "kds_14_31_10_image31"
+        },
+        {
+          "id": "image32",
+          "description_file": "images-database.md",
+          "caption": "Image 32",
+          "description_anchor": "kds_14_31_10_image32"
+        },
+        {
+          "id": "image33",
+          "description_file": "images-database.md",
+          "caption": "Image 33",
+          "description_anchor": "kds_14_31_10_image33"
+        },
+        {
+          "id": "image34",
+          "description_file": "images-database.md",
+          "caption": "Image 34",
+          "description_anchor": "kds_14_31_10_image34"
+        },
+        {
+          "id": "image35",
+          "description_file": "images-database.md",
+          "caption": "Image 35",
+          "description_anchor": "kds_14_31_10_image35"
+        },
+        {
+          "id": "image36",
+          "description_file": "images-database.md",
+          "caption": "Image 36",
+          "description_anchor": "kds_14_31_10_image36"
+        },
+        {
+          "id": "image37",
+          "description_file": "images-database.md",
+          "caption": "Image 37",
+          "description_anchor": "kds_14_31_10_image37"
+        },
+        {
+          "id": "image38",
+          "description_file": "images-database.md",
+          "caption": "Image 38",
+          "description_anchor": "kds_14_31_10_image38"
+        },
+        {
+          "id": "image39",
+          "description_file": "images-database.md",
+          "caption": "Image 39",
+          "description_anchor": "kds_14_31_10_image39"
+        },
+        {
+          "id": "image40",
+          "description_file": "images-database.md",
+          "caption": "Image 40",
+          "description_anchor": "kds_14_31_10_image40"
+        },
+        {
+          "id": "image41",
+          "description_file": "images-database.md",
+          "caption": "Image 41",
+          "description_anchor": "kds_14_31_10_image41"
+        },
+        {
+          "id": "image42",
+          "description_file": "images-database.md",
+          "caption": "Image 42",
+          "description_anchor": "kds_14_31_10_image42"
+        },
+        {
+          "id": "image43",
+          "description_file": "images-database.md",
+          "caption": "Image 43",
+          "description_anchor": "kds_14_31_10_image43"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 268.1,
+        "line_count": 6261,
+        "word_count": 25395
+      },
+      "original_filename": "KDS_14_31_10_강구조_부재_설계기준_하중저항계수설계법.md"
+    },
+    "KDS_14_31_15": {
+      "id": "KDS_14_31_15",
+      "filename": "KDS_14_31_15.md",
+      "korean_title": "강구조 골조의 안정성 설계기준 하중저항계수설계법",
+      "english_title": "강구조 골조의 안정성 설계기준 하중저항계수설계법",
+      "english_filename": "강구조-골조의-안정성-설계기준-하중저항계수설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image0",
+          "description_file": "images-database.md",
+          "caption": "Image 0",
+          "description_anchor": "kds_14_31_15_image0"
+        },
+        {
+          "id": "image1",
+          "description_file": "images-database.md",
+          "caption": "Image 1",
+          "description_anchor": "kds_14_31_15_image1"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 24.1,
+        "line_count": 485,
+        "word_count": 2358
+      },
+      "original_filename": "KDS_14_31_15_강구조_골조의_안정성_설계기준_하중저항계수설계법.md"
+    },
+    "KDS_14_31_20": {
+      "id": "KDS_14_31_20",
+      "filename": "KDS_14_31_20.md",
+      "korean_title": "강구조 피로 및 파단 설계기준 하중저항계수설계법",
+      "english_title": "Steel Structure 피로 및 파단 Design Standard 하중저항계수설계법",
+      "english_filename": "steel-structure-피로-및-파단-design-standard-하중저항계수설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "피로",
+        "파단",
+        "설계기준",
+        "하중저항계수설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image2",
+          "description_file": "images-database.md",
+          "caption": "Image 2",
+          "description_anchor": "kds_14_31_20_image2"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 41.7,
+        "line_count": 1255,
+        "word_count": 3778
+      },
+      "original_filename": "KDS_14_31_20_강구조_피로_및_파단_설계기준_하중저항계수설계법.md"
+    },
+    "KDS_14_31_25": {
+      "id": "KDS_14_31_25",
+      "filename": "KDS_14_31_25.md",
+      "korean_title": "강구조 연결 설계기준 하중저항계수설계법",
+      "english_title": "Steel Structure 연결 Design Standard 하중저항계수설계법",
+      "english_filename": "steel-structure-연결-design-standard-하중저항계수설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "연결",
+        "설계기준",
+        "하중저항계수설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 87.5,
+        "line_count": 2172,
+        "word_count": 8672
+      },
+      "original_filename": "KDS_14_31_25_강구조_연결_설계기준_하중저항계수설계법.md"
+    },
+    "KDS_14_31_50": {
+      "id": "KDS_14_31_50",
+      "filename": "KDS_14_31_50.md",
+      "korean_title": "강구조 내화 설계기준 하중저항계수설계법",
+      "english_title": "Steel Structure 내화 Design Standard 하중저항계수설계법",
+      "english_filename": "steel-structure-내화-design-standard-하중저항계수설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "내화",
+        "설계기준",
+        "하중저항계수설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 6.0,
+        "line_count": 110,
+        "word_count": 609
+      },
+      "original_filename": "KDS_14_31_50_강구조_내화_설계기준_하중저항계수설계법.md"
+    },
+    "KDS_14_31_55": {
+      "id": "KDS_14_31_55",
+      "filename": "KDS_14_31_55.md",
+      "korean_title": "강구조 사용성 및 물고임 설계기준 하중저항계수설계법",
+      "english_title": "Steel Structure 사용성 및 물고임 Design Standard 하중저항계수설계법",
+      "english_filename": "steel-structure-사용성-및-물고임-design-standard-하중저항계수설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "사용성",
+        "물고임",
+        "설계기준",
+        "하중저항계수설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "S = 1.0$)에 해당하는 유연도상수$C_{s}$를 계산하고 그림 4.2-1 또는 그림 4.2-2를 이용하여 강성을 평가한다.",
+          "line_number": 141,
+          "line_range": [
+            136,
+            146
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": "image3",
+          "description_file": "images-database.md",
+          "caption": "Image 3",
+          "description_anchor": "kds_14_31_55_image3"
+        },
+        {
+          "id": "image4",
+          "description_file": "images-database.md",
+          "caption": "Image 4",
+          "description_anchor": "kds_14_31_55_image4"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 7.0,
+        "line_count": 150,
+        "word_count": 682
+      },
+      "original_filename": "KDS_14_31_55_강구조_사용성_및_물고임_설계기준_하중저항계수설계법.md"
+    },
+    "KDS_14_31_60": {
+      "id": "KDS_14_31_60",
+      "filename": "KDS_14_31_60.md",
+      "korean_title": "강구조 내진 설계기준 하중저항계수설계법",
+      "english_title": "Steel Structure 내진 Design Standard 하중저항계수설계법",
+      "english_filename": "steel-structure-내진-design-standard-하중저항계수설계법.md",
+      "version": "unknown",
+      "category": "seismic",
+      "subcategory": [],
+      "keywords_korean": [
+        "내진",
+        "지진",
+        "밑면전단력",
+        "응답스펙트럼",
+        "지진하중",
+        "강구조",
+        "설계기준",
+        "하중저항계수설계법"
+      ],
+      "keywords_english": [
+        "seismic",
+        "earthquake",
+        "base shear",
+        "response spectrum"
+      ],
+      "related_standards": [
+        "KDS_41_12_00",
+        "KDS_17_10_00",
+        "KDS_14_20_80"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 110.8,
+        "line_count": 1994,
+        "word_count": 10304
+      },
+      "original_filename": "KDS_14_31_60_강구조_내진_설계기준_하중저항계수설계법.md"
+    },
+    "KDS_14_31_70": {
+      "id": "KDS_14_31_70",
+      "filename": "KDS_14_31_70.md",
+      "korean_title": "강구조 성능기반 설계기준 하중저항계수설계법",
+      "english_title": "Steel Structure 성능기반 Design Standard 하중저항계수설계법",
+      "english_filename": "steel-structure-성능기반-design-standard-하중저항계수설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "성능기반",
+        "설계기준",
+        "하중저항계수설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 8.5,
+        "line_count": 130,
+        "word_count": 803
+      },
+      "original_filename": "KDS_14_31_70_강구조_성능기반_설계기준_하중저항계수설계법.md"
+    },
+    "KDS_14_31_80": {
+      "id": "KDS_14_31_80",
+      "filename": "KDS_14_31_80.md",
+      "korean_title": "합성구조 부재 설계기준 하중저항계수설계법",
+      "english_title": "Composite Structure 부재 Design Standard 하중저항계수설계법",
+      "english_filename": "composite-structure-부재-design-standard-하중저항계수설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "합성구조",
+        "부재",
+        "설계기준",
+        "하중저항계수설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 53.8,
+        "line_count": 1093,
+        "word_count": 5075
+      },
+      "original_filename": "KDS_14_31_80_합성구조_부재_설계기준_하중저항계수설계법.md"
+    },
+    "KDS_14_31_85": {
+      "id": "KDS_14_31_85",
+      "filename": "KDS_14_31_85.md",
+      "korean_title": "합성구조 내진 설계기준 하중저항계수설계법",
+      "english_title": "Composite Structure 내진 Design Standard 하중저항계수설계법",
+      "english_filename": "composite-structure-내진-design-standard-하중저항계수설계법.md",
+      "version": "unknown",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "합성구조",
+        "내진",
+        "설계기준",
+        "하중저항계수설계법"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image5",
+          "description_file": "images-database.md",
+          "caption": "Image 5",
+          "description_anchor": "kds_14_31_85_image5"
+        },
+        {
+          "id": "image6",
+          "description_file": "images-database.md",
+          "caption": "Image 6",
+          "description_anchor": "kds_14_31_85_image6"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 42.6,
+        "line_count": 568,
+        "word_count": 4098
+      },
+      "original_filename": "KDS_14_31_85_합성구조_내진_설계기준_하중저항계수설계법.md"
+    },
+    "KDS_17_10_00": {
+      "id": "KDS_17_10_00",
+      "filename": "KDS_17_10_00.md",
+      "korean_title": "내진설계 일반",
+      "english_title": "General Seismic Design",
+      "english_filename": "general-seismic-design.md",
+      "version": "18.12",
+      "category": "seismic",
+      "subcategory": [],
+      "keywords_korean": [
+        "내진",
+        "지진",
+        "밑면전단력",
+        "응답스펙트럼",
+        "지진하중",
+        "내진설계",
+        "일반"
+      ],
+      "keywords_english": [
+        "seismic",
+        "earthquake",
+        "base shear",
+        "response spectrum"
+      ],
+      "related_standards": [
+        "KDS_41_12_00",
+        "KDS_14_20_80",
+        "KDS_14_31_60"
+      ],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "S =  0.2$</td>",
+          "line_number": 600,
+          "line_range": [
+            595,
+            605
+          ]
+        },
+        {
+          "id": "formula_2",
+          "formula": "S =  0.3$</td>",
+          "line_number": 601,
+          "line_range": [
+            596,
+            606
+          ]
+        },
+        {
+          "id": "formula_3",
+          "formula": "S =  0.2$</td>",
+          "line_number": 603,
+          "line_range": [
+            598,
+            608
+          ]
+        },
+        {
+          "id": "formula_4",
+          "formula": "S =  0.3$</td>",
+          "line_number": 604,
+          "line_range": [
+            599,
+            609
+          ]
+        },
+        {
+          "id": "formula_5",
+          "formula": "S = Z \\times I$ (4.2-1)",
+          "line_number": 653,
+          "line_range": [
+            648,
+            658
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": "image7",
+          "description_file": "images-database.md",
+          "caption": "Image 7",
+          "description_anchor": "kds_17_10_00_image7"
+        },
+        {
+          "id": "image8",
+          "description_file": "images-database.md",
+          "caption": "Image 8",
+          "description_anchor": "kds_17_10_00_image8"
+        },
+        {
+          "id": "image9",
+          "description_file": "images-database.md",
+          "caption": "Image 9",
+          "description_anchor": "kds_17_10_00_image9"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 42.3,
+        "line_count": 993,
+        "word_count": 3779
+      },
+      "original_filename": "KDS_17_10_00_내진설계_일반_18.12.md"
+    },
+    "KDS_21_10_00": {
+      "id": "KDS_21_10_00",
+      "filename": "KDS_21_10_00.md",
+      "korean_title": "가시설물 설계 일반사항",
+      "english_title": "Temporary Structure Design - General",
+      "english_filename": "temporary-structure-design---general.md",
+      "version": "22.02",
+      "category": "temporary",
+      "subcategory": [],
+      "keywords_korean": [
+        "가설",
+        "거푸집",
+        "동바리",
+        "흙막이",
+        "비계",
+        "가시설물",
+        "설계",
+        "일반사항"
+      ],
+      "keywords_english": [
+        "temporary",
+        "formwork",
+        "shoring",
+        "excavation",
+        "scaffolding"
+      ],
+      "related_standards": [],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 9.8,
+        "line_count": 286,
+        "word_count": 1061
+      },
+      "original_filename": "KDS_21_10_00_가시설물_설계_일반사항_22.02.md"
+    },
+    "KDS_21_30_00": {
+      "id": "KDS_21_30_00",
+      "filename": "KDS_21_30_00.md",
+      "korean_title": "가설흙막이 설계기준 2024",
+      "english_title": "Temporary Excavation Support Design Standard",
+      "english_filename": "temporary-excavation-support-design-standard.md",
+      "version": "unknown",
+      "category": "temporary",
+      "subcategory": [],
+      "keywords_korean": [
+        "가설",
+        "거푸집",
+        "동바리",
+        "흙막이",
+        "비계",
+        "가설흙막이",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "temporary",
+        "formwork",
+        "shoring",
+        "excavation",
+        "scaffolding"
+      ],
+      "related_standards": [],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image10",
+          "description_file": "images-database.md",
+          "caption": "Image 10",
+          "description_anchor": "kds_21_30_00_image10"
+        },
+        {
+          "id": "image11",
+          "description_file": "images-database.md",
+          "caption": "Image 11",
+          "description_anchor": "kds_21_30_00_image11"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 45.5,
+        "line_count": 1001,
+        "word_count": 4440
+      },
+      "original_filename": "KDS_21_30_00_가설흙막이_설계기준_2024.md"
+    },
+    "KDS_21_45_00": {
+      "id": "KDS_21_45_00",
+      "filename": "KDS_21_45_00.md",
+      "korean_title": "가설교량 및 노면복공 설계기준 2024",
+      "english_title": "Temporary교량 및 노면복공 Design Standard 2024",
+      "english_filename": "temporary교량-및-노면복공-design-standard-2024.md",
+      "version": "unknown",
+      "category": "temporary",
+      "subcategory": [],
+      "keywords_korean": [
+        "가설",
+        "거푸집",
+        "동바리",
+        "흙막이",
+        "비계",
+        "가설교량",
+        "노면복공",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "temporary",
+        "formwork",
+        "shoring",
+        "excavation",
+        "scaffolding"
+      ],
+      "related_standards": [],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 12.7,
+        "line_count": 372,
+        "word_count": 1387
+      },
+      "original_filename": "KDS_21_45_00_가설교량_및_노면복공_설계기준_2024.md"
+    },
+    "KDS_21_50_00": {
+      "id": "KDS_21_50_00",
+      "filename": "KDS_21_50_00.md",
+      "korean_title": "거푸집 및 동바리 설계기준 2024",
+      "english_title": "Formwork and Shoring Design Standard",
+      "english_filename": "formwork-and-shoring-design-standard.md",
+      "version": "unknown",
+      "category": "temporary",
+      "subcategory": [],
+      "keywords_korean": [
+        "가설",
+        "거푸집",
+        "동바리",
+        "흙막이",
+        "비계",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "temporary",
+        "formwork",
+        "shoring",
+        "excavation",
+        "scaffolding"
+      ],
+      "related_standards": [],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "P = W ․ H$(1.6-1)",
+          "line_number": 115,
+          "line_range": [
+            110,
+            120
+          ]
+        },
+        {
+          "id": "formula_2",
+          "formula": "P = C_{w} ․ C_{c}\\lbrack 7.2 + \\frac{790R}{T + 18}\\rbrack$(1.6-2)",
+          "line_number": 127,
+          "line_range": [
+            122,
+            132
+          ]
+        },
+        {
+          "id": "formula_3",
+          "formula": "P = C_{w}․\\ C_{c}\\lbrack 7.2 + \\frac{790R}{T + 18}\\rbrack$(1.6-3)",
+          "line_number": 143,
+          "line_range": [
+            138,
+            148
+          ]
+        },
+        {
+          "id": "formula_4",
+          "formula": "P = C_{w}․\\ C_{c}\\lbrack 7.2 + \\frac{1160 + 240R}{T + 18}\\rbrack$(1.6-4)",
+          "line_number": 147,
+          "line_range": [
+            142,
+            152
+          ]
+        },
+        {
+          "id": "formula_5",
+          "formula": "P = 4.8 + \\frac{520R}{T + 18}$(1.6-5)",
+          "line_number": 213,
+          "line_range": [
+            208,
+            218
+          ]
+        },
+        {
+          "id": "formula_6",
+          "formula": "P = 7.2 + \\frac{520R}{T + 18}$(1.6-6)",
+          "line_number": 217,
+          "line_range": [
+            212,
+            222
+          ]
+        },
+        {
+          "id": "formula_7",
+          "formula": "P = 0.1W \\times v$(3.2-1)",
+          "line_number": 1554,
+          "line_range": [
+            1549,
+            1559
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": "image12",
+          "description_file": "images-database.md",
+          "caption": "Image 12",
+          "description_anchor": "kds_21_50_00_image12"
+        },
+        {
+          "id": "image13",
+          "description_file": "images-database.md",
+          "caption": "Image 13",
+          "description_anchor": "kds_21_50_00_image13"
+        },
+        {
+          "id": "image14",
+          "description_file": "images-database.md",
+          "caption": "Image 14",
+          "description_anchor": "kds_21_50_00_image14"
+        },
+        {
+          "id": "image15",
+          "description_file": "images-database.md",
+          "caption": "Image 15",
+          "description_anchor": "kds_21_50_00_image15"
+        },
+        {
+          "id": "image16",
+          "description_file": "images-database.md",
+          "caption": "Image 16",
+          "description_anchor": "kds_21_50_00_image16"
+        },
+        {
+          "id": "image17",
+          "description_file": "images-database.md",
+          "caption": "Image 17",
+          "description_anchor": "kds_21_50_00_image17"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 58.6,
+        "line_count": 1643,
+        "word_count": 6129
+      },
+      "original_filename": "KDS_21_50_00_거푸집_및_동바리_설계기준_2024.md"
+    },
+    "KDS_21_60_00": {
+      "id": "KDS_21_60_00",
+      "filename": "KDS_21_60_00.md",
+      "korean_title": "비계 및 안전시설물 설계기준 2024",
+      "english_title": "Scaffolding 및 안전시설물 Design Standard 2024",
+      "english_filename": "scaffolding-및-안전시설물-design-standard-2024.md",
+      "version": "unknown",
+      "category": "temporary",
+      "subcategory": [],
+      "keywords_korean": [
+        "가설",
+        "거푸집",
+        "동바리",
+        "흙막이",
+        "비계",
+        "안전시설물",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "temporary",
+        "formwork",
+        "shoring",
+        "excavation",
+        "scaffolding"
+      ],
+      "related_standards": [],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "R = 1.0$을 적용한다.",
+          "line_number": 164,
+          "line_range": [
+            159,
+            169
+          ]
+        },
+        {
+          "id": "formula_2",
+          "formula": "F = 1 + 0.31$\\varphi$</td>",
+          "line_number": 208,
+          "line_range": [
+            203,
+            213
+          ]
+        },
+        {
+          "id": "formula_3",
+          "formula": "F =  −1.0</td>",
+          "line_number": 213,
+          "line_range": [
+            208,
+            218
+          ]
+        },
+        {
+          "id": "formula_4",
+          "formula": "F = −1 + 0.23$\\varphi$</td>",
+          "line_number": 217,
+          "line_range": [
+            212,
+            222
+          ]
+        },
+        {
+          "id": "formula_5",
+          "formula": "F = −1 + 0.38$\\varphi$</td>",
+          "line_number": 221,
+          "line_range": [
+            216,
+            226
+          ]
+        }
+      ],
+      "images": [],
+      "file_stats": {
+        "size_kb": 19.7,
+        "line_count": 558,
+        "word_count": 2115
+      },
+      "original_filename": "KDS_21_60_00_비계_및_안전시설물_설계기준_2024.md"
+    },
+    "KDS_31_70_15": {
+      "id": "KDS_31_70_15",
+      "filename": "KDS_31_70_15.md",
+      "korean_title": "방진설비",
+      "english_title": "방진설비",
+      "english_filename": "방진설비.md",
+      "version": "unknown",
+      "category": "general",
+      "subcategory": [],
+      "keywords_korean": [
+        "설계기준",
+        "총칙",
+        "구조검사",
+        "방진설비"
+      ],
+      "keywords_english": [
+        "design standard",
+        "general provisions",
+        "structural inspection"
+      ],
+      "related_standards": [],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "V = 20\\log(\\frac{1}{T})(dB)$ (4.8-1)",
+          "line_number": 121,
+          "line_range": [
+            116,
+            126
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": "image18",
+          "description_file": "images-database.md",
+          "caption": "Image 18",
+          "description_anchor": "kds_31_70_15_image18"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 8.0,
+        "line_count": 159,
+        "word_count": 823
+      },
+      "original_filename": "KDS_31_70_15_방진설비.md"
+    },
+    "KDS_41_10_05": {
+      "id": "KDS_41_10_05",
+      "filename": "KDS_41_10_05.md",
+      "korean_title": "건축구조기준 총칙",
+      "english_title": "General Provisions for Building Structures",
+      "english_filename": "general-provisions-for-building-structures.md",
+      "version": "22.10",
+      "category": "general",
+      "subcategory": [],
+      "keywords_korean": [
+        "설계기준",
+        "총칙",
+        "구조검사",
+        "건축구조기준"
+      ],
+      "keywords_english": [
+        "design standard",
+        "general provisions",
+        "structural inspection"
+      ],
+      "related_standards": [],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 29.6,
+        "line_count": 444,
+        "word_count": 2674
+      },
+      "original_filename": "KDS_41_10_05_건축구조기준_총칙_22.10.md"
+    },
+    "KDS_41_10_10": {
+      "id": "KDS_41_10_10",
+      "filename": "KDS_41_10_10.md",
+      "korean_title": "건축구조기준 구조검사 및 실험",
+      "english_title": "건축구조기준 구조검사 및 실험",
+      "english_filename": "건축구조기준-구조검사-및-실험.md",
+      "version": "22.10",
+      "category": "general",
+      "subcategory": [],
+      "keywords_korean": [
+        "설계기준",
+        "총칙",
+        "구조검사",
+        "건축구조기준",
+        "실험"
+      ],
+      "keywords_english": [
+        "design standard",
+        "general provisions",
+        "structural inspection"
+      ],
+      "related_standards": [],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 41.0,
+        "line_count": 701,
+        "word_count": 3980
+      },
+      "original_filename": "KDS_41_10_10_건축구조기준_구조검사_및_실험_22.10.md"
+    },
+    "KDS_41_12_00": {
+      "id": "KDS_41_12_00",
+      "filename": "KDS_41_12_00.md",
+      "korean_title": "건축물 설계하중",
+      "english_title": "Building Design Loads",
+      "english_filename": "building-design-loads.md",
+      "version": "unknown",
+      "category": "loads",
+      "subcategory": [],
+      "keywords_korean": [
+        "하중",
+        "풍하중",
+        "적설하중",
+        "지진하중",
+        "활하중",
+        "건축물",
+        "설계하중"
+      ],
+      "keywords_english": [
+        "load",
+        "wind load",
+        "snow load",
+        "seismic load",
+        "live load"
+      ],
+      "related_standards": [
+        "KDS_41_17_00",
+        "KDS_17_10_00",
+        "KDS_41_10_05"
+      ],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "C = 0.3 + \\frac{4.2_{}}{\\sqrt{A}}$(3.5-1)",
+          "line_number": 1097,
+          "line_range": [
+            1092,
+            1102
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": "image19",
+          "description_file": "images-database.md",
+          "caption": "Image 19",
+          "description_anchor": "kds_41_12_00_image19"
+        },
+        {
+          "id": "image20",
+          "description_file": "images-database.md",
+          "caption": "Image 20",
+          "description_anchor": "kds_41_12_00_image20"
+        },
+        {
+          "id": "image21",
+          "description_file": "images-database.md",
+          "caption": "Image 21",
+          "description_anchor": "kds_41_12_00_image21"
+        },
+        {
+          "id": "image22",
+          "description_file": "images-database.md",
+          "caption": "Image 22",
+          "description_anchor": "kds_41_12_00_image22"
+        },
+        {
+          "id": "image23",
+          "description_file": "images-database.md",
+          "caption": "Image 23",
+          "description_anchor": "kds_41_12_00_image23"
+        },
+        {
+          "id": "image24",
+          "description_file": "images-database.md",
+          "caption": "Image 24",
+          "description_anchor": "kds_41_12_00_image24"
+        },
+        {
+          "id": "image25",
+          "description_file": "images-database.md",
+          "caption": "Image 25",
+          "description_anchor": "kds_41_12_00_image25"
+        },
+        {
+          "id": "image26",
+          "description_file": "images-database.md",
+          "caption": "Image 26",
+          "description_anchor": "kds_41_12_00_image26"
+        },
+        {
+          "id": "image27",
+          "description_file": "images-database.md",
+          "caption": "Image 27",
+          "description_anchor": "kds_41_12_00_image27"
+        },
+        {
+          "id": "image28",
+          "description_file": "images-database.md",
+          "caption": "Image 28",
+          "description_anchor": "kds_41_12_00_image28"
+        },
+        {
+          "id": "image29",
+          "description_file": "images-database.md",
+          "caption": "Image 29",
+          "description_anchor": "kds_41_12_00_image29"
+        },
+        {
+          "id": "image30",
+          "description_file": "images-database.md",
+          "caption": "Image 30",
+          "description_anchor": "kds_41_12_00_image30"
+        },
+        {
+          "id": "image31",
+          "description_file": "images-database.md",
+          "caption": "Image 31",
+          "description_anchor": "kds_41_12_00_image31"
+        },
+        {
+          "id": "image32",
+          "description_file": "images-database.md",
+          "caption": "Image 32",
+          "description_anchor": "kds_41_12_00_image32"
+        },
+        {
+          "id": "image33",
+          "description_file": "images-database.md",
+          "caption": "Image 33",
+          "description_anchor": "kds_41_12_00_image33"
+        },
+        {
+          "id": "image34",
+          "description_file": "images-database.md",
+          "caption": "Image 34",
+          "description_anchor": "kds_41_12_00_image34"
+        },
+        {
+          "id": "image35",
+          "description_file": "images-database.md",
+          "caption": "Image 35",
+          "description_anchor": "kds_41_12_00_image35"
+        },
+        {
+          "id": "image36",
+          "description_file": "images-database.md",
+          "caption": "Image 36",
+          "description_anchor": "kds_41_12_00_image36"
+        },
+        {
+          "id": "image37",
+          "description_file": "images-database.md",
+          "caption": "Image 37",
+          "description_anchor": "kds_41_12_00_image37"
+        },
+        {
+          "id": "image38",
+          "description_file": "images-database.md",
+          "caption": "Image 38",
+          "description_anchor": "kds_41_12_00_image38"
+        },
+        {
+          "id": "image39",
+          "description_file": "images-database.md",
+          "caption": "Image 39",
+          "description_anchor": "kds_41_12_00_image39"
+        },
+        {
+          "id": "image40",
+          "description_file": "images-database.md",
+          "caption": "Image 40",
+          "description_anchor": "kds_41_12_00_image40"
+        },
+        {
+          "id": "image41",
+          "description_file": "images-database.md",
+          "caption": "Image 41",
+          "description_anchor": "kds_41_12_00_image41"
+        },
+        {
+          "id": "image42",
+          "description_file": "images-database.md",
+          "caption": "Image 42",
+          "description_anchor": "kds_41_12_00_image42"
+        },
+        {
+          "id": "image43",
+          "description_file": "images-database.md",
+          "caption": "Image 43",
+          "description_anchor": "kds_41_12_00_image43"
+        },
+        {
+          "id": "image44",
+          "description_file": "images-database.md",
+          "caption": "Image 44",
+          "description_anchor": "kds_41_12_00_image44"
+        },
+        {
+          "id": "image45",
+          "description_file": "images-database.md",
+          "caption": "Image 45",
+          "description_anchor": "kds_41_12_00_image45"
+        },
+        {
+          "id": "image46",
+          "description_file": "images-database.md",
+          "caption": "Image 46",
+          "description_anchor": "kds_41_12_00_image46"
+        },
+        {
+          "id": "image47",
+          "description_file": "images-database.md",
+          "caption": "Image 47",
+          "description_anchor": "kds_41_12_00_image47"
+        },
+        {
+          "id": "image48",
+          "description_file": "images-database.md",
+          "caption": "Image 48",
+          "description_anchor": "kds_41_12_00_image48"
+        },
+        {
+          "id": "image49",
+          "description_file": "images-database.md",
+          "caption": "Image 49",
+          "description_anchor": "kds_41_12_00_image49"
+        },
+        {
+          "id": "image50",
+          "description_file": "images-database.md",
+          "caption": "Image 50",
+          "description_anchor": "kds_41_12_00_image50"
+        },
+        {
+          "id": "image51",
+          "description_file": "images-database.md",
+          "caption": "Image 51",
+          "description_anchor": "kds_41_12_00_image51"
+        },
+        {
+          "id": "image52",
+          "description_file": "images-database.md",
+          "caption": "Image 52",
+          "description_anchor": "kds_41_12_00_image52"
+        },
+        {
+          "id": "image53",
+          "description_file": "images-database.md",
+          "caption": "Image 53",
+          "description_anchor": "kds_41_12_00_image53"
+        },
+        {
+          "id": "image54",
+          "description_file": "images-database.md",
+          "caption": "Image 54",
+          "description_anchor": "kds_41_12_00_image54"
+        },
+        {
+          "id": "image55",
+          "description_file": "images-database.md",
+          "caption": "Image 55",
+          "description_anchor": "kds_41_12_00_image55"
+        },
+        {
+          "id": "image56",
+          "description_file": "images-database.md",
+          "caption": "Image 56",
+          "description_anchor": "kds_41_12_00_image56"
+        },
+        {
+          "id": "image57",
+          "description_file": "images-database.md",
+          "caption": "Image 57",
+          "description_anchor": "kds_41_12_00_image57"
+        },
+        {
+          "id": "image58",
+          "description_file": "images-database.md",
+          "caption": "Image 58",
+          "description_anchor": "kds_41_12_00_image58"
+        },
+        {
+          "id": "image59",
+          "description_file": "images-database.md",
+          "caption": "Image 59",
+          "description_anchor": "kds_41_12_00_image59"
+        },
+        {
+          "id": "image60",
+          "description_file": "images-database.md",
+          "caption": "Image 60",
+          "description_anchor": "kds_41_12_00_image60"
+        },
+        {
+          "id": "image61",
+          "description_file": "images-database.md",
+          "caption": "Image 61",
+          "description_anchor": "kds_41_12_00_image61"
+        },
+        {
+          "id": "image62",
+          "description_file": "images-database.md",
+          "caption": "Image 62",
+          "description_anchor": "kds_41_12_00_image62"
+        },
+        {
+          "id": "image63",
+          "description_file": "images-database.md",
+          "caption": "Image 63",
+          "description_anchor": "kds_41_12_00_image63"
+        },
+        {
+          "id": "image64",
+          "description_file": "images-database.md",
+          "caption": "Image 64",
+          "description_anchor": "kds_41_12_00_image64"
+        },
+        {
+          "id": "image65",
+          "description_file": "images-database.md",
+          "caption": "Image 65",
+          "description_anchor": "kds_41_12_00_image65"
+        },
+        {
+          "id": "image66",
+          "description_file": "images-database.md",
+          "caption": "Image 66",
+          "description_anchor": "kds_41_12_00_image66"
+        },
+        {
+          "id": "image67",
+          "description_file": "images-database.md",
+          "caption": "Image 67",
+          "description_anchor": "kds_41_12_00_image67"
+        },
+        {
+          "id": "image68",
+          "description_file": "images-database.md",
+          "caption": "Image 68",
+          "description_anchor": "kds_41_12_00_image68"
+        },
+        {
+          "id": "image69",
+          "description_file": "images-database.md",
+          "caption": "Image 69",
+          "description_anchor": "kds_41_12_00_image69"
+        },
+        {
+          "id": "image70",
+          "description_file": "images-database.md",
+          "caption": "Image 70",
+          "description_anchor": "kds_41_12_00_image70"
+        },
+        {
+          "id": "image71",
+          "description_file": "images-database.md",
+          "caption": "Image 71",
+          "description_anchor": "kds_41_12_00_image71"
+        },
+        {
+          "id": "image72",
+          "description_file": "images-database.md",
+          "caption": "Image 72",
+          "description_anchor": "kds_41_12_00_image72"
+        },
+        {
+          "id": "image73",
+          "description_file": "images-database.md",
+          "caption": "Image 73",
+          "description_anchor": "kds_41_12_00_image73"
+        },
+        {
+          "id": "image74",
+          "description_file": "images-database.md",
+          "caption": "Image 74",
+          "description_anchor": "kds_41_12_00_image74"
+        },
+        {
+          "id": "image75",
+          "description_file": "images-database.md",
+          "caption": "Image 75",
+          "description_anchor": "kds_41_12_00_image75"
+        },
+        {
+          "id": "image76",
+          "description_file": "images-database.md",
+          "caption": "Image 76",
+          "description_anchor": "kds_41_12_00_image76"
+        },
+        {
+          "id": "image77",
+          "description_file": "images-database.md",
+          "caption": "Image 77",
+          "description_anchor": "kds_41_12_00_image77"
+        },
+        {
+          "id": "image78",
+          "description_file": "images-database.md",
+          "caption": "Image 78",
+          "description_anchor": "kds_41_12_00_image78"
+        },
+        {
+          "id": "image79",
+          "description_file": "images-database.md",
+          "caption": "Image 79",
+          "description_anchor": "kds_41_12_00_image79"
+        },
+        {
+          "id": "image80",
+          "description_file": "images-database.md",
+          "caption": "Image 80",
+          "description_anchor": "kds_41_12_00_image80"
+        },
+        {
+          "id": "image81",
+          "description_file": "images-database.md",
+          "caption": "Image 81",
+          "description_anchor": "kds_41_12_00_image81"
+        },
+        {
+          "id": "image82",
+          "description_file": "images-database.md",
+          "caption": "Image 82",
+          "description_anchor": "kds_41_12_00_image82"
+        },
+        {
+          "id": "image83",
+          "description_file": "images-database.md",
+          "caption": "Image 83",
+          "description_anchor": "kds_41_12_00_image83"
+        },
+        {
+          "id": "image84",
+          "description_file": "images-database.md",
+          "caption": "Image 84",
+          "description_anchor": "kds_41_12_00_image84"
+        },
+        {
+          "id": "image85",
+          "description_file": "images-database.md",
+          "caption": "Image 85",
+          "description_anchor": "kds_41_12_00_image85"
+        },
+        {
+          "id": "image86",
+          "description_file": "images-database.md",
+          "caption": "Image 86",
+          "description_anchor": "kds_41_12_00_image86"
+        },
+        {
+          "id": "image87",
+          "description_file": "images-database.md",
+          "caption": "Image 87",
+          "description_anchor": "kds_41_12_00_image87"
+        },
+        {
+          "id": "image88",
+          "description_file": "images-database.md",
+          "caption": "Image 88",
+          "description_anchor": "kds_41_12_00_image88"
+        },
+        {
+          "id": "image89",
+          "description_file": "images-database.md",
+          "caption": "Image 89",
+          "description_anchor": "kds_41_12_00_image89"
+        },
+        {
+          "id": "image90",
+          "description_file": "images-database.md",
+          "caption": "Image 90",
+          "description_anchor": "kds_41_12_00_image90"
+        },
+        {
+          "id": "image91",
+          "description_file": "images-database.md",
+          "caption": "Image 91",
+          "description_anchor": "kds_41_12_00_image91"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 239.6,
+        "line_count": 7114,
+        "word_count": 20891
+      },
+      "original_filename": "KDS_41_12_00_건축물_설계하중.md"
+    },
+    "KDS_41_17_00": {
+      "id": "KDS_41_17_00",
+      "filename": "KDS_41_17_00.md",
+      "korean_title": "건축물 내진설계기준",
+      "english_title": "Seismic Design Standard for Buildings",
+      "english_filename": "seismic-design-standard-for-buildings.md",
+      "version": "22.10",
+      "category": "seismic",
+      "subcategory": [],
+      "keywords_korean": [
+        "내진",
+        "지진",
+        "밑면전단력",
+        "응답스펙트럼",
+        "지진하중",
+        "건축물",
+        "내진설계기준"
+      ],
+      "keywords_english": [
+        "seismic",
+        "earthquake",
+        "base shear",
+        "response spectrum"
+      ],
+      "related_standards": [
+        "KDS_41_12_00",
+        "KDS_17_10_00",
+        "KDS_14_20_80",
+        "KDS_14_31_60"
+      ],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "V = C_{s} W$(7.2-1)",
+          "line_number": 1736,
+          "line_range": [
+            1731,
+            1741
+          ]
+        },
+        {
+          "id": "formula_2",
+          "formula": "R = 3), 시스템초과강도계수($\\Omega_{0}",
+          "line_number": 2809,
+          "line_range": [
+            2804,
+            2814
+          ]
+        },
+        {
+          "id": "formula_3",
+          "formula": "R = 1.0을 적용하여 산정한다.",
+          "line_number": 3707,
+          "line_range": [
+            3702,
+            3712
+          ]
+        },
+        {
+          "id": "formula_4",
+          "formula": "V = 0.3S_{D S} W I_{E}$(19.3-3)",
+          "line_number": 5211,
+          "line_range": [
+            5206,
+            5216
+          ]
+        },
+        {
+          "id": "formula_5",
+          "formula": "V = V_{i} + V_{c}$(19.6-4)",
+          "line_number": 5626,
+          "line_range": [
+            5621,
+            5631
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": "image92",
+          "description_file": "images-database.md",
+          "caption": "Image 92",
+          "description_anchor": "kds_41_17_00_image92"
+        },
+        {
+          "id": "image97",
+          "description_file": "images-database.md",
+          "caption": "Image 97",
+          "description_anchor": "kds_41_17_00_image97"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 303.5,
+        "line_count": 6028,
+        "word_count": 27986
+      },
+      "original_filename": "KDS_41_17_00_건축물_내진설계기준_22.10.md"
+    },
+    "KDS_41_19_00": {
+      "id": "KDS_41_19_00",
+      "filename": "KDS_41_19_00.md",
+      "korean_title": "건축물 기초구조 설계기준",
+      "english_title": "Foundation Design Standard for Buildings",
+      "english_filename": "foundation-design-standard-for-buildings.md",
+      "version": "22.10",
+      "category": "foundation",
+      "subcategory": [],
+      "keywords_korean": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "건축물",
+        "기초구조",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image98",
+          "description_file": "images-database.md",
+          "caption": "Image 98",
+          "description_anchor": "kds_41_19_00_image98"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 97.1,
+        "line_count": 1839,
+        "word_count": 9907
+      },
+      "original_filename": "KDS_41_19_00_건축물_기초구조_설계기준_22.10.md"
+    },
+    "KDS_41_20_00": {
+      "id": "KDS_41_20_00",
+      "filename": "KDS_41_20_00.md",
+      "korean_title": "건축물 콘크리트구조 설계기준",
+      "english_title": "Concrete Structure Design Standard for Buildings",
+      "english_filename": "concrete-structure-design-standard-for-buildings.md",
+      "version": "22.10",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "건축물",
+        "콘크리트구조",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 8.9,
+        "line_count": 210,
+        "word_count": 1052
+      },
+      "original_filename": "KDS_41_20_00_건축물_콘크리트구조_설계기준_22.10.md"
+    },
+    "KDS_41_20_10": {
+      "id": "KDS_41_20_10",
+      "filename": "KDS_41_20_10.md",
+      "korean_title": "건축물 프리캐스트 콘크리트구조 설계기준 제정",
+      "english_title": "Building 프리캐스트 Concrete Structure Design Standard 제정",
+      "english_filename": "building-프리캐스트-concrete-structure-design-standard-제정.md",
+      "version": "unknown",
+      "category": "concrete",
+      "subcategory": [],
+      "keywords_korean": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "건축물",
+        "프리캐스트",
+        "콘크리트구조",
+        "설계기준",
+        "제정"
+      ],
+      "keywords_english": [
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "C = \\kappa\\sqrt{\\frac{17.5}{f_{g}}} \\geq 1.0$ (4.4-9)",
+          "line_number": 737,
+          "line_range": [
+            732,
+            742
+          ]
+        }
+      ],
+      "images": [],
+      "file_stats": {
+        "size_kb": 72.0,
+        "line_count": 1284,
+        "word_count": 7493
+      },
+      "original_filename": "KDS_41_20_10_건축물_프리캐스트_콘크리트구조_설계기준_제정.md"
+    },
+    "KDS_41_30_10": {
+      "id": "KDS_41_30_10",
+      "filename": "KDS_41_30_10.md",
+      "korean_title": "건축물 강구조 설계기준",
+      "english_title": "Steel Structure Design Standard for Buildings",
+      "english_filename": "steel-structure-design-standard-for-buildings.md",
+      "version": "22.10",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "건축물",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 50.9,
+        "line_count": 1504,
+        "word_count": 5076
+      },
+      "original_filename": "KDS_41_30_10_건축물_강구조_설계기준_22.10.md"
+    },
+    "KDS_41_30_20": {
+      "id": "KDS_41_30_20",
+      "filename": "KDS_41_30_20.md",
+      "korean_title": "건축물 강합성구조 설계기준",
+      "english_title": "Building 강Composite Structure Design Standard",
+      "english_filename": "building-강composite-structure-design-standard.md",
+      "version": "22.10",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "건축물",
+        "강합성구조",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 92.6,
+        "line_count": 1597,
+        "word_count": 8212
+      },
+      "original_filename": "KDS_41_30_20_건축물_강합성구조_설계기준_22.10.md"
+    },
+    "KDS_41_30_30": {
+      "id": "KDS_41_30_30",
+      "filename": "KDS_41_30_30.md",
+      "korean_title": "냉간성형강 설계기준",
+      "english_title": "냉간성형강 Design Standard",
+      "english_filename": "냉간성형강-design-standard.md",
+      "version": "22.10",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "냉간성형강",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [
+        {
+          "id": "formula_1",
+          "formula": "S = 1.28\\sqrt{E/f}$",
+          "line_number": 889,
+          "line_range": [
+            884,
+            894
+          ]
+        },
+        {
+          "id": "formula_2",
+          "formula": "R = F_{y}/(2F_{cre}) \\leq 1.0$ (4.3-17)",
+          "line_number": 2924,
+          "line_range": [
+            2919,
+            2929
+          ]
+        },
+        {
+          "id": "formula_3",
+          "formula": "R = \\frac{f_{bending,max}}{f_{ bending} + f_{torsion}} \\leq 1$ (4.6-10)",
+          "line_number": 4566,
+          "line_range": [
+            4561,
+            4571
+          ]
+        },
+        {
+          "id": "formula_4",
+          "formula": "C1 = (0.79x + 0.54)$ (4.7-8)",
+          "line_number": 4859,
+          "line_range": [
+            4854,
+            4864
+          ]
+        },
+        {
+          "id": "formula_5",
+          "formula": "C2 = (1.17\\alpha t + 0.93)$ (4.7-9)",
+          "line_number": 4861,
+          "line_range": [
+            4856,
+            4866
+          ]
+        },
+        {
+          "id": "formula_6",
+          "formula": "C3 = 0.0985b - 0.0642d + 22.8$ (4.7-10)",
+          "line_number": 4863,
+          "line_range": [
+            4858,
+            4868
+          ]
+        },
+        {
+          "id": "formula_7",
+          "formula": "S = 1.28\\sqrt{E/f}$ (4.12-46)",
+          "line_number": 7846,
+          "line_range": [
+            7841,
+            7851
+          ]
+        },
+        {
+          "id": "formula_8",
+          "formula": "R = 2b_{0}/h \\geq 1$일 때,$R",
+          "line_number": 7973,
+          "line_range": [
+            7968,
+            7978
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": "image99",
+          "description_file": "images-database.md",
+          "caption": "Image 99",
+          "description_anchor": "kds_41_30_30_image99"
+        },
+        {
+          "id": "image100",
+          "description_file": "images-database.md",
+          "caption": "Image 100",
+          "description_anchor": "kds_41_30_30_image100"
+        },
+        {
+          "id": "image101",
+          "description_file": "images-database.md",
+          "caption": "Image 101",
+          "description_anchor": "kds_41_30_30_image101"
+        },
+        {
+          "id": "image102",
+          "description_file": "images-database.md",
+          "caption": "Image 102",
+          "description_anchor": "kds_41_30_30_image102"
+        },
+        {
+          "id": "image103",
+          "description_file": "images-database.md",
+          "caption": "Image 103",
+          "description_anchor": "kds_41_30_30_image103"
+        },
+        {
+          "id": "image104",
+          "description_file": "images-database.md",
+          "caption": "Image 104",
+          "description_anchor": "kds_41_30_30_image104"
+        },
+        {
+          "id": "image105",
+          "description_file": "images-database.md",
+          "caption": "Image 105",
+          "description_anchor": "kds_41_30_30_image105"
+        },
+        {
+          "id": "image106",
+          "description_file": "images-database.md",
+          "caption": "Image 106",
+          "description_anchor": "kds_41_30_30_image106"
+        },
+        {
+          "id": "image107",
+          "description_file": "images-database.md",
+          "caption": "Image 107",
+          "description_anchor": "kds_41_30_30_image107"
+        },
+        {
+          "id": "image108",
+          "description_file": "images-database.md",
+          "caption": "Image 108",
+          "description_anchor": "kds_41_30_30_image108"
+        },
+        {
+          "id": "image109",
+          "description_file": "images-database.md",
+          "caption": "Image 109",
+          "description_anchor": "kds_41_30_30_image109"
+        },
+        {
+          "id": "image110",
+          "description_file": "images-database.md",
+          "caption": "Image 110",
+          "description_anchor": "kds_41_30_30_image110"
+        },
+        {
+          "id": "image111",
+          "description_file": "images-database.md",
+          "caption": "Image 111",
+          "description_anchor": "kds_41_30_30_image111"
+        },
+        {
+          "id": "image112",
+          "description_file": "images-database.md",
+          "caption": "Image 112",
+          "description_anchor": "kds_41_30_30_image112"
+        },
+        {
+          "id": "image113",
+          "description_file": "images-database.md",
+          "caption": "Image 113",
+          "description_anchor": "kds_41_30_30_image113"
+        },
+        {
+          "id": "image114",
+          "description_file": "images-database.md",
+          "caption": "Image 114",
+          "description_anchor": "kds_41_30_30_image114"
+        },
+        {
+          "id": "image115",
+          "description_file": "images-database.md",
+          "caption": "Image 115",
+          "description_anchor": "kds_41_30_30_image115"
+        },
+        {
+          "id": "image116",
+          "description_file": "images-database.md",
+          "caption": "Image 116",
+          "description_anchor": "kds_41_30_30_image116"
+        },
+        {
+          "id": "image117",
+          "description_file": "images-database.md",
+          "caption": "Image 117",
+          "description_anchor": "kds_41_30_30_image117"
+        },
+        {
+          "id": "image118",
+          "description_file": "images-database.md",
+          "caption": "Image 118",
+          "description_anchor": "kds_41_30_30_image118"
+        },
+        {
+          "id": "image119",
+          "description_file": "images-database.md",
+          "caption": "Image 119",
+          "description_anchor": "kds_41_30_30_image119"
+        },
+        {
+          "id": "image120",
+          "description_file": "images-database.md",
+          "caption": "Image 120",
+          "description_anchor": "kds_41_30_30_image120"
+        },
+        {
+          "id": "image121",
+          "description_file": "images-database.md",
+          "caption": "Image 121",
+          "description_anchor": "kds_41_30_30_image121"
+        },
+        {
+          "id": "image122",
+          "description_file": "images-database.md",
+          "caption": "Image 122",
+          "description_anchor": "kds_41_30_30_image122"
+        },
+        {
+          "id": "image123",
+          "description_file": "images-database.md",
+          "caption": "Image 123",
+          "description_anchor": "kds_41_30_30_image123"
+        },
+        {
+          "id": "image124",
+          "description_file": "images-database.md",
+          "caption": "Image 124",
+          "description_anchor": "kds_41_30_30_image124"
+        },
+        {
+          "id": "image125",
+          "description_file": "images-database.md",
+          "caption": "Image 125",
+          "description_anchor": "kds_41_30_30_image125"
+        },
+        {
+          "id": "image126",
+          "description_file": "images-database.md",
+          "caption": "Image 126",
+          "description_anchor": "kds_41_30_30_image126"
+        },
+        {
+          "id": "image127",
+          "description_file": "images-database.md",
+          "caption": "Image 127",
+          "description_anchor": "kds_41_30_30_image127"
+        },
+        {
+          "id": "image128",
+          "description_file": "images-database.md",
+          "caption": "Image 128",
+          "description_anchor": "kds_41_30_30_image128"
+        },
+        {
+          "id": "image129",
+          "description_file": "images-database.md",
+          "caption": "Image 129",
+          "description_anchor": "kds_41_30_30_image129"
+        },
+        {
+          "id": "image130",
+          "description_file": "images-database.md",
+          "caption": "Image 130",
+          "description_anchor": "kds_41_30_30_image130"
+        },
+        {
+          "id": "image131",
+          "description_file": "images-database.md",
+          "caption": "Image 131",
+          "description_anchor": "kds_41_30_30_image131"
+        },
+        {
+          "id": "image132",
+          "description_file": "images-database.md",
+          "caption": "Image 132",
+          "description_anchor": "kds_41_30_30_image132"
+        },
+        {
+          "id": "image133",
+          "description_file": "images-database.md",
+          "caption": "Image 133",
+          "description_anchor": "kds_41_30_30_image133"
+        },
+        {
+          "id": "image134",
+          "description_file": "images-database.md",
+          "caption": "Image 134",
+          "description_anchor": "kds_41_30_30_image134"
+        },
+        {
+          "id": "image135",
+          "description_file": "images-database.md",
+          "caption": "Image 135",
+          "description_anchor": "kds_41_30_30_image135"
+        },
+        {
+          "id": "image136",
+          "description_file": "images-database.md",
+          "caption": "Image 136",
+          "description_anchor": "kds_41_30_30_image136"
+        },
+        {
+          "id": "image137",
+          "description_file": "images-database.md",
+          "caption": "Image 137",
+          "description_anchor": "kds_41_30_30_image137"
+        },
+        {
+          "id": "image138",
+          "description_file": "images-database.md",
+          "caption": "Image 138",
+          "description_anchor": "kds_41_30_30_image138"
+        },
+        {
+          "id": "image139",
+          "description_file": "images-database.md",
+          "caption": "Image 139",
+          "description_anchor": "kds_41_30_30_image139"
+        },
+        {
+          "id": "image140",
+          "description_file": "images-database.md",
+          "caption": "Image 140",
+          "description_anchor": "kds_41_30_30_image140"
+        },
+        {
+          "id": "image141",
+          "description_file": "images-database.md",
+          "caption": "Image 141",
+          "description_anchor": "kds_41_30_30_image141"
+        },
+        {
+          "id": "image142",
+          "description_file": "images-database.md",
+          "caption": "Image 142",
+          "description_anchor": "kds_41_30_30_image142"
+        },
+        {
+          "id": "image143",
+          "description_file": "images-database.md",
+          "caption": "Image 143",
+          "description_anchor": "kds_41_30_30_image143"
+        },
+        {
+          "id": "image144",
+          "description_file": "images-database.md",
+          "caption": "Image 144",
+          "description_anchor": "kds_41_30_30_image144"
+        },
+        {
+          "id": "image145",
+          "description_file": "images-database.md",
+          "caption": "Image 145",
+          "description_anchor": "kds_41_30_30_image145"
+        },
+        {
+          "id": "image146",
+          "description_file": "images-database.md",
+          "caption": "Image 146",
+          "description_anchor": "kds_41_30_30_image146"
+        },
+        {
+          "id": "image147",
+          "description_file": "images-database.md",
+          "caption": "Image 147",
+          "description_anchor": "kds_41_30_30_image147"
+        },
+        {
+          "id": "image148",
+          "description_file": "images-database.md",
+          "caption": "Image 148",
+          "description_anchor": "kds_41_30_30_image148"
+        },
+        {
+          "id": "image149",
+          "description_file": "images-database.md",
+          "caption": "Image 149",
+          "description_anchor": "kds_41_30_30_image149"
+        },
+        {
+          "id": "image150",
+          "description_file": "images-database.md",
+          "caption": "Image 150",
+          "description_anchor": "kds_41_30_30_image150"
+        },
+        {
+          "id": "image151",
+          "description_file": "images-database.md",
+          "caption": "Image 151",
+          "description_anchor": "kds_41_30_30_image151"
+        },
+        {
+          "id": "image152",
+          "description_file": "images-database.md",
+          "caption": "Image 152",
+          "description_anchor": "kds_41_30_30_image152"
+        },
+        {
+          "id": "image153",
+          "description_file": "images-database.md",
+          "caption": "Image 153",
+          "description_anchor": "kds_41_30_30_image153"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 335.5,
+        "line_count": 8615,
+        "word_count": 32763
+      },
+      "original_filename": "KDS_41_30_30_냉간성형강_설계기준_22.10.md"
+    },
+    "KDS_41_30_40": {
+      "id": "KDS_41_30_40",
+      "filename": "KDS_41_30_40.md",
+      "korean_title": "냉간성형 스테인리스강 설계기준",
+      "english_title": "냉간성형 스테인리스강 Design Standard",
+      "english_filename": "냉간성형-스테인리스강-design-standard.md",
+      "version": "22.10",
+      "category": "steel",
+      "subcategory": [],
+      "keywords_korean": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "냉간성형",
+        "스테인리스강",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ],
+      "related_standards": [
+        "KDS_41_10_05",
+        "KDS_41_12_00",
+        "KDS_41_17_00"
+      ],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image154",
+          "description_file": "images-database.md",
+          "caption": "Image 154",
+          "description_anchor": "kds_41_30_40_image154"
+        },
+        {
+          "id": "image155",
+          "description_file": "images-database.md",
+          "caption": "Image 155",
+          "description_anchor": "kds_41_30_40_image155"
+        },
+        {
+          "id": "image156",
+          "description_file": "images-database.md",
+          "caption": "Image 156",
+          "description_anchor": "kds_41_30_40_image156"
+        },
+        {
+          "id": "image157",
+          "description_file": "images-database.md",
+          "caption": "Image 157",
+          "description_anchor": "kds_41_30_40_image157"
+        },
+        {
+          "id": "image158",
+          "description_file": "images-database.md",
+          "caption": "Image 158",
+          "description_anchor": "kds_41_30_40_image158"
+        },
+        {
+          "id": "image159",
+          "description_file": "images-database.md",
+          "caption": "Image 159",
+          "description_anchor": "kds_41_30_40_image159"
+        },
+        {
+          "id": "image160",
+          "description_file": "images-database.md",
+          "caption": "Image 160",
+          "description_anchor": "kds_41_30_40_image160"
+        },
+        {
+          "id": "image161",
+          "description_file": "images-database.md",
+          "caption": "Image 161",
+          "description_anchor": "kds_41_30_40_image161"
+        },
+        {
+          "id": "image162",
+          "description_file": "images-database.md",
+          "caption": "Image 162",
+          "description_anchor": "kds_41_30_40_image162"
+        },
+        {
+          "id": "image163",
+          "description_file": "images-database.md",
+          "caption": "Image 163",
+          "description_anchor": "kds_41_30_40_image163"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 125.5,
+        "line_count": 3264,
+        "word_count": 12395
+      },
+      "original_filename": "KDS_41_30_40_냉간성형_스테인리스강_설계기준_22.10.md"
+    },
+    "KDS_41_40_10": {
+      "id": "KDS_41_40_10",
+      "filename": "KDS_41_40_10.md",
+      "korean_title": "건축물 강-콘크리트합성구조 설계기준",
+      "english_title": "Building 강-콘크리트Composite Structure Design Standard",
+      "english_filename": "building-강-콘크리트composite-structure-design-standard.md",
+      "version": "22.10",
+      "category": "composite",
+      "subcategory": [],
+      "keywords_korean": [
+        "합성",
+        "강-콘크리트",
+        "합성목",
+        "건축물",
+        "콘크리트합성구조",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "composite",
+        "steel-concrete",
+        "composite wood"
+      ],
+      "related_standards": [],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image164",
+          "description_file": "images-database.md",
+          "caption": "Image 164",
+          "description_anchor": "kds_41_40_10_image164"
+        },
+        {
+          "id": "image165",
+          "description_file": "images-database.md",
+          "caption": "Image 165",
+          "description_anchor": "kds_41_40_10_image165"
+        },
+        {
+          "id": "image166",
+          "description_file": "images-database.md",
+          "caption": "Image 166",
+          "description_anchor": "kds_41_40_10_image166"
+        },
+        {
+          "id": "image167",
+          "description_file": "images-database.md",
+          "caption": "Image 167",
+          "description_anchor": "kds_41_40_10_image167"
+        },
+        {
+          "id": "image168",
+          "description_file": "images-database.md",
+          "caption": "Image 168",
+          "description_anchor": "kds_41_40_10_image168"
+        },
+        {
+          "id": "image169",
+          "description_file": "images-database.md",
+          "caption": "Image 169",
+          "description_anchor": "kds_41_40_10_image169"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 46.5,
+        "line_count": 742,
+        "word_count": 4405
+      },
+      "original_filename": "KDS_41_40_10_건축물_강-콘크리트합성구조_설계기준_22.10.md"
+    },
+    "KDS_41_40_20": {
+      "id": "KDS_41_40_20",
+      "filename": "KDS_41_40_20.md",
+      "korean_title": "합성목구조 설계기준",
+      "english_title": "합성Wood Structure Design Standard",
+      "english_filename": "합성wood-structure-design-standard.md",
+      "version": "22.10",
+      "category": "composite",
+      "subcategory": [],
+      "keywords_korean": [
+        "합성",
+        "강-콘크리트",
+        "합성목",
+        "합성목구조",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "composite",
+        "steel-concrete",
+        "composite wood"
+      ],
+      "related_standards": [],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 3.3,
+        "line_count": 94,
+        "word_count": 388
+      },
+      "original_filename": "KDS_41_40_20_합성목구조_설계기준_22.10.md"
+    },
+    "KDS_41_80_10": {
+      "id": "KDS_41_80_10",
+      "filename": "KDS_41_80_10.md",
+      "korean_title": "알루미늄구조 설계기준",
+      "english_title": "Aluminum Structure Design Standard",
+      "english_filename": "aluminum-structure-design-standard.md",
+      "version": "22.10",
+      "category": "aluminum",
+      "subcategory": [],
+      "keywords_korean": [
+        "알루미늄",
+        "알루미늄구조",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "aluminum",
+        "aluminium"
+      ],
+      "related_standards": [],
+      "key_formulas": [],
+      "images": [],
+      "file_stats": {
+        "size_kb": 38.3,
+        "line_count": 1453,
+        "word_count": 3757
+      },
+      "original_filename": "KDS_41_80_10_알루미늄구조_설계기준_22.10.md"
+    },
+    "KDS_41_80_20": {
+      "id": "KDS_41_80_20",
+      "filename": "KDS_41_80_20.md",
+      "korean_title": "유리구조 설계기준",
+      "english_title": "Glass Structure Design Standard",
+      "english_filename": "glass-structure-design-standard.md",
+      "version": "22.10",
+      "category": "glass",
+      "subcategory": [],
+      "keywords_korean": [
+        "유리",
+        "유리구조",
+        "설계기준"
+      ],
+      "keywords_english": [
+        "glass"
+      ],
+      "related_standards": [],
+      "key_formulas": [],
+      "images": [
+        {
+          "id": "image170",
+          "description_file": "images-database.md",
+          "caption": "Image 170",
+          "description_anchor": "kds_41_80_20_image170"
+        }
+      ],
+      "file_stats": {
+        "size_kb": 24.8,
+        "line_count": 735,
+        "word_count": 2477
+      },
+      "original_filename": "KDS_41_80_20_유리구조_설계기준_22.10.md"
+    }
+  },
+  "categories": {
+    "loads": {
+      "name_korean": "하중",
+      "name_english": "load",
+      "documents": [
+        "KDS_41_12_00"
+      ],
+      "keywords": [
+        "하중",
+        "풍하중",
+        "적설하중",
+        "지진하중",
+        "활하중",
+        "load",
+        "wind load",
+        "snow load",
+        "seismic load",
+        "live load"
+      ]
+    },
+    "seismic": {
+      "name_korean": "내진",
+      "name_english": "seismic",
+      "documents": [
+        "KDS_11_50_25",
+        "KDS_14_20_80",
+        "KDS_14_31_60",
+        "KDS_17_10_00",
+        "KDS_41_17_00"
+      ],
+      "keywords": [
+        "내진",
+        "지진",
+        "밑면전단력",
+        "응답스펙트럼",
+        "지진하중",
+        "seismic",
+        "earthquake",
+        "base shear",
+        "response spectrum"
+      ]
+    },
+    "concrete": {
+      "name_korean": "콘크리트",
+      "name_english": "concrete",
+      "documents": [
+        "KDS_14_20_01",
+        "KDS_14_20_10",
+        "KDS_14_20_20",
+        "KDS_14_20_22",
+        "KDS_14_20_24",
+        "KDS_14_20_26",
+        "KDS_14_20_30",
+        "KDS_14_20_40",
+        "KDS_14_20_50",
+        "KDS_14_20_52",
+        "KDS_14_20_54",
+        "KDS_14_20_60",
+        "KDS_14_20_62",
+        "KDS_14_20_64",
+        "KDS_14_20_66",
+        "KDS_14_20_68",
+        "KDS_14_20_70",
+        "KDS_14_20_72",
+        "KDS_14_20_74",
+        "KDS_14_20_90",
+        "KDS_41_20_00",
+        "KDS_41_20_10"
+      ],
+      "keywords": [
+        "콘크리트",
+        "철근",
+        "휨강도",
+        "전단강도",
+        "압축강도",
+        "concrete",
+        "rebar",
+        "flexural strength",
+        "shear strength"
+      ]
+    },
+    "steel": {
+      "name_korean": "강구조",
+      "name_english": "steel structure",
+      "documents": [
+        "KDS_14_30_05",
+        "KDS_14_30_10",
+        "KDS_14_30_20",
+        "KDS_14_30_25",
+        "KDS_14_30_50",
+        "KDS_14_31_05",
+        "KDS_14_31_10",
+        "KDS_14_31_15",
+        "KDS_14_31_20",
+        "KDS_14_31_25",
+        "KDS_14_31_50",
+        "KDS_14_31_55",
+        "KDS_14_31_70",
+        "KDS_14_31_80",
+        "KDS_14_31_85",
+        "KDS_41_30_10",
+        "KDS_41_30_20",
+        "KDS_41_30_30",
+        "KDS_41_30_40"
+      ],
+      "keywords": [
+        "강구조",
+        "철골",
+        "강재",
+        "LRFD",
+        "ASD",
+        "steel structure",
+        "steel",
+        "LRFD",
+        "ASD",
+        "buckling"
+      ]
+    },
+    "foundation": {
+      "name_korean": "기초",
+      "name_english": "foundation",
+      "documents": [
+        "KDS_11_10_05",
+        "KDS_11_10_10",
+        "KDS_11_10_15",
+        "KDS_11_30_05",
+        "KDS_11_50_05",
+        "KDS_11_50_15",
+        "KDS_11_50_30",
+        "KDS_11_60_00",
+        "KDS_11_80_05",
+        "KDS_11_80_10",
+        "KDS_11_80_15",
+        "KDS_11_80_20",
+        "KDS_11_80_25",
+        "KDS_11_90_00",
+        "KDS_41_19_00"
+      ],
+      "keywords": [
+        "기초",
+        "지반",
+        "얕은기초",
+        "깊은기초",
+        "말뚝",
+        "foundation",
+        "soil",
+        "shallow foundation",
+        "deep foundation",
+        "pile"
+      ]
+    },
+    "temporary": {
+      "name_korean": "가설",
+      "name_english": "temporary",
+      "documents": [
+        "KDS_21_10_00",
+        "KDS_21_30_00",
+        "KDS_21_45_00",
+        "KDS_21_50_00",
+        "KDS_21_60_00"
+      ],
+      "keywords": [
+        "가설",
+        "거푸집",
+        "동바리",
+        "흙막이",
+        "비계",
+        "temporary",
+        "formwork",
+        "shoring",
+        "excavation",
+        "scaffolding"
+      ]
+    },
+    "composite": {
+      "name_korean": "합성",
+      "name_english": "composite",
+      "documents": [
+        "KDS_41_40_10",
+        "KDS_41_40_20"
+      ],
+      "keywords": [
+        "합성",
+        "강-콘크리트",
+        "합성목",
+        "composite",
+        "steel-concrete",
+        "composite wood"
+      ]
+    },
+    "aluminum": {
+      "name_korean": "알루미늄",
+      "name_english": "aluminum",
+      "documents": [
+        "KDS_41_80_10"
+      ],
+      "keywords": [
+        "알루미늄",
+        "aluminum",
+        "aluminium"
+      ]
+    },
+    "glass": {
+      "name_korean": "유리",
+      "name_english": "glass",
+      "documents": [
+        "KDS_41_80_20"
+      ],
+      "keywords": [
+        "유리",
+        "glass"
+      ]
+    },
+    "general": {
+      "name_korean": "설계기준",
+      "name_english": "design standard",
+      "documents": [
+        "KDS_10_10_00",
+        "KDS_31_70_15",
+        "KDS_41_10_05",
+        "KDS_41_10_10"
+      ],
+      "keywords": [
+        "설계기준",
+        "총칙",
+        "구조검사",
+        "design standard",
+        "general provisions",
+        "structural inspection"
+      ]
+    }
+  },
+  "search_aliases": {
+    "10-10-00": "KDS_10_10_00",
+    "design-standard-general-provisions": "KDS_10_10_00",
+    "11-10-05": "KDS_11_10_05",
+    "soil/ground-설계-general": "KDS_11_10_05",
+    "foundation": "KDS_11_10_05",
+    "11-10-10": "KDS_11_10_10",
+    "soil/ground조사": "KDS_11_10_10",
+    "11-10-15": "KDS_11_10_15",
+    "soil/ground계측": "KDS_11_10_15",
+    "11-30-05": "KDS_11_30_05",
+    "연약soil/ground-설계general": "KDS_11_30_05",
+    "11-50-05": "KDS_11_50_05",
+    "얕은foundation-design-standard-general설계법": "KDS_11_50_05",
+    "11-50-15": "KDS_11_50_15",
+    "깊은foundation-design-standard-general설계법": "KDS_11_50_15",
+    "11-50-25": "KDS_11_50_25",
+    "foundation-내진-design-standard": "KDS_11_50_25",
+    "seismic": "KDS_11_50_25",
+    "11-50-30": "KDS_11_50_30",
+    "진동기계foundation-design-standard": "KDS_11_50_30",
+    "11-60-00": "KDS_11_60_00",
+    "앵커-design-standard": "KDS_11_60_00",
+    "11-80-05": "KDS_11_80_05",
+    "콘크리트옹벽": "KDS_11_80_05",
+    "11-80-10": "KDS_11_80_10",
+    "보강토옹벽-2020": "KDS_11_80_10",
+    "11-80-15": "KDS_11_80_15",
+    "돌망태옹벽": "KDS_11_80_15",
+    "11-80-20": "KDS_11_80_20",
+    "기대기옹벽": "KDS_11_80_20",
+    "11-80-25": "KDS_11_80_25",
+    "돌-블록-쌓기옹벽": "KDS_11_80_25",
+    "11-90-00": "KDS_11_90_00",
+    "비탈면-seismic-design-standard": "KDS_11_90_00",
+    "14-20-01": "KDS_14_20_01",
+    "concrete-structure-design---strength-design-method": "KDS_14_20_01",
+    "concrete": "KDS_14_20_01",
+    "14-20-10": "KDS_14_20_10",
+    "concrete-structure-해석과-설계-원칙": "KDS_14_20_10",
+    "14-20-20": "KDS_14_20_20",
+    "concrete-structure-휨-및-압축-design-standard": "KDS_14_20_20",
+    "14-20-22": "KDS_14_20_22",
+    "concrete-structure-전단-및-비틀림-design-standard": "KDS_14_20_22",
+    "14-20-24": "KDS_14_20_24",
+    "concrete-structure-스트럿-타이모델-기준": "KDS_14_20_24",
+    "14-20-26": "KDS_14_20_26",
+    "concrete-structure-피로-design-standard": "KDS_14_20_26",
+    "14-20-30": "KDS_14_20_30",
+    "concrete-structure-사용성-design-standard": "KDS_14_20_30",
+    "14-20-40": "KDS_14_20_40",
+    "concrete-structure-내구성-design-standard": "KDS_14_20_40",
+    "14-20-50": "KDS_14_20_50",
+    "concrete-structure-철근상세-design-standard": "KDS_14_20_50",
+    "14-20-52": "KDS_14_20_52",
+    "concrete-structure-정착-및-이음-design-standard": "KDS_14_20_52",
+    "14-20-54": "KDS_14_20_54",
+    "콘크리트용-앵커-design-standard": "KDS_14_20_54",
+    "14-20-60": "KDS_14_20_60",
+    "프리스트레스트-concrete-structure-design-standard": "KDS_14_20_60",
+    "14-20-62": "KDS_14_20_62",
+    "프리캐스트-concrete-structure-design-standard": "KDS_14_20_62",
+    "14-20-64": "KDS_14_20_64",
+    "구조용-무근콘크리트-design-standard": "KDS_14_20_64",
+    "14-20-66": "KDS_14_20_66",
+    "합성콘크리트-design-standard": "KDS_14_20_66",
+    "14-20-68": "KDS_14_20_68",
+    "유리섬유-강화-폴리머-보강근-concrete-structure-design-standard": "KDS_14_20_68",
+    "14-20-70": "KDS_14_20_70",
+    "콘크리트-슬래브와-foundation판-design-standard": "KDS_14_20_70",
+    "14-20-72": "KDS_14_20_72",
+    "콘크리트-벽체-design-standard": "KDS_14_20_72",
+    "14-20-74": "KDS_14_20_74",
+    "기타-concrete-structure-design-standard": "KDS_14_20_74",
+    "14-20-80": "KDS_14_20_80",
+    "콘크리트-seismic-design-standard": "KDS_14_20_80",
+    "14-20-90": "KDS_14_20_90",
+    "기존-concrete-structure물의-안전성-평가기준": "KDS_14_20_90",
+    "14-30-05": "KDS_14_30_05",
+    "steel-structure-design---asd-method": "KDS_14_30_05",
+    "steel": "KDS_14_30_05",
+    "14-30-10": "KDS_14_30_10",
+    "steel-structure-부재-design-standard-허용응력설계법": "KDS_14_30_10",
+    "14-30-20": "KDS_14_30_20",
+    "steel-structure-피로-및-파단-design-standard-허용응력설계법": "KDS_14_30_20",
+    "14-30-25": "KDS_14_30_25",
+    "steel-structure-연결-design-standard-허용응력설계법": "KDS_14_30_25",
+    "14-30-50": "KDS_14_30_50",
+    "steel-structure-사용성-설계-허용응력설계법": "KDS_14_30_50",
+    "14-31-05": "KDS_14_31_05",
+    "steel-structure-design---lrfd-method": "KDS_14_31_05",
+    "14-31-10": "KDS_14_31_10",
+    "steel-structure-부재-design-standard-하중저항계수설계법": "KDS_14_31_10",
+    "14-31-15": "KDS_14_31_15",
+    "강구조-골조의-안정성-설계기준-하중저항계수설계법": "KDS_14_31_15",
+    "14-31-20": "KDS_14_31_20",
+    "steel-structure-피로-및-파단-design-standard-하중저항계수설계법": "KDS_14_31_20",
+    "14-31-25": "KDS_14_31_25",
+    "steel-structure-연결-design-standard-하중저항계수설계법": "KDS_14_31_25",
+    "14-31-50": "KDS_14_31_50",
+    "steel-structure-내화-design-standard-하중저항계수설계법": "KDS_14_31_50",
+    "14-31-55": "KDS_14_31_55",
+    "steel-structure-사용성-및-물고임-design-standard-하중저항계수설계법": "KDS_14_31_55",
+    "14-31-60": "KDS_14_31_60",
+    "steel-structure-내진-design-standard-하중저항계수설계법": "KDS_14_31_60",
+    "14-31-70": "KDS_14_31_70",
+    "steel-structure-성능기반-design-standard-하중저항계수설계법": "KDS_14_31_70",
+    "14-31-80": "KDS_14_31_80",
+    "composite-structure-부재-design-standard-하중저항계수설계법": "KDS_14_31_80",
+    "14-31-85": "KDS_14_31_85",
+    "composite-structure-내진-design-standard-하중저항계수설계법": "KDS_14_31_85",
+    "17-10-00": "KDS_17_10_00",
+    "general-seismic-design": "KDS_17_10_00",
+    "21-10-00": "KDS_21_10_00",
+    "temporary-structure-design---general": "KDS_21_10_00",
+    "21-30-00": "KDS_21_30_00",
+    "temporary-excavation-support-design-standard": "KDS_21_30_00",
+    "21-45-00": "KDS_21_45_00",
+    "temporary교량-및-노면복공-design-standard-2024": "KDS_21_45_00",
+    "21-50-00": "KDS_21_50_00",
+    "formwork-and-shoring-design-standard": "KDS_21_50_00",
+    "21-60-00": "KDS_21_60_00",
+    "scaffolding-및-안전시설물-design-standard-2024": "KDS_21_60_00",
+    "31-70-15": "KDS_31_70_15",
+    "방진설비": "KDS_31_70_15",
+    "41-10-05": "KDS_41_10_05",
+    "general-provisions-for-building-structures": "KDS_41_10_05",
+    "41-10-10": "KDS_41_10_10",
+    "건축구조기준-구조검사-및-실험": "KDS_41_10_10",
+    "41-12-00": "KDS_41_12_00",
+    "building-design-loads": "KDS_41_12_00",
+    "loads": "KDS_41_12_00",
+    "41-17-00": "KDS_41_17_00",
+    "seismic-design-standard-for-buildings": "KDS_41_17_00",
+    "41-19-00": "KDS_41_19_00",
+    "foundation-design-standard-for-buildings": "KDS_41_19_00",
+    "41-20-00": "KDS_41_20_00",
+    "concrete-structure-design-standard-for-buildings": "KDS_41_20_00",
+    "41-20-10": "KDS_41_20_10",
+    "building-프리캐스트-concrete-structure-design-standard-제정": "KDS_41_20_10",
+    "41-30-10": "KDS_41_30_10",
+    "steel-structure-design-standard-for-buildings": "KDS_41_30_10",
+    "41-30-20": "KDS_41_30_20",
+    "building-강composite-structure-design-standard": "KDS_41_30_20",
+    "41-30-30": "KDS_41_30_30",
+    "냉간성형강-design-standard": "KDS_41_30_30",
+    "41-30-40": "KDS_41_30_40",
+    "냉간성형-스테인리스강-design-standard": "KDS_41_30_40",
+    "41-40-10": "KDS_41_40_10",
+    "building-강-콘크리트composite-structure-design-standard": "KDS_41_40_10",
+    "41-40-20": "KDS_41_40_20",
+    "합성wood-structure-design-standard": "KDS_41_40_20",
+    "41-80-10": "KDS_41_80_10",
+    "aluminum-structure-design-standard": "KDS_41_80_10",
+    "41-80-20": "KDS_41_80_20",
+    "glass-structure-design-standard": "KDS_41_80_20"
+  },
+  "consolidation_info": {
+    "status": "consolidated",
+    "method": "single database with anchors",
+    "database_file": "data/image-descriptions/images-database.md",
+    "original_files": 206,
+    "consolidated_date": "2025-11-16"
+  }
+}

@@ -9,10 +9,20 @@
 2. Homography: 단일 평면 변환 (Z=0 고정)
 3. Depth Estimation: 이미지 Y좌표 기반 깊이 추정 (간이)
 
+신규 기능 (Phase 4):
+- 다중 평면 지원: floor, wall_back, wall_left, wall_right, ceiling
+- 자동 평면 선택: 이미지 영역(horizon_line_y)에 따라 자동 선택
+- setup_multi_plane(), pixel_to_world_auto()
+
+관련 모듈:
+- src/measure/pnp_solver.py: 저수준 PnP 래퍼 (solve_pnp, get_ray, intersect_ray_plane)
+- src/measure/frame_plane.py: Homography 캘리브레이션
+
 사용 예:
     transformer = Transform3D()
     transformer.setup_pnp(R, t, K)
-    point_3d = transformer.pixel_to_world(u, v, plane='floor')
+    transformer.setup_multi_plane(floor_z=0, wall_back_y=10000, horizon_line_y=400, image_height=1080)
+    point_3d = transformer.pixel_to_world_auto(u, v)  # 자동 평면 선택
 """
 
 import math
@@ -28,22 +38,58 @@ except ImportError:
     HAS_CV2 = False
 
 
-@dataclass
-class Point3D:
-    """3D 점"""
-    x: float
-    y: float
-    z: float
+# Point3D 공통 타입 임포트
+try:
+    from ..core.common import Point3D
+except ImportError:
+    try:
+        from core.common import Point3D
+    except ImportError:
+        # 독립 실행 시 로컬 정의 사용
+        @dataclass
+        class Point3D:
+            """3D 점"""
+            x: float
+            y: float
+            z: float = 0.0
 
-    def to_list(self) -> List[float]:
-        return [self.x, self.y, self.z]
+            def to_list(self) -> List[float]:
+                return [self.x, self.y, self.z]
 
-    def distance_to(self, other: 'Point3D') -> float:
-        return math.sqrt(
-            (self.x - other.x) ** 2 +
-            (self.y - other.y) ** 2 +
-            (self.z - other.z) ** 2
-        )
+            def to_dict(self) -> Dict[str, float]:
+                """딕셔너리로 변환"""
+                return {"x": self.x, "y": self.y, "z": self.z}
+
+            def to_tuple(self) -> Tuple[float, float, float]:
+                """튜플로 변환"""
+                return (self.x, self.y, self.z)
+
+            def distance_to(self, other: 'Point3D') -> float:
+                return math.sqrt(
+                    (self.x - other.x) ** 2 +
+                    (self.y - other.y) ** 2 +
+                    (self.z - other.z) ** 2
+                )
+
+            def distance_xy(self, other: 'Point3D') -> float:
+                """XY 평면 거리 (z 무시)"""
+                return math.sqrt(
+                    (self.x - other.x) ** 2 +
+                    (self.y - other.y) ** 2
+                )
+
+            @classmethod
+            def from_dict(cls, d: Dict[str, float]) -> 'Point3D':
+                """딕셔너리에서 생성"""
+                return cls(d.get('x', 0), d.get('y', 0), d.get('z', 0))
+
+            @classmethod
+            def from_list(cls, lst: List[float]) -> 'Point3D':
+                """리스트에서 생성"""
+                x = lst[0] if len(lst) > 0 else 0
+                y = lst[1] if len(lst) > 1 else 0
+                z = lst[2] if len(lst) > 2 else 0
+                return cls(x, y, z)
 
 
 @dataclass
@@ -107,6 +153,13 @@ class Transform3D:
         self.horizon_y: float = 0.5  # 소실점 Y (이미지 비율)
         self.camera_height: float = 1600.0  # 카메라 높이 (mm)
         self.floor_depth_at_bottom: float = 2000.0  # 이미지 하단의 바닥 깊이
+
+        # 다중 평면 자동 선택 설정
+        self.auto_plane_selection: bool = False
+        self.plane_boundaries: Dict[str, Dict[str, float]] = {}  # 평면별 이미지 영역
+
+        # 수평선 (지평선) Y 좌표 - 바닥/벽 자동 구분용
+        self.horizon_line_y: Optional[float] = None  # 픽셀 좌표
 
     # ============ Setup Methods ============
 
@@ -176,6 +229,242 @@ class Transform3D:
     def add_plane(self, name: str, plane: Plane):
         """평면 추가"""
         self.planes[name] = plane
+
+    def setup_multi_plane(self,
+                          floor_z: float = 0.0,
+                          wall_back_y: Optional[float] = None,
+                          wall_left_x: Optional[float] = None,
+                          wall_right_x: Optional[float] = None,
+                          ceiling_z: Optional[float] = None,
+                          horizon_line_y: Optional[float] = None,
+                          image_height: Optional[int] = None):
+        """
+        다중 평면 설정 (바닥, 벽, 천장)
+
+        Args:
+            floor_z: 바닥 Z 좌표 (기본 0)
+            wall_back_y: 뒷벽 Y 좌표 (None이면 생성 안함)
+            wall_left_x: 왼쪽벽 X 좌표 (None이면 생성 안함)
+            wall_right_x: 오른쪽벽 X 좌표 (None이면 생성 안함)
+            ceiling_z: 천장 Z 좌표 (None이면 생성 안함)
+            horizon_line_y: 수평선 Y 좌표 (픽셀). 이 위는 벽, 아래는 바닥
+            image_height: 이미지 높이 (픽셀). horizon_line_y와 함께 사용
+
+        사용 예:
+            transformer.setup_multi_plane(
+                floor_z=0,
+                wall_back_y=10000,
+                ceiling_z=3000,
+                horizon_line_y=400,
+                image_height=1080
+            )
+        """
+        # 바닥면 설정
+        self.planes['floor'] = Plane.floor(floor_z)
+
+        # 벽면 설정
+        if wall_back_y is not None:
+            self.planes['wall_back'] = Plane.wall_back(wall_back_y)
+
+        if wall_left_x is not None:
+            self.planes['wall_left'] = Plane.wall_left(wall_left_x)
+
+        if wall_right_x is not None:
+            self.planes['wall_right'] = Plane.wall_right(wall_right_x)
+
+        # 천장 설정
+        if ceiling_z is not None:
+            self.planes['ceiling'] = Plane.floor(ceiling_z)
+            self.planes['ceiling'].name = 'ceiling'
+
+        # 자동 평면 선택 설정
+        if horizon_line_y is not None:
+            self.horizon_line_y = horizon_line_y
+            self.auto_plane_selection = True
+
+            # 이미지 영역별 평면 경계 설정
+            if image_height:
+                self.image_height = image_height
+                # 기본 경계: 수평선 위 = 벽, 수평선 아래 = 바닥
+                self.plane_boundaries = {
+                    'floor': {
+                        'y_min': horizon_line_y,
+                        'y_max': image_height
+                    },
+                    'wall_back': {
+                        'y_min': 0,
+                        'y_max': horizon_line_y
+                    }
+                }
+
+    def set_plane_boundary(self, plane_name: str,
+                           y_min: Optional[float] = None,
+                           y_max: Optional[float] = None,
+                           x_min: Optional[float] = None,
+                           x_max: Optional[float] = None):
+        """
+        특정 평면의 이미지 영역 경계 설정
+
+        Args:
+            plane_name: 평면 이름
+            y_min: 최소 Y 좌표 (픽셀)
+            y_max: 최대 Y 좌표 (픽셀)
+            x_min: 최소 X 좌표 (픽셀)
+            x_max: 최대 X 좌표 (픽셀)
+        """
+        if plane_name not in self.plane_boundaries:
+            self.plane_boundaries[plane_name] = {}
+
+        if y_min is not None:
+            self.plane_boundaries[plane_name]['y_min'] = y_min
+        if y_max is not None:
+            self.plane_boundaries[plane_name]['y_max'] = y_max
+        if x_min is not None:
+            self.plane_boundaries[plane_name]['x_min'] = x_min
+        if x_max is not None:
+            self.plane_boundaries[plane_name]['x_max'] = x_max
+
+        self.auto_plane_selection = True
+
+    def _auto_select_plane(self, u: float, v: float) -> str:
+        """
+        픽셀 좌표 기반 자동 평면 선택
+
+        Args:
+            u: 픽셀 X 좌표
+            v: 픽셀 Y 좌표
+
+        Returns:
+            선택된 평면 이름
+        """
+        # 경계 기반 선택
+        if self.plane_boundaries:
+            for plane_name, bounds in self.plane_boundaries.items():
+                # 모든 조건 확인
+                in_bounds = True
+
+                if 'y_min' in bounds and v < bounds['y_min']:
+                    in_bounds = False
+                if 'y_max' in bounds and v > bounds['y_max']:
+                    in_bounds = False
+                if 'x_min' in bounds and u < bounds['x_min']:
+                    in_bounds = False
+                if 'x_max' in bounds and u > bounds['x_max']:
+                    in_bounds = False
+
+                if in_bounds and plane_name in self.planes:
+                    return plane_name
+
+        # 수평선 기반 단순 선택 (폴백)
+        if self.horizon_line_y is not None:
+            if v > self.horizon_line_y:
+                return 'floor'
+            elif 'wall_back' in self.planes:
+                return 'wall_back'
+
+        # 기본값
+        return 'floor'
+
+    def pixel_to_world_auto(self, u: float, v: float) -> Optional[Point3D]:
+        """
+        자동 평면 선택으로 픽셀→3D 변환
+
+        이미지 위치에 따라 적절한 평면을 자동 선택합니다:
+        - 수평선 아래: 바닥 (floor)
+        - 수평선 위: 벽 (wall_back)
+        - 왼쪽 영역: 왼쪽 벽 (wall_left) - 경계 설정 시
+        - 오른쪽 영역: 오른쪽 벽 (wall_right) - 경계 설정 시
+
+        Args:
+            u: 픽셀 X 좌표
+            v: 픽셀 Y 좌표
+
+        Returns:
+            Point3D 또는 None
+        """
+        if not self.auto_plane_selection:
+            # 자동 선택이 비활성화면 기본 pixel_to_world 사용
+            return self.pixel_to_world(u, v, 'floor')
+
+        # 평면 자동 선택
+        selected_plane = self._auto_select_plane(u, v)
+
+        # 선택된 평면으로 변환
+        return self.pixel_to_world(u, v, selected_plane)
+
+    def pixel_to_world_with_plane(self, u: float, v: float) -> Optional[Dict[str, Any]]:
+        """
+        자동 평면 선택으로 픽셀→3D 변환 (평면 정보 포함)
+
+        Args:
+            u: 픽셀 X 좌표
+            v: 픽셀 Y 좌표
+
+        Returns:
+            {
+                'point': Point3D,
+                'plane': str,  # 선택된 평면 이름
+                'pixel': (u, v)
+            }
+        """
+        selected_plane = self._auto_select_plane(u, v) if self.auto_plane_selection else 'floor'
+        point = self.pixel_to_world(u, v, selected_plane)
+
+        if point is None:
+            return None
+
+        return {
+            'point': point,
+            'plane': selected_plane,
+            'pixel': (u, v)
+        }
+
+    def transform_polyline_auto(self, pixels: List[Tuple[float, float]]) -> List[Dict[str, Any]]:
+        """
+        여러 픽셀 좌표를 자동 평면 선택으로 3D 변환
+
+        Args:
+            pixels: [(u1, v1), (u2, v2), ...] 픽셀 좌표 리스트
+
+        Returns:
+            [
+                {'point': Point3D, 'plane': str, 'pixel': (u, v)},
+                ...
+            ]
+        """
+        results = []
+        for u, v in pixels:
+            result = self.pixel_to_world_with_plane(u, v)
+            if result:
+                results.append(result)
+        return results
+
+    def get_plane_info(self) -> Dict[str, Any]:
+        """
+        현재 설정된 평면 정보 반환
+
+        Returns:
+            {
+                'planes': {name: {normal, d, ...}, ...},
+                'auto_selection': bool,
+                'boundaries': {...},
+                'horizon_line_y': float or None
+            }
+        """
+        plane_info = {}
+        for name, plane in self.planes.items():
+            plane_info[name] = {
+                'normal': plane.normal,
+                'd': plane.d,
+                'name': plane.name
+            }
+
+        return {
+            'planes': plane_info,
+            'auto_selection': self.auto_plane_selection,
+            'boundaries': self.plane_boundaries,
+            'horizon_line_y': self.horizon_line_y
+        }
 
     # ============ Core Transformation Methods ============
 
@@ -495,9 +784,11 @@ def main():
             'error': 'Usage: python transform_3d.py <command> [args]',
             'commands': [
                 'pixel_to_world <u> <v> <R_json> <t_json> <K_json> [plane]',
+                'pixel_to_world_auto <u> <v> <R_json> <t_json> <K_json> <horizon_y> <img_height>',
                 'measure <u1> <v1> <u2> <v2> <R_json> <t_json> <K_json>',
                 'calibrate <points2d_json> <points3d_json> <width> <height>',
-                'depth_estimate <u> <v> <width> <height> [horizon_ratio]'
+                'depth_estimate <u> <v> <width> <height> [horizon_ratio]',
+                'setup_multi_plane <floor_z> <wall_y> <ceiling_z> <horizon_y> <img_height>'
             ]
         }))
         return
@@ -562,6 +853,93 @@ def main():
             print(json.dumps({'success': True, 'point_3d': result.to_list()}))
         else:
             print(json.dumps({'success': False, 'error': 'Estimate failed'}))
+
+    elif cmd == 'pixel_to_world_auto' and len(sys.argv) >= 9:
+        # 자동 평면 선택 변환
+        u, v = float(sys.argv[2]), float(sys.argv[3])
+        R = json.loads(sys.argv[4])
+        t = json.loads(sys.argv[5])
+        K = json.loads(sys.argv[6])
+        horizon_y = float(sys.argv[7])
+        img_height = int(sys.argv[8])
+
+        transformer = Transform3D()
+        transformer.setup_pnp(R, t, K)
+        transformer.setup_multi_plane(
+            floor_z=0,
+            wall_back_y=10000,  # 기본값
+            horizon_line_y=horizon_y,
+            image_height=img_height
+        )
+
+        result = transformer.pixel_to_world_with_plane(u, v)
+
+        if result:
+            print(json.dumps({
+                'success': True,
+                'point_3d': result['point'].to_list(),
+                'plane': result['plane'],
+                'pixel': result['pixel']
+            }))
+        else:
+            print(json.dumps({'success': False, 'error': 'Transform failed'}))
+
+    elif cmd == 'setup_multi_plane' and len(sys.argv) >= 7:
+        # 다중 평면 설정 정보 출력
+        floor_z = float(sys.argv[2])
+        wall_y = float(sys.argv[3])
+        ceiling_z = float(sys.argv[4])
+        horizon_y = float(sys.argv[5])
+        img_height = int(sys.argv[6])
+
+        transformer = Transform3D()
+        transformer.setup_multi_plane(
+            floor_z=floor_z,
+            wall_back_y=wall_y,
+            ceiling_z=ceiling_z,
+            horizon_line_y=horizon_y,
+            image_height=img_height
+        )
+
+        print(json.dumps({
+            'success': True,
+            'plane_info': transformer.get_plane_info()
+        }, default=str))
+
+    elif cmd == 'transform_polyline' and len(sys.argv) >= 8:
+        # 폴리라인 변환 (여러 점)
+        pixels = json.loads(sys.argv[2])  # [[u1,v1], [u2,v2], ...]
+        R = json.loads(sys.argv[3])
+        t = json.loads(sys.argv[4])
+        K = json.loads(sys.argv[5])
+        horizon_y = float(sys.argv[6])
+        img_height = int(sys.argv[7])
+
+        transformer = Transform3D()
+        transformer.setup_pnp(R, t, K)
+        transformer.setup_multi_plane(
+            floor_z=0,
+            wall_back_y=10000,
+            horizon_line_y=horizon_y,
+            image_height=img_height
+        )
+
+        pixel_tuples = [(p[0], p[1]) for p in pixels]
+        results = transformer.transform_polyline_auto(pixel_tuples)
+
+        output = []
+        for r in results:
+            output.append({
+                'point_3d': r['point'].to_list(),
+                'plane': r['plane'],
+                'pixel': r['pixel']
+            })
+
+        print(json.dumps({
+            'success': True,
+            'points': output,
+            'count': len(output)
+        }))
 
     else:
         print(json.dumps({'error': f'Unknown command: {cmd}'}))

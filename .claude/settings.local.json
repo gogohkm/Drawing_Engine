@@ -29,7 +29,19 @@
       "Bash(du -sh:*)",
       "Bash(find:*)",
       "Bash(.venv/bin/python:*)",
-      "Bash(code:*)"
+      "Bash(code:*)",
+      "mcp__stgen-dxf-viewer__extract_dxf_entities",
+      "Bash(cmd //c \"mklink /D aci-318-concrete-design \"\"C:\\\\Coding_Works\\\\Drawing_Engine\\\\skill들\\\\aci-318-concrete-design-skill\\\\aci-318-concrete-design\"\"\")",
+      "Bash(cmd //c \"mklink /J aci-318-concrete-design \"\"C:\\\\Coding_Works\\\\Drawing_Engine\\\\skill들\\\\aci-318-concrete-design-skill\\\\aci-318-concrete-design\"\"\")",
+      "Bash(cmd //c \"mklink /J adm-aluminum-design \"\"C:\\\\Coding_Works\\\\Drawing_Engine\\\\skill들\\\\adm-aluminum-design\"\"\")",
+      "Bash(cmd //c \"mklink /J aisc-steel-design \"\"C:\\\\Coding_Works\\\\Drawing_Engine\\\\skill들\\\\aisc-steel-design-v2.0.0\\\\aisc-steel-design\"\"\")",
+      "Bash(cmd //c \"mklink /J aisi-cold-formed-steel \"\"C:\\\\Coding_Works\\\\Drawing_Engine\\\\skill들\\\\aisi-cold-formed-steel-v1.0\\\\aisi-cold-formed-steel\"\"\")",
+      "Bash(cmd //c \"mklink /J asce7-loads-design \"\"C:\\\\Coding_Works\\\\Drawing_Engine\\\\skill들\\\\asce7-loads-design\\\\asce7-loads-design\"\"\")",
+      "Bash(cmd //c \"mklink /J basepl-connection-design \"\"C:\\\\Coding_Works\\\\Drawing_Engine\\\\skill들\\\\basepl-connection-design\\\\basepl-connection-design\"\"\")",
+      "Bash(cmd //c \"mklink /J castellated-cellular-design \"\"C:\\\\Coding_Works\\\\Drawing_Engine\\\\skill들\\\\castellated-cellular-design-v1.0.0\\\\castellated-cellular-design\"\"\")",
+      "Bash(cmd //c \"mklink /J gfrp-structural-design \"\"C:\\\\Coding_Works\\\\Drawing_Engine\\\\skill들\\\\gfrp-structural-design\\\\gfrp-structural-design\"\"\")",
+      "Bash(cmd //c \"mklink /J kds-building-standards \"\"C:\\\\Coding_Works\\\\Drawing_Engine\\\\skill들\\\\kds-building-standards\\\\kds-building-standards\"\"\")",
+      "Bash(cmd //c \"dir C:\\\\Coding_Works\\\\Drawing_Engine\\\\.claude\\\\skills\\\\aisc-steel-design\")"
     ]
   }
 }

@@ -15,7 +15,17 @@ from enum import Enum
 
 @dataclass
 class Point2D:
-    """2D 좌표점"""
+    """
+    2D 좌표점 - 픽셀/화면 좌표 전용
+
+    사용처:
+    - 이미지 픽셀 좌표 (u, v)
+    - 화면/캔버스 좌표
+    - 2D 투영 결과
+
+    주의: DXF 도면 작업에는 반드시 Point3D를 사용하세요.
+    STGEN DXF 에디터는 3D 좌표계를 사용합니다.
+    """
     x: float
     y: float
 
@@ -24,6 +34,10 @@ class Point2D:
 
     def to_dict(self) -> Dict[str, float]:
         return {"x": self.x, "y": self.y}
+
+    def to_3d(self, z: float = 0.0) -> 'Point3D':
+        """3D 좌표로 변환"""
+        return Point3D(self.x, self.y, z)
 
     def distance_to(self, other: 'Point2D') -> float:
         """다른 점까지의 거리"""
@@ -41,16 +55,44 @@ class Point2D:
 
 @dataclass
 class Point3D:
-    """3D 좌표점"""
+    """
+    3D 좌표점
+
+    DXF 도면 및 CAD 작업에서 기본 좌표 타입으로 사용합니다.
+    STGEN DXF 에디터는 3D 좌표계를 사용합니다.
+    """
     x: float
     y: float
-    z: float
+    z: float = 0.0  # 기본값 추가 - 2D 작업과 호환
 
     def to_tuple(self) -> Tuple[float, float, float]:
         return (self.x, self.y, self.z)
 
     def to_dict(self) -> Dict[str, float]:
         return {"x": self.x, "y": self.y, "z": self.z}
+
+    def to_list(self) -> List[float]:
+        """리스트로 변환"""
+        return [self.x, self.y, self.z]
+
+    def to_2d(self) -> Point2D:
+        """2D 좌표로 변환 (z 무시)"""
+        return Point2D(self.x, self.y)
+
+    def distance_to(self, other: 'Point3D') -> float:
+        """다른 점까지의 3D 거리"""
+        return math.sqrt(
+            (self.x - other.x) ** 2 +
+            (self.y - other.y) ** 2 +
+            (self.z - other.z) ** 2
+        )
+
+    def distance_xy(self, other: 'Point3D') -> float:
+        """다른 점까지의 XY 평면 거리 (z 무시)"""
+        return math.sqrt((self.x - other.x) ** 2 + (self.y - other.y) ** 2)
+
+    # 레거시 호환용 별칭
+    distance_2d = distance_xy
 
     def __add__(self, other: 'Point3D') -> 'Point3D':
         return Point3D(self.x + other.x, self.y + other.y, self.z + other.z)
@@ -60,6 +102,19 @@ class Point3D:
 
     def scale(self, factor: float) -> 'Point3D':
         return Point3D(self.x * factor, self.y * factor, self.z * factor)
+
+    @classmethod
+    def from_dict(cls, d: Dict[str, float]) -> 'Point3D':
+        """딕셔너리에서 생성"""
+        return cls(d.get('x', 0), d.get('y', 0), d.get('z', 0))
+
+    @classmethod
+    def from_list(cls, lst: List[float]) -> 'Point3D':
+        """리스트에서 생성"""
+        x = lst[0] if len(lst) > 0 else 0
+        y = lst[1] if len(lst) > 1 else 0
+        z = lst[2] if len(lst) > 2 else 0
+        return cls(x, y, z)
 
 
 # ========== 작업 상태 ==========
@@ -239,11 +294,26 @@ class MCPToolGenerator:
 
 # ========== 유틸리티 함수 ==========
 
-def calculate_distance(p1: Dict, p2: Dict) -> float:
-    """두 점 사이의 거리 계산"""
+def calculate_distance(p1: Dict, p2: Dict, use_3d: bool = True) -> float:
+    """
+    두 점 사이의 거리 계산
+
+    Args:
+        p1: 첫 번째 점 {'x': float, 'y': float, 'z': float}
+        p2: 두 번째 점
+        use_3d: True면 3D 거리, False면 2D 거리 (z 무시)
+
+    Returns:
+        거리 값
+    """
     dx = p2.get('x', 0) - p1.get('x', 0)
     dy = p2.get('y', 0) - p1.get('y', 0)
-    return math.sqrt(dx * dx + dy * dy)
+
+    if use_3d:
+        dz = p2.get('z', 0) - p1.get('z', 0)
+        return math.sqrt(dx * dx + dy * dy + dz * dz)
+    else:
+        return math.sqrt(dx * dx + dy * dy)
 
 
 def normalize_angle(angle: float) -> float:

@@ -15,36 +15,41 @@ from dataclasses import dataclass, field
 
 # 공통 타입 임포트
 try:
-    from common import Point2D, Point3D
+    from ..core.common import Point3D
 except ImportError:
-    # 독립 실행 시 로컬 정의 사용
-    @dataclass
-    class Point3D:
-        """3D point representation"""
-        x: float
-        y: float
-        z: float
+    try:
+        from common import Point3D
+    except ImportError:
+        # 독립 실행 시 로컬 정의 사용
+        @dataclass
+        class Point3D:
+            """3D point representation"""
+            x: float
+            y: float
+            z: float = 0.0
 
-        def to_tuple(self) -> Tuple[float, float, float]:
-            return (self.x, self.y, self.z)
+            def to_tuple(self) -> Tuple[float, float, float]:
+                return (self.x, self.y, self.z)
 
-        def __add__(self, other: 'Point3D') -> 'Point3D':
-            return Point3D(self.x + other.x, self.y + other.y, self.z + other.z)
+            def __add__(self, other: 'Point3D') -> 'Point3D':
+                return Point3D(self.x + other.x, self.y + other.y, self.z + other.z)
 
-        def __sub__(self, other: 'Point3D') -> 'Point3D':
-            return Point3D(self.x - other.x, self.y - other.y, self.z - other.z)
+            def __sub__(self, other: 'Point3D') -> 'Point3D':
+                return Point3D(self.x - other.x, self.y - other.y, self.z - other.z)
 
-        def scale(self, factor: float) -> 'Point3D':
-            return Point3D(self.x * factor, self.y * factor, self.z * factor)
+            def scale(self, factor: float) -> 'Point3D':
+                return Point3D(self.x * factor, self.y * factor, self.z * factor)
 
-    @dataclass
-    class Point2D:
-        """2D point representation"""
-        x: float
-        y: float
 
-        def to_tuple(self) -> Tuple[float, float]:
-            return (self.x, self.y)
+# 2D 투영 결과용 클래스 (출력 전용)
+@dataclass
+class ProjectedPoint:
+    """2D 투영 결과점 - 화면/이미지 좌표용"""
+    x: float
+    y: float
+
+    def to_tuple(self) -> Tuple[float, float]:
+        return (self.x, self.y)
 
 
 @dataclass
@@ -93,7 +98,7 @@ class IsometricRenderer:
     - Z: Front-Back (depth, going right-up in isometric)
     """
 
-    def __init__(self, angle: float = 30, scale: float = 1.0, origin: Point2D = None):
+    def __init__(self, angle: float = 30, scale: float = 1.0, origin: ProjectedPoint = None):
         """
         Initialize isometric renderer.
 
@@ -104,7 +109,7 @@ class IsometricRenderer:
         """
         self.angle = angle
         self.scale = scale
-        self.origin = origin or Point2D(0, 0)
+        self.origin = origin or ProjectedPoint(0, 0)
 
         # Pre-calculate trigonometric values
         self.cos_a = math.cos(math.radians(angle))
@@ -113,7 +118,7 @@ class IsometricRenderer:
         # Store generated commands for batch execution
         self.commands: List[Dict[str, Any]] = []
 
-    def project_3d_to_2d(self, point: Point3D) -> Point2D:
+    def project_3d_to_2d(self, point: Point3D) -> ProjectedPoint:
         """
         Project 3D point to 2D isometric coordinates.
 
@@ -129,7 +134,7 @@ class IsometricRenderer:
         """
         x_2d = (point.x * self.cos_a - point.z * self.cos_a) * self.scale + self.origin.x
         y_2d = (point.y + point.x * self.sin_a + point.z * self.sin_a) * self.scale + self.origin.y
-        return Point2D(x_2d, y_2d)
+        return ProjectedPoint(x_2d, y_2d)
 
     def project_point(self, x: float, y: float, z: float) -> Tuple[float, float]:
         """Convenience method for direct coordinate projection."""
@@ -713,7 +718,7 @@ def draw_multi_bay_portal_frame(
 
 def scale_for_canvas(building_width: float, building_height: float,
                      canvas_width: float = 800, canvas_height: float = 600,
-                     margin: float = 50) -> Tuple[float, Point2D]:
+                     margin: float = 50) -> Tuple[float, ProjectedPoint]:
     """
     Calculate scale and origin to fit building in canvas.
 
@@ -738,6 +743,6 @@ def scale_for_canvas(building_width: float, building_height: float,
     scale_y = available_height / iso_height
     scale = min(scale_x, scale_y)
 
-    origin = Point2D(margin + available_width * 0.3, margin)
+    origin = ProjectedPoint(margin + available_width * 0.3, margin)
 
     return scale, origin

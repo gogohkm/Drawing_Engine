@@ -1432,6 +1432,18 @@ class ImageVectorizer:
         self.homography_inverse = None
         self.homography_metadata = {}
 
+        # 3D 변환 설정 (바닥면 캘리브레이션 기반)
+        self.floor_calibrated = False
+        self.floor_corners_pixel = None  # 바닥 4점 픽셀 좌표
+        self.floor_corners_world = None  # 바닥 4점 월드 좌표 (mm)
+        self.vanishing_point_y = None    # 수평 소실점 Y 좌표
+        self.camera_height_mm = 1600.0   # 카메라 높이 (mm)
+        self.floor_z = 0.0               # 바닥 Z 좌표
+        self.wall_y = None               # 뒷벽 Y 좌표 (mm)
+
+        # 3D 변환 활성화 여부
+        self.transform_3d_enabled = False
+
     def set_pnp_pose(self, r_matrix: List[List[float]], t_vec: List[float], camera_matrix: List[List[float]]):
         """PnP 자세 매개변수 설정"""
         self.pnp_enabled = True
@@ -1589,13 +1601,381 @@ class ImageVectorizer:
         """이미지 픽셀 (u, v)를 평면 (X, Y) mm 좌표로 변환"""
         if self.homography_matrix is None:
             return None
-            
-        H = np.array(self.homography_matrix)
-        p = np.array([u, v, 1.0])
-        q = H @ p
-        if abs(q[2]) < 1e-12:
+
+        H = self.homography_matrix
+        # H * [u, v, 1]^T 계산 (순수 Python)
+        q0 = H[0][0] * u + H[0][1] * v + H[0][2]
+        q1 = H[1][0] * u + H[1][1] * v + H[1][2]
+        q2 = H[2][0] * u + H[2][1] * v + H[2][2]
+
+        if abs(q2) < 1e-12:
             return None
-        return [float(q[0]/q[2]), float(q[1]/q[2])]
+        return [q0 / q2, q1 / q2]
+
+    def calibrate_floor_plane(self,
+                               pixel_corners: List[Tuple[float, float]],
+                               world_corners: List[Tuple[float, float, float]],
+                               wall_y_mm: Optional[float] = None,
+                               camera_height_mm: float = 1600.0) -> Dict[str, Any]:
+        """
+        바닥면 4점을 이용한 3D 캘리브레이션
+
+        사용자가 DXF 뷰어에서 바닥면 4개 꼭지점을 폴리라인으로 그리면,
+        해당 점들의 실제 3D 좌표를 지정하여 전체 이미지의 3D 변환을 설정합니다.
+
+        Args:
+            pixel_corners: 이미지상 바닥 4점 [(u1,v1), (u2,v2), (u3,v3), (u4,v4)]
+                          순서: 좌하단 → 우하단 → 우상단 → 좌상단 (반시계 또는 시계)
+            world_corners: 실제 3D 좌표 [(x1,y1,z1), ...] (mm 단위)
+                          z는 보통 0 (바닥면)
+            wall_y_mm: 뒷벽의 Y 좌표 (mm). None이면 자동 추정
+            camera_height_mm: 카메라 높이 (mm, 소실점 계산용)
+
+        Returns:
+            {
+                'success': bool,
+                'homography': 3x3 행렬,
+                'vanishing_point': (vx, vy) 또는 None,
+                'wall_y': 추정된 벽 Y 좌표
+            }
+        """
+        if len(pixel_corners) != 4 or len(world_corners) != 4:
+            return {'success': False, 'error': '4개의 점이 필요합니다'}
+
+        # 저장
+        self.floor_corners_pixel = pixel_corners
+        self.floor_corners_world = world_corners
+        self.camera_height_mm = camera_height_mm
+        self.floor_z = world_corners[0][2] if len(world_corners[0]) > 2 else 0.0
+
+        # Homography 계산 (이미지 → 바닥면)
+        if HAS_CV2:
+            # OpenCV 사용
+            src_pts = np.array(pixel_corners, dtype=np.float32)
+            dst_pts = np.array([[w[0], w[1]] for w in world_corners], dtype=np.float32)
+            H, status = cv2.findHomography(src_pts, dst_pts)
+            if H is None:
+                return {'success': False, 'error': 'Homography 계산 실패'}
+            self.homography_matrix = H.tolist()
+            self.homography_inverse = np.linalg.inv(H).tolist()
+        else:
+            # 순수 Python - DLT 알고리즘으로 Homography 계산
+            H = self._compute_homography_dlt(pixel_corners, world_corners)
+            if H is None:
+                return {'success': False, 'error': 'Homography 계산 실패'}
+            self.homography_matrix = H
+            self.homography_inverse = self._invert_matrix_3x3(H)
+
+        # 소실점 계산 (좌/우 측변의 교점 - 수직 방향 소실점)
+        # 좌변: pixel_corners[0] → pixel_corners[3]
+        # 우변: pixel_corners[1] → pixel_corners[2]
+        vp = self._find_vanishing_point(
+            pixel_corners[0], pixel_corners[3],  # 좌변
+            pixel_corners[1], pixel_corners[2]   # 우변
+        )
+
+        # 좌우변이 평행하면 앞/뒤 변으로 시도
+        if vp is None:
+            vp = self._find_vanishing_point(
+                pixel_corners[0], pixel_corners[1],  # 앞쪽 변
+                pixel_corners[3], pixel_corners[2]   # 뒤쪽 변
+            )
+
+        self.vanishing_point_y = vp[1] if vp else None
+
+        # 뒷벽 Y 좌표 설정
+        if wall_y_mm is not None:
+            self.wall_y = wall_y_mm
+        else:
+            # 바닥 뒤쪽 점들의 Y 좌표 평균
+            self.wall_y = (world_corners[2][1] + world_corners[3][1]) / 2
+
+        self.floor_calibrated = True
+        self.transform_3d_enabled = True
+
+        return {
+            'success': True,
+            'homography': self.homography_matrix,
+            'vanishing_point': vp,
+            'wall_y': self.wall_y,
+            'floor_z': self.floor_z
+        }
+
+    def _compute_homography_dlt(self, src_pts: List[Tuple[float, float]],
+                                 dst_pts: List[Tuple[float, float, float]]) -> Optional[List[List[float]]]:
+        """
+        순수 Python DLT(Direct Linear Transform) 알고리즘으로 Homography 계산
+
+        4개의 점 대응에서 3x3 Homography 행렬을 계산합니다.
+
+        Args:
+            src_pts: 원본 좌표 [(x1,y1), (x2,y2), (x3,y3), (x4,y4)]
+            dst_pts: 대상 좌표 [(x1,y1,z1), ...] (z는 무시)
+
+        Returns:
+            3x3 Homography 행렬 (2D 리스트) 또는 None
+        """
+        import math
+
+        # 8x9 행렬 A 구성
+        A = []
+        for i in range(4):
+            x, y = src_pts[i]
+            xp, yp = dst_pts[i][0], dst_pts[i][1]
+            A.append([-x, -y, -1, 0, 0, 0, x*xp, y*xp, xp])
+            A.append([0, 0, 0, -x, -y, -1, x*yp, y*yp, yp])
+
+        # SVD 대신 간단한 최소자승법 사용 (4점 정확히 맞춤)
+        # 8개 방정식, 8개 미지수 (h9=1로 정규화)
+        # A * h = 0에서 h9=1이면 A' * h' = b 형태로 변환
+
+        # 8x8 행렬과 8x1 벡터로 분리
+        A_left = [[A[i][j] for j in range(8)] for i in range(8)]
+        b = [-A[i][8] for i in range(8)]
+
+        # 가우스 소거법으로 풀기
+        h_partial = self._solve_linear_system(A_left, b)
+        if h_partial is None:
+            return None
+
+        # h9 = 1로 정규화된 결과
+        h = h_partial + [1.0]
+
+        # 3x3 행렬로 변환
+        H = [
+            [h[0], h[1], h[2]],
+            [h[3], h[4], h[5]],
+            [h[6], h[7], h[8]]
+        ]
+
+        return H
+
+    def _solve_linear_system(self, A: List[List[float]], b: List[float]) -> Optional[List[float]]:
+        """
+        가우스 소거법으로 Ax = b 해결 (순수 Python)
+        """
+        n = len(A)
+        # 확장 행렬 구성 [A|b]
+        aug = [row[:] + [b[i]] for i, row in enumerate(A)]
+
+        # 전진 소거
+        for col in range(n):
+            # 피벗 선택 (가장 큰 값)
+            max_row = col
+            for row in range(col + 1, n):
+                if abs(aug[row][col]) > abs(aug[max_row][col]):
+                    max_row = row
+            aug[col], aug[max_row] = aug[max_row], aug[col]
+
+            if abs(aug[col][col]) < 1e-12:
+                return None  # 특이 행렬
+
+            # 소거
+            for row in range(col + 1, n):
+                factor = aug[row][col] / aug[col][col]
+                for j in range(col, n + 1):
+                    aug[row][j] -= factor * aug[col][j]
+
+        # 후진 대입
+        x = [0.0] * n
+        for i in range(n - 1, -1, -1):
+            x[i] = aug[i][n]
+            for j in range(i + 1, n):
+                x[i] -= aug[i][j] * x[j]
+            x[i] /= aug[i][i]
+
+        return x
+
+    def _invert_matrix_3x3(self, m: List[List[float]]) -> Optional[List[List[float]]]:
+        """
+        3x3 행렬의 역행렬 계산 (순수 Python)
+        """
+        a, b, c = m[0]
+        d, e, f = m[1]
+        g, h, i = m[2]
+
+        det = a*(e*i - f*h) - b*(d*i - f*g) + c*(d*h - e*g)
+        if abs(det) < 1e-12:
+            return None
+
+        inv_det = 1.0 / det
+        return [
+            [(e*i - f*h) * inv_det, (c*h - b*i) * inv_det, (b*f - c*e) * inv_det],
+            [(f*g - d*i) * inv_det, (a*i - c*g) * inv_det, (c*d - a*f) * inv_det],
+            [(d*h - e*g) * inv_det, (b*g - a*h) * inv_det, (a*e - b*d) * inv_det]
+        ]
+
+    def _find_vanishing_point(self,
+                               p1: Tuple[float, float], p2: Tuple[float, float],
+                               p3: Tuple[float, float], p4: Tuple[float, float]
+                               ) -> Optional[Tuple[float, float]]:
+        """
+        두 직선의 교점(소실점) 계산
+        직선1: p1 → p2
+        직선2: p3 → p4
+        """
+        x1, y1 = p1
+        x2, y2 = p2
+        x3, y3 = p3
+        x4, y4 = p4
+
+        denom = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
+        if abs(denom) < 1e-9:
+            return None  # 평행
+
+        t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / denom
+
+        vx = x1 + t * (x2 - x1)
+        vy = y1 + t * (y2 - y1)
+
+        return (vx, vy)
+
+    def pixel_to_3d(self, u: float, v: float) -> Optional[Point]:
+        """
+        픽셀 좌표를 3D 좌표로 변환
+
+        바닥면 캘리브레이션이 되어 있으면:
+        - 소실점 아래: 바닥면 (Z=floor_z)
+        - 소실점 위: 벽면 (Y=wall_y, Z는 높이에 비례)
+
+        Args:
+            u, v: 픽셀 좌표
+
+        Returns:
+            Point(x, y, z) 3D 좌표 (mm)
+        """
+        if not self.floor_calibrated or self.homography_matrix is None:
+            # 캘리브레이션 안됨 - 스케일만 적용
+            return Point(u * self.output_scale, v * self.output_scale, 0)
+
+        # 바닥 영역의 유효 범위 계산 (캘리브레이션 점 기준)
+        if self.floor_corners_pixel:
+            # 바닥 4점 중 가장 위쪽 Y 좌표 (뒤쪽 변)
+            floor_top_y = min(p[1] for p in self.floor_corners_pixel)
+            # 바닥 4점 중 가장 아래쪽 Y 좌표 (앞쪽 변)
+            floor_bottom_y = max(p[1] for p in self.floor_corners_pixel)
+        else:
+            floor_top_y = self.vanishing_point_y + 50 if self.vanishing_point_y else 200
+            floor_bottom_y = self.binary_image.height if self.binary_image else 768
+
+        # 소실점 확인 - 안전 마진 적용
+        vp_y = self.vanishing_point_y
+        if vp_y is not None:
+            # 바닥 영역: 캘리브레이션 점들 사이 (약간의 마진 포함)
+            # 소실점에서 floor_top_y까지는 위험 영역
+            safe_floor_top = floor_top_y  # 캘리브레이션 점의 최상단
+            is_floor = v >= safe_floor_top
+        else:
+            is_floor = True
+
+        if is_floor:
+            # 바닥면 - Homography 사용
+            xy = self.transform_point_homography(u, v)
+            if xy is None:
+                return self._estimate_wall_point(u, v)
+
+            # Homography 결과 검증 - 비정상적인 값 필터링
+            max_reasonable_coord = 50000  # 50m 이상은 비정상
+            if abs(xy[0]) > max_reasonable_coord or abs(xy[1]) > max_reasonable_coord:
+                return self._estimate_wall_point(u, v)
+
+            return Point(xy[0], xy[1], self.floor_z)
+        else:
+            # 벽면/천장 영역 - 높이 추정
+            return self._estimate_wall_point(u, v)
+
+    def _estimate_wall_point(self, u: float, v: float) -> Optional[Point]:
+        """
+        벽면/천장 영역의 3D 좌표 추정
+
+        원리:
+        - 바닥 캘리브레이션 점에서 X 범위를 추정
+        - 소실점에서 픽셀까지의 수직 거리로 높이(Z) 추정
+        - Y는 wall_y로 고정 (뒷벽)
+        """
+        if self.wall_y is None:
+            return Point(u * self.output_scale, v * self.output_scale, 0)
+
+        # 바닥 영역의 X 범위 계산 (캘리브레이션 점 기준)
+        if self.floor_corners_pixel and self.floor_corners_world:
+            # 바닥 좌측 X (픽셀)
+            left_pixels = [p for p in self.floor_corners_pixel if p[0] < 512]
+            right_pixels = [p for p in self.floor_corners_pixel if p[0] >= 512]
+
+            # 월드 좌표에서 X 범위
+            world_x_min = min(w[0] for w in self.floor_corners_world)
+            world_x_max = max(w[0] for w in self.floor_corners_world)
+
+            # 픽셀 X 범위
+            pixel_x_min = min(p[0] for p in self.floor_corners_pixel)
+            pixel_x_max = max(p[0] for p in self.floor_corners_pixel)
+
+            # 선형 보간으로 X 계산
+            if pixel_x_max > pixel_x_min:
+                t = (u - pixel_x_min) / (pixel_x_max - pixel_x_min)
+                t = max(0, min(1, t))  # 0~1 범위로 클램프
+                x = world_x_min + t * (world_x_max - world_x_min)
+            else:
+                x = (world_x_min + world_x_max) / 2
+        else:
+            x = u * self.output_scale
+
+        # Z 좌표 (높이) 추정
+        vp_y = self.vanishing_point_y
+        if vp_y is not None and vp_y > 0:
+            # 바닥 뒤쪽 변의 Y 좌표 (캘리브레이션 점 중 가장 위)
+            if self.floor_corners_pixel:
+                floor_back_y = min(p[1] for p in self.floor_corners_pixel)
+            else:
+                floor_back_y = vp_y + 100
+
+            if v < floor_back_y:
+                # 소실점과 바닥 뒤쪽 사이: 높이 추정
+                # 바닥 뒤쪽에서 소실점까지의 거리 대비 현재 위치
+                total_range = floor_back_y - vp_y
+                current_offset = floor_back_y - v
+                if total_range > 0:
+                    height_ratio = current_offset / total_range
+                    height_ratio = min(height_ratio, 1.0)  # 최대 1.0
+                else:
+                    height_ratio = 0
+
+                # 최대 높이를 카메라 높이의 2배로 제한
+                max_height = self.camera_height_mm * 2
+                z = self.floor_z + height_ratio * max_height
+            else:
+                # 바닥 뒤쪽보다 아래: 바닥면
+                z = self.floor_z
+        else:
+            z = self.floor_z
+
+        return Point(x, self.wall_y, z)
+
+    def transform_lines_to_3d(self, lines: Optional[List[Line]] = None) -> List[Line]:
+        """
+        2D 선들을 3D로 변환
+
+        Args:
+            lines: 변환할 선 리스트 (None이면 self.lines 사용)
+
+        Returns:
+            3D 좌표가 적용된 Line 리스트
+        """
+        if lines is None:
+            lines = self.lines
+
+        if not self.transform_3d_enabled:
+            return lines
+
+        transformed = []
+        for line in lines:
+            start_3d = self.pixel_to_3d(line.start.x, line.start.y)
+            end_3d = self.pixel_to_3d(line.end.x, line.end.y)
+
+            if start_3d and end_3d:
+                transformed.append(Line(start_3d, end_3d, line.layer))
+
+        return transformed
 
     def get_homography_distance(self, p1_uv: List[float], p2_uv: List[float]) -> Optional[float]:
         """두 픽셀 사이의 평면상 실측 거리(mm) 계산"""
@@ -1730,11 +2110,19 @@ class ImageVectorizer:
             self.lines.append(Line(start=start, end=end))
 
     def _transform_point(self, point: Point) -> Point:
-        """좌표 변환 (PnP 기반 또는 스케일/오프셋 기반)"""
+        """좌표 변환 (3D 캘리브레이션, PnP, 또는 스케일/오프셋 기반)"""
+        # 1. 3D 바닥면 캘리브레이션이 활성화된 경우 (최우선)
+        if self.transform_3d_enabled and self.floor_calibrated:
+            result = self.pixel_to_3d(point.x, point.y)
+            if result is not None:
+                return result
+
+        # 2. PnP 기반 변환
         if self.pnp_enabled and self.pnp_r_matrix and self.pnp_t_vec and self.pnp_camera_matrix:
             return self._transform_point_pnp(point)
-            
-        if hasattr(self, 'homography_matrix') and self.homography_matrix:
+
+        # 3. Homography 기반 변환 (3D 캘리브레이션 없이 Homography만 설정된 경우)
+        if hasattr(self, 'homography_matrix') and self.homography_matrix is not None:
             res = self.transform_point_homography(point.x, point.y)
             if res:
                 # Estimate a 3D Z-coordinate based on pixel height for 3D visualization
