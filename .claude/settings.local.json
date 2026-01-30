@@ -45,5 +45,9 @@
       "Bash(git stash:*)",
       "Bash(git add:*)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "stgen-dxf-viewer"
+  ],
+  "enableAllProjectMcpServers": true
 }
