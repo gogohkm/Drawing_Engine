@@ -1,0 +1,154 @@
+{
+  "formatId": "stgen-dxf-undo-v1",
+  "version": "1.0",
+  "fileHash": "-497a9fbb",
+  "lastModified": 1769586277154,
+  "undoStack": [
+    {
+      "type": "delete",
+      "label": "Delete",
+      "timestamp": 1769586271936,
+      "data": {
+        "actionType": "delete",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 5067.400699473069,
+                "y": 715.0696181462217,
+                "z": 0
+              },
+              "end": {
+                "x": 5067.400699473069,
+                "y": 1328.944258276069,
+                "z": 0
+              }
+            }
+          }
+        ],
+        "indices": [
+          559
+        ]
+      }
+    },
+    {
+      "type": "delete",
+      "label": "Delete",
+      "timestamp": 1769586272805,
+      "data": {
+        "actionType": "delete",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 5087.40069947307,
+                "y": 715.0696181462217,
+                "z": 0
+              },
+              "end": {
+                "x": 5087.40069947307,
+                "y": 1328.944258276069,
+                "z": 0
+              }
+            }
+          }
+        ],
+        "indices": [
+          559
+        ]
+      }
+    },
+    {
+      "type": "delete",
+      "label": "Delete",
+      "timestamp": 1769586273638,
+      "data": {
+        "actionType": "delete",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 5017.400699473069,
+                "y": 715.0696181462217,
+                "z": 0
+              },
+              "end": {
+                "x": 5017.400699473069,
+                "y": 1328.944258276069,
+                "z": 0
+              }
+            }
+          }
+        ],
+        "indices": [
+          557
+        ]
+      }
+    },
+    {
+      "type": "delete",
+      "label": "Delete",
+      "timestamp": 1769586274356,
+      "data": {
+        "actionType": "delete",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 4967.40069947307,
+                "y": 715.0696181462217,
+                "z": 0
+              },
+              "end": {
+                "x": 4967.40069947307,
+                "y": 1328.944258276069,
+                "z": 0
+              }
+            }
+          }
+        ],
+        "indices": [
+          557
+        ]
+      }
+    },
+    {
+      "type": "delete",
+      "label": "Delete",
+      "timestamp": 1769586275145,
+      "data": {
+        "actionType": "delete",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "0",
+            "data": {
+              "start": {
+                "x": 4947.40069947307,
+                "y": 715.0696181462217,
+                "z": 0
+              },
+              "end": {
+                "x": 4947.40069947307,
+                "y": 1328.944258276069,
+                "z": 0
+              }
+            }
+          }
+        ],
+        "indices": [
+          557
+        ]
+      }
+    }
+  ],
+  "redoStack": []
+}
