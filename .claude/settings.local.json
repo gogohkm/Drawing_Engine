@@ -62,7 +62,9 @@
       "mcp__stgen-dxf-viewer__create_dimension",
       "mcp__stgen-dxf-viewer__create_text",
       "mcp__stgen-dxf-viewer__save_dxf",
-      "mcp__stgen-dxf-viewer__delete_entities"
+      "mcp__stgen-dxf-viewer__delete_entities",
+      "mcp__stgen-dxf-viewer__get_dxf_layers",
+      "mcp__stgen-dxf-viewer__zoom_extents"
     ]
   }
 }
