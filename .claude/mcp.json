@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "stsolar": {
+      "command": "node",
+      "args": [
+        "/Users/kyoungminhan/2026Coding_Works/StSolar/out/mcp/server.js"
+      ]
+    }
+  }
+}

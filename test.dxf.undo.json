@@ -1,0 +1,5283 @@
+{
+  "formatId": "stgen-dxf-undo-v1",
+  "version": "1.0",
+  "fileHash": "7d3f6e20",
+  "lastModified": 1771915574703,
+  "undoStack": [
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914633239,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": -2000,
+                "y": 0
+              },
+              "end": {
+                "x": 22000,
+                "y": 0
+              }
+            }
+          }
+        ],
+        "indices": [
+          0
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914634081,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": -200,
+                  "y": 0
+                },
+                {
+                  "x": 200,
+                  "y": 0
+                },
+                {
+                  "x": 200,
+                  "y": 8000
+                },
+                {
+                  "x": -200,
+                  "y": 8000
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914634929,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 19800,
+                  "y": 0
+                },
+                {
+                  "x": 20200,
+                  "y": 0
+                },
+                {
+                  "x": 20200,
+                  "y": 8000
+                },
+                {
+                  "x": 19800,
+                  "y": 8000
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          2
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914636155,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "BEAM",
+            "data": {
+              "vertices": [
+                {
+                  "x": -35,
+                  "y": 8197
+                },
+                {
+                  "x": 9965,
+                  "y": 9960
+                },
+                {
+                  "x": 10035,
+                  "y": 9566
+                },
+                {
+                  "x": 35,
+                  "y": 7803
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          3
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914637079,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "BEAM",
+            "data": {
+              "vertices": [
+                {
+                  "x": 20035,
+                  "y": 8197
+                },
+                {
+                  "x": 10035,
+                  "y": 9960
+                },
+                {
+                  "x": 9965,
+                  "y": 9566
+                },
+                {
+                  "x": 19965,
+                  "y": 7803
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          4
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914637878,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PLATE",
+            "data": {
+              "vertices": [
+                {
+                  "x": -300,
+                  "y": -30
+                },
+                {
+                  "x": 300,
+                  "y": -30
+                },
+                {
+                  "x": 300,
+                  "y": 0
+                },
+                {
+                  "x": -300,
+                  "y": 0
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          5
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914638690,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PLATE",
+            "data": {
+              "vertices": [
+                {
+                  "x": 19700,
+                  "y": -30
+                },
+                {
+                  "x": 20300,
+                  "y": -30
+                },
+                {
+                  "x": 20300,
+                  "y": 0
+                },
+                {
+                  "x": 19700,
+                  "y": 0
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          6
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914639559,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "FOUND",
+            "data": {
+              "vertices": [
+                {
+                  "x": -750,
+                  "y": -830
+                },
+                {
+                  "x": 750,
+                  "y": -830
+                },
+                {
+                  "x": 750,
+                  "y": -30
+                },
+                {
+                  "x": -750,
+                  "y": -30
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          7
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914641678,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "FOUND",
+            "data": {
+              "vertices": [
+                {
+                  "x": 19250,
+                  "y": -830
+                },
+                {
+                  "x": 20750,
+                  "y": -830
+                },
+                {
+                  "x": 20750,
+                  "y": -30
+                },
+                {
+                  "x": 19250,
+                  "y": -30
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          8
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914660610,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 1377,
+                  "y": 8260
+                },
+                {
+                  "x": 1577,
+                  "y": 8260
+                },
+                {
+                  "x": 1577,
+                  "y": 8360
+                },
+                {
+                  "x": 1377,
+                  "y": 8360
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          9
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914661378,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 2854,
+                  "y": 8521
+                },
+                {
+                  "x": 3054,
+                  "y": 8521
+                },
+                {
+                  "x": 3054,
+                  "y": 8621
+                },
+                {
+                  "x": 2854,
+                  "y": 8621
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          10
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914662130,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 4332,
+                  "y": 8781
+                },
+                {
+                  "x": 4532,
+                  "y": 8781
+                },
+                {
+                  "x": 4532,
+                  "y": 8881
+                },
+                {
+                  "x": 4332,
+                  "y": 8881
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          11
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914662936,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 5809,
+                  "y": 9042
+                },
+                {
+                  "x": 6009,
+                  "y": 9042
+                },
+                {
+                  "x": 6009,
+                  "y": 9142
+                },
+                {
+                  "x": 5809,
+                  "y": 9142
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          12
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914663776,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 7286,
+                  "y": 9302
+                },
+                {
+                  "x": 7486,
+                  "y": 9302
+                },
+                {
+                  "x": 7486,
+                  "y": 9402
+                },
+                {
+                  "x": 7286,
+                  "y": 9402
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          13
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914664499,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 8763,
+                  "y": 9563
+                },
+                {
+                  "x": 8963,
+                  "y": 9563
+                },
+                {
+                  "x": 8963,
+                  "y": 9663
+                },
+                {
+                  "x": 8763,
+                  "y": 9663
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          14
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914665348,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 18423,
+                  "y": 8260
+                },
+                {
+                  "x": 18623,
+                  "y": 8260
+                },
+                {
+                  "x": 18623,
+                  "y": 8360
+                },
+                {
+                  "x": 18423,
+                  "y": 8360
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          15
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914666191,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 16946,
+                  "y": 8521
+                },
+                {
+                  "x": 17146,
+                  "y": 8521
+                },
+                {
+                  "x": 17146,
+                  "y": 8621
+                },
+                {
+                  "x": 16946,
+                  "y": 8621
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          16
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914667048,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 15468,
+                  "y": 8781
+                },
+                {
+                  "x": 15668,
+                  "y": 8781
+                },
+                {
+                  "x": 15668,
+                  "y": 8881
+                },
+                {
+                  "x": 15468,
+                  "y": 8881
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          17
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914667797,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 13991,
+                  "y": 9042
+                },
+                {
+                  "x": 14191,
+                  "y": 9042
+                },
+                {
+                  "x": 14191,
+                  "y": 9142
+                },
+                {
+                  "x": 13991,
+                  "y": 9142
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          18
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914668691,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 12514,
+                  "y": 9302
+                },
+                {
+                  "x": 12714,
+                  "y": 9302
+                },
+                {
+                  "x": 12714,
+                  "y": 9402
+                },
+                {
+                  "x": 12514,
+                  "y": 9402
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          19
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914669303,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PURLIN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 11037,
+                  "y": 9563
+                },
+                {
+                  "x": 11237,
+                  "y": 9563
+                },
+                {
+                  "x": 11237,
+                  "y": 9663
+                },
+                {
+                  "x": 11037,
+                  "y": 9663
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          20
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914700870,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -1800,
+                "y": 4000
+              },
+              "text": "H-400x200x8x13",
+              "height": 200,
+              "rotation": 90,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          26
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914701811,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 21000,
+                "y": 4000
+              },
+              "text": "H-400x200x8x13",
+              "height": 200,
+              "rotation": 90,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          27
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914703065,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 3000,
+                "y": 9000
+              },
+              "text": "H-400x200x8x13 (RAFTER)",
+              "height": 200,
+              "rotation": 10,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          28
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914704085,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 13000,
+                "y": 9000
+              },
+              "text": "H-400x200x8x13 (RAFTER)",
+              "height": 200,
+              "rotation": -10,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          29
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914705926,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 2500,
+                "y": 8400
+              },
+              "text": "C-200x75x20x3.2 (PURLIN) @1500",
+              "height": 150,
+              "rotation": 10,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          30
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914707291,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 8500,
+                "y": 10200
+              },
+              "text": "SLOPE 1:5.67 (10\\u00b0)",
+              "height": 200,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          31
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914709169,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 7000,
+                "y": -1800
+              },
+              "text": "CROSS SECTION (\\ud6a1\\ub2e8\\uba74\\ub3c4)",
+              "height": 300,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          32
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914748347,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "GRID",
+            "data": {
+              "vertices": [
+                {
+                  "x": 0,
+                  "y": -18000
+                },
+                {
+                  "x": 100000,
+                  "y": -18000
+                },
+                {
+                  "x": 100000,
+                  "y": -38000
+                },
+                {
+                  "x": 0,
+                  "y": -38000
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          33
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914749072,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -17000
+              },
+              "end": {
+                "x": 0,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          34
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914749806,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 5000,
+                "y": -17000
+              },
+              "end": {
+                "x": 5000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          35
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914750585,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 10000,
+                "y": -17000
+              },
+              "end": {
+                "x": 10000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          36
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914751333,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 15000,
+                "y": -17000
+              },
+              "end": {
+                "x": 15000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          37
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914752124,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 20000,
+                "y": -17000
+              },
+              "end": {
+                "x": 20000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          38
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914752820,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 25000,
+                "y": -17000
+              },
+              "end": {
+                "x": 25000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          39
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914753568,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 30000,
+                "y": -17000
+              },
+              "end": {
+                "x": 30000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          40
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914754472,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 35000,
+                "y": -17000
+              },
+              "end": {
+                "x": 35000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          41
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914755016,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 40000,
+                "y": -17000
+              },
+              "end": {
+                "x": 40000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          42
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914760618,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 45000,
+                "y": -17000
+              },
+              "end": {
+                "x": 45000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          43
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914761348,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 50000,
+                "y": -17000
+              },
+              "end": {
+                "x": 50000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          44
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914762132,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 55000,
+                "y": -17000
+              },
+              "end": {
+                "x": 55000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          45
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914762887,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 60000,
+                "y": -17000
+              },
+              "end": {
+                "x": 60000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          46
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914763595,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 65000,
+                "y": -17000
+              },
+              "end": {
+                "x": 65000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          47
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914764332,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 70000,
+                "y": -17000
+              },
+              "end": {
+                "x": 70000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          48
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914765113,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 75000,
+                "y": -17000
+              },
+              "end": {
+                "x": 75000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          49
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914765835,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 80000,
+                "y": -17000
+              },
+              "end": {
+                "x": 80000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          50
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914766619,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 85000,
+                "y": -17000
+              },
+              "end": {
+                "x": 85000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          51
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914767218,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 90000,
+                "y": -17000
+              },
+              "end": {
+                "x": 90000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          52
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914772532,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 95000,
+                "y": -17000
+              },
+              "end": {
+                "x": 95000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          53
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914773321,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": 100000,
+                "y": -17000
+              },
+              "end": {
+                "x": 100000,
+                "y": -39000
+              }
+            }
+          }
+        ],
+        "indices": [
+          54
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914774150,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": -1000,
+                "y": -18000
+              },
+              "end": {
+                "x": 101000,
+                "y": -18000
+              }
+            }
+          }
+        ],
+        "indices": [
+          55
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914774950,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": -1000,
+                "y": -38000
+              },
+              "end": {
+                "x": 101000,
+                "y": -38000
+              }
+            }
+          }
+        ],
+        "indices": [
+          56
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914775589,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "GRID",
+            "data": {
+              "start": {
+                "x": -1000,
+                "y": -28000
+              },
+              "end": {
+                "x": 101000,
+                "y": -28000
+              }
+            }
+          }
+        ],
+        "indices": [
+          57
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914800275,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": -200,
+                  "y": -18200
+                },
+                {
+                  "x": 200,
+                  "y": -18200
+                },
+                {
+                  "x": 200,
+                  "y": -17800
+                },
+                {
+                  "x": -200,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          58
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914801260,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 4800,
+                  "y": -18200
+                },
+                {
+                  "x": 5200,
+                  "y": -18200
+                },
+                {
+                  "x": 5200,
+                  "y": -17800
+                },
+                {
+                  "x": 4800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          59
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914802074,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 9800,
+                  "y": -18200
+                },
+                {
+                  "x": 10200,
+                  "y": -18200
+                },
+                {
+                  "x": 10200,
+                  "y": -17800
+                },
+                {
+                  "x": 9800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          60
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914802836,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 14800,
+                  "y": -18200
+                },
+                {
+                  "x": 15200,
+                  "y": -18200
+                },
+                {
+                  "x": 15200,
+                  "y": -17800
+                },
+                {
+                  "x": 14800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          61
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914803678,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 19800,
+                  "y": -18200
+                },
+                {
+                  "x": 20200,
+                  "y": -18200
+                },
+                {
+                  "x": 20200,
+                  "y": -17800
+                },
+                {
+                  "x": 19800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          62
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914804376,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 24800,
+                  "y": -18200
+                },
+                {
+                  "x": 25200,
+                  "y": -18200
+                },
+                {
+                  "x": 25200,
+                  "y": -17800
+                },
+                {
+                  "x": 24800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          63
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914805130,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 29800,
+                  "y": -18200
+                },
+                {
+                  "x": 30200,
+                  "y": -18200
+                },
+                {
+                  "x": 30200,
+                  "y": -17800
+                },
+                {
+                  "x": 29800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          64
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914805913,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 34800,
+                  "y": -18200
+                },
+                {
+                  "x": 35200,
+                  "y": -18200
+                },
+                {
+                  "x": 35200,
+                  "y": -17800
+                },
+                {
+                  "x": 34800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          65
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914806646,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 39800,
+                  "y": -18200
+                },
+                {
+                  "x": 40200,
+                  "y": -18200
+                },
+                {
+                  "x": 40200,
+                  "y": -17800
+                },
+                {
+                  "x": 39800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          66
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914807400,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 44800,
+                  "y": -18200
+                },
+                {
+                  "x": 45200,
+                  "y": -18200
+                },
+                {
+                  "x": 45200,
+                  "y": -17800
+                },
+                {
+                  "x": 44800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          67
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914812888,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 49800,
+                  "y": -18200
+                },
+                {
+                  "x": 50200,
+                  "y": -18200
+                },
+                {
+                  "x": 50200,
+                  "y": -17800
+                },
+                {
+                  "x": 49800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          68
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914813713,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 54800,
+                  "y": -18200
+                },
+                {
+                  "x": 55200,
+                  "y": -18200
+                },
+                {
+                  "x": 55200,
+                  "y": -17800
+                },
+                {
+                  "x": 54800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          69
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914814407,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 59800,
+                  "y": -18200
+                },
+                {
+                  "x": 60200,
+                  "y": -18200
+                },
+                {
+                  "x": 60200,
+                  "y": -17800
+                },
+                {
+                  "x": 59800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          70
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914815179,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 64800,
+                  "y": -18200
+                },
+                {
+                  "x": 65200,
+                  "y": -18200
+                },
+                {
+                  "x": 65200,
+                  "y": -17800
+                },
+                {
+                  "x": 64800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          71
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914816009,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 69800,
+                  "y": -18200
+                },
+                {
+                  "x": 70200,
+                  "y": -18200
+                },
+                {
+                  "x": 70200,
+                  "y": -17800
+                },
+                {
+                  "x": 69800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          72
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914816686,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 74800,
+                  "y": -18200
+                },
+                {
+                  "x": 75200,
+                  "y": -18200
+                },
+                {
+                  "x": 75200,
+                  "y": -17800
+                },
+                {
+                  "x": 74800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          73
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914817484,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 79800,
+                  "y": -18200
+                },
+                {
+                  "x": 80200,
+                  "y": -18200
+                },
+                {
+                  "x": 80200,
+                  "y": -17800
+                },
+                {
+                  "x": 79800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          74
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914818198,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 84800,
+                  "y": -18200
+                },
+                {
+                  "x": 85200,
+                  "y": -18200
+                },
+                {
+                  "x": 85200,
+                  "y": -17800
+                },
+                {
+                  "x": 84800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          75
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914818957,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 89800,
+                  "y": -18200
+                },
+                {
+                  "x": 90200,
+                  "y": -18200
+                },
+                {
+                  "x": 90200,
+                  "y": -17800
+                },
+                {
+                  "x": 89800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          76
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914819744,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 94800,
+                  "y": -18200
+                },
+                {
+                  "x": 95200,
+                  "y": -18200
+                },
+                {
+                  "x": 95200,
+                  "y": -17800
+                },
+                {
+                  "x": 94800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          77
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914825319,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 99800,
+                  "y": -18200
+                },
+                {
+                  "x": 100200,
+                  "y": -18200
+                },
+                {
+                  "x": 100200,
+                  "y": -17800
+                },
+                {
+                  "x": 99800,
+                  "y": -17800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          78
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914826276,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": -200,
+                  "y": -38200
+                },
+                {
+                  "x": 200,
+                  "y": -38200
+                },
+                {
+                  "x": 200,
+                  "y": -37800
+                },
+                {
+                  "x": -200,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          79
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914827024,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 4800,
+                  "y": -38200
+                },
+                {
+                  "x": 5200,
+                  "y": -38200
+                },
+                {
+                  "x": 5200,
+                  "y": -37800
+                },
+                {
+                  "x": 4800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          80
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914827842,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 9800,
+                  "y": -38200
+                },
+                {
+                  "x": 10200,
+                  "y": -38200
+                },
+                {
+                  "x": 10200,
+                  "y": -37800
+                },
+                {
+                  "x": 9800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          81
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914828546,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 14800,
+                  "y": -38200
+                },
+                {
+                  "x": 15200,
+                  "y": -38200
+                },
+                {
+                  "x": 15200,
+                  "y": -37800
+                },
+                {
+                  "x": 14800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          82
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914829308,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 19800,
+                  "y": -38200
+                },
+                {
+                  "x": 20200,
+                  "y": -38200
+                },
+                {
+                  "x": 20200,
+                  "y": -37800
+                },
+                {
+                  "x": 19800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          83
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914830121,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 24800,
+                  "y": -38200
+                },
+                {
+                  "x": 25200,
+                  "y": -38200
+                },
+                {
+                  "x": 25200,
+                  "y": -37800
+                },
+                {
+                  "x": 24800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          84
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914830813,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 29800,
+                  "y": -38200
+                },
+                {
+                  "x": 30200,
+                  "y": -38200
+                },
+                {
+                  "x": 30200,
+                  "y": -37800
+                },
+                {
+                  "x": 29800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          85
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914831578,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 34800,
+                  "y": -38200
+                },
+                {
+                  "x": 35200,
+                  "y": -38200
+                },
+                {
+                  "x": 35200,
+                  "y": -37800
+                },
+                {
+                  "x": 34800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          86
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914832305,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 39800,
+                  "y": -38200
+                },
+                {
+                  "x": 40200,
+                  "y": -38200
+                },
+                {
+                  "x": 40200,
+                  "y": -37800
+                },
+                {
+                  "x": 39800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          87
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914837272,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 44800,
+                  "y": -38200
+                },
+                {
+                  "x": 45200,
+                  "y": -38200
+                },
+                {
+                  "x": 45200,
+                  "y": -37800
+                },
+                {
+                  "x": 44800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          88
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914838072,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 49800,
+                  "y": -38200
+                },
+                {
+                  "x": 50200,
+                  "y": -38200
+                },
+                {
+                  "x": 50200,
+                  "y": -37800
+                },
+                {
+                  "x": 49800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          89
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914838787,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 54800,
+                  "y": -38200
+                },
+                {
+                  "x": 55200,
+                  "y": -38200
+                },
+                {
+                  "x": 55200,
+                  "y": -37800
+                },
+                {
+                  "x": 54800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          90
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914839537,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 59800,
+                  "y": -38200
+                },
+                {
+                  "x": 60200,
+                  "y": -38200
+                },
+                {
+                  "x": 60200,
+                  "y": -37800
+                },
+                {
+                  "x": 59800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          91
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914840352,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 64800,
+                  "y": -38200
+                },
+                {
+                  "x": 65200,
+                  "y": -38200
+                },
+                {
+                  "x": 65200,
+                  "y": -37800
+                },
+                {
+                  "x": 64800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          92
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914841062,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 69800,
+                  "y": -38200
+                },
+                {
+                  "x": 70200,
+                  "y": -38200
+                },
+                {
+                  "x": 70200,
+                  "y": -37800
+                },
+                {
+                  "x": 69800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          93
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914841803,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 74800,
+                  "y": -38200
+                },
+                {
+                  "x": 75200,
+                  "y": -38200
+                },
+                {
+                  "x": 75200,
+                  "y": -37800
+                },
+                {
+                  "x": 74800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          94
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914842566,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 79800,
+                  "y": -38200
+                },
+                {
+                  "x": 80200,
+                  "y": -38200
+                },
+                {
+                  "x": 80200,
+                  "y": -37800
+                },
+                {
+                  "x": 79800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          95
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914843323,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 84800,
+                  "y": -38200
+                },
+                {
+                  "x": 85200,
+                  "y": -38200
+                },
+                {
+                  "x": 85200,
+                  "y": -37800
+                },
+                {
+                  "x": 84800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          96
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914844013,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 89800,
+                  "y": -38200
+                },
+                {
+                  "x": 90200,
+                  "y": -38200
+                },
+                {
+                  "x": 90200,
+                  "y": -37800
+                },
+                {
+                  "x": 89800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          97
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914850665,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 94800,
+                  "y": -38200
+                },
+                {
+                  "x": 95200,
+                  "y": -38200
+                },
+                {
+                  "x": 95200,
+                  "y": -37800
+                },
+                {
+                  "x": 94800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          98
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914851062,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 99800,
+                  "y": -38200
+                },
+                {
+                  "x": 100200,
+                  "y": -38200
+                },
+                {
+                  "x": 100200,
+                  "y": -37800
+                },
+                {
+                  "x": 99800,
+                  "y": -37800
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          99
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914887797,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -28000
+              },
+              "end": {
+                "x": 100000,
+                "y": -28000
+              }
+            }
+          }
+        ],
+        "indices": [
+          100
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914888683,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -19500
+              },
+              "end": {
+                "x": 100000,
+                "y": -19500
+              }
+            }
+          }
+        ],
+        "indices": [
+          101
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914889468,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -21000
+              },
+              "end": {
+                "x": 100000,
+                "y": -21000
+              }
+            }
+          }
+        ],
+        "indices": [
+          102
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914890260,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -22500
+              },
+              "end": {
+                "x": 100000,
+                "y": -22500
+              }
+            }
+          }
+        ],
+        "indices": [
+          103
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914891120,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -24000
+              },
+              "end": {
+                "x": 100000,
+                "y": -24000
+              }
+            }
+          }
+        ],
+        "indices": [
+          104
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914891775,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -25500
+              },
+              "end": {
+                "x": 100000,
+                "y": -25500
+              }
+            }
+          }
+        ],
+        "indices": [
+          105
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914892459,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -27000
+              },
+              "end": {
+                "x": 100000,
+                "y": -27000
+              }
+            }
+          }
+        ],
+        "indices": [
+          106
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914893297,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -29000
+              },
+              "end": {
+                "x": 100000,
+                "y": -29000
+              }
+            }
+          }
+        ],
+        "indices": [
+          107
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914894064,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -30500
+              },
+              "end": {
+                "x": 100000,
+                "y": -30500
+              }
+            }
+          }
+        ],
+        "indices": [
+          108
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914894703,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -32000
+              },
+              "end": {
+                "x": 100000,
+                "y": -32000
+              }
+            }
+          }
+        ],
+        "indices": [
+          109
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914905543,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -33500
+              },
+              "end": {
+                "x": 100000,
+                "y": -33500
+              }
+            }
+          }
+        ],
+        "indices": [
+          110
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914906289,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -35000
+              },
+              "end": {
+                "x": 100000,
+                "y": -35000
+              }
+            }
+          }
+        ],
+        "indices": [
+          111
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914907075,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "PURLIN",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -36500
+              },
+              "end": {
+                "x": 100000,
+                "y": -36500
+              }
+            }
+          }
+        ],
+        "indices": [
+          112
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914908061,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BRACE",
+            "data": {
+              "start": {
+                "x": 0,
+                "y": -18000
+              },
+              "end": {
+                "x": 5000,
+                "y": -38000
+              }
+            }
+          }
+        ],
+        "indices": [
+          113
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914908895,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BRACE",
+            "data": {
+              "start": {
+                "x": 5000,
+                "y": -18000
+              },
+              "end": {
+                "x": 0,
+                "y": -38000
+              }
+            }
+          }
+        ],
+        "indices": [
+          114
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914909899,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BRACE",
+            "data": {
+              "start": {
+                "x": 95000,
+                "y": -18000
+              },
+              "end": {
+                "x": 100000,
+                "y": -38000
+              }
+            }
+          }
+        ],
+        "indices": [
+          115
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914910747,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BRACE",
+            "data": {
+              "start": {
+                "x": 100000,
+                "y": -18000
+              },
+              "end": {
+                "x": 95000,
+                "y": -38000
+              }
+            }
+          }
+        ],
+        "indices": [
+          116
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914911741,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BRACE",
+            "data": {
+              "start": {
+                "x": 45000,
+                "y": -18000
+              },
+              "end": {
+                "x": 50000,
+                "y": -38000
+              }
+            }
+          }
+        ],
+        "indices": [
+          117
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914912483,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BRACE",
+            "data": {
+              "start": {
+                "x": 50000,
+                "y": -18000
+              },
+              "end": {
+                "x": 45000,
+                "y": -38000
+              }
+            }
+          }
+        ],
+        "indices": [
+          118
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914947415,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 2000,
+                "y": -16500
+              },
+              "text": "5,000 x 20 = 100,000",
+              "height": 400,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          122
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914948302,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -500,
+                "y": -15500
+              },
+              "text": "1",
+              "height": 500,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          123
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914949217,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 4500,
+                "y": -15500
+              },
+              "text": "2",
+              "height": 500,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          124
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914950007,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 9500,
+                "y": -15500
+              },
+              "text": "3",
+              "height": 500,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          125
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914950818,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 49500,
+                "y": -15500
+              },
+              "text": "11",
+              "height": 500,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          126
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914951661,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 99000,
+                "y": -15500
+              },
+              "text": "21",
+              "height": 500,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          127
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914952548,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -5000,
+                "y": -18500
+              },
+              "text": "A",
+              "height": 500,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          128
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914959030,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -5000,
+                "y": -28500
+              },
+              "text": "C (RIDGE)",
+              "height": 500,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          129
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914960024,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -5000,
+                "y": -38500
+              },
+              "text": "B",
+              "height": 500,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          130
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914962585,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 35000,
+                "y": -40500
+              },
+              "text": "ROOF FRAMING PLAN (\\uc9c0\\ubd95 \\uace8\\uc870 \\ud3c9\\uba74\\ub3c4)",
+              "height": 500,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          131
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914964294,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 40000,
+                "y": -27000
+              },
+              "text": "C-200x75x20x3.2 PURLIN @1,500",
+              "height": 400,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          132
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914965346,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 1000,
+                "y": -29000
+              },
+              "text": "X-BRACE",
+              "height": 350,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          133
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914966169,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 95500,
+                "y": -29000
+              },
+              "text": "X-BRACE",
+              "height": 350,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          134
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914967086,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 45500,
+                "y": -29000
+              },
+              "text": "X-BRACE",
+              "height": 350,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          135
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771914968425,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 60000,
+                "y": -17500
+              },
+              "text": "H-400x200x8x13 COLUMN (TYP.)",
+              "height": 400,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          136
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915422993,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": -200,
+                  "y": 0
+                },
+                {
+                  "x": 200,
+                  "y": 0
+                },
+                {
+                  "x": 200,
+                  "y": 8200
+                },
+                {
+                  "x": -200,
+                  "y": 8200
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          121
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915423887,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "COLUMN",
+            "data": {
+              "vertices": [
+                {
+                  "x": 19800,
+                  "y": 0
+                },
+                {
+                  "x": 20200,
+                  "y": 0
+                },
+                {
+                  "x": 20200,
+                  "y": 8200
+                },
+                {
+                  "x": 19800,
+                  "y": 8200
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          122
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915425651,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "BEAM",
+            "data": {
+              "vertices": [
+                {
+                  "x": -626,
+                  "y": 8093
+                },
+                {
+                  "x": 9965,
+                  "y": 9960
+                },
+                {
+                  "x": 10035,
+                  "y": 9566
+                },
+                {
+                  "x": -556,
+                  "y": 7699
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          123
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915426753,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "BEAM",
+            "data": {
+              "vertices": [
+                {
+                  "x": 20626,
+                  "y": 8093
+                },
+                {
+                  "x": 10035,
+                  "y": 9960
+                },
+                {
+                  "x": 9965,
+                  "y": 9566
+                },
+                {
+                  "x": 20556,
+                  "y": 7699
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          124
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915517879,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "WALL",
+            "data": {
+              "start": {
+                "x": -250,
+                "y": 0
+              },
+              "end": {
+                "x": -250,
+                "y": 8168
+              }
+            }
+          }
+        ],
+        "indices": [
+          125
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915518282,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "WALL",
+            "data": {
+              "start": {
+                "x": 250,
+                "y": 0
+              },
+              "end": {
+                "x": 250,
+                "y": 7832
+              }
+            }
+          }
+        ],
+        "indices": [
+          126
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915519349,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "ROOF",
+            "data": {
+              "start": {
+                "x": -640,
+                "y": 8142
+              },
+              "end": {
+                "x": 5000,
+                "y": 9135
+              }
+            }
+          }
+        ],
+        "indices": [
+          127
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915520277,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "ROOF",
+            "data": {
+              "start": {
+                "x": -653,
+                "y": 8191
+              },
+              "end": {
+                "x": 5000,
+                "y": 9184
+              }
+            }
+          }
+        ],
+        "indices": [
+          128
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915521199,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "WALL",
+            "data": {
+              "start": {
+                "x": 250,
+                "y": 7700
+              },
+              "end": {
+                "x": 5000,
+                "y": 8537
+              }
+            }
+          }
+        ],
+        "indices": [
+          129
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915522016,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "WALL",
+            "data": {
+              "start": {
+                "x": 250,
+                "y": 7570
+              },
+              "end": {
+                "x": 5000,
+                "y": 8407
+              }
+            }
+          }
+        ],
+        "indices": [
+          130
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915522966,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": -640,
+                "y": 8142
+              },
+              "end": {
+                "x": -556,
+                "y": 7699
+              }
+            }
+          }
+        ],
+        "indices": [
+          131
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915523915,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "ROOF",
+            "data": {
+              "start": {
+                "x": -653,
+                "y": 8191
+              },
+              "end": {
+                "x": -640,
+                "y": 8142
+              }
+            }
+          }
+        ],
+        "indices": [
+          132
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915524769,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PLATE",
+            "data": {
+              "vertices": [
+                {
+                  "x": -100,
+                  "y": 7600
+                },
+                {
+                  "x": 100,
+                  "y": 7600
+                },
+                {
+                  "x": 100,
+                  "y": 8300
+                },
+                {
+                  "x": -100,
+                  "y": 8300
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          133
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915539356,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "PLATE",
+            "data": {
+              "center": {
+                "x": 0,
+                "y": 7700
+              },
+              "radius": 25
+            }
+          }
+        ],
+        "indices": [
+          134
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915539363,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "PLATE",
+            "data": {
+              "center": {
+                "x": 0,
+                "y": 7900
+              },
+              "radius": 25
+            }
+          }
+        ],
+        "indices": [
+          135
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915539369,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "PLATE",
+            "data": {
+              "center": {
+                "x": 0,
+                "y": 8100
+              },
+              "radius": 25
+            }
+          }
+        ],
+        "indices": [
+          136
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915539375,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "PLATE",
+            "data": {
+              "center": {
+                "x": 0,
+                "y": 8200
+              },
+              "radius": 25
+            }
+          }
+        ],
+        "indices": [
+          137
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915539723,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "WALL",
+            "data": {
+              "start": {
+                "x": 20250,
+                "y": 0
+              },
+              "end": {
+                "x": 20250,
+                "y": 8168
+              }
+            }
+          }
+        ],
+        "indices": [
+          138
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915540547,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "WALL",
+            "data": {
+              "start": {
+                "x": 19750,
+                "y": 0
+              },
+              "end": {
+                "x": 19750,
+                "y": 7832
+              }
+            }
+          }
+        ],
+        "indices": [
+          139
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915541339,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "ROOF",
+            "data": {
+              "start": {
+                "x": 20640,
+                "y": 8142
+              },
+              "end": {
+                "x": 15000,
+                "y": 9135
+              }
+            }
+          }
+        ],
+        "indices": [
+          140
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915542184,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "ROOF",
+            "data": {
+              "start": {
+                "x": 20653,
+                "y": 8191
+              },
+              "end": {
+                "x": 15000,
+                "y": 9184
+              }
+            }
+          }
+        ],
+        "indices": [
+          141
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915543004,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "WALL",
+            "data": {
+              "start": {
+                "x": 19750,
+                "y": 7700
+              },
+              "end": {
+                "x": 15000,
+                "y": 8537
+              }
+            }
+          }
+        ],
+        "indices": [
+          142
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915543574,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "WALL",
+            "data": {
+              "start": {
+                "x": 19750,
+                "y": 7570
+              },
+              "end": {
+                "x": 15000,
+                "y": 8407
+              }
+            }
+          }
+        ],
+        "indices": [
+          143
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915551200,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "BEAM",
+            "data": {
+              "start": {
+                "x": 20640,
+                "y": 8142
+              },
+              "end": {
+                "x": 20556,
+                "y": 7699
+              }
+            }
+          }
+        ],
+        "indices": [
+          144
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915552222,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LINE",
+            "layer": "ROOF",
+            "data": {
+              "start": {
+                "x": 20653,
+                "y": 8191
+              },
+              "end": {
+                "x": 20640,
+                "y": 8142
+              }
+            }
+          }
+        ],
+        "indices": [
+          145
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915552921,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "LWPOLYLINE",
+            "layer": "PLATE",
+            "data": {
+              "vertices": [
+                {
+                  "x": 19900,
+                  "y": 7600
+                },
+                {
+                  "x": 20100,
+                  "y": 7600
+                },
+                {
+                  "x": 20100,
+                  "y": 8300
+                },
+                {
+                  "x": 19900,
+                  "y": 8300
+                }
+              ],
+              "closed": true
+            }
+          }
+        ],
+        "indices": [
+          146
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915553647,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "PLATE",
+            "data": {
+              "center": {
+                "x": 20000,
+                "y": 7700
+              },
+              "radius": 25
+            }
+          }
+        ],
+        "indices": [
+          147
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915554362,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "PLATE",
+            "data": {
+              "center": {
+                "x": 20000,
+                "y": 7900
+              },
+              "radius": 25
+            }
+          }
+        ],
+        "indices": [
+          148
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915554977,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "PLATE",
+            "data": {
+              "center": {
+                "x": 20000,
+                "y": 8100
+              },
+              "radius": 25
+            }
+          }
+        ],
+        "indices": [
+          149
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915555698,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "CIRCLE",
+            "layer": "PLATE",
+            "data": {
+              "center": {
+                "x": 20000,
+                "y": 8200
+              },
+              "radius": 25
+            }
+          }
+        ],
+        "indices": [
+          150
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915557335,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -1800,
+                "y": 8500
+              },
+              "text": "\\uc9c0\\ubd95\\uae30\\uc640",
+              "height": 150,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          151
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915558365,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -1800,
+                "y": 8300
+              },
+              "text": "\\ub2e8\\uc5f4\\uc7ac",
+              "height": 150,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          152
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915565014,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -1800,
+                "y": 7500
+              },
+              "text": "\\ucc9c\\uc7a5\\ud2c0",
+              "height": 150,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          153
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915567061,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -1800,
+                "y": 7300
+              },
+              "text": "THK9.5 \\uc11d\\uace0\\ubcf4\\ub4dc \\ub450\\uacb9",
+              "height": 150,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          154
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915568801,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -2500,
+                "y": 5000
+              },
+              "text": "\\ub9c8\\uac10\\ucf58\\ud06c\\ub9ac\\ud2b8",
+              "height": 150,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          155
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915570155,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -2500,
+                "y": 4800
+              },
+              "text": "THK30 \\ubbf8\\uc1a1\\uac01",
+              "height": 150,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          156
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915571154,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": -2500,
+                "y": 4600
+              },
+              "text": "THK9.5 \\uc11d\\uace0\\ubcf4\\ub4dc \\ub450\\uacb9",
+              "height": 150,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          157
+        ]
+      }
+    },
+    {
+      "type": "add",
+      "label": "Add",
+      "timestamp": 1771915572701,
+      "data": {
+        "actionType": "add",
+        "entities": [
+          {
+            "type": "TEXT",
+            "layer": "TEXT",
+            "data": {
+              "position": {
+                "x": 600,
+                "y": 7900
+              },
+              "text": "\\uc811\\ud569\\ud310 PL",
+              "height": 120,
+              "rotation": 0,
+              "horizontalAlignment": 1,
+              "verticalAlignment": 2
+            }
+          }
+        ],
+        "indices": [
+          158
+        ]
+      }
+    }
+  ],
+  "redoStack": []
+}

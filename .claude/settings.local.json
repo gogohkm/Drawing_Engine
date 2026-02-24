@@ -42,7 +42,13 @@
       "Bash(git stash:*)",
       "Bash(git add:*)",
       "Bash(for:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "mcp__stgen-dxf-viewer__find_annotations",
+      "mcp__stgen-dxf-viewer__read_drawing_spec",
+      "mcp__stgen-dxf-viewer__get_active_context",
+      "mcp__stgen-dxf-viewer__write_drawing_spec",
+      "mcp__stgen-dxf-viewer__update_work_plan",
+      "mcp__stgen-dxf-viewer__store_decision"
     ]
   },
   "enableAllProjectMcpServers": true,
